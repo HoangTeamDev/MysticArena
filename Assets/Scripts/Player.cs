@@ -38,10 +38,10 @@ public class Player
         {
             return SummonManager.TryTributeSummon(this, sacrifices, monster);
         }
-        else if (monster.CanEvolve)
+       /* else if (monster.CanEvolve)
         {
             return SummonManager.TryEvolutionSummon(this, monster);
-        }
+        }*/
         return false;
     }
     public bool AddCardToDeck(Card card)

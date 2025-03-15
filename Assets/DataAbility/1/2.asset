@@ -10,23 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6bed749f738dc394598c892378e2b0b8, type: 3}
-  m_Name: NewAbility
+  m_Name: 2
   m_EditorClassIdentifier: 
-  AbilityName: 
-  Description: 
+  AbilityName: "\"Di S\u1EA3n R\u1ED3ng Non\""
+  Description: "\"Khi Drake Hatchling b\u1ECB ph\xE1 h\u1EE7y, c\xF3 th\u1EC3 tri\u1EC7u
+    h\u1ED3i 1 qu\xE1i v\u1EADt Dragon c\u1EA5p 2 t\u1EEB tr\xEAn tay.\""
   IsSpellAbility: 0
-  TriggerCondition: 0
-  EffectType: 0
-  EffectValue: 0
-  TargetLevel: 0
+  TriggerCondition: 2
+  EffectType: 1
+  EffectValue: 2
+  TargetLevel: 2
   EffectMultiplier: 0
-  RequireSpecificRace: 0
-  RequiredRace: 0
+  RequireSpecificRace: 1
+  RequiredRace: 3
   RequireSpecificElement: 0
   RequiredElement: 0
   RequireKeyword: 0
   RequiredKeyword: 
-  SummonFromHand: 0
+  SummonFromHand: 1
   SummonFromGraveyard: 0
   SummonFromDeck: 0
   DestroyAllLowerLevel: 0
