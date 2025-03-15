@@ -79,9 +79,9 @@ public class GameManager : MonoBehaviour
         {
             SummonManager.TryTributeSummon(player, sacrifices, monster);
         }
-        else if (monster.CanEvolve)
+        /*else if (monster.CanEvolve)
         {
             SummonManager.TryEvolutionSummon(player, monster);
-        }
+        }*/
     }
 }

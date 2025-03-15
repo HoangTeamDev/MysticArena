@@ -25,7 +25,7 @@ public class SummonManager
         return false;
     }
 
-    public static bool TryEvolutionSummon(Player player, MonsterCard monster)
+    /*public static bool TryEvolutionSummon(Player player, MonsterCard monster)
     {
         MonsterCard evolved = monster.Evolve();
         if (evolved != null)
@@ -34,5 +34,5 @@ public class SummonManager
             return true;
         }
         return false;
-    }
+    }*/
 }
