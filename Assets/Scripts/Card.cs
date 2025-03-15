@@ -4,13 +4,14 @@ using UnityEngine;
 
 public enum CardType { Monster, Spell }
 
-public abstract class Card
+public  class Card:MonoBehaviour
 {
-    public int ID { get; private set; }
-    public string Name { get; private set; }
-    public string Description { get; private set; }
-    public CardType Type { get; private set; }
-    public List<string> Keywords { get; private set; } // Từ khóa bộ bài
+    public int ID;
+    public string Name;
+    public string Description;
+    public CardType Type;
+    public List<string> Keywords; // Từ khóa bộ bài
+
 
     public Card(int id, string name, string description, CardType type, List<string> keywords)
     {
@@ -21,5 +22,5 @@ public abstract class Card
         Keywords = keywords ?? new List<string>();
     }
 
-    public abstract void ActivateEffect();
+    public  virtual void ActivateEffect() { }
 }
