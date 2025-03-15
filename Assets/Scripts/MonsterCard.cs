@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
 public enum ElementType { Fire, Dark, Wind, Earth, Water, Light, Thunder }
@@ -12,6 +13,7 @@ public enum RaceType
 
 public class MonsterCard : Card
 {
+    public MonterShow MonterShow;
     public int Level;
     public int LevelOrigin;
     public int ATK;
@@ -25,19 +27,15 @@ public class MonsterCard : Card
     public bool CanAttack;
     public bool HasBeenNormalSummoned;
     public bool CanEvolve => EvolutionTarget != null; // Kiểm tra quái có thể tiến hóa không
-    public MonsterCard(int id, string name, string description, int level, int atk, int hp,
-                       ElementType element, RaceType race, List<Ability> abilities, MonsterCard evolutionTarget = null)
-        : base(id, name, description, CardType.Monster, new List<string>())
+    
+    public void Onload(int id, string name,int level, int atk, int hp)
     {
-        Level = level;
-        ATK = atk;
-        HP = hp;
-        Element = element;
-        Race = race;
-        Abilities = abilities ?? new List<Ability>();
-        EvolutionTarget = evolutionTarget;
+        this.Name = name;
+        this.Level = level;
+        this.ATK = atk;
+        this.HP = hp;
+        MonterShow.OnShow(id, name,level,atk,hp);
     }
-
     // ✅ **Triệu hồi thường**
     public bool NormalSummon()
     {

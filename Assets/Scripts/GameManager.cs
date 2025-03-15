@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < 20; i++)
         {
-            deck.Add(new MonsterCard(i, $"Quái Vật {i}", "Mô tả...", Random.Range(1, 6), 1000, 1000, ElementType.Fire, RaceType.Dragon, new List<Ability>()));
+            //deck.Add(new MonsterCard(i, $"Quái Vật {i}", "Mô tả...", Random.Range(1, 6), 1000, 1000, ElementType.Fire, RaceType.Dragon, new List<Ability>()));
         }
 
         return deck;

@@ -2189,6 +2189,7 @@ GameObject:
   - component: {fileID: 569233549}
   - component: {fileID: 569233548}
   - component: {fileID: 569233550}
+  - component: {fileID: 569233551}
   m_Layer: 5
   m_Name: MonterCard (1)
   m_TagString: Untagged
@@ -2204,7 +2205,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 569233544}
   m_LocalRotation: {x: -0, y: 0.07381886, z: -0, w: 0.9972717}
-  m_LocalPosition: {x: 0, y: 0, z: -224}
+  m_LocalPosition: {x: 0, y: 0, z: -138}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -2218,7 +2219,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1087, y: -46}
+  m_AnchoredPosition: {x: 512, y: 19}
   m_SizeDelta: {x: 200, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &569233546
@@ -2308,6 +2309,7 @@ MonoBehaviour:
   Description: 
   Type: 0
   Keywords: []
+  MonterShow: {fileID: 569233551}
   Level: 0
   LevelOrigin: 0
   ATK: 0
@@ -2320,6 +2322,23 @@ MonoBehaviour:
   EvolutionTarget: {fileID: 0}
   CanAttack: 0
   HasBeenNormalSummoned: 1
+--- !u!114 &569233551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569233544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6242c8652869ccc499b0595eb51c8c9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: {fileID: 1428789375}
+  _level: {fileID: 1445286257}
+  _Atk: {fileID: 2059319996}
+  _HP: {fileID: 2114792733}
+  _image: {fileID: 1401838551}
 --- !u!1 &574025088
 GameObject:
   m_ObjectHideFlags: 0
@@ -10655,6 +10674,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1995632425}
   m_CullTransparentMesh: 1
+--- !u!1 &2006230715
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2006230717}
+  - component: {fileID: 2006230716}
+  m_Layer: 0
+  m_Name: MonterData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2006230716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006230715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95dba9a6a7173c8439c039ce58d8616a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllMonsters:
+  - {fileID: 11400000, guid: 0311886fabc41c84e87142260b7b2f76, type: 2}
+  Spells:
+  - {fileID: 11400000, guid: 359622a3615e1b0448ec1a65fb82442d, type: 2}
+  Monsters:
+  - {fileID: 569233550}
+--- !u!4 &2006230717
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006230715}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1287.3517, y: 309.87198, z: -1.7753923}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2022845711
 GameObject:
   m_ObjectHideFlags: 0
