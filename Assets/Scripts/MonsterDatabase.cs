@@ -34,27 +34,22 @@ public class MonsterDatabase : MonoBehaviour
             Debug.LogError("Không có quái vật nào trong danh sách AllMonsters!");
             return;
         }
+        for (int i = 0; i < AllMonsters.Count; i++)
+        {
+            Monsters[i].Onload(
+          AllMonsters[i].ID,
+          AllMonsters[i].Name,
+          AllMonsters[i].Level,
+          AllMonsters[i].ATK,
+          AllMonsters[i].HP,
+          AllMonsters[i].Element,
+          AllMonsters[i].Race,
+          AllMonsters[i].Abilities,
+          AllMonsters[i].idEvolutionTarget);
+            Debug.Log($"Đã tạo quái vật: {Monsters[i].Name}");
 
-        Monsters[0].Onload(
-            AllMonsters[0].ID, 
-            AllMonsters[0].Name,
-            AllMonsters[0].Level,
-            AllMonsters[0].ATK, 
-            AllMonsters[0].HP,
-            AllMonsters[0].Element,
-            AllMonsters[0].Race,
-            AllMonsters[0].Abilities,
-            AllMonsters[0].EvolutionTarget);
-        Monsters[01].Onload(
-            AllMonsters[1].ID,
-            AllMonsters[1].Name,
-            AllMonsters[1].Level,
-            AllMonsters[1].ATK,
-            AllMonsters[1].HP,
-            AllMonsters[1].Element,
-            AllMonsters[1].Race,
-            AllMonsters[1].Abilities,
-            AllMonsters[1].EvolutionTarget);
-        Debug.Log($"Đã tạo quái vật: {Monsters[0].Name}");
+        }
+
+
     }
 }
