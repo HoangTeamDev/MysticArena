@@ -12,6 +12,13 @@ public enum TriggerType
     OnDestroyByEffect,      // Khi bị phá hủy
     OnHand,
     Graveyard,
+    Evolve,
+    OnSummonOpponent,     // Khi đối thủ triệu hồi quái vật (có thể kích hoạt phản ứng)
+    OnSpellActivate,      // Khi một lá bài phép được kích hoạt
+    OnEndTurn,            // Kích hoạt vào cuối lượt
+    OnStartTurn,          // Kích hoạt vào đầu lượt
+    OnDiscard,            // Khi quái vật bị vứt bỏ vào mộ bài từ tay
+    OnDraw,
 }
 
 public enum AbilityEffectType
@@ -19,7 +26,25 @@ public enum AbilityEffectType
     Damage,         // Gây sát thương
     Summon,         // Triệu hồi quái
     DrawCard,
-    
+    Heal,
+    BoostAttack,          // Tăng ATK cho quái vật
+    BoostDefense,         // Tăng HP cho quái vật
+    ReduceDamageTaken,    // Giảm sát thương nhận vào
+
+    DestroyCards,         // Phá hủy bài đối thủ (Quái vật hoặc bài phép)
+    Absorb,               // Hấp thụ quái hoặc bài phép (Cộng chỉ số hoặc hiệu ứng)
+    ForceDiscard,         // Ép đối thủ bỏ bài trên tay vào mộ bài
+    StealCard,            // Cướp bài đối thủ (Từ tay hoặc trên sân)
+    NegateEffect,         // Vô hiệu hóa kỹ năng hoặc bài phép
+    SpecialSummon,        // Triệu hồi đặc biệt (Không cần điều kiện)
+    Revive,               // Hồi sinh quái vật từ mộ bài
+    Immunity,             // Miễn nhiễm với hiệu ứng bài phép/quái vật
+    Evolution,
+    GainExtraAttack,      // Tăng số lần tấn công mỗi lượt
+    PreventDestruction,   // Ngăn quái vật bị phá hủy (Bởi chiến đấu hoặc hiệu ứng)
+    ShuffleIntoDeck,      // Xáo trộn bài từ sân/mộ bài vào bộ bài
+    Banish,               // Loại bỏ bài khỏi trận đấu (Không vào mộ bài)
+
 }
 
 [CreateAssetMenu(fileName = "NewAbility", menuName = "Card Game/Ability Data")]
