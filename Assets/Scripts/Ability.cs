@@ -32,6 +32,7 @@ public class Ability : ScriptableObject
 {
     public string AbilityName;
     [TextArea] public string Description;
+    public bool IsSpellAbility; // ✅ Xác định đây là kỹ năng quái hay bài phép
     public TriggerType TriggerCondition;
     public AbilityEffectType EffectType;
 
@@ -57,7 +58,19 @@ public class Ability : ScriptableObject
 
     public void Activate(MonsterCard owner, Player player, GameBoard gameBoard)
     {
-        Debug.Log($"Kích hoạt kỹ năng: {AbilityName}");
+        if (IsSpellAbility)
+        {
+            ActivateSpellAbility(player, gameBoard, owner);
+        }
+        else
+        {
+            ActivateMonsterAbility(owner, gameBoard,player);
+        }
+    }
+
+    private void ActivateMonsterAbility(MonsterCard owner, GameBoard gameBoard,Player player)
+    {
+        Debug.Log($"Kích hoạt kỹ năng quái vật: {AbilityName}");
 
         switch (EffectType)
         {
@@ -78,6 +91,37 @@ public class Ability : ScriptableObject
                 break;
             case AbilityEffectType.DestroyCards:
                 DestroyOpponentCards(owner, gameBoard);
+                break;
+        }
+    }
+
+    private void ActivateSpellAbility(Player player, GameBoard gameBoard,MonsterCard monster)
+    {
+        Debug.Log($"Kích hoạt bài phép: {AbilityName}");
+
+        switch (EffectType)
+        {
+            case AbilityEffectType.Heal:
+                player.HP += EffectValue;
+                Debug.Log($"Người chơi hồi {EffectValue} HP nhờ {AbilityName}!");
+                break;
+            case AbilityEffectType.DestroyCards:
+                foreach (var slot in gameBoard.OpponentField)
+                {
+                    if (slot.IsOccupied)
+                    {
+                        slot.DestroyCard();
+                        Debug.Log($"{slot.Card.Name} bị phá hủy bởi {AbilityName}");
+                    }
+                }
+                break;
+            case AbilityEffectType.Summon:
+                MonsterCard summoned = gameBoard.DrawMonsterFromDeck(player, 4);
+                if (summoned != null)
+                {
+                    player.Field.Add(new CardSlot(player.Field.Count));
+                    Debug.Log($"{summoned.Name} được triệu hồi đặc biệt từ {AbilityName}!");
+                }
                 break;
         }
     }
@@ -113,7 +157,7 @@ public class Ability : ScriptableObject
             target = player.Graveyard.Find(card => card is MonsterCard monster && monster.Level <= TargetLevel) as MonsterCard;
 
         if (SummonFromDeck)
-            target = (MonsterCard)gameBoard.DrawMonsterFromDeck(player, TargetLevel);
+            target = gameBoard.DrawMonsterFromDeck(player, TargetLevel);
 
         if (target != null)
         {

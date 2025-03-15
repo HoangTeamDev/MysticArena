@@ -37,7 +37,10 @@ public class CardSlot
             Card = null;
         }
     }
+    public void DestroyCard()
+    {
 
+    }
     /// <summary>
     /// Kiểm tra lá bài có thể tấn công không
     /// </summary>
