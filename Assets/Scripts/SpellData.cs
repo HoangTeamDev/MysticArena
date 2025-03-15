@@ -7,10 +7,8 @@ public class SpellData : ScriptableObject
 {
     public int ID;
     public string Name;
-    [TextArea] public string Description;
-
     public SpellType Type; // Trang bị hoặc kích hoạt
-    public List<string> Keywords; // Các từ khóa liên quan
+    public KeyWords Keywords; // Các từ khóa liên quan
     public List<Ability> Abilities;
     public Func<Player, GameBoard, bool> Condition; // Điều kiện kích hoạt
     public Action<Player, GameBoard> Effect; // Hiệu ứng của bài phép

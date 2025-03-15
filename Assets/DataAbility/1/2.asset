@@ -16,9 +16,9 @@ MonoBehaviour:
   Description: "\"Khi Drake Hatchling b\u1ECB ph\xE1 h\u1EE7y, c\xF3 th\u1EC3 tri\u1EC7u
     h\u1ED3i 1 qu\xE1i v\u1EADt Dragon c\u1EA5p 2 t\u1EEB tr\xEAn tay.\""
   IsSpellAbility: 0
-  TriggerCondition: 2
+  TriggerCondition: 4
   EffectType: 1
-  EffectValue: 2
+  EffectValue: 1
   TargetLevel: 2
   EffectMultiplier: 0
   RequireSpecificRace: 1
@@ -26,7 +26,7 @@ MonoBehaviour:
   RequireSpecificElement: 0
   RequiredElement: 0
   RequireKeyword: 0
-  RequiredKeyword: 
+  RequiredKeyword: 0
   SummonFromHand: 1
   SummonFromGraveyard: 0
   SummonFromDeck: 0
