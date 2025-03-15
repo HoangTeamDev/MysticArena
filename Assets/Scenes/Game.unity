@@ -15975,11 +15975,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllMonsters:
-  - {fileID: 11400000, guid: 0311886fabc41c84e87142260b7b2f76, type: 2}
-  - {fileID: 11400000, guid: 427f2861e04e69246aa257c931e34b44, type: 2}
-  - {fileID: 11400000, guid: 1fbf17a15b7b7364a822f8f69198eed2, type: 2}
-  - {fileID: 11400000, guid: a4806f46a3b066842b68b62028966808, type: 2}
-  - {fileID: 11400000, guid: 9007218eccebe154dbdd2af99bcaf705, type: 2}
+  - {fileID: 11400000, guid: 59c80709d6bcdd440afcae00275fb5a2, type: 2}
+  - {fileID: 11400000, guid: 03b50d1e69c23b444ae5cfa60ec39b03, type: 2}
+  - {fileID: 11400000, guid: 5b91bf8e102832542986c282526f48c9, type: 2}
+  - {fileID: 11400000, guid: b2f80bdf06b8b3a4d99d7a50e37b913a, type: 2}
+  - {fileID: 11400000, guid: 6c35c7abcd277a34bb725d83afe6fe29, type: 2}
   Spells:
   - {fileID: 11400000, guid: 359622a3615e1b0448ec1a65fb82442d, type: 2}
   Monsters:
