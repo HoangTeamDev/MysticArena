@@ -21,4 +21,5 @@ MonoBehaviour:
   HP: 800
   Level: 1
   idEvolutionTarget: 0
-  Abilities: []
+  Abilities:
+  - {fileID: 11400000, guid: 2bed86d38c6a42e4d978a7d76cf1b66e, type: 2}
