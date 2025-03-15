@@ -23,12 +23,12 @@ public class MonsterCard : Card
     public ElementType Element;
     public RaceType Race;
     public List<Ability> Abilities;
-    public MonsterData EvolutionTarget; 
+    public int  idEvolutionTarget; 
     public bool CanAttack;
     public bool HasBeenNormalSummoned;
-    public bool CanEvolve => EvolutionTarget != null; // Kiểm tra quái có thể tiến hóa không
+    public bool CanEvolve => idEvolutionTarget != 0; // Kiểm tra quái có thể tiến hóa không
     
-    public void Onload(int id, string name,int level, int atk, int hp, ElementType Element, RaceType Race,List<Ability> Abilities, MonsterData evolu)
+    public void Onload(int id, string name,int level, int atk, int hp, ElementType Element, RaceType Race,List<Ability> Abilities, int evolu)
     {
         this.Name = name;
         this.Level = level;
@@ -40,7 +40,7 @@ public class MonsterCard : Card
         this.Element = Element;
         this.Race = Race;
         this.Abilities = Abilities;
-        this.EvolutionTarget = evolu;
+        this.idEvolutionTarget = evolu;
         MonterShow.OnShow(id, name,level,atk,hp);
     }
     // ✅ **Triệu hồi thường**
@@ -65,9 +65,10 @@ public class MonsterCard : Card
     // ✅ **Tiến hóa (Evolution Summon)**
     public MonsterData Evolve()
     {
-        if (!CanEvolve) return null;
+      /*  if (!CanEvolve) return null;
         Debug.Log($"{Name} tiến hóa thành {EvolutionTarget.Name}!");
-        return EvolutionTarget;
+        return EvolutionTarget;*/
+      return null;
     }
 
     // ✅ **Hấp thụ quái để tăng sức mạnh**
