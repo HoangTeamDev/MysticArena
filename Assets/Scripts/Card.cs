@@ -13,14 +13,7 @@ public  class Card:MonoBehaviour
     public List<string> Keywords; // Từ khóa bộ bài
 
 
-    public Card(int id, string name, string description, CardType type, List<string> keywords)
-    {
-        ID = id;
-        Name = name;
-        Description = description;
-        Type = type;
-        Keywords = keywords ?? new List<string>();
-    }
+    
 
     public  virtual void ActivateEffect() { }
 }

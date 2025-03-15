@@ -12,7 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bed749f738dc394598c892378e2b0b8, type: 3}
   m_Name: NewAbility
   m_EditorClassIdentifier: 
-  Name: 
+  AbilityName: 
   Description: 
+  IsSpellAbility: 0
   TriggerCondition: 0
   EffectType: 0
+  EffectValue: 0
+  TargetLevel: 0
+  EffectMultiplier: 0
+  RequireSpecificRace: 0
+  RequiredRace: 0
+  RequireSpecificElement: 0
+  RequiredElement: 0
+  RequireKeyword: 0
+  RequiredKeyword: 
+  SummonFromHand: 0
+  SummonFromGraveyard: 0
+  SummonFromDeck: 0
+  DestroyAllLowerLevel: 0
+  DrawCard: 0
