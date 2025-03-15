@@ -36,8 +36,8 @@ public enum SpellEffectType
     DestroyOpponent,  // Phá hủy bài đối thủ
     Damage,           // Gây sát thương
 }
-
-public class Ability
+[CreateAssetMenu(fileName = "NewAbility", menuName = "Card Game/Ability Data")]
+public class Ability: ScriptableObject
 {
     public string Name;
     public string Description;
