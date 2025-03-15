@@ -11,6 +11,12 @@ public enum RaceType
     Titan, Mutant, Behemoth, God
 }
 
+public  enum  KeyWords
+{
+    Evolver, DragonDeity, HolyKnight, Vampire, TyrantDragon, BeastMachine, Jurassic, DivineBlessing, WitchOfDoom, PhantomVeil
+    , FlourishingBloom, Necromancy, Tideflow, PrimordialLife,
+}
+
 public class MonsterCard : Card
 {
     public MonterShow MonterShow;
