@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class Player
 {
-    public int HP { get; private set; } = 10000;
-    public Deck Deck { get; private set; }
-    public List<Card> Hand { get; private set; }
-    public List<CardSlot> Field { get; private set; }
-    public List<Card> Graveyard { get; private set; }
+    public int HP  = 10000;
+    public Deck Deck;
+    public List<Card> Hand;
+    public List<CardSlot> Field;
+    public List<Card> Graveyard;
 
     public Player(Deck deck)
     {

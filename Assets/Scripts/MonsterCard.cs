@@ -102,7 +102,7 @@ public class MonsterCard : Card
     }
 
     // ✅ **Phá hủy quái**
-    private void DestroyCard()
+    public void DestroyCard()
     {
         Debug.Log($"{Name} đã bị tiêu diệt!");
         foreach (var ability in Abilities)
