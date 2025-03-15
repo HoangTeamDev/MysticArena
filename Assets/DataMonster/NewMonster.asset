@@ -22,3 +22,5 @@ MonoBehaviour:
   Level: 0
   Keywords: []
   EvolutionTarget: {fileID: 0}
+  Abilities:
+  - {fileID: 11400000, guid: 761b0725dd131fc40900c0d2bba1ac35, type: 2}
