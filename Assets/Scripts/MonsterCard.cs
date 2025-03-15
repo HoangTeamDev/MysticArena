@@ -117,11 +117,11 @@ public class MonsterCard : Card
     public void DestroyCard()
     {
         Debug.Log($"{Name} đã bị tiêu diệt!");
-        foreach (var ability in Abilities)
+        /*foreach (var ability in Abilities)
         {
             if (ability.TriggerCondition == TriggerType.OnDestroy)
                 ability.Activate(this, null, null);
-        }
+        }*/
     }
 
     // ✅ **Kích hoạt kỹ năng của quái**

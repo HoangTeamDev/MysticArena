@@ -4,27 +4,22 @@ using UnityEngine;
 
 public enum TriggerType
 {
-    OnSummon,       // Khi triệu hồi
+    OnSummonNomal,       // Khi triệu hồi
+    OnSummonSpecial,       // Khi triệu hồi
     OnAttack,       // Khi tấn công
-    OnDestroy,      // Khi bị phá hủy
-    OnSpellActivate // Khi kích hoạt bài phép
+    OnAttacked,       // Khi tấn công
+    OnDestroyByBattle,      // Khi bị phá hủy
+    OnDestroyByEffect,      // Khi bị phá hủy
+    OnHand,
+    Graveyard,
 }
 
 public enum AbilityEffectType
 {
     Damage,         // Gây sát thương
     Summon,         // Triệu hồi quái
-    DrawCard,       // Rút bài
-    AddSpellToHand, // Lấy bài phép lên tay
-    Heal,           // Hồi máu
-    Evolution,      // Tiến hóa
-    BoostAttack,    // Tăng ATK
-    ReduceDamage,   // Giảm sát thương nhận vào
-    DestroyCards,   // Phá hủy bài đối thủ
-    Absorb,         // Hấp thụ quái hoặc phép
-    ForceDiscard,   // Bắt đối thủ bỏ bài
-    DoubleAttack,   // Tấn công 2 lần
-    Immunity        // Miễn nhiễm với hiệu ứng
+    DrawCard,
+    
 }
 
 [CreateAssetMenu(fileName = "NewAbility", menuName = "Card Game/Ability Data")]
@@ -47,7 +42,7 @@ public class Ability : ScriptableObject
     public bool RequireSpecificElement;
     public ElementType RequiredElement;
     public bool RequireKeyword;
-    public string RequiredKeyword;
+    public KeyWords RequiredKeyword;
 
     [Header("Hành động Kỹ Năng")]
     public bool SummonFromHand;
@@ -77,21 +72,10 @@ public class Ability : ScriptableObject
             case AbilityEffectType.Damage:
                 DealDamage(owner, gameBoard);
                 break;
-            case AbilityEffectType.Heal:
-                HealPlayer(player);
-                break;
             case AbilityEffectType.Summon:
                 SummonMonster(player, gameBoard);
                 break;
-            case AbilityEffectType.BoostAttack:
-                BoostAttack(owner, gameBoard);
-                break;
-            case AbilityEffectType.Evolution:
-                EvolveMonster(owner, gameBoard);
-                break;
-            case AbilityEffectType.DestroyCards:
-                DestroyOpponentCards(owner, gameBoard);
-                break;
+           
         }
     }
 
@@ -101,20 +85,7 @@ public class Ability : ScriptableObject
 
         switch (EffectType)
         {
-            case AbilityEffectType.Heal:
-                player.HP += EffectValue;
-                Debug.Log($"Người chơi hồi {EffectValue} HP nhờ {AbilityName}!");
-                break;
-            case AbilityEffectType.DestroyCards:
-                foreach (var slot in gameBoard.OpponentField)
-                {
-                    if (slot.IsOccupied)
-                    {
-                        slot.DestroyCard();
-                        Debug.Log($"{slot.Card.Name} bị phá hủy bởi {AbilityName}");
-                    }
-                }
-                break;
+            
             case AbilityEffectType.Summon:
                 MonsterCard summoned = gameBoard.DrawMonsterFromDeck(player, 4);
                 if (summoned != null)
@@ -168,7 +139,7 @@ public class Ability : ScriptableObject
 
     private void BoostAttack(MonsterCard owner, GameBoard gameBoard)
     {
-        foreach (var slot in gameBoard.PlayerField)
+        /*foreach (var slot in gameBoard.PlayerField)
         {
             if (slot.IsOccupied && slot.Card is MonsterCard target)
             {
@@ -180,7 +151,7 @@ public class Ability : ScriptableObject
                     Debug.Log($"{target.Name} nhận +{EffectValue} ATK từ {AbilityName}");
                 }
             }
-        }
+        }*/
     }
 
     private void EvolveMonster(MonsterCard owner, GameBoard gameBoard)
