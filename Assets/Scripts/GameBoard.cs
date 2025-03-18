@@ -90,12 +90,12 @@ public class GameBoard : MonoBehaviour
         float damageMultiplier = ElementInteraction.GetDamageMultiplier(attacker.Element, defender.Element);
         int finalDamage = Mathf.RoundToInt(attacker.ATK * damageMultiplier);
 
-        defender.TakeDamage(finalDamage);
+        //defender.TakeDamage(finalDamage);
         Debug.Log($"{attacker.Name} tấn công {defender.Name} gây {finalDamage} sát thương!");
 
         if (defender.HP <= 0)
         {
-            defender.DestroyCard();
+            //defender.DestroyCard();
         }
     }
 

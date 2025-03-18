@@ -129,7 +129,7 @@ public class Ability : ScriptableObject
             if (slot.IsOccupied && slot.Card is MonsterCard target)
             {
                 int damage = EffectValue > 0 ? EffectValue : Mathf.RoundToInt(owner.ATK * EffectMultiplier);
-                target.TakeDamage(damage);
+               // target.TakeDamage(damage);
                 Debug.Log($"{owner.Name} gây {damage} sát thương lên {target.Name}");
             }
         }
@@ -181,11 +181,11 @@ public class Ability : ScriptableObject
 
     private void EvolveMonster(MonsterCard owner, GameBoard gameBoard)
     {
-        if (owner.CanEvolve)
+        /*if (owner.CanEvolve)
         {
             owner.Evolve();
             Debug.Log($"{owner.Name} tiến hóa nhờ {AbilityName}!");
-        }
+        }*/
     }
 
     private void DestroyOpponentCards(MonsterCard owner, GameBoard gameBoard)
@@ -194,7 +194,7 @@ public class Ability : ScriptableObject
         {
             if (slot.IsOccupied && slot.Card is MonsterCard target && target.Level <= TargetLevel)
             {
-                target.DestroyCard();
+               // target.DestroyCard();
                 Debug.Log($"{target.Name} bị phá hủy bởi {AbilityName}");
             }
         }
