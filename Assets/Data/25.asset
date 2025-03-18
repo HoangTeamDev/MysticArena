@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c63c582f9bfc4bb40bb1dafcc95e614b, type: 3}
-  m_Name: 1
+  m_Name: 25
   m_EditorClassIdentifier: 
   IsSpell: 0
-  ID: 1
-  Name: Drake Hatchling
+  ID: 25
+  Name: Earthbound Hatchling
   Race: 3
-  Element: 4
-  Keywords: 0
-  ATK: 400
-  HP: 1000
-  Level: 1
-  Type: 0
+  Element: 3
+  Keywords: 1
+  ATK: 600
+  HP: 1100
+  Level: 2
+  Type: 1
   Abilities: []
