@@ -10,10 +10,17 @@ public  class Card:MonoBehaviour
     public string Name;
     public string Description;
     public CardType Type;
-    public List<string> Keywords; // Từ khóa bộ bài
+    public KeyWords Keywords;
 
 
     
 
     public  virtual void ActivateEffect() { }
+}
+
+public class CardInvenTory
+{
+    public int ID;
+    public int Quantity;
+    public int QuantityInDeck;
 }
