@@ -12,17 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c63c582f9bfc4bb40bb1dafcc95e614b, type: 3}
   m_Name: 1
   m_EditorClassIdentifier: 
-  ID: 1
-  Name: Drake Hatchling
-  Description: "M\u1ED9t ch\xFA r\u1ED3ng nh\u1ECF d\u1EC5 th\u01B0\u01A1ng,"
-  Race: 3
-  Element: 4
-  ATK: 400
-  HP: 1000
-  Level: 1
-  Keywords:
-  - Evolver
-  idEvolutionTarget: 5
-  Abilities:
-  - {fileID: 11400000, guid: 761b0725dd131fc40900c0d2bba1ac35, type: 2}
-  - {fileID: 11400000, guid: 95a0ee5c1cbb37f4bbb7a71f61d51a15, type: 2}
+  IsSpell: 0
+  ID: 0
+  Name: 
+  Race: 0
+  Element: 0
+  Keywords: 0
+  ATK: 0
+  HP: 0
+  Level: 0
+  Type: 0
+  Abilities: []

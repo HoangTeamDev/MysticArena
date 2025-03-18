@@ -17,6 +17,10 @@ public  enum  KeyWords
     , FlourishingBloom, Necromancy, Tideflow, PrimordialLife,
 }
 
+public enum Level
+{
+    Level1=1, Level2 = 2, Level3 = 3, Level4 = 4, Level5 = 5, Level6 = 6, Level7 = 7, Level8 = 8, Level9 = 9, Level10 = 10,
+}
 public class MonsterCard : Card
 {
     public MonterShow MonterShow;
@@ -29,12 +33,10 @@ public class MonsterCard : Card
     public ElementType Element;
     public RaceType Race;
     public List<Ability> Abilities;
-    public int  idEvolutionTarget; 
     public bool CanAttack;
     public bool HasBeenNormalSummoned;
-    public bool CanEvolve => idEvolutionTarget != 0; // Kiểm tra quái có thể tiến hóa không
     
-    public void Onload(int id, string name,int level, int atk, int hp, ElementType Element, RaceType Race,List<Ability> Abilities, int evolu)
+    public void Onload(int id, string name,int level, int atk, int hp, ElementType Element, RaceType Race,List<Ability> Abilities)
     {
         this.Name = name;
         this.Level = level;
@@ -45,91 +47,8 @@ public class MonsterCard : Card
         this.LevelOrigin = level;
         this.Element = Element;
         this.Race = Race;
-        this.Abilities = Abilities;
-        this.idEvolutionTarget = evolu;
+        this.Abilities = Abilities;  
         MonterShow.OnShow(id, name,level,atk,hp);
     }
-    // ✅ **Triệu hồi thường**
-    public bool NormalSummon()
-    {
-        if (Level > 4 || HasBeenNormalSummoned) return false;
-        HasBeenNormalSummoned = true;
-        Debug.Log($"{Name} đã được triệu hồi thường!");
-        return true;
-    }
-
-    // ✅ **Triệu hồi hiến tế (Tribute Summon)**
-    public static MonsterCard TributeSummon(List<MonsterCard> sacrifices, MonsterCard target)
-    {
-        int requiredTributes = target.Level == 5 ? 1 : 2;
-        if (sacrifices.Count != requiredTributes) return null;
-
-        Debug.Log($"{target.Name} được triệu hồi bằng cách hiến tế {sacrifices.Count} quái!");
-        return target;
-    }
-
-    // ✅ **Tiến hóa (Evolution Summon)**
-    public MonsterData Evolve()
-    {
-      /*  if (!CanEvolve) return null;
-        Debug.Log($"{Name} tiến hóa thành {EvolutionTarget.Name}!");
-        return EvolutionTarget;*/
-      return null;
-    }
-
-    // ✅ **Hấp thụ quái để tăng sức mạnh**
-    public void Absorb(MonsterCard target)
-    {
-        if (target == null) return;
-        this.ATK += Mathf.RoundToInt(target.ATK * 0.5f);
-        this.HP += Mathf.RoundToInt(target.HP * 0.5f);
-        Debug.Log($"{Name} hấp thụ {target.Name} và tăng sức mạnh!");
-    }
-
-    // ✅ **Hồi sinh từ mộ bài**
-    public static MonsterCard ReviveFromGraveyard(MonsterCard target)
-    {
-        Debug.Log($"{target.Name} đã được hồi sinh từ mộ bài!");
-        return target;
-    }
-
-    // ✅ **Tấn công một quái**
-    public void Attack(MonsterCard target)
-    {
-        if (target == null || !CanAttack) return;
-
-        float damageMultiplier = ElementInteraction.GetDamageMultiplier(this.Element, target.Element);
-        int finalDamage = Mathf.RoundToInt(ATK * damageMultiplier);
-
-        Debug.Log($"{Name} tấn công {target.Name} gây {finalDamage} sát thương!");
-        target.TakeDamage(finalDamage);
-    }
-
-    // ✅ **Nhận sát thương**
-    public void TakeDamage(int damage)
-    {
-        HP -= damage;
-        Debug.Log($"{Name} bị trừ {damage} HP, còn lại {HP} HP");
-        if (HP <= 0) DestroyCard();
-    }
-
-    // ✅ **Phá hủy quái**
-    public void DestroyCard()
-    {
-        Debug.Log($"{Name} đã bị tiêu diệt!");
-        /*foreach (var ability in Abilities)
-        {
-            if (ability.TriggerCondition == TriggerType.OnDestroy)
-                ability.Activate(this, null, null);
-        }*/
-    }
-
-    // ✅ **Kích hoạt kỹ năng của quái**
-    public void ActivateEffect()
-    {
-        foreach (var ability in Abilities)
-        {
-            ability.Activate(this, null, null);
-        }
-    }
+    
 }

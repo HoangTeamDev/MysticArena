@@ -69,19 +69,5 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void HandleSummoning(Player player, MonsterCard monster, List<MonsterCard> sacrifices = null)
-    {
-        if (monster.Level <= 4)
-        {
-            SummonManager.TryNormalSummon(player, monster);
-        }
-        else if (monster.Level == 5 || monster.Level == 6)
-        {
-            SummonManager.TryTributeSummon(player, sacrifices, monster);
-        }
-        /*else if (monster.CanEvolve)
-        {
-            SummonManager.TryEvolutionSummon(player, monster);
-        }*/
-    }
+   
 }
