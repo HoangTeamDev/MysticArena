@@ -14,7 +14,7 @@ public enum RaceType
 public  enum  KeyWords
 {
     Evolver, DragonDeity, HolyKnight, Vampire, TyrantDragon, BeastMachine, Jurassic, DivineBlessing, WitchOfDoom, PhantomVeil
-    , FlourishingBloom, Necromancy, Tideflow, PrimordialLife,
+    , FlourishingBloom, Necromancy, Tideflow, PrimordialLife,None
 }
 
 public enum Level
