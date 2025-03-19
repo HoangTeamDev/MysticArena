@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c63c582f9bfc4bb40bb1dafcc95e614b, type: 3}
-  m_Name: 1
+  m_Name: 115
   m_EditorClassIdentifier: 
   IsSpell: 0
-  ID: 1
-  Name: Drake Hatchling
-  Race: 3
-  Element: 4
-  Keywords: 0
-  ATK: 400
-  HP: 1000
-  Level: 1
-  Type: 0
+  ID: 115
+  Name: Rampaging Spinosaurus
+  Race: 11
+  Element: 3
+  Keywords: 6
+  ATK: 1500
+  HP: 2000
+  Level: 4
+  Type: 1
   Abilities: []

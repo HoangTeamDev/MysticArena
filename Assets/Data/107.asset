@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c63c582f9bfc4bb40bb1dafcc95e614b, type: 3}
-  m_Name: 1
+  m_Name: 107
   m_EditorClassIdentifier: 
-  IsSpell: 0
-  ID: 1
-  Name: Drake Hatchling
-  Race: 3
-  Element: 4
-  Keywords: 0
-  ATK: 400
-  HP: 1000
-  Level: 1
+  IsSpell: 1
+  ID: 107
+  Name: Steel Barrier
+  Race: 6
+  Element: 1
+  Keywords: 5
+  ATK: 1400
+  HP: 1500
+  Level: 3
   Type: 0
   Abilities: []
