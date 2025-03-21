@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum SpellType { Equip, Activation }
+public enum SpellType { Equip, Activation,QuickPlay }
 
 public class SpellCard : Card
 {
