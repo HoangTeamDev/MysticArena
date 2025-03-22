@@ -12,23 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bed749f738dc394598c892378e2b0b8, type: 3}
   m_Name: 1
   m_EditorClassIdentifier: 
-  AbilityName: "e\t\"Ti\u1EBFn H\xF3a T\u1EF1 Nhi\xEAn\""
-  Description: "\t\"N\u1EBFu Drake Hatchling t\u1ED3n t\u1EA1i tr\xEAn s\xE2n trong
-    2 l\u01B0\u1EE3t, n\xF3 s\u1EBD ti\u1EBFn h\xF3a th\xE0nh Aqua Serpent Dragon.\""
-  IsSpellAbility: 0
-  TriggerCondition: 11
-  EffectType: 15
-  EffectValue: 2
-  TargetLevel: 0
-  EffectMultiplier: 0
-  RequireSpecificRace: 0
-  RequiredRace: 0
-  RequireSpecificElement: 0
-  RequiredElement: 0
-  RequireKeyword: 1
-  RequiredKeyword: 0
-  SummonFromHand: 1
-  SummonFromGraveyard: 1
-  SummonFromDeck: 1
-  DestroyAllLowerLevel: 0
-  DrawCard: 0
+  AbilityName: 
+  Description: 
+  TriggerCondition: 0
+  effects: []
