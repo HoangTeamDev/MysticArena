@@ -19,6 +19,8 @@ public enum TriggerEvent
     OnOpponentSummon,
     OnPlayerDraw,
     OnField,
+    OnGraveyard,
+    OnHand,
     OnTurnStart,
     OnDtawPhase,
     OnBattlePhaseStart,
@@ -27,7 +29,9 @@ public enum TriggerEvent
 [CreateAssetMenu(menuName = "Abilities/CompositeAbility")]
 public  class Ability : ScriptableObject
 {
+    [TextArea(2, 10)]
     public string AbilityName;
+    [TextArea(5, 10)]
     public string Description;
     public TriggerEvent TriggerCondition;   
     public List<Effect> effects;
