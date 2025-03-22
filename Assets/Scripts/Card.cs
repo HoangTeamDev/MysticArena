@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum CardType { Monster, Spell }
-
+[System.Serializable]
 public  class Card:MonoBehaviour
 {
     public int ID;

@@ -7,7 +7,6 @@ public enum SpellType { Equip, Activation,QuickPlay }
 public class SpellCard : Card
 {
     public SpellType SpellType { get; private set; }
-    public AbilityEffectType EffectType { get; private set; } // Hiệu ứng phép
     public Func<Player, GameBoard, bool> Condition { get; private set; } // Điều kiện kích hoạt
     public Action<Player, GameBoard> Effect { get; private set; } // Hiệu ứng bài phép
 
