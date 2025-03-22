@@ -19,7 +19,7 @@ public class Main : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
-        Debug.Log("Đã kết nối tới Photon Master Server!");
+        MainLog.Log("Đã kết nối tới ", "Photon Master Server!", ReadColor.Gold);
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 4; // Tối đa 4 người chơi trong phòng
 
@@ -34,7 +34,7 @@ public class Main : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        Debug.Log("Đã tham gia phòng!");
+        MainLog.Log("Đã tham gia phòng!", "Photon Master Server!", ReadColor.Gold);
     }
     public override void OnConnected()
     {

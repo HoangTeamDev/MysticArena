@@ -50552,7 +50552,7 @@ RectTransform:
   - {fileID: 574060835}
   - {fileID: 187570010}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -101357,7 +101357,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1776800383
 MonoBehaviour:
@@ -114502,14 +114502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95dba9a6a7173c8439c039ce58d8616a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AllMonsters:
-  - {fileID: 11400000, guid: 59c80709d6bcdd440afcae00275fb5a2, type: 2}
-  - {fileID: 11400000, guid: 03b50d1e69c23b444ae5cfa60ec39b03, type: 2}
-  - {fileID: 11400000, guid: 5b91bf8e102832542986c282526f48c9, type: 2}
-  - {fileID: 11400000, guid: b2f80bdf06b8b3a4d99d7a50e37b913a, type: 2}
-  - {fileID: 11400000, guid: 6c35c7abcd277a34bb725d83afe6fe29, type: 2}
-  Spells:
-  - {fileID: 11400000, guid: 359622a3615e1b0448ec1a65fb82442d, type: 2}
+  AllCards: []
   Monsters:
   - {fileID: 0}
   - {fileID: 0}

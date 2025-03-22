@@ -2,11 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using System;
 public partial class GameServer
 {
     [PunRPC]
     public void OnCardPlayed(string playerName, string cardName)
     {
-        Debug.Log(playerName + " đã chơi lá bài: " + cardName);
+        try
+        {
+            MainLog.LogError($"Người chơi {playerName} vừa chơi lá bài", cardName, ReadColor.Yellow);
+        }
+        catch (Exception ex)
+        {
+            MainLog.LogError($"Xuất Hiện lỗi  ", ex.ToString(), ReadColor.Yellow);
+        }
     }
 }

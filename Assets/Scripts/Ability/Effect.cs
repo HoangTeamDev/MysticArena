@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public abstract class Effect : ScriptableObject
 {
@@ -9,11 +10,18 @@ public abstract class Effect : ScriptableObject
 [CreateAssetMenu(menuName = "Effects/DamageEffect")]
 public class DamageEffect : Effect
 {
-    public int damageAmount;
-    public bool isDamagePerCant;
+    public int damageAmount;//dame
+    public bool isDamagePerCent;//gây dame phần trăm
+    public bool isMe;//lấy phần trăm atk của mình hay của ai
     public override void Execute(Card origin, Card target, Player player, GameManager gm)
     {
-       
+        try
+        {
+
+        }catch(Exception ex)
+        {
+            MainLog.LogError($"Xuất Hiện lỗi  ", ex.ToString(), ReadColor.Yellow);
+        }
     }
 }
 
@@ -31,9 +39,23 @@ public class SummonEffect : Effect
     public bool SummonFormDeck;
     public bool SummonFromHand;
     public bool SummonFromGraveyard;
+    public bool isEvolotion;
+    public int counturn;
     public override void Execute(Card origin, Card target, Player player, GameManager gm)
     {
-       
+        try
+        {
+            if (counturn > 0) { counturn--; return; }
+            if (isEvolotion)
+            {
+                //thêm hàm xóa quái tiến hóa                   
+            }
+            //thêm hàm triệu hồi đặc biệt quái
+        }
+        catch (Exception ex)
+        {
+            MainLog.LogError($"Xuất Hiện lỗi  ", ex.ToString(), ReadColor.Yellow);
+        }
     }
 }
 
@@ -44,9 +66,18 @@ public class HealEffect : Effect
     public int healAmount;
     public bool isHealPercent;
     public bool HealforMonter;
+    public bool IsHealbyAtkMe;
+    public bool IsHealbyHpMe;
     public override void Execute(Card origin, Card target, Player player, GameManager gm)
     {
-        
+        try
+        {
+
+        }
+        catch (Exception ex)
+        {
+            MainLog.LogError($"Xuất Hiện lỗi  ", ex.ToString(), ReadColor.Yellow);
+        }
     }
 }
 //Giảm damage
@@ -57,7 +88,14 @@ public class ReduceDamage : Effect
     public bool isDamagePercent;
     public override void Execute(Card origin, Card target, Player player, GameManager gm)
     {
+        try
+        {
 
+        }
+        catch (Exception ex)
+        {
+            MainLog.LogError($"Xuất Hiện lỗi  ", ex.ToString(), ReadColor.Yellow);
+        }
     }
 }
 //tấn công 2 lần
@@ -67,6 +105,14 @@ public class AttackTwice : Effect
     public int count;   
     public override void Execute(Card origin, Card target, Player player, GameManager gm)
     {
+        try
+        {
+
+        }
+        catch (Exception ex)
+        {
+            MainLog.LogError($"Xuất Hiện lỗi  ", ex.ToString(), ReadColor.Yellow);
+        }
 
     }
 }
@@ -84,7 +130,14 @@ public class ReturnCard : Effect
     public bool toDeck;
     public override void Execute(Card origin, Card target, Player player, GameManager gm)
     {
+        try
+        {
 
+        }
+        catch (Exception ex)
+        {
+            MainLog.LogError($"Xuất Hiện lỗi  ", ex.ToString(), ReadColor.Yellow);
+        }
     }
 }
 //tăng tấn công
@@ -96,7 +149,14 @@ public class IncreaseAttack: Effect
     public bool percent;
     public override void Execute(Card origin, Card target, Player player, GameManager gm)
     {
+        try
+        {
 
+        }
+        catch (Exception ex)
+        {
+            MainLog.LogError($"Xuất Hiện lỗi  ", ex.ToString(), ReadColor.Yellow);
+        }
     }
 }
 //Miễn hiệu ứng
@@ -107,7 +167,14 @@ public class ImmuneEffect: Effect
     public bool MonterEff;
     public override void Execute(Card origin, Card target, Player player, GameManager gm)
     {
+        try
+        {
 
+        }
+        catch (Exception ex)
+        {
+            MainLog.LogError($"Xuất Hiện lỗi  ", ex.ToString(), ReadColor.Yellow);
+        }
     }
 }
 // Hấp thụ
@@ -122,7 +189,14 @@ public class Absorb : Effect
     public RaceType Race;
     public override void Execute(Card origin, Card target, Player player, GameManager gm)
     {
+        try
+        {
 
+        }
+        catch (Exception ex)
+        {
+            MainLog.LogError($"Xuất Hiện lỗi  ", ex.ToString(), ReadColor.Yellow);
+        }
     }
 }
 // Bỏ bài vào mộ
@@ -138,7 +212,14 @@ public class DiscardCards: Effect
     public bool Graveyard;
     public override void Execute(Card origin, Card target, Player player, GameManager gm)
     {
+        try
+        {
 
+        }
+        catch (Exception ex)
+        {
+            MainLog.LogError($"Xuất Hiện lỗi  ", ex.ToString(), ReadColor.Yellow);
+        }
     }
 }
 // phas huyr bai
@@ -154,7 +235,14 @@ public class DestroyCard : Effect
     public RaceType Race;
     public override void Execute(Card origin, Card target, Player player, GameManager gm)
     {
+        try
+        {
 
+        }
+        catch (Exception ex)
+        {
+            MainLog.LogError($"Xuất Hiện lỗi  ", ex.ToString(), ReadColor.Yellow);
+        }
     }
 }
 // vo hieu hoa eff
@@ -170,7 +258,14 @@ public class NegetiveEff : Effect
     public RaceType Race;
     public override void Execute(Card origin, Card target, Player player, GameManager gm)
     {
+        try
+        {
 
+        }
+        catch (Exception ex)
+        {
+            MainLog.LogError($"Xuất Hiện lỗi  ", ex.ToString(), ReadColor.Yellow);
+        }
     }
 }
 // doi quyen dieu khien quai
@@ -180,7 +275,14 @@ public class ChangeControl : Effect
   
     public override void Execute(Card origin, Card target, Player player, GameManager gm)
     {
+        try
+        {
 
+        }
+        catch (Exception ex)
+        {
+            MainLog.LogError($"Xuất Hiện lỗi  ", ex.ToString(), ReadColor.Yellow);
+        }
     }
 }
 // drawCard
@@ -188,6 +290,7 @@ public class ChangeControl : Effect
 public class DrawCard : Effect
 {
     public int number;
+    public bool isNomalDraw;
     public bool isSpell;
     public int level;
     public int atk;
@@ -196,6 +299,13 @@ public class DrawCard : Effect
     public RaceType Race;
     public override void Execute(Card origin, Card target, Player player, GameManager gm)
     {
+        try
+        {
 
+        }
+        catch (Exception ex)
+        {
+            MainLog.LogError($"Xuất Hiện lỗi  ", ex.ToString(), ReadColor.Yellow);
+        }
     }
 }
