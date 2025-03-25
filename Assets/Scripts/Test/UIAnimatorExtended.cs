@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.Events;
 
 public class UIAnimatorExtended : MonoBehaviour
 {
@@ -15,9 +16,13 @@ public class UIAnimatorExtended : MonoBehaviour
     private Vector3 originalScale;
     private Quaternion originalRotation;
     private Vector2 originalPosition;
-
+    public int x;
+    public UnityEvent Callname;
+    public StringEvent StringEvent;
     private void Awake()
     {
+        Callname.AddListener(Onmove);
+        StringEvent.AddListener(DoCall);
         originalScale = uiElement.localScale;
         originalRotation = uiElement.rotation;
         originalPosition = uiElement.anchoredPosition;
@@ -26,7 +31,28 @@ public class UIAnimatorExtended : MonoBehaviour
         if (canvasGroup == null)
             canvasGroup = uiElement.gameObject.AddComponent<CanvasGroup>();
     }
-
+    public void DoCall (string mmm)
+    {
+        MainLog.Log("okene", mmm, ReadColor.PastelBlue);
+    }
+    public void Onmove()
+    {
+        switch (x)
+        {
+            case 0:
+                MoveInFromLeft();
+                break;
+            case 1:
+                MoveInFromRight();
+                break;
+            case 2:
+                MoveInFromUP();
+                break;
+            case 3:
+                MoveInFromDown();
+                break;
+        }
+    }
     public void PlayPopIn()
     {
         uiElement.localScale = Vector3.zero;
