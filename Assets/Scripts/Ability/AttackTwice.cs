@@ -7,7 +7,7 @@ using UnityEngine;
 public class AttackTwice : Effect
 {
     public int count;
-    public override void Execute(Card origin, Card target, Player player, GameManager gm)
+    public override void Execute(Card origin, List<Card> target, Player player, GameManager gm)
     {
         try
         {

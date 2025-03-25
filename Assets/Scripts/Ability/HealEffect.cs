@@ -11,7 +11,7 @@ public class HealEffect : Effect
     public bool HealforMonter;
     public bool IsHealbyAtkMe;
     public bool IsHealbyHpMe;
-    public override void Execute(Card origin, Card target, Player player, GameManager gm)
+    public override void Execute(Card origin, List<Card> target, Player player, GameManager gm)
     {
         try
         {

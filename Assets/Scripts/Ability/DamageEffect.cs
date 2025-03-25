@@ -9,7 +9,7 @@ public class DamageEffect : Effect
     public int damageAmount;//dame
     public bool isDamagePerCent;//gây dame phần trăm
     public bool isMe;//lấy phần trăm atk của mình hay của ai
-    public override void Execute(Card origin, Card target, Player player, GameManager gm)
+    public override void Execute(Card origin, List<Card> target, Player player, GameManager gm)
     {
         try
         {
