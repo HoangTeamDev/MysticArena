@@ -14,7 +14,7 @@ public class ReturnCard : Effect
     [Header("To")]
     public bool toHand;
     public bool toDeck;
-    public override void Execute(Card origin, Card target, Player player, GameManager gm)
+    public override void Execute(Card origin, List<Card> target, Player player, GameManager gm)
     {
         try
         {

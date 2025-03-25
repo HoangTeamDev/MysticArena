@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7304499b2d27bfb4ca1f966da8859201, type: 3}
   m_Name: 1
   m_EditorClassIdentifier: 
-  idCard: 0
-  amount: 0
+  idCard: 5
+  amount: 1
   level: 0
   ishighest: 0
   keyWords: 0
   Element: 0
-  Race: 0
-  SummonFormDeck: 0
-  SummonFromHand: 0
-  SummonFromGraveyard: 0
-  isEvolotion: 0
-  counturn: 0
+  Race: 3
+  SummonFormDeck: 1
+  SummonFromHand: 1
+  SummonFromGraveyard: 1
+  isEvolotion: 1
+  counturn: 2

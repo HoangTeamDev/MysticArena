@@ -14,7 +14,7 @@ public class DiscardCards : Effect
     public bool Deck;
     [Header("to")]
     public bool Graveyard;
-    public override void Execute(Card origin, Card target, Player player, GameManager gm)
+    public override void Execute(Card origin, List<Card> target, Player player, GameManager gm)
     {
         try
         {

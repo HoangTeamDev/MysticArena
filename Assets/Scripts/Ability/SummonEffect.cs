@@ -19,7 +19,7 @@ public class SummonEffect : Effect
     public bool SummonFromGraveyard;
     public bool isEvolotion;
     public int counturn;
-    public override void Execute(Card origin, Card target, Player player, GameManager gm)
+    public override void Execute(Card origin, List<Card> target, Player player, GameManager gm)
     {
         try
         {
@@ -28,7 +28,11 @@ public class SummonEffect : Effect
             {
                 //thêm hàm xóa quái tiến hóa                   
             }
-            //thêm hàm triệu hồi đặc biệt quái
+            else
+            {
+                //thêm hàm triệu hồi đặc biệt quái
+
+            }
         }
         catch (Exception ex)
         {

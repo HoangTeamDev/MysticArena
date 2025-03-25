@@ -35,7 +35,7 @@ public  class Ability : ScriptableObject
     public string Description;
     public TriggerEvent TriggerCondition;   
     public List<Effect> effects;
-    public  void Activate(Card origin=null,Card target = null,Player player = null)
+    public  void Activate(Card origin=null,List<Card> target = null,Player player = null)
     {
         foreach (var effect in effects)
         {
