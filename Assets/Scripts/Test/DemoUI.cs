@@ -1,15 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
+[System.Serializable]
+public class StringEvent : UnityEvent<string> { }
 public class DemoUI : MonoBehaviour
 {
-    public UIAnimatorExtended animator;
-
+    public List <UIAnimatorExtended> animator;
+    public StringEvent StringEvent;
     void Start()
     {
-       
-         
+
+        StringEvent.AddListener(okela);
 
        
     }
@@ -17,23 +19,18 @@ public class DemoUI : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.B))
         {
-            animator.MoveInFromLeft();
+            foreach (var anim in animator)
+            {
+                anim.Callname?.Invoke();
+                StringEvent.Invoke("okkkkkk");
+                anim.StringEvent.Invoke("Đa dc goi nay");
+            }
         }
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            animator.MoveInFromRight();
-        }
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            animator.MoveInFromDown();
-        }
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            animator.MoveInFromUP();
-        }
+       
     }
-    public void OnCloseButtonPressed()
+    public void okela(string b)
     {
-        animator.PlayPopOut();
+        MainLog.Log("OKela", b, ReadColor.Lime);
     }
+    
 }
