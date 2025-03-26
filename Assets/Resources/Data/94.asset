@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c63c582f9bfc4bb40bb1dafcc95e614b, type: 3}
   m_Name: 94
   m_EditorClassIdentifier: 
-  IsSpell: 1
+  IsSpell: 0
   ID: 94
   Name: Tyrant Minion
   Race: 3

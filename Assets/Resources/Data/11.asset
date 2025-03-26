@@ -22,4 +22,7 @@ MonoBehaviour:
   HP: 3500
   Level: 6
   Type: 0
-  Abilities: []
+  Abilities:
+  - {fileID: 11400000, guid: 79356dadcf8c209479a0ebaa7c4c53ed, type: 2}
+  - {fileID: 11400000, guid: b27f37dadb149ec42935d8e0859b700e, type: 2}
+  - {fileID: 11400000, guid: 13296dbfc5a93b54cae9004952eeb4df, type: 2}
