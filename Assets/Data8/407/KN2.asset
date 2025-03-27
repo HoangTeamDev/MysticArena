@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bed749f738dc394598c892378e2b0b8, type: 3}
+  m_Name: KN2
+  m_EditorClassIdentifier: 
+  AbilityName: "K\u1EBB L\u1EB7n V\u1EF1c Th\u1EB3m II"
+  Description: "N\u1EBFu qu\xE1i v\u1EADt \u0111\u01B0\u1EE3c th\xEAm v\xE0o c\xF3
+    c\u1EA5p 4 ho\u1EB7c th\u1EA5p h\u01A1n, b\u1EA1n c\xF3 th\u1EC3 tri\u1EC7u h\u1ED3i
+    \u0111\u1EB7c bi\u1EC7t n\xF3 l\xEAn s\xE2n."
+  TriggerCondition: 0
+  effects: []
