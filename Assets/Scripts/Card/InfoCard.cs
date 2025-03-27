@@ -8,6 +8,10 @@ using UnityEngine.UI;
 public class InfoCard : MonoBehaviour
 {
     [Header("Monter")]
+    public List<Sprite> iconQuality;
+    public Image quality;
+    public List<Sprite> imageBackgroundQuality;
+    public Image backgroundQuality;
     public Image imageMonter;
     public List<Sprite> iconElement;
     public TextMeshProUGUI nameMonter;
@@ -16,6 +20,8 @@ public class InfoCard : MonoBehaviour
     public TextMeshProUGUI ATK;
     public TextMeshProUGUI HP;
     public GameObject montercard;
+    public Image backgroundMonter;
+    public List<Sprite> bgImage;
     [Header("Spell")]
     public Image imageSpell;
     public TextMeshProUGUI nameSpell;
@@ -39,7 +45,7 @@ public class InfoCard : MonoBehaviour
     }
     public void Show(int id)
     {
-        montercard.SetActive(false);
+        montercard.SetActive(false);       
         spellCard.SetActive(false);
         for(int i = 0; i < Sollview.transform.childCount; i++)
         {
@@ -69,6 +75,29 @@ public class InfoCard : MonoBehaviour
         if (cardData != null)
         {
             imageMonter.sprite = Resources.Load<Sprite>("Sprite/Image/" + id);
+            if (cardData.Race == RaceType.God)
+            {
+                backgroundMonter.sprite = bgImage[0];
+                Color newColor;
+                if (ColorUtility.TryParseHtmlString(ReadColor.monterSP, out newColor))
+                {
+                    backgroundMonter.color = newColor;
+                }
+                quality.sprite = iconQuality[3];
+                backgroundQuality.sprite = imageBackgroundQuality[1];
+            }
+            else
+            {
+                backgroundMonter.sprite = bgImage[1];
+                Color newColor;
+                if (ColorUtility.TryParseHtmlString(ReadColor.monter, out newColor))
+                {
+                    backgroundMonter.color = newColor;
+                }
+                quality.sprite = iconQuality[2];
+                backgroundQuality.sprite = imageBackgroundQuality[0];
+
+            }
             LoadElement(cardData.Element.ToString());
             nameMonter.text = cardData.Name;
             level.text=((int)cardData.Level).ToString();

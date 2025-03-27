@@ -29104,6 +29104,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1f9a9c87ff6d847acbe1b8950e2ed6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  iconQuality:
+  - {fileID: 21300000, guid: 7f00a144ae942c24e9544c0a7ce86712, type: 3}
+  - {fileID: 21300000, guid: 4e4dfe1bf62765646a79b264cf996ec1, type: 3}
+  - {fileID: 21300000, guid: ebb7057f5edfe0f43beb34bb6d71a124, type: 3}
+  - {fileID: 21300000, guid: bbace76316518e24d82958b754ba615e, type: 3}
+  quality: {fileID: 1309313374}
+  imageBackgroundQuality:
+  - {fileID: 21300000, guid: b1e0e468564d96b49adfb1b0c15601ef, type: 3}
+  - {fileID: 21300000, guid: b2f9f07bda34eb94c8bf11cba7858682, type: 3}
+  backgroundQuality: {fileID: 271819544}
   imageMonter: {fileID: 70963983}
   iconElement:
   - {fileID: 21300000, guid: 68f090c78852bbb4f8eeceac1cba9013, type: 3}
@@ -29119,6 +29129,10 @@ MonoBehaviour:
   ATK: {fileID: 1602706667}
   HP: {fileID: 1558672646}
   montercard: {fileID: 1631561591}
+  backgroundMonter: {fileID: 1662174528}
+  bgImage:
+  - {fileID: 21300000, guid: 84769e916bc69c74195914071fc12214, type: 3}
+  - {fileID: 21300000, guid: cd2e010defee7f44f8ea5437c703e3bd, type: 3}
   imageSpell: {fileID: 67797939}
   nameSpell: {fileID: 2023453451}
   spellCard: {fileID: 657111810}
@@ -89345,14 +89359,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.81960785, g: 0.627451, b: 0.15294118, a: 1}
+  m_Color: {r: 1, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: cd2e010defee7f44f8ea5437c703e3bd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 84769e916bc69c74195914071fc12214, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
