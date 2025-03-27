@@ -8,7 +8,7 @@ public class Library : MonoBehaviour
 {
     [Header("Object")]
     public List<CardInventory> cardInventories;
-
+    public GameObject main;
     [Header("Main")]
     public GameObject mainMonter;
     public GameObject ScollMonter;
@@ -20,7 +20,8 @@ public class Library : MonoBehaviour
     {
         buttonMonter.onClick.AddListener(OnShowMonter);
         buttonSplell.onClick.AddListener(OnShowSpell);
-        for(int i = 1; i <= 740; i++)
+        mainMonter.SetActive(true);
+        for (int i = 1; i <= 740; i++)
         {
             CardData card = Resources.Load<CardData>("Data/" + i);
             if (card !=null)
@@ -54,7 +55,7 @@ public class Library : MonoBehaviour
                 }
             }
         }
-        mainMonter.SetActive(true);
+        
         EventSystem.current.SetSelectedGameObject(buttonMonter.gameObject);
     }
 
