@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 167
   m_EditorClassIdentifier: 
   IsSpell: 1
-  ID: 0
+  ID: 167
   Name: Cursed Spell
   Race: 13
   Element: 1
@@ -22,4 +22,5 @@ MonoBehaviour:
   HP: 2600
   Level: 6
   Type: 0
-  Abilities: []
+  Abilities:
+  - {fileID: 11400000, guid: 976da755f193bd344a646892c4650513, type: 2}

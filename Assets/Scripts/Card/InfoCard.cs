@@ -96,7 +96,7 @@ public class InfoCard : MonoBehaviour
         if (cardData != null)
         {
             imageSpell.sprite = Resources.Load<Sprite>("Sprite/Image/" + id);
-            nameMonter.text = cardData.Name;
+            nameSpell.text = cardData.Name;
             info1.text = $"<color={ReadColor.Yellow}>Từ khóa</color>\n{cardData.Keywords}";
             info2.text = $"<color={ReadColor.Yellow}>Giới hạn</color>\nTrong bộ bài tối đa 3 lá.";
             foreach (var data in cardData.Abilities)

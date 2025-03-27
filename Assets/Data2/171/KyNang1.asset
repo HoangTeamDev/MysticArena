@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bed749f738dc394598c892378e2b0b8, type: 3}
+  m_Name: KyNang1
+  m_EditorClassIdentifier: 
+  AbilityName: "Ph\xE1n Quy\u1EBFt H\u1EAFc Thu\u1EADt"
+  Description: "Khi tr\xEAn s\xE2n b\u1EA1n c\xF3  qu\xE1i \"Witch of Doom\"  khi
+    \u0111\u1ED1i th\u1EE7 tri\u1EC7u h\u1ED3i m\u1ED9t qu\xE1i, v\xF4 hi\u1EC7u
+    h\xF3a vi\u1EC7c tri\u1EC7u h\u1ED3i v\xE0 ph\xE1 h\u1EE7y qu\xE1i v\u1EADt \u0111\xF3.
+    Sau \u0111\xF3, h\u1ED3i ph\u1EE5c HP cho 1 qu\xE1i \"Witch of Doom\" b\u1EA1n
+    \u0111i\u1EC1u khi\u1EC3n b\u1EB1ng v\u1EDBi ATK qu\xE1i b\u1ECB ph\xE1 h\u1EE7y
+    \u0111\xF3."
+  TriggerCondition: 0
+  effects: []

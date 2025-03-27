@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bed749f738dc394598c892378e2b0b8, type: 3}
+  m_Name: KyNang1
+  m_EditorClassIdentifier: 
+  AbilityName: "H\u1EE7y Di\u1EC7t H\u1EAFc \xC1m"
+  Description: "Trang b\u1ECB cho \"Witch of Eternal Night\" : M\u1ED7i l\u01B0\u1EE3t
+    m\u1ED9t l\u1EA7n Khi m\u1ED9t qu\xE1i v\u1EADt c\u1EE7a \u0111\u1ED1i th\u1EE7
+    tuy\xEAn b\u1ED1 t\u1EA5n c\xF4ng ho\u1EB7c k\xEDch ho\u1EA1t hi\u1EC7u \u1EE9ng,
+    v\xF4 hi\u1EC7u h\xF3a hi\u1EC7u \u1EE9ng v\xE0 ph\xE1 h\u1EE7y l\xE1 b\xE0i
+    \u0111\xF3. Sau \u0111\xF3, tri\u1EC7u h\u1ED3i \u0111\u1EB7c bi\u1EC7t 1 qu\xE1i
+    \"Witch of Doom\" c\u1EA5p 4 ho\u1EB7c th\u1EA5p h\u01A1n t\u1EEB M\u1ED9."
+  TriggerCondition: 0
+  effects: []

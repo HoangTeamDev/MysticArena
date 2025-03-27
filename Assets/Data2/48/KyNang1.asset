@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bed749f738dc394598c892378e2b0b8, type: 3}
+  m_Name: KyNang1
+  m_EditorClassIdentifier: 
+  AbilityName: "\xC1nh S\xE1ng D\u1EABn L\u1ED1i"
+  Description: "N\u1EBFu b\u1EA1n c\xF3 qu\xE1i \"Holy Knight\" tr\xEAn s\xE2n, b\u1EA1n
+    c\xF3 th\u1EC3 tri\u1EC7u h\u1ED3i \u0111\u1EB7c bi\u1EC7t b\xE0i n\xE0y t\u1EEB
+    tay."
+  TriggerCondition: 0
+  effects: []
