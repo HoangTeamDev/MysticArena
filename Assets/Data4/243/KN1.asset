@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bed749f738dc394598c892378e2b0b8, type: 3}
+  m_Name: KN1
+  m_EditorClassIdentifier: 
+  AbilityName: "S\xF3ng Tri\u1EC1u Ph\u1EA3n K\xEDch"
+  Description: "N\u1EBFu tr\xEAn s\xE2n b\u1EA1n c\xF3 qu\xE1i \"TideFlow\". Khi
+    \u0111\u1ED1i th\u1EE7 t\u1EA5n c\xF4ng m\u1ED9t qu\xE1i \"Tideflow\", gi\u1EA3m
+    50% ATK c\u1EE7a qu\xE1i v\u1EADt t\u1EA5n c\xF4ng cho \u0111\u1EBFn cu\u1ED1i
+    l\u01B0\u1EE3t n\xE0y. N\u1EBFu ATK c\u1EE7a qu\xE1i v\u1EADt b\u1ECB gi\u1EA3m
+    xu\u1ED1ng d\u01B0\u1EDBi 1000, ph\xE1 h\u1EE7y qu\xE1i v\u1EADt \u0111\xF3 ngay
+    l\u1EADp t\u1EE9c."
+  TriggerCondition: 0
+  effects: []

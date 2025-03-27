@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bed749f738dc394598c892378e2b0b8, type: 3}
+  m_Name: KyNang1
+  m_EditorClassIdentifier: 
+  AbilityName: "Lu\xE2n H\u1ED3i Th\u1EA7n Long"
+  Description: "Khi qu\xE1i \"Dragon Deity\" tr\xEAn s\xE2n b\u1EA1n b\u1ECB ph\xE1
+    h\u1EE7y,tri\u1EC7u h\u1ED3i \u0111\u1EB7c bi\u1EC7t ng\u1EABu nhi\xEAn 1 qu\xE1i
+    \"Dragon Deity\" c\u1EA5p 1-3 t\u1EEB M\u1ED9, b\u1ED9 b\xE0i, tay"
+  TriggerCondition: 0
+  effects: []

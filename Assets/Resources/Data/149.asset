@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 149
   m_EditorClassIdentifier: 
   IsSpell: 0
-  ID: 169
+  ID: 149
   Name: Divine Valkyrie
   Race: 2
   Element: 5
@@ -22,4 +22,7 @@ MonoBehaviour:
   HP: 3200
   Level: 6
   Type: 1
-  Abilities: []
+  Abilities:
+  - {fileID: 11400000, guid: a6ee00e4fe5695746af384f3cca61722, type: 2}
+  - {fileID: 11400000, guid: 29e969d45f4608346924f15f1cc69408, type: 2}
+  - {fileID: 11400000, guid: 55e3e4df8621de24594a10a7dc06728d, type: 2}
