@@ -10,6 +10,7 @@ public class CardData : ScriptableObject
     public RaceType Race; // Tộc
     public ElementType Element; // Hệ
     public KeyWords Keywords; // Từ khóa
+    public Quality quality;
     public int ATK;//atk
     public int HP;//hp
     public Level Level;//levle

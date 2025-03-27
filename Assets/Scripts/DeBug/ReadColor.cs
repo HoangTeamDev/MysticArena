@@ -52,6 +52,6 @@ public static class ReadColor
     public static readonly string Tomato = "#FF6347";    // Đỏ cà chua 
 
     public static readonly string monter = "#D1A027";
-    public static readonly string monterSP = "0000FF";
-    public static readonly string spell = "00FF00";
+    public static readonly string monterSP = "#FFFF00";
+    public static readonly string spell = "#00FF00";
 }
