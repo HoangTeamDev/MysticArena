@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bed749f738dc394598c892378e2b0b8, type: 3}
+  m_Name: KN1
+  m_EditorClassIdentifier: 
+  AbilityName: "H\u1ECFa Long Ph\u1EE5c Sinh"
+  Description: "Khi b\xE0i n\xE0y \u0111\u01B0\u1EE3c tri\u1EC7u h\u1ED3i, th\xEAm
+    1 qu\xE1i v\u1EADt \"Dragon\" c\u1EA5p 4 ho\u1EB7c th\u1EA5p h\u01A1n t\u1EEB
+    b\u1ED9 b\xE0i v\xE0o tay."
+  TriggerCondition: 0
+  effects: []
