@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bed749f738dc394598c892378e2b0b8, type: 3}
+  m_Name: KN2
+  m_EditorClassIdentifier: 
+  AbilityName: "\xDD Ch\xED Th\u1EA1ch Linh"
+  Description: "N\u1EBFu l\xE1 b\xE0i n\xE0y b\u1ECB ph\xE1 h\u1EE7y trong chi\u1EBFn
+    \u0111\u1EA5u, b\u1EA1n c\xF3 th\u1EC3 tri\u1EC7u h\u1ED3i \u0111\u1EB7c bi\u1EC7t
+    1 qu\xE1i v\u1EADt levle 4 ho\u1EB7c th\u1EA5p h\u01A1n t\u1ED9c \"Rock\" t\u1EEB
+    tay."
+  TriggerCondition: 0
+  effects: []
