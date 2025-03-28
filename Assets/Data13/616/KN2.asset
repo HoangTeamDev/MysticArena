@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bed749f738dc394598c892378e2b0b8, type: 3}
+  m_Name: KN2
+  m_EditorClassIdentifier: 
+  AbilityName: "Th\u1EBF \u0110\u1EE9ng B\u1EA5t Khu\u1EA5t"
+  Description: "B\u1EA1n c\xF3 th\u1EC3 g\u1EEDi 1 qu\xE1i v\u1EADt t\u1ED9c \"Behemoth\"
+    t\u1EEB b\u1ED9 b\xE0i xu\u1ED1ng m\u1ED9 \u0111\u1EC3 tri\u1EC7u h\u1ED3i \u0111\u1EB7c
+    bi\u1EC7t l\xE1 b\xE0i n\xE0y t\u1EEB tay l\xEAn s\xE2n."
+  TriggerCondition: 0
+  effects: []
