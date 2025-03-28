@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bed749f738dc394598c892378e2b0b8, type: 3}
   m_Name: KN1
   m_EditorClassIdentifier: 
-  AbilityName: "Suy Y\u1EBFu T\u1EED Kh\xED"
-  Description: "Khi l\xE1 b\xE0i n\xE0y \u0111\u01B0\u1EE3c tri\u1EC7u h\u1ED3i th\u01B0\u1EDDng,
-    \xE1p d\u1EE5ng hi\u1EC7u \u1EE9ng 'Suy Y\u1EBFu' l\xEAn t\u1EA5t c\u1EA3 qu\xE1i
-    v\u1EADt c\u1EE7a \u0111\u1ED1i th\u1EE7 (gi\u1EA3m 30% ATK v\xE0 HP c\u1EE7a
-    ch\xFAng trong 2 l\u01B0\u1EE3t)."
+  AbilityName: "Phong \u1EA4n T\u1EED Linh"
+  Description: "Khi l\xE1 b\xE0i n\xE0y \u0111\u01B0\u1EE3c tri\u1EC7u h\u1ED3i,
+    b\u1EA1n c\xF3 th\u1EC3 v\xF4 hi\u1EC7u h\xF3a hi\u1EC7u \u1EE9ng c\u1EE7a 1
+    qu\xE1i v\u1EADt ng\u1EABu nhi\xEAn tr\xEAn  \u0111\u1ED1i th\u1EE7"
   TriggerCondition: 0
   effects: []

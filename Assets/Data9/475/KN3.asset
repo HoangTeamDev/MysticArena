@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bed749f738dc394598c892378e2b0b8, type: 3}
   m_Name: KN3
   m_EditorClassIdentifier: 
-  AbilityName: "B\u1EA5t Ho\u1EA1i Vong H\u1ED3n"
-  Description: "L\xE1 b\xE0i n\xE0y ch\u1EC9 c\xF3 th\u1EC3 b\u1ECB ph\xE1 h\u1EE7y
-    trong chi\u1EBFn \u0111\u1EA5u."
+  AbilityName: "H\u1EA5p Huy\u1EBFt Ma Thu\u1EADt"
+  Description: "Khi l\xE1 b\xE0i n\xE0y ph\xE1 h\u1EE7y m\u1ED9t qu\xE1i v\u1EADt
+    trong chi\u1EBFn \u0111\u1EA5u, h\u1ED3i ph\u1EE5c 500 LP cho b\u1EA1n."
   TriggerCondition: 0
   effects: []
