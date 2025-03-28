@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bed749f738dc394598c892378e2b0b8, type: 3}
+  m_Name: KN3
+  m_EditorClassIdentifier: 
+  AbilityName: "B\u1EA5t Ho\u1EA1i Vong H\u1ED3n"
+  Description: "L\xE1 b\xE0i n\xE0y ch\u1EC9 c\xF3 th\u1EC3 b\u1ECB ph\xE1 h\u1EE7y
+    trong chi\u1EBFn \u0111\u1EA5u."
+  TriggerCondition: 0
+  effects: []
