@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bed749f738dc394598c892378e2b0b8, type: 3}
   m_Name: KN2
   m_EditorClassIdentifier: 
-  AbilityName: "\xC1p Ch\u1EBF \u0110\u1ECDa \u0110\xE0y"
-  Description: "Khi l\xE1 b\xE0i n\xE0y ph\xE1 h\u1EE7y m\u1ED9t qu\xE1i v\u1EADt
-    trong chi\u1EBFn \u0111\u1EA5u, \u0111\u1ED1i th\u1EE7 ph\u1EA3i g\u1EEDi 1 l\xE1
-    b\xE0i t\u1EEB tay xu\u1ED1ng m\u1ED9."
+  AbilityName: "H\u1EAFc M\u1ED9 Tri\u1EC7u Ho\xE1n"
+  Description: "N\u1EBFu l\xE1 b\xE0i n\xE0y b\u1ECB ph\xE1 h\u1EE7y b\u1EDFi hi\u1EC7u
+    \u1EE9ng c\u1EE7a \u0111\u1ED1i th\u1EE7, b\u1EA1n c\xF3 th\u1EC3 tri\u1EC7u
+    h\u1ED3i \u0111\u1EB7c bi\u1EC7t 1 qu\xE1i v\u1EADt t\u1ED9c \"Zombie\" level
+    4 tr\u1EDF xu\u1ED1ng t\u1EEB b\u1ED9 b\xE0i l\xEAn s\xE2n."
   TriggerCondition: 0
   effects: []
