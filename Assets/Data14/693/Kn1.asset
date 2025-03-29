@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bed749f738dc394598c892378e2b0b8, type: 3}
+  m_Name: Kn1
+  m_EditorClassIdentifier: 
+  AbilityName: "Th\u1ED1ng Tr\u1ECB V\u1EF1c Th\u1EB3m"
+  Description: "M\u1ED7i l\u01B0\u1EE3t, n\u1EBFu b\u1EA1n \u0111i\u1EC1u khi\u1EC3n
+    \xEDt nh\u1EA5t 2 qu\xE1i v\u1EADt \"Abyss\", b\u1EA1n c\xF3 th\u1EC3 tr\u1EA3
+    500 LP g\u1ED1c c\u1EE7a m\xECnh \u0111\u1EC3 ph\xE1 h\u1EE7y 1 l\xE1 b\xE0i
+    tr\xEAn s\xE2n \u0111\u1ED1i th\u1EE7."
+  TriggerCondition: 0
+  effects: []

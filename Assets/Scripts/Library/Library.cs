@@ -21,6 +21,7 @@ public class Library : MonoBehaviour
         buttonMonter.onClick.AddListener(OnShowMonter);
         buttonSplell.onClick.AddListener(OnShowSpell);
         mainMonter.SetActive(true);
+        mainSplell.SetActive(false);
         for (int i = 1; i <= 740; i++)
         {
             CardData card = Resources.Load<CardData>("Data/" + i);
