@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bed749f738dc394598c892378e2b0b8, type: 3}
+  m_Name: KN1
+  m_EditorClassIdentifier: 
+  AbilityName: "Hi sinh Ph\xE9p Thu\u1EADt"
+  Description: "Hi\u1EBFn t\u1EBF 1 qu\xE1i \"SpellCaster\", ch\u1ECDn 1 b\xE0i ph\xE9p
+    t\u1EEB b\u1ED9 b\xE0i \u0111\u1EC3 th\xEAm v\xE0o tay."
+  TriggerCondition: 0
+  effects: []

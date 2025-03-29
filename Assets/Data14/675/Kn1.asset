@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bed749f738dc394598c892378e2b0b8, type: 3}
+  m_Name: Kn1
+  m_EditorClassIdentifier: 
+  AbilityName: "B\xE1o Th\xF9 Thi\xEAn Nhi\xEAn"
+  Description: "Khi \u0111\u1ED1i th\u1EE7 tri\u1EC7u h\u1ED3i \u0111\u1EB7c bi\u1EC7t
+    m\u1ED9t qu\xE1i v\u1EADt, H\u1ED3i 500 HP cho m\u1ED9t qu\xE1i t\u1ED9c \"Plant\"
+    tr\xEAn s\xE2n b\u1EA1n. Sau \u0111\xF3, ph\xE1 h\u1EE7y qu\xE1i v\u1EADt v\u1EEBa
+    \u0111\u01B0\u1EE3c tri\u1EC7u h\u1ED3i \u0110\u1EB7c bi\u1EC7t."
+  TriggerCondition: 0
+  effects: []
