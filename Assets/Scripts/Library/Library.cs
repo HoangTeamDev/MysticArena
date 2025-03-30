@@ -65,18 +65,28 @@ public class Library : MonoBehaviour
     {
         mainMonter.SetActive(true);
         mainSplell.SetActive(false);
-        foreach (Transform child in ScollMonter.transform.Cast<Transform>())
+        for (int i = 0; i < ScollMonter.transform.childCount; i++)
         {
-            child.gameObject.SetActive(true);
+            if(i>2)
+            {
+                var child = ScollMonter.transform.GetChild(i);
+                child.gameObject.SetActive(true);
+            }
+               
         }
     }
     public void OnShowSpell()
     {
         mainMonter.SetActive(false);
         mainSplell.SetActive(true);
-        foreach (Transform child in ScollSplell.transform.Cast<Transform>())
+        for (int i = 0; i < ScollSplell.transform.childCount; i++)
         {
-            child.gameObject.SetActive(true);
+            if (i > 2)
+            {
+                var child = ScollSplell.transform.GetChild(i);
+                child.gameObject.SetActive(true);
+            }
+
         }
     }
 }
