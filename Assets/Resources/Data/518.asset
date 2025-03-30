@@ -18,8 +18,12 @@ MonoBehaviour:
   Race: 12
   Element: 1
   Keywords: 14
+  quality: 0
   ATK: 2600
   HP: 2800
   Level: 6
   Type: 1
-  Abilities: []
+  Abilities:
+  - {fileID: 11400000, guid: a3465beae149131499e55c2ed0108ec6, type: 2}
+  - {fileID: 11400000, guid: 630d971e42d7e314180798e5ef200ee7, type: 2}
+  - {fileID: 11400000, guid: b6c8ac422febe9c41bbab67a6e05b552, type: 2}
