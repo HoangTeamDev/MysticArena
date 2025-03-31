@@ -11,6 +11,7 @@ public class CardData : ScriptableObject
     public ElementType Element; // Hệ
     public KeyWords Keywords; // Từ khóa
     public Quality quality;
+    public int limit;
     public int ATK;//atk
     public int HP;//hp
     public Level Level;//levle
