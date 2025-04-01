@@ -61,11 +61,11 @@ public class UIController : MonoBehaviour
                 if (results.Count > 0)
                 {
                     GameObject hitUI = results[0].gameObject;
-                    if(hitUI.tag== "panel")
+                   /* if(hitUI.tag== "panel")
                     {
                     hitUI.SetActive(false);
 
-                    }
+                    }*/
                 }
             }
             else
