@@ -19,6 +19,7 @@ MonoBehaviour:
   Element: 0
   Keywords: 14
   quality: 0
+  limit: 3
   ATK: 2300
   HP: 2500
   Level: 5
