@@ -18,6 +18,8 @@ MonoBehaviour:
   Race: 3
   Element: 4
   Keywords: 1
+  quality: 1
+  limit: 3
   ATK: 400
   HP: 900
   Level: 1
