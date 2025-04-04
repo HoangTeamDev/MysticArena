@@ -18,7 +18,7 @@ MonoBehaviour:
   Race: 10
   Element: 2
   Keywords: 14
-  quality: 0
+  quality: 2
   limit: 3
   ATK: 0
   HP: 0
