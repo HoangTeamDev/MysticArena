@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Menu.System;
 // Hấp thụ
 [CreateAssetMenu(menuName = "Effects/AbsorbEffect")]
 public class Absorb : Effect
