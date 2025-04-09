@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.Events;
+using Menu.System;
 
 public class UIAnimatorExtended : MonoBehaviour
 {

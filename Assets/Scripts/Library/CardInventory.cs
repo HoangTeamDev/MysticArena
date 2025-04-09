@@ -22,6 +22,6 @@ public class CardInventory : MonoBehaviour, ISelectHandler
     }
     void Show()
     {
-        UIController.Instance.ShowCardInfo(idCard);
+       
     }
 }

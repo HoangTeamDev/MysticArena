@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Linq;
+using UnityEngine.U2D;
+using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
 public class Library : MonoBehaviour
 {
@@ -17,6 +19,7 @@ public class Library : MonoBehaviour
     public GameObject ScollSplell;
     public Button buttonMonter;
     public Button buttonSplell;
+    public SpriteAtlas spriteAtlas;
     void Start()
     {
         buttonMonter.onClick.AddListener(OnShowMonter);
@@ -31,7 +34,7 @@ public class Library : MonoBehaviour
                 if (card.IsSpell)
                 {
                     CardInventory newo = Instantiate(cardInventories[0], ScollSplell.transform);
-                    newo.image.sprite = Resources.Load<Sprite>("Sprite/Image/" + i);
+                    newo.image.sprite = spriteAtlas.GetSprite(i.ToString());
                     newo.textMeshProUGUI.text = card.Name;
                     newo.idCard = card.ID;
                     newo.gameObject.SetActive(false);
@@ -41,7 +44,7 @@ public class Library : MonoBehaviour
                     if (card.Race == RaceType.God)
                     {
                         CardInventory newo = Instantiate(cardInventories[1], ScollMonter.transform);
-                        newo.image.sprite = Resources.Load<Sprite>("Sprite/Image/" + i);
+                        newo.image.sprite = spriteAtlas.GetSprite(i.ToString());
                         newo.textMeshProUGUI.text = card.Name;
                         newo.idCard = card.ID;
                         newo.gameObject.SetActive(false);
@@ -49,7 +52,7 @@ public class Library : MonoBehaviour
                     else
                     {
                         CardInventory newo = Instantiate(cardInventories[2], ScollMonter.transform);
-                        newo.image.sprite = Resources.Load<Sprite>("Sprite/Image/" + i);
+                        newo.image.sprite = spriteAtlas.GetSprite(i.ToString());
                         newo.textMeshProUGUI.text = card.Name;
                         newo.idCard = card.ID;
                         newo.gameObject.SetActive(false);
