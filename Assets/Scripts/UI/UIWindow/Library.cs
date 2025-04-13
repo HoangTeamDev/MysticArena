@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,9 +7,14 @@ using System.Linq;
 using UnityEngine.U2D;
 using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 using Menu.Card;
-namespace UI.UIHUD
+using UIScripts.SystemUI;
+using System.Text;
+using UnityEditor;
+using Menu.System;
+
+namespace UI.UIWindow
 {
-    public class Library : MonoBehaviour
+    public class Library : UIBase
     {
         [Header("Object")]
         public List<CardInventory> cardInventories;
@@ -22,8 +27,43 @@ namespace UI.UIHUD
         public Button buttonMonter;
         public Button buttonSplell;
         public SpriteAtlas spriteAtlas;
-        void Start()
+        public List<TitleShop> _listButtonShop;
+        public TitleShop currentSelected;
+        void OnTabClicked(TitleShop clicked)
         {
+            for (int i = 0; i < _listButtonShop.Count; i++)
+            {
+                if (_listButtonShop[i] == clicked)
+                {
+                    _listButtonShop[i]._icon.color = ReadColor.FromHex(ReadColor.Green);
+                   
+                }
+                else
+                {
+                    _listButtonShop[i]._icon.color = ReadColor.FromHex(ReadColor.White);
+                   
+                }
+            }
+            currentSelected = clicked;
+        }
+
+        public void OnShowMonter()
+        {
+            mainMonter.SetActive(true);
+            mainSplell.SetActive(false);
+            OnTabClicked(_listButtonShop[0]);
+        }
+        public void OnShowSpell()
+        {
+            mainMonter.SetActive(false);
+            mainSplell.SetActive(true);  
+            OnTabClicked(_listButtonShop[1]);
+
+        }
+
+        public override void Init()
+        {
+            base.Init();
             buttonMonter.onClick.AddListener(OnShowMonter);
             buttonSplell.onClick.AddListener(OnShowSpell);
             mainMonter.SetActive(true);
@@ -39,7 +79,7 @@ namespace UI.UIHUD
                         newo.image.sprite = spriteAtlas.GetSprite(i.ToString());
                         newo.textMeshProUGUI.text = card.Name;
                         newo.idCard = card.ID;
-                        newo.gameObject.SetActive(false);
+                        newo.gameObject.SetActive(true);
                     }
                     else
                     {
@@ -49,7 +89,7 @@ namespace UI.UIHUD
                             newo.image.sprite = spriteAtlas.GetSprite(i.ToString());
                             newo.textMeshProUGUI.text = card.Name;
                             newo.idCard = card.ID;
-                            newo.gameObject.SetActive(false);
+                            newo.gameObject.SetActive(true);
                         }
                         else
                         {
@@ -57,42 +97,58 @@ namespace UI.UIHUD
                             newo.image.sprite = spriteAtlas.GetSprite(i.ToString());
                             newo.textMeshProUGUI.text = card.Name;
                             newo.idCard = card.ID;
-                            newo.gameObject.SetActive(false);
+                            newo.gameObject.SetActive(true);
                         }
                     }
                 }
             }
             OnShowMonter();
-            EventSystem.current.SetSelectedGameObject(buttonMonter.gameObject);
         }
 
-        public void OnShowMonter()
+        public override void Open()
         {
-            mainMonter.SetActive(true);
-            mainSplell.SetActive(false);
-            for (int i = 0; i < ScollMonter.transform.childCount; i++)
-            {
-                if (i > 2)
-                {
-                    var child = ScollMonter.transform.GetChild(i);
-                    child.gameObject.SetActive(true);
-                }
-
-            }
+            base.Open();
         }
-        public void OnShowSpell()
-        {
-            mainMonter.SetActive(false);
-            mainSplell.SetActive(true);
-            for (int i = 0; i < ScollSplell.transform.childCount; i++)
-            {
-                if (i > 2)
-                {
-                    var child = ScollSplell.transform.GetChild(i);
-                    child.gameObject.SetActive(true);
-                }
 
-            }
+        public override void OpenMe()
+        {
+            base.OpenMe();
+        }
+
+        public override void Close()
+        {
+            base.Close();
+            gameObject.SetActive(false);
+        }
+
+        public override void CloseMe()
+        {
+            base.CloseMe();
+        }
+
+        public override void OnPointerClick(PointerEventData pointerEventData)
+        {
+            base.OnPointerClick(pointerEventData);
+        }
+
+        public override void ShowInfoItem(StringBuilder sb, Progress.Item item)
+        {
+            base.ShowInfoItem(sb, item);
+        }
+
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+        }
+
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
         }
     }
 }
