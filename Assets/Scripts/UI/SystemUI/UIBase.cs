@@ -1,11 +1,12 @@
 ﻿
 using Menu.System;
+using UI.SystemUI;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using static UnityEditor.Progress;
 
-namespace UIScripts.SystemUI
+namespace UI.SystemUI
 {
     public enum UIKey
     {
@@ -13,18 +14,12 @@ namespace UIScripts.SystemUI
     }
     public enum WindowType
     {
-        Shop,
-        Inventory,
-        Chest,
-        DialogNPC,
-        PlayerHUD,
-        ActionHUD,
-        ShowItem,
-        Mission,
-        Input,
-        PlayerDie,
-        InfoPlayer,
-        Equipment
+       PlayerHUD,
+       Inventory,
+       Shop,
+       Library,
+       InfoCard
+
     }
     public abstract class UIBase : MonoBehaviour, IPointerClickHandler
     {
@@ -48,11 +43,11 @@ namespace UIScripts.SystemUI
 
         }
         public virtual void Open() { gameObject.SetActive(true); }
-        public virtual void OpenMe() { /*UIManager.Instance.Open(WindowType);*/ }
+        public virtual void OpenMe() { UIController.Instance.Open(WindowType); }
 
-        public virtual void Close() { /*gameObject.SetActive(false); */}
+        public virtual void Close() { }
 
-        public virtual void CloseMe() { /*UIManager.Instance.Close(WindowType);*/ }
+        public virtual void CloseMe() { UIController.Instance.Close(WindowType); }
         public virtual void OnPointerClick(PointerEventData pointerEventData)
         {
             if (pointerEventData.pointerCurrentRaycast.gameObject == this.gameObject && isHide && !isNeverHide)

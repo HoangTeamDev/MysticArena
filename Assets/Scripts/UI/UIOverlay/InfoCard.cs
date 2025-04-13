@@ -1,13 +1,18 @@
 ﻿using DG.Tweening;
+using Menu.Card;
 using Menu.System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using TMPro;
+using UI.SystemUI;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
-namespace Menu.Card
+namespace UI.UIOvelay
 {
-    public class InfoCard : MonoBehaviour
+    public class InfoCard : UIBase
     {
         [Header("Monter")]
         public List<Sprite> iconQuality;
@@ -33,18 +38,8 @@ namespace Menu.Card
         public TextMeshProUGUI info2;
         public GameObject ability;
         public GameObject Sollview;
-        public GameObject main;
-        private void OnEnable()
-        {
-            RectTransform rectTransform = main.GetComponent<RectTransform>();
-            if (rectTransform != null)
-            {
-                Vector3 origin = new Vector3(rectTransform.localPosition.x, -(Screen.height / 2 + rectTransform.sizeDelta.y / 2));
-
-                rectTransform.localPosition = new Vector3(rectTransform.localPosition.x, -(Screen.height / 2 + rectTransform.sizeDelta.y / 2));
-                rectTransform.DOLocalMoveY(0f, 0.2f).SetEase(Ease.Linear);
-            }
-        }
+        public RectTransform main;
+       
         public void Show(int id)
         {
             montercard.SetActive(false);
@@ -176,6 +171,65 @@ namespace Menu.Card
                     break;
 
             }
+        }
+
+        public override void Init()
+        {
+            base.Init();
+        }
+
+        public override void Open()
+        {
+            base.Open();
+        }
+
+        public override void OpenMe()
+        {
+            base.OpenMe();
+        }
+
+        public override void Close()
+        {
+            base.Close();
+            gameObject.SetActive(false);
+        }
+
+        public override void CloseMe()
+        {
+            base.CloseMe();
+        }
+
+        public override void OnPointerClick(PointerEventData pointerEventData)
+        {
+            base.OnPointerClick(pointerEventData);
+        }
+
+        public override void ShowInfoItem(StringBuilder sb, Progress.Item item)
+        {
+            base.ShowInfoItem(sb, item);
+        }
+
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            
+            if (main != null)
+            {
+                Vector3 origin = new Vector3(main.localPosition.x, -(Screen.height / 2 + main.sizeDelta.y / 2));
+
+                main.localPosition = new Vector3(main.localPosition.x, -(Screen.height / 2 + main.sizeDelta.y / 2));
+                main.DOLocalMoveY(0f, 0.2f).SetEase(Ease.Linear);
+            }
+        }
+
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
         }
     }
 

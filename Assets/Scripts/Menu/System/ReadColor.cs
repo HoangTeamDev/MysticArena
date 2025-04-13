@@ -55,6 +55,13 @@ namespace Menu.System
         public static readonly string monter = "#D1A027";
         public static readonly string monterSP = "#FFFF00";
         public static readonly string spell = "#00FF00";
+        public static Color FromHex(string hex)
+        {
+            Color color;
+            if (ColorUtility.TryParseHtmlString(hex, out color))
+                return color;
+            return Color.white;
+        }
     }
 }
 
