@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using static UnityEditor.Progress;
 
-namespace UIScripts.SystemUI
+namespace UI.SystemUI
 {
     public enum UIKey
     {
@@ -18,6 +18,7 @@ namespace UIScripts.SystemUI
        Inventory,
        Shop,
        Library,
+       InfoCard
 
     }
     public abstract class UIBase : MonoBehaviour, IPointerClickHandler

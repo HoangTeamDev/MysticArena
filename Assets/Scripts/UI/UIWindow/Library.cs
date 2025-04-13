@@ -7,7 +7,7 @@ using System.Linq;
 using UnityEngine.U2D;
 using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 using Menu.Card;
-using UIScripts.SystemUI;
+using UI.SystemUI;
 using System.Text;
 using UnityEditor;
 using Menu.System;
@@ -78,8 +78,9 @@ namespace UI.UIWindow
                         CardInventory newo = Instantiate(cardInventories[0], ScollSplell.transform);
                         newo.image.sprite = spriteAtlas.GetSprite(i.ToString());
                         newo.textMeshProUGUI.text = card.Name;
-                        newo.idCard = card.ID;
+                        newo.ID = card.ID;
                         newo.gameObject.SetActive(true);
+                        newo.OnInit();
                     }
                     else
                     {
@@ -88,16 +89,18 @@ namespace UI.UIWindow
                             CardInventory newo = Instantiate(cardInventories[1], ScollMonter.transform);
                             newo.image.sprite = spriteAtlas.GetSprite(i.ToString());
                             newo.textMeshProUGUI.text = card.Name;
-                            newo.idCard = card.ID;
+                            newo.ID = card.ID;
                             newo.gameObject.SetActive(true);
+                            newo.OnInit();
                         }
                         else
                         {
                             CardInventory newo = Instantiate(cardInventories[2], ScollMonter.transform);
                             newo.image.sprite = spriteAtlas.GetSprite(i.ToString());
                             newo.textMeshProUGUI.text = card.Name;
-                            newo.idCard = card.ID;
+                            newo.ID = card.ID;
                             newo.gameObject.SetActive(true);
+                            newo.OnInit();
                         }
                     }
                 }

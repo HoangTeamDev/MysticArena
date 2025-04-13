@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 using UI.SystemUI;
 using UI.UIWindow;
-using UIScripts.SystemUI;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
