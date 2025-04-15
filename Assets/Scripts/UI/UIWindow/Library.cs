@@ -11,6 +11,7 @@ using UI.SystemUI;
 using System.Text;
 using UnityEditor;
 using Menu.System;
+using UI.ItemUI;
 
 namespace UI.UIWindow
 {
@@ -134,7 +135,7 @@ namespace UI.UIWindow
             base.OnPointerClick(pointerEventData);
         }
 
-        public override void ShowInfoItem(StringBuilder sb, Progress.Item item)
+        public override void ShowInfoItem(StringBuilder sb, Item item)
         {
             base.ShowInfoItem(sb, item);
         }

@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using TMPro;
+using UI.ItemUI;
 using UI.SystemUI;
 using UnityEditor;
 using UnityEngine;
@@ -204,7 +205,7 @@ namespace UI.UIOvelay
             base.OnPointerClick(pointerEventData);
         }
 
-        public override void ShowInfoItem(StringBuilder sb, Progress.Item item)
+        public override void ShowInfoItem(StringBuilder sb, Item item)
         {
             base.ShowInfoItem(sb, item);
         }
