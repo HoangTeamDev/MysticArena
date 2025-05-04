@@ -22,7 +22,7 @@ MonoBehaviour:
   limit: 3
   ATK: 2800
   HP: 3300
-  Level: 5
+  Level: 6
   Type: 1
   Abilities:
   - {fileID: 11400000, guid: bab0de3c5aa34ad44bf3da5b88b6c86e, type: 2}
