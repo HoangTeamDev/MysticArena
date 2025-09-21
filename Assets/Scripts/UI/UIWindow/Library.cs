@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 using System.Linq;
 using UnityEngine.U2D;
 using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
-using Menu.Card;
 using UI.SystemUI;
 using System.Text;
 using UnityEditor;
@@ -17,8 +16,7 @@ namespace UI.UIWindow
 {
     public class Library : UIBase
     {
-        [Header("Object")]
-        public List<CardInventory> cardInventories;
+        [Header("Object")]     
         public GameObject main;
         [Header("Main")]
         public GameObject mainMonter;
@@ -68,44 +66,7 @@ namespace UI.UIWindow
             buttonMonter.onClick.AddListener(OnShowMonter);
             buttonSplell.onClick.AddListener(OnShowSpell);
             mainMonter.SetActive(true);
-            mainSplell.SetActive(false);
-            for (int i = 1; i <= 740; i++)
-            {
-                CardData card = Resources.Load<CardData>("Data/" + i);
-                if (card != null)
-                {
-                    if (card.IsSpell)
-                    {
-                        CardInventory newo = Instantiate(cardInventories[0], ScollSplell.transform);
-                        newo.image.sprite = spriteAtlas.GetSprite(i.ToString());
-                        newo.textMeshProUGUI.text = card.Name;
-                        newo.ID = card.ID;
-                        newo.gameObject.SetActive(true);
-                        newo.OnInit();
-                    }
-                    else
-                    {
-                        if (card.Race == RaceType.God)
-                        {
-                            CardInventory newo = Instantiate(cardInventories[1], ScollMonter.transform);
-                            newo.image.sprite = spriteAtlas.GetSprite(i.ToString());
-                            newo.textMeshProUGUI.text = card.Name;
-                            newo.ID = card.ID;
-                            newo.gameObject.SetActive(true);
-                            newo.OnInit();
-                        }
-                        else
-                        {
-                            CardInventory newo = Instantiate(cardInventories[2], ScollMonter.transform);
-                            newo.image.sprite = spriteAtlas.GetSprite(i.ToString());
-                            newo.textMeshProUGUI.text = card.Name;
-                            newo.ID = card.ID;
-                            newo.gameObject.SetActive(true);
-                            newo.OnInit();
-                        }
-                    }
-                }
-            }
+            mainSplell.SetActive(false);           
             OnShowMonter();
         }
 

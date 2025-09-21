@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using Menu.Card;
 namespace Menu.MenuPlay
 {
     public class Deck
