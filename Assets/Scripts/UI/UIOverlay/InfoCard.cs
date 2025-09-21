@@ -1,5 +1,4 @@
 ﻿using DG.Tweening;
-using Menu.Card;
 using Menu.System;
 using System.Collections;
 using System.Collections.Generic;
@@ -53,97 +52,9 @@ namespace UI.UIOvelay
 
                 }
             }
-            CardData cardData = Resources.Load<CardData>("Data/" + id);
-            if (cardData != null)
-            {
-                switch (cardData.IsSpell)
-                {
-                    case true:
-                        ShowSpell(id, cardData);
-                        break;
-                    case false:
-                        ShowMonter(id, cardData);
-                        break;
-                }
-            }
+          
         }
-        public void ShowMonter(int id, CardData cardData)
-        {
-
-            if (cardData != null)
-            {
-                imageMonter.sprite = Resources.Load<Sprite>("Sprite/Image/" + id);
-                if (cardData.Race == RaceType.God)
-                {
-                    backgroundMonter.sprite = bgImage[0];
-                    Color newColor;
-                    if (ColorUtility.TryParseHtmlString(ReadColor.monterSP, out newColor))
-                    {
-                        backgroundMonter.color = newColor;
-                    }
-                    quality.sprite = iconQuality[3];
-                    backgroundQuality.sprite = imageBackgroundQuality[1];
-                }
-                else
-                {
-                    backgroundMonter.sprite = bgImage[1];
-                    Color newColor;
-                    if (ColorUtility.TryParseHtmlString(ReadColor.monter, out newColor))
-                    {
-                        backgroundMonter.color = newColor;
-                    }
-                    quality.sprite = iconQuality[2];
-                    backgroundQuality.sprite = imageBackgroundQuality[0];
-
-                }
-                LoadElement(cardData.Element.ToString());
-                nameMonter.text = cardData.Name;
-                level.text = ((int)cardData.Level).ToString();
-                ATK.text = cardData.ATK.ToString();
-                HP.text = cardData.HP.ToString();
-                info1.text = $"<color={ReadColor.Yellow}>Tộc</color>\n{cardData.Race}-{cardData.Keywords}";
-                info2.text = $"<color={ReadColor.Yellow}>Giới hạn</color>\nTrong bộ bài tối đa 3 lá.";
-                foreach (var data in cardData.Abilities)
-                {
-
-                    GameObject newo = Instantiate(ability, Sollview.transform);
-                    TextMeshProUGUI textMeshProUGUI = newo.GetComponentInChildren<TextMeshProUGUI>();
-                    if (textMeshProUGUI != null)
-                    {
-                        textMeshProUGUI.text = $"<color={ReadColor.Yellow}>{data.AbilityName}:</color>\n{data.Description}";
-                    }
-                    newo.SetActive(true);
-                }
-                Sollview.transform.GetChild(0).gameObject.SetActive(false);
-                montercard.SetActive(true);
-            }
-        }
-        public void ShowSpell(int id, CardData cardData)
-        {
-            if (cardData != null)
-            {
-                imageSpell.sprite = Resources.Load<Sprite>("Sprite/Image/" + id);
-                nameSpell.text = cardData.Name;
-                info1.text = $"<color={ReadColor.Yellow}>Từ khóa</color>\n{cardData.Keywords}";
-                info2.text = $"<color={ReadColor.Yellow}>Giới hạn</color>\nTrong bộ bài tối đa 3 lá.";
-                foreach (var data in cardData.Abilities)
-                {
-
-                    GameObject newo = Instantiate(ability, Sollview.transform);
-                    TextMeshProUGUI textMeshProUGUI = newo.GetComponentInChildren<TextMeshProUGUI>();
-                    if (textMeshProUGUI != null)
-                    {
-                        textMeshProUGUI.text = $"<color={ReadColor.Yellow}>{data.AbilityName}:</color>\n{data.Description}";
-                    }
-                    newo.SetActive(true);
-                }
-
-            }
-            Sollview.transform.GetChild(0).gameObject.SetActive(false);
-            spellCard.SetActive(true);
-
-
-        }
+      
         public void LoadElement(string name)
         {
             switch (name)
