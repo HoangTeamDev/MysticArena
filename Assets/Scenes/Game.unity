@@ -6148,8 +6148,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960, y: -955}
-  m_SizeDelta: {x: 1920, y: 250}
+  m_AnchoredPosition: {x: 992.8755, y: -925.78033}
+  m_SizeDelta: {x: 1985.751, y: 238.31213}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &134497967
 MonoBehaviour:
@@ -26118,10 +26118,6 @@ MonoBehaviour:
   isOpen: 0
   isHide: 1
   isNeverHide: 0
-  cardInventories:
-  - {fileID: 8472391939606856901}
-  - {fileID: 8298514013521046110}
-  - {fileID: 8640616763496955142}
   main: {fileID: 0}
   mainMonter: {fileID: 1338180199}
   ScollMonter: {fileID: 1434477911}
@@ -27767,8 +27763,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960, y: -490}
-  m_SizeDelta: {x: 1920, y: 680}
+  m_AnchoredPosition: {x: 992.8755, y: -478.31213}
+  m_SizeDelta: {x: 1985.751, y: 656.62427}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &659068776
 MonoBehaviour:
@@ -39681,7 +39677,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 4294967295
 --- !u!114 &933352766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39699,7 +39695,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 1
+  m_MatchWidthOrHeight: 0.505
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -56697,8 +56693,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 150, y: -340}
-  m_SizeDelta: {x: 300, y: 680}
+  m_AnchoredPosition: {x: 160.9585, y: -328.31213}
+  m_SizeDelta: {x: 321.917, y: 656.62427}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1288550196
 MonoBehaviour:
@@ -57465,7 +57461,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960, y: -615}
+  m_AnchoredPosition: {x: 960, y: 0}
   m_SizeDelta: {x: 1920, y: 930}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1311352384
@@ -65370,8 +65366,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1770, y: -340}
-  m_SizeDelta: {x: 300, y: 680}
+  m_AnchoredPosition: {x: 1824.7925, y: -328.31213}
+  m_SizeDelta: {x: 321.917, y: 656.62427}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1447022933
 MonoBehaviour:
@@ -74684,8 +74680,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960, y: -75}
-  m_SizeDelta: {x: 1920, y: 150}
+  m_AnchoredPosition: {x: 992.8755, y: -75}
+  m_SizeDelta: {x: 1985.751, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1670110803
 MonoBehaviour:
@@ -78270,7 +78266,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960, y: -75}
+  m_AnchoredPosition: {x: 960, y: 0}
   m_SizeDelta: {x: 1920, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1762471795
@@ -79701,8 +79697,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960, y: -340}
-  m_SizeDelta: {x: 1320, y: 680}
+  m_AnchoredPosition: {x: 992.8755, y: -328.31213}
+  m_SizeDelta: {x: 1341.917, y: 680}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1806240162
 MonoBehaviour:
@@ -97302,7 +97298,6 @@ GameObject:
   - component: {fileID: 8298514013521046109}
   - component: {fileID: 4555012811513504526}
   - component: {fileID: 5928149271368307022}
-  - component: {fileID: 8298514013521046110}
   - component: {fileID: 8298514013521046111}
   m_Layer: 0
   m_Name: CardGod
@@ -97566,7 +97561,6 @@ GameObject:
   - component: {fileID: 3820766604200510139}
   - component: {fileID: 1168334215695855239}
   - component: {fileID: 8472391939606856900}
-  - component: {fileID: 8472391939606856901}
   - component: {fileID: 8472391939606856902}
   m_Layer: 0
   m_Name: CardSpell
@@ -98043,7 +98037,6 @@ GameObject:
   - component: {fileID: 5342712871082036700}
   - component: {fileID: 2508066961052452766}
   - component: {fileID: 8640616763496955141}
-  - component: {fileID: 8640616763496955142}
   - component: {fileID: 8640616763496955143}
   m_Layer: 0
   m_Name: Card
@@ -98111,31 +98104,6 @@ RectTransform:
   m_AnchoredPosition: {x: 320, y: -47.5}
   m_SizeDelta: {x: 200, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8298514013521046110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1227882313557090933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 613098d367467594b87988baf478cd60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _canDrag: 0
-  _canvasGroup: {fileID: 0}
-  _data: {fileID: 0}
-  _button: {fileID: 8298514013521046111}
-  ID: 0
-  Name: 
-  Description: 
-  Type: 0
-  Keywords: 0
-  mparent: {fileID: 0}
-  cardEff: {fileID: 0}
-  image: {fileID: 6301910607012409854}
-  textMeshProUGUI: {fileID: 2035982545724372162}
 --- !u!114 &8298514013521046111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98240,31 +98208,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8472391939606856901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2767429243707706516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 613098d367467594b87988baf478cd60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _canDrag: 0
-  _canvasGroup: {fileID: 0}
-  _data: {fileID: 0}
-  _button: {fileID: 8472391939606856902}
-  ID: 0
-  Name: 
-  Description: 
-  Type: 0
-  Keywords: 0
-  mparent: {fileID: 0}
-  cardEff: {fileID: 0}
-  image: {fileID: 6829694924466433228}
-  textMeshProUGUI: {fileID: 1700841980405674433}
 --- !u!114 &8472391939606856902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98357,31 +98300,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8640616763496955142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7290067227086405241}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 613098d367467594b87988baf478cd60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _canDrag: 0
-  _canvasGroup: {fileID: 0}
-  _data: {fileID: 0}
-  _button: {fileID: 8640616763496955143}
-  ID: 0
-  Name: 
-  Description: 
-  Type: 0
-  Keywords: 0
-  mparent: {fileID: 0}
-  cardEff: {fileID: 0}
-  image: {fileID: 3951725039584414935}
-  textMeshProUGUI: {fileID: 5081850553511373917}
 --- !u!114 &8640616763496955143
 MonoBehaviour:
   m_ObjectHideFlags: 0
