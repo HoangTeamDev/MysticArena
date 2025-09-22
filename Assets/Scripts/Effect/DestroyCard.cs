@@ -4,21 +4,42 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace Effect
 {
-    [System.Serializable]
-    public class DrawCardEffect : ICardEffect
+    /// <summary>
+    /// Destroys a card on the field.
+    /// </summary>
+    /// 
+    public enum DestroyCardType
     {
-        public int Count { get; set; } = 1;
-        public DrawOwner Owner  = DrawOwner.Self;
-        public DrawcardType drawcardType = DrawcardType.Random;           
+        Random,
+        Targeted
+    }
+
+    public enum DestroyOwner
+    {
+        Self,
+        Opponent,
+        Both
+    }
+    public enum ZoneFilter
+    {
+        Monster,
+        SpellTrap,
+        All
+    }
+
+    public class DestroyCard : ICardEffect
+    {
+        public int maxDestroy=-1;
+
+        public DestroyCardType destroyCardType=DestroyCardType.Random;
+        public DestroyOwner destroyOwner=DestroyOwner.Opponent;
         public RequirePhase RequirePhase = RequirePhase.Any;
         public RequireType RequireType = RequireType.Any;
         public RequireRace RequireRace = RequireRace.Any;
         public RequireLevel RequireLevel = RequireLevel.Any;
         public RequireAttribute RequireAttribute = RequireAttribute.Any;
         public RequireKeyword RequireKeyword = RequireKeyword.Any;
-        public int MinHandRequired = -1;          
-
-
+       
         public override void Activite()
         {
             base.Activite();
