@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace Card.Data {
+namespace Card {
     public enum Tribe
     {
         None = 0,
@@ -76,10 +76,10 @@ namespace Card.Data {
     }
     [Serializable]
     [CreateAssetMenu(fileName = "New Card", menuName = "Card/Create New Card")]
-    public class Carddata:ScriptableObject
+    public class CardData:ScriptableObject
     {
         public int id;  
-        public string name;
+        public string nameCard;
         public Tribe tribe=Tribe.None;
         public Element element=Element.None;
         public CardType cardType=CardType.None;
@@ -88,6 +88,8 @@ namespace Card.Data {
         public int ATK=0;
         public int HP=0;
         public int level=1;
+        public List<Skill> skills=new List<Skill>();
     }
+
 }
 
