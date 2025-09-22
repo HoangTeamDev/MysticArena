@@ -3,10 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 namespace Effect
-{
-   
-    
-    [CreateAssetMenu(fileName = "DiscardEffect", menuName = "Card/Effect/DiscardEffect")]
+{   
     public class DiscardEffect : ICardEffect
     {     
         public int Count { get; set; } = 1;
@@ -19,7 +16,7 @@ namespace Effect
         public RequireAttribute RequireAttribute = RequireAttribute.Any;
         public RequireKeyword RequireKeyword = RequireKeyword.Any;
         public int MinHandRequired  = -1;
-        public bool RequirePrevSuccess = false;
+        
 
        
 
