@@ -111,41 +111,30 @@ namespace Card
         RecoverFromGrave = 12, // Lấy từ Mộ về tay
         SpecialSummon = 13, // Triệu hồi đặc biệt
         BanishCard = 14, // Loại bỏ khỏi game
-        ReturnToHand = 15, // Đưa bài trên sân về tay
-        ReturnToDeck = 16, // Đưa bài về Deck
-        ShuffleDeck = 17, // Xáo trộn Deck
-        ReviveSelf = 18, // Tự hồi sinh từ mộ
-        RevealCard = 19, // Lật/cho đối thủ xem bài
+        ReturnCard = 15, // Đưa bài trên sân về tay      
+      
+       
 
         // ==================== Buff / Debuff (20–29) ====================
-        DebuffAttack = 20, // Giảm ATK
-        DebuffHP = 21, // Giảm HP
-        Piercing = 22, // Damage xuyên thủ
-        DoubleAttack = 23, // Tấn công 2 lần
-        Protect = 24, // Khiên bảo vệ (không bị phá hủy 1 lần)
-        PreventEffect = 25, // Ngăn đối thủ kích hoạt hiệu ứng
-        LifeLink = 26, // Hút máu (gây damage → hồi LP)
-        BuffAllies = 27, // Buff đồng minh toàn bàn
-        DebuffEnemies = 28, // Debuff kẻ địch toàn bàn
-        Immunity = 29, // Miễn nhiễm hiệu ứng
+        Debuff = 16, // Giảm ATK      
+        Piercing = 17, // Damage xuyên thủ
+        MultiAttack = 18, // Tấn công 2 lần
+        Protect = 19, // Khiên bảo vệ (không bị phá hủy 1 lần)
+        LifeLink = 20, // Hút máu (gây damage → hồi LP)
+                     
 
         // ==================== Control / Manipulation (30–39) ====================
-        ChangeControl = 30, // Đổi quyền kiểm soát quái
-        FlipCard = 31, // Lật ngửa úp 1 lá
-        LockCard = 32, // Khóa lá không cho dùng/tấn công
-        CopyEffect = 33, // Sao chép hiệu ứng
-        StealCard = 34, // Ăn cắp bài từ tay/Deck đối thủ
-        SealField = 35, // Ngăn đặt/lật bài mới trong X lượt
-        Silence = 36, // Vô hiệu kỹ năng quái trong X lượt
+        ChangeControl = 21, // Đổi quyền kiểm soát quái            
+        StealCard = 22, // Ăn cắp bài từ tay/Deck đối thủ      
+        Silence = 23, // Vô hiệu kỹ năng quái trong X lượt
        
 
         // ==================== Summon / Evolution (40–49) ====================
-        FusionSummon = 40, // Triệu hồi kết hợp (Fusion)
-        Evolution = 45, // Tiến hóa/Upgrade
-        Absorb = 46, // Hấp thụ quái khác
-        TokenTransform = 47, // Biến token thành quái thật
-        FieldSummon = 48, // Triệu hồi dựa theo điều kiện sân
-        RandomSummon = 49  // Triệu hồi ngẫu nhiên
+        FusionSummon = 24, // Triệu hồi kết hợp (Fusion)
+        Evolution = 25, // Tiến hóa/Upgrade
+        Absorb = 26, // Hấp thụ quái khác
+        
+       
     }
 
     [System.Serializable]
