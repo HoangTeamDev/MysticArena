@@ -40,11 +40,11 @@ namespace UIScripts.SystemUI
         /// <summary>
         /// Thực hiện hiệu ứng Fade bằng DOTween rồi chờ cho hoàn tất.
         /// </summary>
-        public static async UniTask Fade(CanvasGroup canvasGroup, float toAlpha, float duration, MonoBehaviour context)
+     /*   public static async UniTask Fade(CanvasGroup canvasGroup, float toAlpha, float duration, MonoBehaviour context)
         {
-            var tween = canvasGroup.DOFade(toAlpha, duration);
+           // var tween = canvasGroup.DOFade(toAlpha, duration);
             await tween.AsyncWaitForCompletion(); // ✅ đúng cách
-        }
+        }*/
         /// <summary>
         /// Chờ đến khi điều kiện trả về true.
         /// </summary>
@@ -91,11 +91,11 @@ namespace UIScripts.SystemUI
         /// <summary>
         /// Chờ đến khi CanvasGroup có thể sử dụng được, sau đó thực hiện Tween.
         /// </summary>
-        public static async UniTask WaitThenTween(CanvasGroup canvasGroup, float targetAlpha, float duration, MonoBehaviour context)
+       /* public static async UniTask WaitThenTween(CanvasGroup canvasGroup, float targetAlpha, float duration, MonoBehaviour context)
         {
             await WaitUntil(() => canvasGroup != null && canvasGroup.gameObject.activeInHierarchy, context);
             await Fade(canvasGroup, targetAlpha, duration, context);
-        }
+        }*/
 
         /// <summary>
         /// Thực hiện nhiều bước delay liên tiếp, mỗi bước có thời gian và hành động riêng.
