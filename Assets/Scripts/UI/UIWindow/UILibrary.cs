@@ -14,7 +14,7 @@ using UI.ItemUI;
 
 namespace UI.UIWindow
 {
-    public class Library : UIBase
+    public class UILibrary : UIBase
     {
         [Header("Object")]     
         public GameObject main;
@@ -96,10 +96,7 @@ namespace UI.UIWindow
             base.OnPointerClick(pointerEventData);
         }
 
-        public override void ShowInfoItem(StringBuilder sb, Item item)
-        {
-            base.ShowInfoItem(sb, item);
-        }
+        
 
         protected override void OnEnable()
         {

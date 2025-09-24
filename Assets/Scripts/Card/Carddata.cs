@@ -39,24 +39,24 @@ namespace Card {
         Light = 5,
         Dark = 6
     }
-    [Flags]
+    
     public enum CardKeyword
     {
-        None = 0,
-        Evolver = 1,
-        DragonDeity = 2,
-        HolyKnight = 3,
-        Vampire = 4,
-        TyrantDragon = 5,
-        BeastMachine = 6,
-        Jurassic = 7,
-        DivineBlessing =8,
-        WitchOfDoom =9,
-        PhantomVeil =10,
-        FlourishingBloom =11,
-        Necromancy =12,
-        Tideflow =13,
-        PrimordialLife =14,
+        None,
+        Evolver,
+        DragonDeity,
+        HolyKnight,
+        Vampire,
+        TyrantDragon,
+        BeastMachine,
+        Jurassic,
+        DivineBlessing,
+        WitchOfDoom,
+        PhantomVeil,
+        FlourishingBloom,
+        Necromancy,
+        Tideflow,
+        PrimordialLife,
 
 
 

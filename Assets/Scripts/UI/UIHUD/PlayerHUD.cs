@@ -20,7 +20,7 @@ namespace UI.UIHUD
             base.Init();
             _Library.onClick.AddListener(() =>
             {
-                Library library = UIController.Instance.Get<Library>(WindowType.Library);
+                UILibrary library = UIController.Instance.Get<UILibrary>(WindowType.UI_Library);
                 if (library != null )
                 {
                     library.OpenMe();
@@ -43,10 +43,7 @@ namespace UI.UIHUD
             base.OpenMe();
         }
 
-        public override void ShowInfoItem(StringBuilder sb, Item item)
-        {
-            base.ShowInfoItem(sb, item);
-        }
+       
 
         protected override void OnDestroy()
         {

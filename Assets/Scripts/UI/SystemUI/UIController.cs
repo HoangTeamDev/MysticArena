@@ -4,7 +4,6 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using Mono.Data.Sqlite;
 namespace UI.SystemUI
 {
     public class UIController : MonoBehaviour

@@ -8,10 +8,11 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 namespace UI.UIWindow
 {
-    public class Inventory : UIBase
+    public enum TypeItemSlot { Inventory, Equiment, Upgrade, Skill, Shop }
+    public class UIInventory : UIBase
     {
-        public Item _itemPre;
-        public List<Item> _listItem;
+        public ItemSlotBase _itemPre;
+        public List<ItemSlotBase> _listItem;
         public GameObject _conten;
 
         public override void Init()
@@ -34,10 +35,7 @@ namespace UI.UIWindow
             base.OpenMe();
         }
 
-        public override void ShowInfoItem(StringBuilder sb, Item item)
-        {
-            base.ShowInfoItem(sb, item);
-        }
+       
 
         protected override void OnDestroy()
         {

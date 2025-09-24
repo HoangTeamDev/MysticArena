@@ -12,7 +12,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 namespace UI.UIOvelay
 {
-    public class InfoCard : UIBase
+    public class UIInfoCard : UIBase
     {
         [Header("Monter")]
         public List<Sprite> iconQuality;
@@ -116,10 +116,7 @@ namespace UI.UIOvelay
             base.OnPointerClick(pointerEventData);
         }
 
-        public override void ShowInfoItem(StringBuilder sb, Item item)
-        {
-            base.ShowInfoItem(sb, item);
-        }
+      
 
         protected override void OnEnable()
         {

@@ -16,6 +16,8 @@ namespace Card
     {
         public string skillId;
         public string name;
+        [TextArea(5, 10)]
+        public string description;
         public SkillActivation activation;
         public int speed;
         public int limitPerTurn;
