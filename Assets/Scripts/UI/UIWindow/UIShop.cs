@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 namespace UI.UIWindow
 {
-    public class Shop : UIBase
+    public class UIShop : UIBase
     {
         
         public override void Init()
@@ -30,10 +30,7 @@ namespace UI.UIWindow
             base.OpenMe();
         }
 
-        public override void ShowInfoItem(StringBuilder sb, Item item)
-        {
-            base.ShowInfoItem(sb, item);
-        }
+       
 
         protected override void OnDestroy()
         {

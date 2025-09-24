@@ -15,11 +15,11 @@ namespace UI.SystemUI
     }
     public enum WindowType
     {
-       PlayerHUD,
-       Inventory,
-       Shop,
-       Library,
-       InfoCard
+       UI_PlayerHUD,
+       UI_Inventory,
+       UI_Shop,
+       UI_Library,
+       UI_InfoCard
 
     }
     public abstract class UIBase : MonoBehaviour, IPointerClickHandler
@@ -29,6 +29,7 @@ namespace UI.SystemUI
         public bool isOpen;
         public bool isHide;
         public bool isNeverHide;
+        public CanvasGroup canvasGroup;
         public virtual void Init()
         {
             MainLog.Log($"✅ Khởi tạo thành công 'UIKey': [{Key}]", $"WindowType: {WindowType}", ReadColor.Turquoise);
@@ -57,10 +58,7 @@ namespace UI.SystemUI
             }
         }
 
-        public virtual void ShowInfoItem(System.Text.StringBuilder sb, Item item)
-        {
-
-        }
+       
         protected virtual void OnEnable() { }
 
 
