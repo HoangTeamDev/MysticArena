@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 40
+  m_EditorClassIdentifier: 
+  id: 40
+  nameCard: Last Flame of the Ancients
+  tribe: 4
+  element: 7
+  cardType: 2
+  rarity: 2
+  cardKeyword: 2
+  ATK: 3400
+  HP: 3800
+  level: 6
+  skills:
+  - skillId: 
+    name: "Gi\xE1ng Th\u1EBF C\u1ED5 Long"
+    description: "N\u1EBFu b\u1EA1n c\xF3 5 qu\xE1i \"Dragon Deity\" tr\xEAn s\xE2n
+      ho\u1EB7c trong m\u1ED9, tri\u1EC7u h\u1ED3i \u0111\u1EB7c bi\u1EC7t \"Primordial
+      Dragon - Zenith\" ngay l\u1EADp t\u1EE9c."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

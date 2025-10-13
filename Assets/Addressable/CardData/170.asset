@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 170
+  m_EditorClassIdentifier: 
+  id: 170
+  nameCard: Soul Sacrifice
+  tribe: 13
+  element: 6
+  cardType: 2
+  rarity: 1
+  cardKeyword: 9
+  ATK: 2000
+  HP: 2600
+  level: 6
+  skills:
+  - skillId: 
+    name: "Hi\u1EBFn T\u1EBF Ph\xFAc L\xE0nh"
+    description: "Hi\u1EBFn t\u1EBF 1 qu\xE1i v\u1EADt \"Witch of Doom\" b\u1EA1n
+      \u0111i\u1EC1u khi\u1EC3n \u0111\u1EC3 h\u1ED3i ph\u1EE5c 1000 LP."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

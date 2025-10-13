@@ -18,12 +18,12 @@ MonoBehaviour:
   m_GUID: 3191e57897639a14586138c8540be91c
   m_SerializeEntries:
   - m_GUID: Resources
-    m_Address: Resources
+    m_Address: '*/Resources/'
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: EditorSceneList
-    m_Address: EditorSceneList
+    m_Address: Scenes In Build
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

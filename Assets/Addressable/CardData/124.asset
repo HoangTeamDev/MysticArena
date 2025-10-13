@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 124
+  m_EditorClassIdentifier: 
+  id: 124
+  nameCard: Predator Cerato
+  tribe: 12
+  element: 4
+  cardType: 1
+  rarity: 2
+  cardKeyword: 7
+  ATK: 400
+  HP: 400
+  level: 1
+  skills:
+  - skillId: 
+    name: "\u0110\u1ED9t K\xEDch H\u1EE7y Di\u1EC7t"
+    description: "Khi b\xE0i n\xE0y \u1EDF tr\xEAn s\xE2n, \u0111\u1ED1i th\u1EE7
+      kh\xF4ng th\u1EC3 t\u1EA5n c\xF4ng tr\u1EF1c ti\u1EBFp phe ta."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "H\u1ED3i Sinh T\u1EEB Tro T\xE0n"
+    description: "Khi b\u1ECB ph\xE1 h\u1EE7y, tri\u1EC7u h\u1ED3i t\u1ED1i \u0111a
+      2 l\xE1 b\xE0i c\xF9ng t\xEAn t\u1EEB b\u1ED9 b\xE0i ho\u1EB7c tay."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

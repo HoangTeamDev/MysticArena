@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 12
+  m_EditorClassIdentifier: 
+  id: 12
+  nameCard: God of Dragons - Bahamut
+  tribe: 4
+  element: 7
+  cardType: 1
+  rarity: 2
+  cardKeyword: 1
+  ATK: 3400
+  HP: 3700
+  level: 6
+  skills:
+  - skillId: 
+    name: "Th\u1EA7n Long Ph\xE1n X\xE9t"
+    description: "N\u1EBFu b\xE0i n\xE0y \u0111\u01B0\u1EE3c tri\u1EC7u h\u1ED3i
+      b\u1EB1ng \"Ti\u1EBFn H\xF3a\", khi tri\u1EC7u h\u1ED3i th\xE0nh c\xF4ng, ph\xE1
+      h\u1EE7y t\u1EA5t c\u1EA3 qu\xE1i tr\xEAn s\xE2n \u0111\u1ED1i th\u1EE7 c\xF3
+      ATK th\u1EA5p h\u01A1n b\xE0i n\xE0y."
+    activation: 3
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "Th\u1EA7n Uy B\xE1 Ch\u1EE7"
+    description: "Khi b\xE0i n\xE0y \u0111\u01B0\u1EE3c tri\u1EC7u h\u1ED3i th\xE0nh
+      c\xF4ng l\xEAn s\xE2n, v\xF4 hi\u1EC7u h\xF3a t\u1EA5t c\u1EA3 hi\u1EC7u \u1EE9ng
+      qu\xE1i \u0111\u1ED1i th\u1EE7 hi\u1EC7n \u0111ang c\xF3 tr\xEAn s\xE2n."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "B\xE1 Kh\xED B\u1EA5t Di\u1EC7t"
+    description: "B\xE0i n\xE0y kh\xF4ng th\u1EC3 b\u1ECB ph\xE1 h\u1EE7y b\u1EDFi
+      qu\xE1i v\u1EADt c\xF3 ATK th\u1EA5p h\u01A1n n\xF3."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

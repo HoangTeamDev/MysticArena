@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 72
+  m_EditorClassIdentifier: 
+  id: 72
+  nameCard: Block Attack
+  tribe: 5
+  element: 6
+  cardType: 2
+  rarity: 1
+  cardKeyword: 4
+  ATK: 1500
+  HP: 1800
+  level: 4
+  skills:
+  - skillId: 
+    name: "Huy\u1EBFt Ch\xFA Ph\u1EA3n K\xEDch"
+    description: "Khi m\u1ED9t qu\xE1i c\u1EE7a \u0111\u1ED1i th\u1EE7 t\u1EA5n c\xF4ng
+      qu\xE1i \"Vampire\" b\u1EA1n \u0111i\u1EC1u khi\u1EC3n, v\xF4 hi\u1EC7u h\xF3a
+      \u0111\xF2n t\u1EA5n c\xF4ng. N\u1EBFu th\xE0nh c\xF4ng, h\u1ED3i ph\u1EE5c
+      LP b\u1EB1ng ATK c\u1EE7a qu\xE1i v\u1EADt t\u1EA5n c\xF4ng."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

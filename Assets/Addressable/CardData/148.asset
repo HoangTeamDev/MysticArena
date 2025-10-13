@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 148
+  m_EditorClassIdentifier: 
+  id: 148
+  nameCard: Holy Archangel
+  tribe: 3
+  element: 5
+  cardType: 1
+  rarity: 2
+  cardKeyword: 8
+  ATK: 2300
+  HP: 2600
+  level: 5
+  skills:
+  - skillId: 
+    name: "Quy\u1EC1n N\u0103ng Th\xE1nh Th\u1EA7n"
+    description: "Khi b\xE0i n\xE0y \u0111\u01B0\u1EE3c tri\u1EC7u h\u1ED3i d\u1EB7c
+      bi\u1EC7t, ch\u1ECDn t\u1ED1i \u0111a 2 qu\xE1i \"Divine Blessing\" trong m\u1ED9
+      th\xEAm ch\xFAng v\xE0o tay."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "Tr\u1EEBng Ph\u1EA1t Ph\xFAc L\xE0nh"
+    description: "Khi b\xE0i n\xE0y b\u1ECB ph\xE1 h\u1EE7y, ph\xE1 h\u1EE7y t\u1ED1i
+      \u0111a 2 l\xE1 b\xE0i tr\xEAn s\xE2n, t\u01B0\u01A1ng \u0111\u01B0\u01A1ng
+      v\u1EDBi s\u1ED1 l\u01B0\u1EE3ng qu\xE1i v\u1EADt \"Divine Blessing\" b\u1EA1n
+      \u0111i\u1EC1u khi\u1EC3n."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 107
+  m_EditorClassIdentifier: 
+  id: 107
+  nameCard: Steel Barrier
+  tribe: 7
+  element: 2
+  cardType: 2
+  rarity: 1
+  cardKeyword: 6
+  ATK: 1400
+  HP: 1500
+  level: 3
+  skills:
+  - skillId: 
+    name: "S\u1EE9c M\u1EA1nh C\u01A1 Gi\u1EDBi"
+    description: "Khi m\u1ED9t qu\xE1i \"Beast Machine\" b\u1ECB t\u1EA5n c\xF4ng,
+      t\u0103ng 500 ATK cho qu\xE1i \u0111\xF3."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

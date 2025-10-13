@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 140
+  m_EditorClassIdentifier: 
+  id: 140
+  nameCard: Blessed Pixie
+  tribe: 3
+  element: 5
+  cardType: 1
+  rarity: 1
+  cardKeyword: 8
+  ATK: 800
+  HP: 1200
+  level: 1
+  skills:
+  - skillId: 
+    name: "H\u1ED3i Ph\u1EE5c Th\xE1nh Thi\u1EC7n"
+    description: "Khi b\xE0i n\xE0y tri\u1EC7u h\u1ED3i th\u01B0\u1EDDng, h\u1ED3i
+      ph\u1EE5c 300 LP cho b\u1EA1n."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "Ph\xFAc L\xE0nh T\xE1i Sinh"
+    description: "Khi b\xE0i n\xE0y b\u1ECB ph\xE1 h\u1EE7y, h\u1ED3i ph\u1EE5c 200
+      LP."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

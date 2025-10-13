@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 80
+  m_EditorClassIdentifier: 
+  id: 80
+  nameCard: Mimic Clone
+  tribe: 5
+  element: 6
+  cardType: 2
+  rarity: 1
+  cardKeyword: 4
+  ATK: 1500
+  HP: 1800
+  level: 4
+  skills:
+  - skillId: 
+    name: "Huy\u1EBFt \u1EA2nh Ph\u1EA3n Chi\u1EBFu"
+    description: "N\u1EBFu b\u1EA1n \u0111i\u1EC1u khi\u1EC3n m\u1ED9t qu\xE1i \"Vampire\",
+      ch\u1ECDn 1 qu\xE1i c\u1EE7a \u0111\u1ED1i th\u1EE7, sau \u0111\xF3 tri\u1EC7u
+      h\u1ED3i d\u1EB7c bi\u1EC7t 1 Token tr\xEAn s\xE2n c\u1EE7a b\u1EA1n v\u1EDBi
+      ATK v\xE0 HP b\u1EB1ng qu\xE1i \u0111\xE3 ch\u1ECDn."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

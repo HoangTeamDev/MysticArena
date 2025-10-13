@@ -2,7 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace Card {
+namespace Card
+{
     public enum Tribe
     {
         None = 0,
@@ -37,9 +38,10 @@ namespace Card {
         Wind = 3,
         Earth = 4,
         Light = 5,
-        Dark = 6
+        Dark = 6,
+        Thunder = 7
     }
-    
+
     public enum CardKeyword
     {
         None,
@@ -61,34 +63,35 @@ namespace Card {
 
 
     }
-
+    
     public enum CardType
     {
         None = 0,
         Monter = 1,
-        Spell = 2      
+        Spell = 2
     }
     public enum Rarity
-    {      
+    {
         SR = 1,
         UR = 2,
         GR = 3
     }
+    
     [Serializable]
     [CreateAssetMenu(fileName = "New Card", menuName = "Card/Create New Card")]
-    public class CardData:ScriptableObject
+    public class CardData : ScriptableObject
     {
-        public int id;  
+        public int id;
         public string nameCard;
-        public Tribe tribe=Tribe.None;
-        public Element element=Element.None;
-        public CardType cardType=CardType.None;
-        public Rarity rarity=Rarity.SR;
-        public CardKeyword cardKeyword=CardKeyword.None;
-        public int ATK=0;
-        public int HP=0;
-        public int level=1;
-        public List<Skill> skills=new List<Skill>();
+        public Tribe tribe = Tribe.None;
+        public Element element = Element.None;
+        public CardType cardType = CardType.None;
+        public Rarity rarity = Rarity.SR;
+        public CardKeyword cardKeyword = CardKeyword.None;
+        public int ATK = 0;
+        public int HP = 0;
+        public int level;
+        public List<Skill> skills = new List<Skill>();
     }
 
 }

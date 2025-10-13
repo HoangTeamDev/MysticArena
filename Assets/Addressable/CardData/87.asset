@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 87
+  m_EditorClassIdentifier: 
+  id: 87
+  nameCard: Demonic Awakening
+  tribe: 4
+  element: 6
+  cardType: 2
+  rarity: 2
+  cardKeyword: 5
+  ATK: 3000
+  HP: 3500
+  level: 6
+  skills:
+  - skillId: 
+    name: "Th\u1ED1ng Tr\u1ECB Tuy\u1EC7t \u0110\u1ED1i"
+    description: "N\u1EBFu \u0111\u1ED1i th\u1EE7 tri\u1EC7u h\u1ED3i \u0111\u1EB7c
+      bi\u1EC7t m\u1ED9t qu\xE1i v\u1EADt. N\u1EBFu tr\xEAn s\xE2n b\u1EA1n c\xF3
+      \"Tyrant Minion\" hi\u1EBFn t\u1EBF n\xF3 tri\u1EC7u h\u1ED3i d\u1EB7c bi\u1EC7t
+      \"Doom Tyrant Dragon\" t\u1EEB b\u1ED9 b\xE0i, m\u1ED9 ho\u1EB7c tay."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

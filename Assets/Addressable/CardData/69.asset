@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 69
+  m_EditorClassIdentifier: 
+  id: 69
+  nameCard: Unknown Savior
+  tribe: 5
+  element: 6
+  cardType: 2
+  rarity: 2
+  cardKeyword: 4
+  ATK: 1500
+  HP: 1800
+  level: 4
+  skills:
+  - skillId: 
+    name: "Kh\xE1t M\xE1u Th\u1ED1ng Tr\u1ECB"
+    description: "N\u1EBFu b\u1EA1n \u0111i\u1EC1u khi\u1EC3n m\u1ED9t qu\xE1i \"Vampire\"
+      tr\xEAn s\xE2n v\xE0 HP c\u1EE7a b\u1EA1n th\u1EA5p h\u01A1n \u0111\u1ED1i
+      th\u1EE7, r\xFAt 2 l\xE1 b\xE0i, sau \u0111\xF3 b\u1ECF 1 l\xE1 b\xE0i."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

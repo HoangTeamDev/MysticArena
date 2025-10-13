@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 41
+  m_EditorClassIdentifier: 
+  id: 41
+  nameCard: Mystic Rebirth
+  tribe: 4
+  element: 7
+  cardType: 2
+  rarity: 2
+  cardKeyword: 2
+  ATK: 3400
+  HP: 3800
+  level: 6
+  skills:
+  - skillId: 
+    name: "T\xE1i Sinh Th\u1EA7n Long"
+    description: "Ch\u1ECDn 1 qu\xE1i \"Dragon Deity\" c\u1EA5p 3 ho\u1EB7c th\u1EA5p
+      h\u01A1n t\u1EEB m\u1ED9 v\xE0 1 t\u1EEB tay tri\u1EC7u h\u1ED3i \u0111\u1EB7c
+      bi\u1EC7t ch\xFAng l\xEAn s\xE2n."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

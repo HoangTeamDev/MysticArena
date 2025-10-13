@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 102
+  m_EditorClassIdentifier: 
+  id: 102
+  nameCard: Cyber Tiger
+  tribe: 7
+  element: 2
+  cardType: 1
+  rarity: 1
+  cardKeyword: 6
+  ATK: 1700
+  HP: 2200
+  level: 4
+  skills:
+  - skillId: 
+    name: "S\u1EE9c M\u1EA1nh M\xE1y Th\xFA"
+    description: "N\u1EBFu b\u1EA1n \u0111i\u1EC1u khi\u1EC3n \xEDt nh\u1EA5t 1 qu\xE1i
+      v\u1EADt \"Beast Machine\" kh\xE1c, b\xE0i n\xE0y mi\u1EC5n nhi\u1EC5m v\u1EDBi
+      hi\u1EC7u \u1EE9ng b\xE0i."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "S\u1EE9c M\u1EA1nh T\u1EA5n C\xF4ng"
+    description: "Khi b\xE0i n\xE0y t\u1EA5n c\xF4ng, gi\u1EA3m 300 ATK c\u1EE7a
+      qu\xE1i v\u1EADt b\u1ECB t\u1EA5n c\xF4ng."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

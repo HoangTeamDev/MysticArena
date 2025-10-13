@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 119
+  m_EditorClassIdentifier: 
+  id: 119
+  nameCard: Tyrant King Rex
+  tribe: 12
+  element: 4
+  cardType: 1
+  rarity: 2
+  cardKeyword: 7
+  ATK: 1200
+  HP: 1500
+  level: 3
+  skills:
+  - skillId: 
+    name: "Ph\u1EA3n K\xEDch B\u1EA1o Ch\xFAa"
+    description: "Khi b\xE0i n\xE0y b\u1ECB t\u1EA5n c\xF4ng, n\u1EBFu tr\xEAn s\xE2n
+      b\u1EA1n c\xF3 qu\xE1i \"Jurassic\", r\xFAt m\u1ED9t l\xE1 b\xE0i."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "B\u1EA1o Ch\xFAa Th\u1EE9c Gi\u1EA5c"
+    description: " Khi b\xE0i n\xE0y trong m\u1ED9, n\u1EBFu \u0111\u1ED1i th\u1EE7
+      tri\u1EC7u h\u1ED3i \u0111\u1EB7c bi\u1EC7t m\u1ED9t qu\xE1i v\u1EADy c\xF3
+      ATK 1500 tr\u1EDF l\xEAn, lo\u1EA1i b\u1ECF b\u1EA3n th\xE2n kh\u1ECFi m\u1ED9
+      chi\u1EBFm quy\u1EC1n \u0111i\u1EC1u khi\u1EC3n qu\xE1i \u0111\xF3."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

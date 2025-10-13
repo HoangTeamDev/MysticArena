@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 20
+  m_EditorClassIdentifier: 
+  id: 20
+  nameCard: Meteor Descent
+  tribe: 4
+  element: 7
+  cardType: 2
+  rarity: 1
+  cardKeyword: 1
+  ATK: 3400
+  HP: 3700
+  level: 6
+  skills:
+  - skillId: 
+    name: "Ph\u1EA3n Kh\xE1ng Ti\u1EBFn H\xF3a"
+    description: "Khi qu\xE1i \"Evolver\" tr\xEAn s\xE2n b\u1EA1n ti\u1EBFn h\xF3a,
+      g\xE2y 500 s\xE1t th\u01B0\u01A1ng l\xEAn t\u1EA5t c\u1EA3 qu\xE1i v\u1EADt
+      \u0111\u1ED1i th\u1EE7."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

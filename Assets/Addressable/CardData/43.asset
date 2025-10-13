@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 43
+  m_EditorClassIdentifier: 
+  id: 43
+  nameCard: Holy Knight Lancelot
+  tribe: 9
+  element: 7
+  cardType: 1
+  rarity: 2
+  cardKeyword: 3
+  ATK: 2300
+  HP: 2500
+  level: 5
+  skills:
+  - skillId: 
+    name: "Khi\xEAn Th\xE1nh H\u1ED9 V\u1EC7"
+    description: "Khi b\xE0i n\xE0y \u0111\u01B0\u1EE3c tri\u1EC7u h\u1ED3i th\u01B0\u1EDDng,
+      nh\u1EADn l\xE1 ch\u1EAFn ch\u1ED1ng ph\xE9p trong 2 l\u01B0\u1EE3t."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "D\u0169ng Kh\xED Hi\u1EC7p S\u0129"
+    description: "Khi b\xE0i n\xE0y t\u1EA5n c\xF4ng m\u1ED9t qu\xE1i v\u1EADt c\xF3
+      ATK cao h\u01A1n, t\u0103ng 20% ATK trong b\u01B0\u1EDBc t\xEDnh s\xE1t th\u01B0\u01A1ng."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

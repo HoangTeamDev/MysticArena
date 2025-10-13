@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 8
+  m_EditorClassIdentifier: 
+  id: 8
+  nameCard: Ancient Rock Wyrm
+  tribe: 4
+  element: 4
+  cardType: 1
+  rarity: 2
+  cardKeyword: 1
+  ATK: 2500
+  HP: 3200
+  level: 6
+  skills:
+  - skillId: 
+    name: "S\u1EE9c M\u1EA1nh C\u1ED5 Long"
+    description: "Khi b\xE0i n\xE0y \u0111\u01B0\u1EE3c tri\u1EC7u h\u1ED3i th\u01B0\u1EDDng,
+      t\u0103ng 25% ATK  c\u1EE7a l\xE1 b\xE0i n\xE0y cho t\u1EA5t c\u1EA3 qu\xE1i
+      \"Dragon\" b\u1EA1n \u0111i\u1EC1u khi\u1EC3n tr\xEAn s\xE2n."
+    activation: 3
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "L\u1EDBp V\u1ECF Ki\xEAn C\u1ED1"
+    description: "Khi B\xE0i n\xE0y b\u1ECB t\u1EA5n c\xF4ng, gi\u1EA3m 30% s\xE1t
+      th\u01B0\u01A1ng nh\u1EADn v\xE0o."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "B\u1EA3o H\u1ED9 Long T\u1ED9c"
+    description: "N\u1EBFu c\xF3 m\u1ED9t qu\xE1i \"Evolver\" kh\xE1c tr\xEAn s\xE2n,
+      B\xE0i n\xE0y kh\xF4ng th\u1EC3 b\u1ECB ph\xE1 h\u1EE7y b\u1EDFi hi\u1EC7u
+      \u1EE9ng b\xE0i Ph\xE9p."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []
