@@ -8,7 +8,6 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 namespace UI.UIWindow
 {
-    public enum TypeItemSlot { Inventory, Equiment, Upgrade, Skill, Shop }
     public class UIInventory : UIBase
     {
         public ItemSlotBase _itemPre;

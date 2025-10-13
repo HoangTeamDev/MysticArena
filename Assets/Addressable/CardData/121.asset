@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 121
+  m_EditorClassIdentifier: 
+  id: 121
+  nameCard: Dino Shaman
+  tribe: 12
+  element: 4
+  cardType: 1
+  rarity: 1
+  cardKeyword: 7
+  ATK: 500
+  HP: 1200
+  level: 2
+  skills:
+  - skillId: 
+    name: "Th\u1EA7y C\xFAng Kh\u1EE7ng Long"
+    description: "Khi b\xE0i n\xE0y \u0111\u01B0\u1EE3c tri\u1EC7u h\u1ED3i, ch\u1ECDn
+      h\u1ED3i ph\u1EE5c 500 HP cho 1 qu\xE1i v\u1EADt tr\xEAn s\xE2n b\u1EA1n. N\u1EBFu
+      \u0111\xF3 l\xE0 qu\xE1i v\u1EADt \"Jurassic\", t\u0103ng th\xEAm 500 ATK cho
+      qu\xE1i \u0111\xF3."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "Kh\u1EE7ng Long T\xE1i Sinh"
+    description: "Khi b\xE0i n\xE0y n\u1EB1m trong m\u1ED9, Khi \u0111\u1ED1i th\u1EE7
+      t\u1EA5n c\xF4ng tr\u1EF1c ti\u1EBFp phe ta, Lo\u1EA1i b\u1ECF b\xE0i n\xE0y
+      kh\u1ECFi m\u1ED9 v\xF4 hi\u1EC7u h\xF3a \u0111\xF2n t\u1EA5n c\xF4ng \u0111\xF3."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

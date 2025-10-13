@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 54
+  m_EditorClassIdentifier: 
+  id: 54
+  nameCard: Knight's Oath
+  tribe: 9
+  element: 5
+  cardType: 2
+  rarity: 1
+  cardKeyword: 3
+  ATK: 2500
+  HP: 2600
+  level: 6
+  skills:
+  - skillId: 
+    name: "Hi\u1EC7p S\u0129 \u0110\u1ED3ng H\xE0nh"
+    description: "N\u1EBFu c\xF3 3 ho\u1EB7c nhi\u1EC1u h\u01A1n qu\xE1i \"Holy Knight\"
+      tr\xEAn s\xE2n c\u1EE7a b\u1EA1n, r\xFAt 1 l\xE1 b\xE0i."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

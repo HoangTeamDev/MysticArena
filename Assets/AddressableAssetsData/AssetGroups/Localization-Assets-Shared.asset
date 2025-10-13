@@ -18,7 +18,7 @@ MonoBehaviour:
   m_GUID: 1b31173ce4f71fb43b3aaac66dd6b5ed
   m_SerializeEntries:
   - m_GUID: 8f0da17105b2a89428f8d01c4bd58516
-    m_Address: Assets/Language/oke Shared Data.asset
+    m_Address: oke Shared Data
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 18
+  m_EditorClassIdentifier: 
+  id: 18
+  nameCard: Molten Rebirth
+  tribe: 4
+  element: 7
+  cardType: 2
+  rarity: 1
+  cardKeyword: 1
+  ATK: 3400
+  HP: 3700
+  level: 6
+  skills:
+  - skillId: 
+    name: "Chu K\u1EF3 Ti\u1EBFn H\xF3a"
+    description: "khi qu\xE1i \"Evolver\" tr\xEAn s\xE2n b\u1EA1n b\u1ECB ph\xE1
+      h\u1EE7y v\xE0o m\u1ED9,  tri\u1EC7u h\u1ED3i ng\u1EABu nhi\xEAn m\u1ED9t qu\xE1i
+      \"Evolver\" C\u1EA5p 4 ho\u1EB7c th\u1EA5p h\u01A1n t\u1EEB m\u1ED9. "
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

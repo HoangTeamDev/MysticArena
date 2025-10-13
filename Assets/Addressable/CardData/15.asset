@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 15
+  m_EditorClassIdentifier: 
+  id: 15
+  nameCard: Draconic Awakening
+  tribe: 4
+  element: 7
+  cardType: 2
+  rarity: 2
+  cardKeyword: 1
+  ATK: 3400
+  HP: 3700
+  level: 6
+  skills:
+  - skillId: 
+    name: "Ti\u1EBFn H\xF3a C\u1ED9ng H\u01B0\u1EDFng"
+    description: "N\u1EBFu c\xF3 2 qu\xE1i \"Evolver\" c\u1EA5p 4 ho\u1EB7c th\u1EA5p
+      h\u01A1n tr\xEAn s\xE2n, b\u1EA1n c\xF3 th\u1EC3 tri\u1EC7u h\u1ED3i \u0111\u1EB7c
+      bi\u1EC7t 1 qu\xE1i v\u1EADt \"Evolver\" c\u1EA5p 5 t\u1EEB b\u1ED9 b\xE0i."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

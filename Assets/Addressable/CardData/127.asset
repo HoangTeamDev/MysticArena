@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 127
+  m_EditorClassIdentifier: 
+  id: 127
+  nameCard: Jurassic Overlord
+  tribe: 12
+  element: 4
+  cardType: 1
+  rarity: 2
+  cardKeyword: 7
+  ATK: 3000
+  HP: 3500
+  level: 6
+  skills:
+  - skillId: 
+    name: "Tri\u1EC7u H\u1ED3i B\u1EA1o Ch\xFAa"
+    description: "B\u1EA1n c\xF3 th\u1EC3 tri\u1EC7u h\u1ED3i d\u1EB7c bi\u1EC7t
+      b\xE0i n\xE0y n\u1EBFu \"Doom Tyranno Rex\" \u0111ang tr\xEAn s\xE2n."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "Khi\xEAn Chi\u1EBFn B\u1EA5t T\u1EED"
+    description: "Khi b\xE0i n\xE0y \u0111\u01B0\u1EE3c tri\u1EC7u h\u1ED3i, nh\u1EADn
+      khi\xEAn chi\u1EBFn \u0111\u1EA5u."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "C\u01B0\u1EDDng H\xF3a Long T\u1ED9c"
+    description: "Khi b\xE0i n\xE0y \u1EDF tr\xEAn s\xE2n t\u1EA5t c\u1EA3 qu\xE1i
+      \"Jurassic\" tr\xEAn s\xE2n b\u1EA1n t\u0103ng 300 ATK."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

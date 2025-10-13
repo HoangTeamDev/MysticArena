@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 5
+  m_EditorClassIdentifier: 
+  id: 5
+  nameCard: Aqua Serpent Dragon
+  tribe: 4
+  element: 2
+  cardType: 1
+  rarity: 2
+  cardKeyword: 1
+  ATK: 1900
+  HP: 2800
+  level: 5
+  skills:
+  - skillId: 
+    name: "H\u1ED3i Ph\u1EE5c Th\u1EE7y Long"
+    description: "Khi b\u1EAFt \u0111\u1EA7u m\u1ED7i l\u01B0\u1EE3t, b\xE0i n\xE0y
+      h\u1ED3i 20% HP t\u1ED1i \u0111a b\u1EA3n th\xE2n."
+    activation: 3
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "Ti\u1EBFn H\xF3a Th\u1EE7y Th\u1EA7n"
+    description: "Sau 2 l\u01B0\u1EE3t tr\xEAn s\xE2n, b\xE0i n\xE0y ti\u1EBFn h\xF3a
+      th\xE0nh m\u1ED9t \"Evolver\" c\u1EA5p 6."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 13
+  m_EditorClassIdentifier: 
+  id: 13
+  nameCard: "Dragon\u2019s Blessing"
+  tribe: 4
+  element: 7
+  cardType: 2
+  rarity: 1
+  cardKeyword: 1
+  ATK: 3400
+  HP: 3700
+  level: 6
+  skills:
+  - skillId: 
+    name: "H\u1ED3i Ph\u1EE5c Ti\u1EBFn H\xF3a"
+    description: "K\xEDch ho\u1EA1t khi b\u1EA1n c\xF3 \xEDt nh\u1EA5t m\u1ED9t qu\xE1i 
+      \"Evolver\"  tr\xEAn s\xE2n, h\u1ED3i ph\u1EE5c 500 LP v\u1EDBi m\u1ED7i qu\xE1i
+      tr\xEAn s\xE2n b\u1EA1n."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

@@ -50,8 +50,8 @@ namespace Effect
             {
                 // tuỳ bạn map keyword/level từ CardSpec
             }
-            if (MinLevel > 0 && c.level < MinLevel) return false;
-            if (MaxLevel > 0 && c.level > MaxLevel) return false;
+            //if (MinLevel > 0 && c.level < MinLevel) return false;
+            //if (MaxLevel > 0 && c.level > MaxLevel) return false;
             return true;
         }
         private static bool StrEq(string a, string b)
