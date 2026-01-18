@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 226
+  m_EditorClassIdentifier: 
+  id: 226
+  nameCard: Necromancer's Grasp
+  tribe: 10
+  element: 6
+  cardType: 2
+  rarity: 2
+  cardKeyword: 12
+  ATK: 500
+  HP: 500
+  level: 3
+  skills:
+  - skillId: 
+    name: "L\u1EDDi Nguy\u1EC1n H\u1EAFc \xC1m"
+    description: "N\u1EBFu tr\xEAn s\xE2n b\u1EA1n c\xF3 qu\xE1i \"Necromancy\",
+      Khi m\u1ED9t qu\xE1i v\u1EADt c\u1EE7a \u0111\u1ED1i th\u1EE7 tuy\xEAn b\u1ED1
+      t\u1EA5n c\xF4ng,  \u0111\u1ED1i th\u1EE7 ph\u1EA3i ph\xE1 h\u1EE7y c\xE1c
+      l\xE1 b\xE0i tr\xEAn tay cho \u0111\u1EBFn khi h\u1ECD ch\u1EC9 c\xF2n 1 l\xE1.
+      N\u1EBFu \u0111\u1ED1i th\u1EE7 ch\u1EC9 c\xF3 1 l\xE1 ho\u1EB7c \xEDt h\u01A1n
+      tr\xEAn tay, ph\xE1 h\u1EE7y 1 l\xE1 b\xE0i tr\xEAn s\xE2n c\u1EE7a h\u1ECD
+      thay th\u1EBF."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

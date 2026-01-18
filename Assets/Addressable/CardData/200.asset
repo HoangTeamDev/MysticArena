@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 200
+  m_EditorClassIdentifier: 
+  id: 200
+  nameCard: "Nature\u2019s Blessing"
+  tribe: 11
+  element: 2
+  cardType: 2
+  rarity: 1
+  cardKeyword: 11
+  ATK: 2900
+  HP: 3000
+  level: 6
+  skills:
+  - skillId: 
+    name: "H\u1ED3i Ph\u1EE5c M\u1EA7m C\xE2y"
+    description: "H\u1ED3i ph\u1EE5c 1000 LP cho m\u1ED7i \"Sapling Token\" tr\xEAn
+      s\xE2n."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "C\u01B0\u1EDDng H\xF3a Hoa T\u01B0\u01A1i"
+    description: "Khi l\xE1 n\xE0y n\u1EB1m trong m\u1ED9, N\u1EBFu b\u1EA1n \u0111i\u1EC1u
+      khi\u1EC3n \xEDt nh\u1EA5t 2 Token, t\u0103ng 30% ATK v\xE0 HP cho t\u1EA5t
+      c\u1EA3 qu\xE1i v\u1EADt \"Flourishing Bloom\" tr\xEAn s\xE2n."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

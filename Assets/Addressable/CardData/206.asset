@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 206
+  m_EditorClassIdentifier: 
+  id: 206
+  nameCard: Sapling Token
+  tribe: 11
+  element: 3
+  cardType: 1
+  rarity: 1
+  cardKeyword: 11
+  ATK: 500
+  HP: 500
+  level: 1
+  skills:
+  - skillId: 
+    name: "Ph\u1EA3n Kh\xE1ng M\u1EA7m C\xE2y"
+    description: "N\u1EBFu tr\xEAn s\xE2n b\u1EA1n c\xF3 qu\xE1i \"Flourishing Bloom\",
+      Khi \u0111\u1ED1i th\u1EE7 k\xEDch ho\u1EA1t m\u1ED9t l\xE1 Ph\xE9p , hi\u1EBFn
+      t\u1EBF 1 \"Sapling Token\" \u0111\u1EC3 v\xF4 hi\u1EC7u h\xF3a hi\u1EC7u \u1EE9ng
+      v\xE0 ph\xE1 h\u1EE7y l\xE1 b\xE0i \u0111\xF3."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

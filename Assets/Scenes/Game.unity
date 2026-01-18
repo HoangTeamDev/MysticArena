@@ -4172,7 +4172,6 @@ MonoBehaviour:
   isNeverHide: 0
   canvasGroup: {fileID: 91115933}
   iconQuality:
-  - {fileID: 21300000, guid: 7f00a144ae942c24e9544c0a7ce86712, type: 3}
   - {fileID: 21300000, guid: 4e4dfe1bf62765646a79b264cf996ec1, type: 3}
   - {fileID: 21300000, guid: ebb7057f5edfe0f43beb34bb6d71a124, type: 3}
   - {fileID: 21300000, guid: bbace76316518e24d82958b754ba615e, type: 3}
@@ -4198,8 +4197,8 @@ MonoBehaviour:
   montercard: {fileID: 1631561591}
   backgroundMonter: {fileID: 1662174528}
   bgImage:
-  - {fileID: 21300000, guid: 84769e916bc69c74195914071fc12214, type: 3}
   - {fileID: 21300000, guid: cd2e010defee7f44f8ea5437c703e3bd, type: 3}
+  - {fileID: 21300000, guid: 84769e916bc69c74195914071fc12214, type: 3}
   imageSpell: {fileID: 67797939}
   nameSpell: {fileID: 2023453451}
   spellCard: {fileID: 657111810}
@@ -6245,8 +6244,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 881.58105, y: -996.088}
-  m_SizeDelta: {x: 1763.1621, y: 261.73944}
+  m_AnchoredPosition: {x: 890.26447, y: -986.502}
+  m_SizeDelta: {x: 1780.5289, y: 259.00058}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &134497967
 MonoBehaviour:
@@ -27324,8 +27323,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 881.58105, y: -513.4789}
-  m_SizeDelta: {x: 1763.1621, y: 703.4789}
+  m_AnchoredPosition: {x: 890.26447, y: -508.00116}
+  m_SizeDelta: {x: 1780.5289, y: 698.00116}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &659068776
 MonoBehaviour:
@@ -29918,7 +29917,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &711479414
 RectTransform:
   m_ObjectHideFlags: 0
@@ -36562,7 +36561,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 660, y: -521.73944}
+  m_AnchoredPosition: {x: 660, y: -519.0006}
   m_SizeDelta: {x: 1320, y: 340}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &874933631
@@ -44117,7 +44116,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -24.861258, y: -120.86985}
+  m_AnchoredPosition: {x: -24.861258, y: 0}
   m_SizeDelta: {x: 450, y: 48.5754}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1024651146
@@ -55928,8 +55927,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 110.79053, y: -351.73944}
-  m_SizeDelta: {x: 221.58105, y: 680}
+  m_AnchoredPosition: {x: 115.13223, y: -349.00058}
+  m_SizeDelta: {x: 230.26447, y: 680}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1288550196
 MonoBehaviour:
@@ -64460,8 +64459,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1652.3716, y: -351.73944}
-  m_SizeDelta: {x: 221.58105, y: 680}
+  m_AnchoredPosition: {x: 1665.3966, y: -349.00058}
+  m_SizeDelta: {x: 230.26447, y: 680}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1447022933
 MonoBehaviour:
@@ -74087,8 +74086,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 881.58105, y: -80.86972}
-  m_SizeDelta: {x: 1763.1621, y: 161.73944}
+  m_AnchoredPosition: {x: 890.26447, y: -79.50029}
+  m_SizeDelta: {x: 1780.5289, y: 159.00058}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1670110803
 MonoBehaviour:
@@ -79114,8 +79113,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 881.58105, y: -351.73944}
-  m_SizeDelta: {x: 1320, y: 703.4789}
+  m_AnchoredPosition: {x: 890.26447, y: -349.00058}
+  m_SizeDelta: {x: 1320, y: 698.00116}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1806240162
 MonoBehaviour:
@@ -97759,7 +97758,7 @@ MonoBehaviour:
   cardData: {fileID: 0}
   typeItem: 5
   rectTransform: {fileID: 7274074068916557383}
-  _icon: {fileID: 1497856993780568441}
+  _icon: {fileID: 6301910607012409854}
   _nameCard: {fileID: 2035982545724372162}
 --- !u!114 &8640616763496955141
 MonoBehaviour:

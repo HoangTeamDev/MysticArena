@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 187
+  m_EditorClassIdentifier: 
+  id: 187
+  nameCard: Haunting Seal
+  tribe: 14
+  element: 6
+  cardType: 2
+  rarity: 2
+  cardKeyword: 10
+  ATK: 3000
+  HP: 3700
+  level: 6
+  skills:
+  - skillId: 
+    name: "Ph\xE1n Quy\u1EBFt B\xF3ng T\u1ED1i"
+    description: "N\u1EBFu tr\xEAn s\xE2n b\u1EA1n c\xF3 qu\xE1i \"Phantom Veil\" 
+      khi \u0111\u1ED1i th\u1EE7 tri\u1EC7u h\u1ED3i m\u1ED9t qu\xE1i v\u1EADt c\u1EA5p
+      5 ho\u1EB7c cao h\u01A1n, v\xF4 hi\u1EC7u h\xF3a vi\u1EC7c tri\u1EC7u h\u1ED3i
+      v\xE0 g\u1EEDi qu\xE1i v\u1EADt \u0111\xF3 v\xE0o m\u1ED9."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 218
+  m_EditorClassIdentifier: 
+  id: 218
+  nameCard: Cursed Pact
+  tribe: 10
+  element: 6
+  cardType: 2
+  rarity: 1
+  cardKeyword: 12
+  ATK: 500
+  HP: 500
+  level: 3
+  skills:
+  - skillId: 
+    name: "Hi\u1EBFn T\u1EBF H\u1ED3n Ma"
+    description: "Hi\u1EBFn t\u1EBF 1 qu\xE1i \"Necromancy\" b\u1EA1n \u0111i\u1EC1u
+      khi\u1EC3n; c\u1EA3 hai ng\u01B0\u1EDDi ch\u01A1i m\u1EA5t 1000 HP. N\u1EBFu
+      th\xE0nh c\xF4ng, r\xFAt 1 l\xE1 b\xE0i."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

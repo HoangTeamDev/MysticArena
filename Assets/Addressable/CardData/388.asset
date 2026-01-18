@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 388
+  m_EditorClassIdentifier: 
+  id: 388
+  nameCard: Abyssal Minion
+  tribe: 5
+  element: 6
+  cardType: 1
+  rarity: 1
+  cardKeyword: 0
+  ATK: 1200
+  HP: 1200
+  level: 2
+  skills:
+  - skillId: 
+    name: "H\u1EADu Qu\u1EA3 T\u0103m T\u1ED1i"
+    description: "N\u1EBFu b\xE0i n\xE0y b\u1ECB ph\xE1 h\u1EE7y trong chi\u1EBFn
+      \u0111\u1EA5u, g\xE2y 300 s\xE1t th\u01B0\u01A1ng v\xE0o LP c\u1EE7a \u0111\u1ED1i
+      th\u1EE7."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 185
+  m_EditorClassIdentifier: 
+  id: 185
+  nameCard: Cursed Wind
+  tribe: 14
+  element: 6
+  cardType: 2
+  rarity: 1
+  cardKeyword: 10
+  ATK: 3000
+  HP: 3700
+  level: 6
+  skills:
+  - skillId: 
+    name: "Ng\u1EEBng T\u1EA5n C\xF4ng \xC1nh S\xE1ng"
+    description: "N\u1EBFu tr\xEAn s\xE2n b\u1EA1n c\xF3 qu\xE1i \"Phantom Veil\".
+      Khi \u0111\u1ED1i th\u1EE7 t\u1EA5n c\xF4ng m\u1ED9t qu\xE1i phe ta ph\u1EE7
+      nh\u1EADn s\u1EF1 t\u1EA5n c\xF4ng v\xE0 t\u1EA5t c\u1EA3 qu\xE1i v\u1EADt
+      kh\xF4ng h\u1EC7 \"\xC1m\" tr\xEAn s\xE2n \u0111\u1ED1i th\u1EE7 kh\xF4ng th\u1EC3
+      t\u1EA5n c\xF4ng trong l\u01B0\u1EE3t."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 400
+  m_EditorClassIdentifier: 
+  id: 400
+  nameCard: Nightmare Demon
+  tribe: 5
+  element: 6
+  cardType: 1
+  rarity: 2
+  cardKeyword: 0
+  ATK: 2900
+  HP: 2500
+  level: 6
+  skills:
+  - skillId: 
+    name: "Qu\u1EF7 M\u1ED9ng T\u0103m T\u1ED1i I"
+    description: "Khi b\xE0i n\xE0y \u0111\u01B0\u1EE3c tri\u1EC7u h\u1ED3i th\u01B0\u1EDDng,
+      \u0111\u1ED1i th\u1EE7 ph\u1EA3i g\u1EEDi 1 l\xE1 b\xE0i t\u1EEB tay v\xE0o
+      m\u1ED9."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "Qu\u1EF7 M\u1ED9ng T\u0103m T\u1ED1i II"
+    description: "N\u1EBFu b\u1EA1n \u0111i\u1EC1u khi\u1EC3n \xEDt nh\u1EA5t 2 qu\xE1i
+      v\u1EADt t\u1ED9c \"Fiend\" kh\xE1c, l\xE1 b\xE0i n\xE0y kh\xF4ng th\u1EC3
+      b\u1ECB nh\u1EAFm t\u1EA5n c\xF4ng."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "Qu\u1EF7 M\u1ED9ng T\u0103m T\u1ED1i III"
+    description: "L\xE1 b\xE0i n\xE0y kh\xF4ng b\u1ECB \u1EA3nh h\u01B0\u1EDFng b\u1EDFi
+      hi\u1EC7u \u1EE9ng c\u1EE7a c\xE1c l\xE1 b\xE0i."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

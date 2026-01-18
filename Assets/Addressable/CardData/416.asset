@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 416
+  m_EditorClassIdentifier: 
+  id: 416
+  nameCard: Scrap Gearbot
+  tribe: 7
+  element: 4
+  cardType: 1
+  rarity: 2
+  cardKeyword: 0
+  ATK: 500
+  HP: 800
+  level: 1
+  skills:
+  - skillId: 
+    name: "Ng\u01B0\u1EDDi M\xE1y Ph\u1EBF Li\u1EC7u I"
+    description: "Khi b\xE0i n\xE0y \u0111\u01B0\u1EE3c tri\u1EC7u h\u1ED3i, b\u1EA1n
+      c\xF3 th\u1EC3 g\u1EEDi 1 l\xE1 b\xE0i t\u1ED9c \"Machine\" t\u1EEB tay v\xE0o
+      m\u1ED9 \u0111\u1EC3 r\xFAt 1 l\xE1 b\xE0i."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "Ng\u01B0\u1EDDi M\xE1y Ph\u1EBF Li\u1EC7u II"
+    description: "N\u1EBFu l\xE1 b\xE0i n\xE0y b\u1ECB ph\xE1 h\u1EE7y, b\u1EA1n
+      c\xF3 th\u1EC3 tri\u1EC7u h\u1ED3i \u0111\u1EB7c bi\u1EC7t 1 qu\xE1i v\u1EADt
+      t\u1ED9c \"Machine\" c\u1EA5p 1 kh\xE1c t\u1EEB b\u1ED9 b\xE0i l\xEAn s\xE2n."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

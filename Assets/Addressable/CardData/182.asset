@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 182
+  m_EditorClassIdentifier: 
+  id: 182
+  nameCard: Phantom Emperor
+  tribe: 14
+  element: 6
+  cardType: 1
+  rarity: 2
+  cardKeyword: 10
+  ATK: 3000
+  HP: 3700
+  level: 6
+  skills:
+  - skillId: 
+    name: "Ph\xE1n Quy\u1EBFt B\xF3ng T\u1ED1i"
+    description: "Khi b\xE0i n\xE0y \u0111\u01B0\u1EE3c tri\u1EC7u h\u1ED3i th\u01B0\u1EDDng,
+      b\u1EA1n c\xF3 th\u1EC3 ch\u1ECDn 1 qu\xE1i \"Phantom Veil\" t\u1EEB m\u1ED9,
+      h\u1ED3i ph\u1EE5c HP b\u1EB1ng ATK c\u1EE7a n\xF3 v\xE0 ph\xE1 h\u1EE7y t\u1EA5t
+      c\u1EA3 qu\xE1i v\u1EADt \u0111\u1ED1i th\u1EE7 c\xF3 HP th\u1EA5p h\u01A1n
+      qu\xE1i v\u1EADt \u0111\xE3 ch\u1ECDn."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "H\u1EA5p Th\u1EE5 B\xF3ng T\u1ED1i"
+    description: "Khi b\u1EAFt \u0111\u1EA7u l\u01B0\u1EE3t, n\u1EBFu b\u1EA1n \u0111i\u1EC1u
+      khi\u1EC3n m\u1ED9t qu\xE1i v\u1EADt \"Phantom Veil\" kh\xE1c, h\u1EA5p th\u1EE5
+      20% ch\u1EC9 s\u1ED1 c\u1EE7a 1 qu\xE1i v\u1EADt \u0111\u1ED1i th\u1EE7."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "S\u1EE9c M\u1EA1nh Ph\xF3ng T\u1ECFa"
+    description: "M\u1ED7i l\u1EA7n \u0111\u1ED1i th\u1EE7 tri\u1EC7u h\u1ED3i m\u1ED9t
+      qu\xE1i v\u1EADt, n\u1EBFu ATK c\u1EE7a qu\xE1i v\u1EADt \u0111\xF3 th\u1EA5p
+      h\u01A1n HP c\u1EE7a b\xE0i n\xE0y, gi\u1EA3m m\u1ED9t n\u1EEDa ch\u1EC9 s\u1ED1
+      c\u1EE7a qu\xE1i v\u1EADt \u0111\xF3 cho \u0111\u1EBFn cu\u1ED1i l\u01B0\u1EE3t."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

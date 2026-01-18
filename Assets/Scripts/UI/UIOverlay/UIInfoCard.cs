@@ -103,10 +103,11 @@ namespace UI.UIOvelay
                         
                         backgroundQuality.sprite = imageBackgroundQuality[x];
                         LoadElement(cardData.element.ToString());
-                        backgroundMonter.sprite = bgImage[(int)cardData.rarity - 1];
+                        backgroundMonter.sprite = bgImage[x];
                         StringBuilder sb = new StringBuilder();
                         sb.AppendLine(ColorWrap($"Tộc: ",ReadColor.Yellow)+$"{cardData.tribe}.");
                         sb.AppendLine(ColorWrap($"Từ Khóa: ",ReadColor.Yellow)+$"{cardData.cardKeyword}.");
+                        
                         
 
                         info1.text = sb.ToString();
@@ -133,7 +134,8 @@ namespace UI.UIOvelay
                         montercard.SetActive(false);
                         nameSpell.text = cardData.nameCard;
                         imageSpell.sprite = Resources.Load<Sprite>("Sprite/Item/" + cardData.id);
-                        backgroundQuality.sprite = imageBackgroundQuality[(int)cardData.rarity - 1];
+                        int x = cardData.rarity is Rarity.GR ? 1 : 0;
+                        backgroundQuality.sprite = imageBackgroundQuality[x];
                         quality.sprite = iconQuality[(int)cardData.rarity - 1];
                         StringBuilder sb = new StringBuilder();
                         sb.AppendLine($"Tộc: {cardData.tribe}.");

@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 342
+  m_EditorClassIdentifier: 
+  id: 342
+  nameCard: Ferocious Cub
+  tribe: 2
+  element: 4
+  cardType: 1
+  rarity: 2
+  cardKeyword: 0
+  ATK: 700
+  HP: 900
+  level: 1
+  skills:
+  - skillId: 
+    name: "B\u1EA3o V\u1EC7 Chi\u1EBFn Binh"
+    description: "N\u1EBFu b\u1EA1n \u0111i\u1EC1u khi\u1EC3n m\u1ED9t qu\xE1i v\u1EADt
+      \"Beast-Warrior\" kh\xE1c, \u0111\u1ED1i th\u1EE7 kh\xF4ng th\u1EC3 t\u1EA5n
+      c\xF4ng tr\u1EF1c ti\u1EBFp."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "B\u1EA3o V\u1EC7 Chi\u1EBFn Binh I"
+    description: "N\u1EBFu l\xE1 b\xE0i n\xE0y b\u1ECB ph\xE1 h\u1EE7y, r\xFAt 1
+      l\xE1 b\xE0i."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 212
+  m_EditorClassIdentifier: 
+  id: 212
+  nameCard: Doom UnDragon
+  tribe: 10
+  element: 6
+  cardType: 1
+  rarity: 2
+  cardKeyword: 12
+  ATK: 3000
+  HP: 3400
+  level: 6
+  skills:
+  - skillId: 
+    name: "H\u1ED3i Sinh Long H\u1ED3n"
+    description: "Khi b\xE0i n\xE0y r\u1EDDi kh\u1ECFi s\xE2n, n\u1EBFu b\u1EA1n
+      \u0111i\u1EC1u khi\u1EC3n m\u1ED9t qu\xE1i \"Necromancy\", \u0111\u1EB7t 1
+      \u0111i\u1EC3m c\u1ED9ng d\u1ED3n l\xEAn qu\xE1i v\u1EADt \u0111\xF3. V\xE0o
+      cu\u1ED1i l\u01B0\u1EE3t, g\u1EE1 \u0111i\u1EC3m c\u1ED9ng d\u1ED3n v\xE0 tri\u1EC7u
+      h\u1ED3i \u0111\u1EB7c bi\u1EC7t l\xE1 b\xE0i n\xE0y tr\u1EDF l\u1EA1i s\xE2n."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "S\u1EE9c M\u1EA1nh H\u1EAFc Long"
+    description: "Nh\u1EADn 400 ATK cho m\u1ED7i qu\xE1i \"Dragon\" tr\xEAn s\xE2n
+      ho\u1EB7c trong M\u1ED9 c\u1EE7a \u0111\u1ED1i th\u1EE7."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "H\u1EA5p Th\u1EE5 B\xF3ng T\u1ED1i"
+    description: "Khi l\xE1 b\xE0i n\xE0y ti\xEAu di\u1EC7t m\u1ED9t qu\xE1i v\u1EADt
+      b\u1EB1ng chi\u1EBFn \u0111\u1EA5u, h\u1EA5p th\u1EE5 30% ATK c\u1EE7a qu\xE1i
+      v\u1EADt b\u1ECB ti\xEAu di\u1EC7t v\xE0 h\u1ED3i ph\u1EE5c s\u1ED1 HP t\u01B0\u01A1ng
+      \u1EE9ng."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

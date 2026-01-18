@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 248
+  m_EditorClassIdentifier: 
+  id: 248
+  nameCard: Predator Behemoth
+  tribe: 20
+  element: 4
+  cardType: 1
+  rarity: 2
+  cardKeyword: 14
+  ATK: 1700
+  HP: 1800
+  level: 4
+  skills:
+  - skillId: 
+    name: "Th\xFA S\u0103n M\u1ED3i C\u1ED5 \u0110\u1EA1i"
+    description: "Khi b\xE0i n\xE0y t\u1EA5n c\xF4ng m\u1ED9t qu\xE1i v\u1EADt c\xF3
+      ATK th\u1EA5p h\u01A1n, t\u0103ng 40% ATK c\u1EE7a n\xF3 tr\u01B0\u1EDBc khi
+      t\xEDnh s\xE1t th\u01B0\u01A1ng."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "C\u01B0\u1EDDng H\xF3a \u0110\u1ED3ng Minh"
+    description: "N\u1EBFu l\xE1 b\xE0i n\xE0y g\xE2y s\xE1t th\u01B0\u01A1ng l\xEAn
+      qu\xE1i v\u1EADt c\u1EE7a \u0111\u1ED1i th\u1EE7, b\u1EA1n c\xF3 th\u1EC3 ch\u1ECDn
+      1 qu\xE1i v\u1EADt \"Primordial Life\" tr\xEAn s\xE2n v\xE0 t\u0103ng 300 ATK
+      cho n\xF3 \u0111\u1EBFn cu\u1ED1i l\u01B0\u1EE3t n\xE0y."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []
