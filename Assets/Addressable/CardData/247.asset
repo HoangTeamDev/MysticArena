@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 247
+  m_EditorClassIdentifier: 
+  id: 247
+  nameCard: Lava Behemoth
+  tribe: 20
+  element: 4
+  cardType: 1
+  rarity: 2
+  cardKeyword: 14
+  ATK: 1400
+  HP: 1500
+  level: 3
+  skills:
+  - skillId: 
+    name: "S\u1EE9c M\u1EA1nh H\u1ECFa Di\u1EC7m"
+    description: "Khi b\xE0i n\xE0y \u1EDF tr\xEAn s\xE2n, t\u1EA5t c\u1EA3 qu\xE1i
+      v\u1EADt \"Primordial Life\" b\u1EA1n \u0111i\u1EC1u khi\u1EC3n nh\u1EADn th\xEAm
+      ATK b\u1EB1ng c\u1EA5p \xD7 200."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "T\xEDch T\u1EE5 H\u1EAFc \xC1m"
+    description: "Khi l\xE1 b\xE0i n\xE0y \u0111\u01B0\u1EE3c Tri\u1EC7u h\u1ED3i,
+      \u0111\u1EB7t 2 \u0111i\u1EC3m Darkness Stack"
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

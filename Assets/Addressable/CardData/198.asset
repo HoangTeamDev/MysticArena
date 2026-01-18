@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 198
+  m_EditorClassIdentifier: 
+  id: 198
+  nameCard: Elderwood Spirit
+  tribe: 11
+  element: 2
+  cardType: 1
+  rarity: 2
+  cardKeyword: 11
+  ATK: 2900
+  HP: 3000
+  level: 6
+  skills:
+  - skillId: 
+    name: "T\xE1i Sinh M\u1EA7m C\xE2y"
+    description: "Khi l\xE1 b\xE0i n\xE0y r\u1EDDi kh\u1ECFi s\xE2n, tri\u1EC7u h\u1ED3i
+      \u0111\u1EB7c bi\u1EC7t 1 \"Sapling Token\" (500 ATK / 500 HP)."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "T\u1EA5n C\xF4ng V\u0169 B\xE3o"
+    description: "B\xE0i n\xE0y c\xF3 th\u1EC3 t\u1EA5n c\xF4ng t\u01B0\u01A1ng \u1EE9ng
+      v\u1EDBi s\u1ED1 \"Sapling Token\" tr\xEAn s\xE2n b\u1EA1n."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "C\u01B0\u1EDDng H\xF3a B\xF4ng Hoa"
+    description: "Khi Tham gia chi\u1EBFn \u0111\u1EA5u, n\u1EBFu tr\xEAn s\xE2n
+      b\u1EA1n c\xF3 \"Sapling Token\" T\u0103ng ATk b\u1EB1ng v\u1EDBi LP hi\u1EC7n
+      t\u1EA1i phe ta"
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

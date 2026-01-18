@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 219
+  m_EditorClassIdentifier: 
+  id: 219
+  nameCard: Tomb's Curse
+  tribe: 10
+  element: 6
+  cardType: 2
+  rarity: 1
+  cardKeyword: 12
+  ATK: 500
+  HP: 500
+  level: 3
+  skills:
+  - skillId: 
+    name: "Ho\xE1n \u0110\u1ED5i H\u1EAFc \xC1m"
+    description: "Khi \u0111\u1ED1i th\u1EE7 tri\u1EC7u h\u1ED3i \u0111\u1EB7c bi\u1EC7t
+      m\u1ED9t qu\xE1i. N\u1EBFu tr\xEAn s\xE2n b\u1EA1n c\xF3 qu\xE1i \"Necromancy\"
+      c\u1EA5p 4 ho\u1EB7c th\u1EA5p h\u01A1n, ho\xE1n \u0111\u1ED5i quy\u1EC1n \u0111i\u1EC1u
+      khi\u1EC3n m\u1ED9t qu\xE1i ng\u1EABu nhi\xEAn c\u1EA5p 4 ho\u1EB7c th\u1EA5p
+      h\u01A1n tr\xEAn s\xE2n b\u1EA1n v\u1EDBi qu\xE1i v\u1EEBa \u0111\u01B0\u1EE3c
+      tri\u1EC7u h\u1ED3i."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

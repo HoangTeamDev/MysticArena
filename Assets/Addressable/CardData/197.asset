@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 197
+  m_EditorClassIdentifier: 
+  id: 197
+  nameCard: Elderwood Spirit
+  tribe: 11
+  element: 3
+  cardType: 1
+  rarity: 2
+  cardKeyword: 11
+  ATK: 2500
+  HP: 2800
+  level: 6
+  skills:
+  - skillId: 
+    name: "T\xE1i Sinh M\u1EA7m C\xE2y"
+    description: "Khi l\xE1 b\xE0i n\xE0y r\u1EDDi kh\u1ECFi s\xE2n, tri\u1EC7u h\u1ED3i
+      \u0111\u1EB7c bi\u1EC7t 1 \"Sapling Token\" (500 ATK / 500 HP)."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "C\u01B0\u1EDDng H\xF3a B\xF4ng Hoa"
+    description: "M\u1ED9t l\u1EA7n m\u1ED7i l\u01B0\u1EE3t, khi m\u1ED9t qu\xE1i
+      \"Flourishing Bloom\" b\u1ECB ph\xE1 h\u1EE7y, t\u0103ng 15% ATK cho t\u1EA5t
+      c\u1EA3 c\xE1c qu\xE1i v\u1EADt c\xF2n l\u1EA1i tr\xEAn s\xE2n."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "H\u1ED3i Ph\u1EE5c T\u01B0\u01A1i T\u1ED1t"
+    description: "M\u1ED9t l\u1EA7n m\u1ED7i l\u01B0\u1EE3t, b\u1EA1n c\xF3 th\u1EC3
+      hi\u1EBFn t\u1EBF 1 Token \"Sapling Token\" \u0111\u1EC3 h\u1ED3i ph\u1EE5c
+      1000 LP."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

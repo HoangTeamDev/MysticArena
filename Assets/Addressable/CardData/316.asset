@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 316
+  m_EditorClassIdentifier: 
+  id: 316
+  nameCard: Demonic Empowerment
+  tribe: 0
+  element: 0
+  cardType: 2
+  rarity: 1
+  cardKeyword: 0
+  ATK: 0
+  HP: 0
+  level: 0
+  skills:
+  - skillId: 
+    name: "C\u01B0\u1EDDng H\xF3a \xC1c Ma"
+    description: "Ch\u1ECDn 1 qu\xE1i v\u1EADt h\u1EC7 \"Fiend\" tr\xEAn s\xE2n.
+      Qu\xE1i v\u1EADt \u0111\xF3 v\u0129nh vi\u1EC5n nh\u1EADn th\xEAm 400 ATK."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

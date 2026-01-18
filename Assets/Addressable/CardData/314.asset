@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 314
+  m_EditorClassIdentifier: 
+  id: 314
+  nameCard: "Nature\u2019s Sanctuary"
+  tribe: 0
+  element: 0
+  cardType: 2
+  rarity: 2
+  cardKeyword: 0
+  ATK: 0
+  HP: 0
+  level: 0
+  skills:
+  - skillId: 
+    name: "B\u1EA3o H\u1ED9 Th\u1EF1c V\u1EADt"
+    description: "T\u1EA5t c\u1EA3 qu\xE1i v\u1EADt \"Plant\" b\u1EA1n \u0111i\u1EC1u
+      khi\u1EC3n kh\xF4ng b\u1ECB \u1EA3nh h\u01B0\u1EDFng b\u1EDFi hi\u1EC7u \u1EE9ng
+      qu\xE1i v\u1EADt cho \u0111\u1EBFn cu\u1ED1i l\u01B0\u1EE3t n\xE0y."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

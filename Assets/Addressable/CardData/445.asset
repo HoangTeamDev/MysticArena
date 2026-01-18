@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 445
+  m_EditorClassIdentifier: 
+  id: 445
+  nameCard: Avalanche Tyrant
+  tribe: 8
+  element: 4
+  cardType: 1
+  rarity: 2
+  cardKeyword: 0
+  ATK: 3000
+  HP: 3000
+  level: 6
+  skills:
+  - skillId: 
+    name: "B\u0103ng S\xE1t Tr\u1EA5n \xC1p"
+    description: "Khi b\xE0i n\xE0y \u0111\u01B0\u1EE3c tri\u1EC7u h\u1ED3i th\u01B0\u1EDDng
+      th\xE0nh c\xF4ng, t\u1EA5t c\u1EA3 qu\xE1i v\u1EADt c\u1EE7a \u0111\u1ED1i
+      th\u1EE7 m\u1EA5t 15% ATK trong 1 l\u01B0\u1EE3t."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "Hi\u1EBFn T\u1EBF C\u1EA3n Ph\xE1"
+    description: "Khi l\xE1 b\xE0i n\xE0y b\u1ECB t\u1EA5n c\xF4ng, hi\u1EBFn t\u1EBF
+      1 qu\xE1i v\u1EADt t\u1ED9c \"Rock\" t\u1EEB tay \u0111\u1EC3 v\xF4 hi\u1EC7u
+      h\xF3a \u0111\xF2n t\u1EA5n c\xF4ng."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "T\xE1i Sinh \u0110\u1ECBa Ch\u1EA5n"
+    description: "N\u1EBFu l\xE1 b\xE0i n\xE0y b\u1ECB ph\xE1 h\u1EE7y b\u1EDFi hi\u1EC7u
+      \u1EE9ng Ph\xE9p c\u1EE7a \u0111\u1ED1i th\u1EE7, g\xE2y 200 s\xE1t th\u01B0\u01A1ng
+      v\u1EDBi m\u1ED7i l\xE1 b\xE0i c\xF3 trong m\u1ED9 \u0111\u1ED1i th\u1EE7."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

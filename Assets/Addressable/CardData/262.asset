@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 262
+  m_EditorClassIdentifier: 
+  id: 262
+  nameCard: God of Ruin
+  tribe: 21
+  element: 6
+  cardType: 1
+  rarity: 3
+  cardKeyword: 0
+  ATK: 5000
+  HP: 5000
+  level: 10
+  skills:
+  - skillId: 
+    name: "Ph\xE1n Quy\u1EBFt Tuy\u1EC7t \u0110\u1ED1i"
+    description: "Khi l\xE1 b\xE0i n\xE0y \u0111\u01B0\u1EE3c tri\u1EC7u h\u1ED3i
+      th\xE0nh c\xF4ng, ph\xE1 h\u1EE7y t\u1EA5t c\u1EA3 c\xE1c l\xE1 b\xE0i tr\xEAn
+      s\xE2n."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "Mi\u1EC5n D\u1ECBch T\u1ED1i Th\u01B0\u1EE3ng"
+    description: "L\xE1 b\xE0i n\xE0y kh\xF4ng b\u1ECB \u1EA3nh h\u01B0\u1EDFng b\u1EDFi
+      hi\u1EC7u \u1EE9ng b\xE0i."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "H\u1EE7y Di\u1EC7t V\u0129nh C\u1EEDu"
+    description: "N\u1EBFu l\xE1 b\xE0i n\xE0y ti\xEAu di\u1EC7t m\u1ED9t qu\xE1i
+      v\u1EADt c\u1EE7a \u0111\u1ED1i th\u1EE7, \u0111\u1ED1i th\u1EE7 m\u1EA5t th\xEAm
+      1000 LP."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "T\xE1i Sinh H\u1EE7y Di\u1EC7t"
+    description: "L\xE1 b\xE0i n\xE0y ch\u1EC9 c\xF3 th\u1EC3 \u0111\u01B0\u1EE3c
+      tri\u1EC7u h\u1ED3i b\u1EB1ng c\xE1ch hi\u1EBFn t\u1EBF 3 qu\xE1i v\u1EADt
+      c\xF3 thu\u1ED9c t\xEDnh kh\xE1c nhau tr\xEAn s\xE2n c\u1EE7a b\u1EA1n."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "B\xE1 Ch\u1EE7 Chi\u1EBFn Tr\u01B0\u1EDDng"
+    description: "Khi l\xE1 b\xE0i n\xE0y \u1EDF tr\xEAn s\xE2n, \u0111\u1ED1i th\u1EE7
+      kh\xF4ng th\u1EC3 tri\u1EC7u h\u1ED3i qu\xE1i v\u1EADt c\u1EA5p 5 ho\u1EB7c
+      cao h\u01A1n tr\u1EEB khi hi\u1EBFn t\u1EBF \xEDt nh\u1EA5t 2 qu\xE1i v\u1EADt."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []
