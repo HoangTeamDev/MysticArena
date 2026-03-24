@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 721
+  m_EditorClassIdentifier: 
+  id: 721
+  nameCard: Behemoth Inferno
+  tribe: 20
+  element: 1
+  cardType: 1
+  rarity: 2
+  cardKeyword: 0
+  ATK: 2400
+  HP: 2500
+  level: 5
+  skills:
+  - skillId: 
+    name: "S\u01A1n V\u1EEFng Nh\u01B0 Th\u1EA1ch"
+    description: "Trong l\u01B0\u1EE3t c\u1EE7a \u0111\u1ED1i th\u1EE7, gi\u1EA3m
+      30% s\xE1t th\u01B0\u01A1ng b\u1EA1n nh\u1EADn v\xE0o."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "H\u1EE7y Di\u1EC7t Nguy\xEAn T\u1ED1"
+    description: "Khi t\u1EA5n c\xF4ng m\u1ED9t qu\xE1i v\u1EADt thu\u1ED9c t\xEDnh
+      \"Th\u1EE7y\", t\u0103ng 20% ATK."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

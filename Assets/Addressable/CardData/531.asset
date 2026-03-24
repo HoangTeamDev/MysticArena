@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 531
+  m_EditorClassIdentifier: 
+  id: 531
+  nameCard: Grand Sorcerer
+  tribe: 13
+  element: 6
+  cardType: 1
+  rarity: 2
+  cardKeyword: 0
+  ATK: 2500
+  HP: 2500
+  level: 5
+  skills:
+  - skillId: 
+    name: "Trao \u0110\u1ED5i Ma Ph\xE1p"
+    description: "N\u1EBFu l\xE1 b\xE0i n\xE0y b\u1ECB ph\xE1 h\u1EE7y trong chi\u1EBFn
+      \u0111\u1EA5u, r\xFAt 1 l\xE1 b\xE0i."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "Hi\u1EC7n Di\u1EC7n Tr\xED Tu\u1EC7"
+    description: "Khi b\xE0i n\xE0y tr\xEAn s\xE2n, t\u1EA5t c\u1EA3 qu\xE1i \"SpellCaster\"
+      tr\xEAn s\xE2n phe ta kh\xF4ng b\u1ECB ph\xE1 h\u1EE7y b\u1EDFi hi\u1EC7u \u1EE9ng
+      b\xE0i ph\xE9p."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 578
+  m_EditorClassIdentifier: 
+  id: 578
+  nameCard: Abyssal Overlord
+  tribe: 17
+  element: 1
+  cardType: 1
+  rarity: 2
+  cardKeyword: 0
+  ATK: 2700
+  HP: 2700
+  level: 6
+  skills:
+  - skillId: 
+    name: "\xC1ch Ch\u1EE7 V\u1EF1c Th\u1EB3m"
+    description: "Khi b\xE0i n\xE0y \u0111\u01B0\u1EE3c tri\u1EC7u h\u1ED3i th\u01B0\u1EDDng,
+      chi\u1EBFm quy\u1EC1n \u0111i\u1EC1u khi\u1EC3n 1 qu\xE1i v\u1EADt c\u1EE7a
+      \u0111\u1ED1i th\u1EE7 c\xF3 c\u1EA5p th\u1EA5p h\u01A1n l\xE1 b\xE0i n\xE0y."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "B\u1EA5t Ho\u1EA1i H\u1EAFc \xC1m"
+    description: "L\xE1 b\xE0i n\xE0y kh\xF4ng th\u1EC3 b\u1ECB ph\xE1 h\u1EE7y b\u1EDFi
+      hi\u1EC7u \u1EE9ng c\u1EE7a qu\xE1i v\u1EADt."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "Suy Y\u1EBFu B\xF3ng T\u1ED1i"
+    description: "M\u1ED7i l\u01B0\u1EE3t, b\u1EA1n c\xF3 th\u1EC3 ch\u1ECDn 1 qu\xE1i
+      v\u1EADt c\u1EE7a \u0111\u1ED1i th\u1EE7 tr\xEAn s\xE2n v\xE0 gi\u1EA3m ATK
+      c\u1EE7a n\xF3 xu\u1ED1ng 15%."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 501
+  m_EditorClassIdentifier: 
+  id: 500
+  nameCard: Tyrant Rex
+  tribe: 12
+  element: 4
+  cardType: 1
+  rarity: 2
+  cardKeyword: 0
+  ATK: 2100
+  HP: 2300
+  level: 5
+  skills:
+  - skillId: 
+    name: "Sinh L\u1EF1c Bi\u1EBFn H\xF3a"
+    description: "L\xE1 b\xE0i n\xE0y kh\xF4ng c\xF3 HP c\u1ED1 \u0111\u1ECBnh; HP
+      c\u1EE7a n\xF3 s\u1EBD \u0111\u01B0\u1EE3c \u0111\u1EB7t l\u1EA1i m\u1ED7i
+      khi m\u1ED9t qu\xE1i v\u1EADt \u0111\u01B0\u1EE3c tri\u1EC7u h\u1ED3i \u0111\u1EB7c
+      bi\u1EC7t l\xEAn s\xE2n."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "C\xE2n B\u1EB1ng C\xF5i M\u1ED9"
+    description: "M\u1ED7i khi HP c\u1EE7a l\xE1 b\xE0i n\xE0y \u0111\u01B0\u1EE3c
+      c\u1EADp nh\u1EADt, n\xF3 tr\u1EDF th\xE0nh t\u1ED5ng s\u1ED1 l\xE1 b\xE0i
+      tr\xEAn s\xE2n v\xE0 trong m\u1ED9 hai b\xEAn \xD7 200."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

@@ -53,7 +53,7 @@ namespace UI.UIWindow
         }
         public async void LoadData()
         {
-            for (int i = 1; i <= 460; i++)
+            for (int i = 1; i <= 740; i++)
             {
                 CardData card = await AddressablesManager.Instance.LoadAssetAsync<CardData>($"{i}");
                 switch (card.cardType)

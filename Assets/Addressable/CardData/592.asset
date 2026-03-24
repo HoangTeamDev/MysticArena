@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 592
+  m_EditorClassIdentifier: 
+  id: 592
+  nameCard: Titan of the Rift
+  tribe: 18
+  element: 7
+  cardType: 1
+  rarity: 2
+  cardKeyword: 0
+  ATK: 2500
+  HP: 3000
+  level: 5
+  skills:
+  - skillId: 
+    name: "Th\u1EA7n L\u1EF1c \u0110\u1ECBa Ch\u1EA5n"
+    description: "B\xE0i n\xE0y kh\xF4ng nh\u1EADn s\xE1t th\u01B0\u01A1ng chi\u1EBFn
+      \u0111\u1EA5u t\u1EEB qu\xE1i v\u1EADt c\xF3 ATK th\u1EA5p h\u01A1n ATK c\u1EE7a
+      n\xF3."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "Kh\xE1ng Ma Ph\xE1p C\u1ED5 \u0110\u1EA1i"
+    description: "N\u1EBFu c\xF3 \xEDt nh\u1EA5t 2 qu\xE1i v\u1EADt t\u1ED9c \"Titan\"
+      kh\xE1c tr\xEAn s\xE2n, l\xE1 b\xE0i n\xE0y mi\u1EC5n nhi\u1EC5m v\u1EDBi hi\u1EC7u
+      \u1EE9ng c\u1EE7a Ph\xE9p."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

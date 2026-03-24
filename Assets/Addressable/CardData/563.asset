@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 563
+  m_EditorClassIdentifier: 
+  id: 563
+  nameCard: Colossal Dreadroach
+  tribe: 16
+  element: 6
+  cardType: 1
+  rarity: 2
+  cardKeyword: 0
+  ATK: 2500
+  HP: 2500
+  level: 6
+  skills:
+  - skillId: 
+    name: "Khi\xEAn Ch\u1EAFn Ma Ph\xE1p"
+    description: "Khi b\xE0i n\xE0y \u1EDF tr\xEAn s\xE2n, n\xF3 nh\u1EADn \u0111\u01B0\u1EE3c
+      kh\u1EA3 n\u0103ng mi\u1EC5n nhi\u1EC5m v\u1EDBi hi\u1EC7u \u1EE9ng c\u1EE7a
+      l\xE1 Ph\xE9p."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "S\u1EF1 S\u1ED1ng B\u1EA7y \u0110\xE0n"
+    description: "N\u1EBFu c\xF3 \xEDt nh\u1EA5t 2 qu\xE1i v\u1EADt t\u1ED9c \"Insectoid\"
+      kh\xE1c tr\xEAn s\xE2n, h\u1ED3i ph\u1EE5c 500 HP m\u1ED7i l\u01B0\u1EE3t.
+      N\u1EBFu kh\xF4ng th\u1EC3 h\u1ED3i ph\u1EE5c HP, kh\xF4i ph\u1EE5c LP  c\u1EE7a
+      ng\u01B0\u1EDDi ch\u01A1i."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "H\u1EADu Du\u1EC7 C\xF4n Tr\xF9ng"
+    description: "N\u1EBFu l\xE1 b\xE0i n\xE0y b\u1ECB ph\xE1 h\u1EE7y, b\u1EA1n
+      c\xF3 th\u1EC3 tri\u1EC7u h\u1ED3i \u0111\u1EB7c bi\u1EC7t 1 qu\xE1i v\u1EADt
+      t\u1ED9c \"Insectoid\" c\u1EA5p 4 ho\u1EB7c th\u1EA5p h\u01A1n t\u1EEB m\u1ED9
+      l\xEAn s\xE2n."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

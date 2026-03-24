@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 567
+  m_EditorClassIdentifier: 
+  id: 567
+  nameCard: Bloodfang Minion
+  tribe: 17
+  element: 1
+  cardType: 1
+  rarity: 1
+  cardKeyword: 0
+  ATK: 1200
+  HP: 900
+  level: 2
+  skills:
+  - skillId: 
+    name: "H\xFAt M\xE1u T\u1EED Vong"
+    description: "Khi b\xE0i n\xE0y t\u1EA5n c\xF4ng m\u1ED9t qu\xE1i v\u1EADt c\u1EA5p
+      5 ho\u1EB7c th\u1EA5p h\u01A1n, h\xFAt 500 HP t\u1EEB qu\xE1i v\u1EADt \u0111\xF3
+      v\xE0 h\u1ED3i ph\u1EE5c v\xE0o LP g\u1ED1c c\u1EE7a b\u1EA1n."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []
