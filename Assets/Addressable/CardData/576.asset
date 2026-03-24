@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 576
+  m_EditorClassIdentifier: 
+  id: 576
+  nameCard: Doomflame Tyrant
+  tribe: 17
+  element: 1
+  cardType: 1
+  rarity: 2
+  cardKeyword: 0
+  ATK: 2700
+  HP: 2200
+  level: 5
+  skills:
+  - skillId: 
+    name: "Khi\xEAn Sinh M\u1EC7nh H\u1EAFc H\u1ECFa"
+    description: "Khi b\xE0i n\xE0y \u0111\u01B0\u1EE3c tri\u1EC7u h\u1ED3i th\u01B0\u1EDDng,
+      n\xF3 nh\u1EADn 1 \"Khi\xEAn Sinh M\u1EC7nh\". (Khi\xEAn Sinh M\u1EC7nh: Khi
+      l\xE1 b\xE0i n\xE0y b\u1ECB t\u1EA5n c\xF4ng, sau khi t\xEDnh to\xE1n s\xE1t
+      th\u01B0\u01A1ng, n\u1EBFu n\xF3 v\u1EABn c\xF2n tr\xEAn s\xE2n, n\xF3 s\u1EBD
+      h\u1ED3i ph\u1EE5c l\u01B0\u1EE3ng s\xE1t th\u01B0\u01A1ng v\u1EEBa nh\u1EADn.)"
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "Tri\u1EC7u H\u1ED3i H\u1EAFc Ma"
+    description: "M\u1ED7i l\u01B0\u1EE3t, b\u1EA1n c\xF3 th\u1EC3 tri\u1EC7u h\u1ED3i
+      \u0111\u1EB7c bi\u1EC7t 1 qu\xE1i v\u1EADt t\u1ED9c \"Demon\" c\u1EA5p 4 ho\u1EB7c
+      th\u1EA5p h\u01A1n t\u1EEB tay l\xEAn s\xE2n."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

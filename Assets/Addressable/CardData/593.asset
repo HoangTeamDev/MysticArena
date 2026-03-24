@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 593
+  m_EditorClassIdentifier: 
+  id: 593
+  nameCard: Colossal Stormbringer
+  tribe: 18
+  element: 7
+  cardType: 1
+  rarity: 2
+  cardKeyword: 0
+  ATK: 3000
+  HP: 2800
+  level: 6
+  skills:
+  - skillId: 
+    name: "Hi\u1EBFn T\u1EBF \xC1p Ch\u1EBF"
+    description: "M\u1ED7i l\u01B0\u1EE3t, b\u1EA1n c\xF3 th\u1EC3 hi\u1EBFn t\u1EBF
+      1 qu\xE1i v\u1EADt b\u1EA1n \u0111i\u1EC1u khi\u1EC3n \u0111\u1EC3 ch\u1ECDn
+      1 qu\xE1i v\u1EADt c\u1EE7a \u0111\u1ED1i th\u1EE7 v\xE0 v\xF4 hi\u1EC7u h\xF3a
+      hi\u1EC7u \u1EE9ng c\u1EE7a n\xF3 trong l\u01B0\u1EE3t n\xE0y."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "Ph\u1EA3n \u0110\xF2n Titan"
+    description: "Khi l\xE1 b\xE0i n\xE0y b\u1ECB t\u1EA5n c\xF4ng, n\u1EBFu c\xF3
+      \xEDt nh\u1EA5t 1 qu\xE1i v\u1EADt t\u1ED9c \"Titan\" kh\xE1c tr\xEAn s\xE2n,
+      ph\u1EA3n l\u1EA1i 50% s\xE1t th\u01B0\u01A1ng l\xEAn qu\xE1i v\u1EADt t\u1EA5n
+      c\xF4ng."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "T\xE1i Sinh C\u1EF1 Th\u1EA1ch"
+    description: "N\u1EBFu l\xE1 b\xE0i n\xE0y b\u1ECB ph\xE1 h\u1EE7y, t\u1EA5t
+      c\u1EA3 qu\xE1i v\u1EADt c\u1EA5p 5 ho\u1EB7c cao h\u01A1n tr\xEAn s\xE2n b\u1EA1n
+      h\u1ED3i ph\u1EE5c 30% HP t\u1ED1i \u0111a c\u1EE7a ch\xFAng."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

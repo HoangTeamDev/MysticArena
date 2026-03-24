@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 484
+  m_EditorClassIdentifier: 
+  id: 484
+  nameCard: Flower Angel-Nina
+  tribe: 11
+  element: 3
+  cardType: 1
+  rarity: 2
+  cardKeyword: 0
+  ATK: 0
+  HP: 0
+  level: 4
+  skills:
+  - skillId: 
+    name: "Th\u0103ng Hoa Th\u1EA7n Tho\u1EA1i"
+    description: "N\u1EBFu b\xE0i n\xE0y ph\xE1 h\u1EE7y m\u1ED9t qu\xE1i v\u1EADt
+      trong chi\u1EBFn \u0111\u1EA5u, n\xF3 c\xF3 th\u1EC3 t\u0103ng c\u1EA5p c\u1EE7a
+      m\xECnh l\xEAn +1 (t\u1ED1i \u0111a c\u1EA5p 10)."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "S\u1EE9c M\u1EA1nh Th\u0103ng Hoa"
+    description: "ATK v\xE0 HP c\u1EE7a l\xE1 b\xE0i n\xE0y b\u1EB1ng c\u1EA5p c\u1EE7a
+      b\xE0i n\xE0y \xD7 400."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

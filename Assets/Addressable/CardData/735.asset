@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 735
+  m_EditorClassIdentifier: 
+  id: 735
+  nameCard: Archmage Zenith
+  tribe: 13
+  element: 6
+  cardType: 1
+  rarity: 2
+  cardKeyword: 0
+  ATK: 2500
+  HP: 2600
+  level: 6
+  skills:
+  - skillId: 
+    name: "Ph\xE9p Dung H\u1EE3p"
+    description: "Khi tri\u1EC7u h\u1ED3i: H\u1EA5p th\u1EE5 1 b\xE0i ph\xE9p t\u1EEB
+      M\u1ED9 B\xE0i \u0111\u1EC3 k\xEDch ho\u1EA1t hi\u1EC7u \u1EE9ng ngay l\u1EADp
+      t\u1EE9c.\n"
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "Qu\xE1 T\u1EA3i Th\u1EA7n B\xED"
+    description: "M\u1ED7i l\u1EA7n b\u1EA1n k\xEDch ho\u1EA1t b\xE0i ph\xE9p: +200
+      ATK \u0111\u1EBFn h\u1EBFt l\u01B0\u1EE3t."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "Phong \u1EA4n T\u1ED1i Th\u01B0\u1EE3ng"
+    description: "N\u1EBFu b\u1ECB h\u1EE7y b\u1ECF b\u1EDFi \u0111\u1ED1i th\u1EE7
+      hi\u1EC7u \u1EE9ng: Tri\u1EC7u h\u1ED3i 1 \"SpellCaster\" c\u1EA5p 4 ho\u1EB7c
+      th\u1EA5p h\u01A1n t\u1EEB M\u1ED9 B\xE0i."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

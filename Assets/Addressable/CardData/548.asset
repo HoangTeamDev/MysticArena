@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 548
+  m_EditorClassIdentifier: 
+  id: 548
+  nameCard: Voidborn Abyss Lord
+  tribe: 15
+  element: 6
+  cardType: 1
+  rarity: 2
+  cardKeyword: 0
+  ATK: 3000
+  HP: 2800
+  level: 6
+  skills:
+  - skillId: 
+    name: "Tri\u1EC7u H\u1ED3i V\u1EF1c Th\u1EB3m"
+    description: "Khi b\xE0i n\xE0y \u0111\u01B0\u1EE3c tri\u1EC7u h\u1ED3i th\u01B0\u1EDDng,
+      b\u1EA1n c\xF3 th\u1EC3 g\u1EEDi 1 qu\xE1i v\u1EADt t\u1ED9c \"Abyss\" t\u1EEB
+      b\u1ED9 b\xE0i xu\u1ED1ng m\u1ED9 \u0111\u1EC3 tri\u1EC7u h\u1ED3i \u0111\u1EB7c
+      bi\u1EC7t 1 qu\xE1i v\u1EADt t\u1ED9c \"Abyssal\" c\u1EA5p 4 ho\u1EB7c th\u1EA5p
+      h\u01A1n t\u1EEB m\u1ED9 l\xEAn s\xE2n."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "B\u1EA5t Ho\u1EA1i V\u1EF1c Th\u1EB3m"
+    description: "N\u1EBFu b\u1EA1n \u0111i\u1EC1u khi\u1EC3n \xEDt nh\u1EA5t 2 qu\xE1i
+      v\u1EADt t\u1ED9c \"Abyss\" kh\xE1c, l\xE1 b\xE0i n\xE0y kh\xF4ng th\u1EC3
+      b\u1ECB ph\xE1 h\u1EE7y b\u1EDFi hi\u1EC7u \u1EE9ng ho\u1EB7c chi\u1EBFn \u0111\u1EA5u."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  - skillId: 
+    name: "Ch\xFAa T\u1EC3 \u0110\u1ED9c T\xF4n"
+    description: "N\u1EBFu b\u1EA1n kh\xF4ng \u0111i\u1EC1u khi\u1EC3n qu\xE1i v\u1EADt
+      n\xE0o kh\xE1c ngo\xE0i l\xE1 b\xE0i n\xE0y, t\u0103ng 30% ATK v\xE0 HP cho
+      l\xE1 b\xE0i."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []

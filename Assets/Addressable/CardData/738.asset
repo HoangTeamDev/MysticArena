@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec64b67d552a64c9819b1e064a00ee, type: 3}
+  m_Name: 738
+  m_EditorClassIdentifier: 
+  id: 738
+  nameCard: Forbidden Pact
+  tribe: 13
+  element: 6
+  cardType: 2
+  rarity: 1
+  cardKeyword: 0
+  ATK: 2500
+  HP: 2600
+  level: 6
+  skills:
+  - skillId: 
+    name: "Kh\u1EBF \u01AF\u1EDBc C\u1EA5m Thu\u1EADt"
+    description: "R\xFAt 1 l\xE1 b\xE0i. Sau \u0111\xF3, \u0111\u1ED1i th\u1EE7 c\u1EE7a
+      b\u1EA1n h\u1ED3i 1000 LP."
+    activation: 0
+    speed: 0
+    limitPerTurn: 0
+    groupKey: 
+    effects: []
+  references:
+    version: 2
+    RefIds: []
