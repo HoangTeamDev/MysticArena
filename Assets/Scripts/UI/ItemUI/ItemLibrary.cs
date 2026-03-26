@@ -10,7 +10,7 @@ namespace UI.ItemUI
         public override void OnInit()
         {
             base.OnInit();
-            _nameCard.text = cardData.nameCard;
+           
         }
     }
 }

@@ -4,10 +4,9 @@ using System.Net.Sockets;
 using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
-using static System.Collections.Specialized.BitVector32;
-using static UnityEditor.ShaderData;
 
-public class ClientMain : MonoBehaviour
+
+public partial class ClientMain : MonoBehaviour
 {
     TcpClient client;
     public static ClientMain Instance;
@@ -16,7 +15,7 @@ public class ClientMain : MonoBehaviour
     BinaryReader reader;
     BinaryWriter writer;
 
-    Messenger messenger = new Messenger();
+    public Messenger messenger;
 
     private void Awake()
     {
@@ -49,7 +48,7 @@ public class ClientMain : MonoBehaviour
 
             _ = Task.Run(ListenServer); // run in background thread
 
-            SendName("Player_" + UnityEngine.Random.Range(1000, 9999));
+           
         }
         catch (Exception e)
         {
@@ -143,39 +142,7 @@ public class ClientMain : MonoBehaviour
     // ------------------------
     // SEND PACKETS
     // ------------------------
-    [ContextMenu("Send")]
-    public void sendOk()
-    {
-        SendLogin("testuser", "123456");
-    }
-    [ContextMenu("GetALlCard")]
-    public void GetallCard()
-    {
-        Message msg = new Message(9);
-        
-        Send(msg);
-    }
-    public void SendLogin(string user, string pass)
-    {
-        Message msg = new Message(3);
-        msg.writeUTF(user);
-        msg.writeUTF(pass);
-        Send(msg);
-    }
-
-    public void SendName(string name)
-    {
-        Message msg = new Message(1);
-        msg.writeUTF(name);
-        Send(msg);
-    }
-
-    public void SendChat(string mess)
-    {
-        Message msg = new Message(2);
-        msg.writeUTF(mess);
-        Send(msg);
-    }
+    
     public void Disconet()
     {
         reader?.Close();
@@ -183,7 +150,7 @@ public class ClientMain : MonoBehaviour
         stream?.Close();
         client?.Close();
     }
-    void Send(Message m)
+    public void Send(Message m)
     {
         if (m == null || client == null || !client.Connected)
             return;
