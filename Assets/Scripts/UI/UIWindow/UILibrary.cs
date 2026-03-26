@@ -1,4 +1,4 @@
-﻿using Card;
+﻿
 using Menu.System;
 using System.Collections;
 using System.Collections.Generic;
@@ -28,85 +28,20 @@ namespace UI.UIWindow
         public Button buttonMonter;
         public Button buttonSplell;
         public SpriteAtlas spriteAtlas;
-        public List<TitleShop> _listButtonShop;
-        public TitleShop currentSelected;
+        
         [Header("Item")]
         public ItemSlotLibrary _nomalMonter;
         public ItemSlotLibrary _godMonter;
         public ItemSlotLibrary _spell;
-        void OnTabClicked(TitleShop clicked)
-        {
-            for (int i = 0; i < _listButtonShop.Count; i++)
-            {
-                if (_listButtonShop[i] == clicked)
-                {
-                    _listButtonShop[i]._icon.color = ReadColor.FromHex(ReadColor.Green);
+       
+       
 
-                }
-                else
-                {
-                    _listButtonShop[i]._icon.color = ReadColor.FromHex(ReadColor.White);
-
-                }
-            }
-            currentSelected = clicked;
-        }
-        public async void LoadData()
-        {
-            for (int i = 1; i <= 740; i++)
-            {
-                CardData card = await AddressablesManager.Instance.LoadAssetAsync<CardData>($"{i}");
-                switch (card.cardType)
-                {
-                    case CardType.Monter:
-                        if (card.tribe == Tribe.God)
-                        {
-                            ItemSlotLibrary god = Instantiate(_godMonter, ScollMonter.transform);
-                            god.ItemBase.cardData = card;
-                            god.ItemBase.OnInit();
-                            god.gameObject.SetActive(true);
-                        }
-                        else
-                        {
-                            ItemSlotLibrary nomal = Instantiate(_nomalMonter, ScollMonter.transform);
-                            nomal.ItemBase.cardData = card;
-                            nomal.ItemBase.OnInit();
-                            nomal.gameObject.SetActive(true);
-                        }
-                        break;
-                    case CardType.Spell:
-                        ItemSlotLibrary spell = Instantiate(_spell, ScollSplell.transform);
-                        spell.ItemBase.cardData = card;
-                        spell.ItemBase.OnInit();
-                        spell.gameObject.SetActive(true);
-                        break;
-                }
-            }
-        }
-
-        public void OnShowMonter()
-        {
-            mainMonter.SetActive(true);
-            mainSplell.SetActive(false);
-            OnTabClicked(_listButtonShop[0]);
-        }
-        public void OnShowSpell()
-        {
-            mainMonter.SetActive(false);
-            mainSplell.SetActive(true);
-            OnTabClicked(_listButtonShop[1]);
-
-        }
+      
 
         public override void Init()
         {
             base.Init();
-            buttonMonter.onClick.AddListener(OnShowMonter);
-            buttonSplell.onClick.AddListener(OnShowSpell);
-            mainMonter.SetActive(true);
-            mainSplell.SetActive(false);
-            LoadData();
-            OnShowMonter();
+           
         }
 
         public override void Open()

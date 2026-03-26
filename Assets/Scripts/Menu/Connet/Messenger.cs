@@ -1,42 +1,64 @@
-using Unity.VisualScripting;
+﻿using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-public class Messenger
+using UIScripts.SystemUI;
+public class Messenger: MonoBehaviour 
 {
     public void Handle(Message message)
     {
-      
+        MainLog.Log("Nhận mess", message.Command.ToString(),ReadColor.Green );
 
         switch (message.Command)
         {
+            case 1:
+                {
+                    HandleLoginSucces(message);
+                    break;
+                }
             case 2:
-                HandleChat(message);
+                
                 break;
-
             case 3:
-                HandleNameAccepted(message);
+                HandleCreatePlayer(message);
+                
                 break;
-            case 1000:
+            case 4:
+                {
+                    HandleInfo(message);
+                }
+                break;
+            case 5:
+                {
+                    
+                }
+                break;
+            case 10:
                 {
                     string msg=message.readUTF();
                     Debug.Log(msg);
                 }
                 break;
-            case 8:
-                {
-                    HandleLoginSucces(message);
-                }
-                break;
-            case 9:
-                {
-                    HandleGetAllCard(message);
-                }
-                
-                break;
+           
             default:
                 Debug.LogWarning("Unknown opcode: " + message);
                 break;
+        }
+    }
+    void HandleInfo(Message message) 
+    {
+        int id=message.readInt();
+        string name=message.readUTF();
+        int level=message.readInt();
+        int gold=message.readInt();
+        int diamond=message.readInt();
+        MainLog.Log("Nhân vật", $"{name}  {level} {gold} {diamond}",ReadColor.Green);
+    }
+    void HandleCreatePlayer(Message message)
+    {
+        bool t = message.readBool();
+        if (t)
+        {
+            LoginController.Instance.ActiveCreatePlayer();
         }
     }
     void HandleLoginSucces (Message message)

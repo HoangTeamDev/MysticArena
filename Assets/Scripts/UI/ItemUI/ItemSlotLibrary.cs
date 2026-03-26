@@ -44,7 +44,7 @@ namespace UI.ItemUI
                     UIInfoCard uIInfoCard = UIController.Instance.Get<UIInfoCard>(WindowType.UI_InfoCard);
                     if (uIInfoCard != null)
                     {
-                        uIInfoCard.Show(ItemBase.cardData);
+                        
                         uIInfoCard.OpenMe();
                         
                     }

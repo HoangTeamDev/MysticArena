@@ -1,4 +1,4 @@
-﻿using Card;
+﻿
 using DG.Tweening;
 using Menu.System;
 using System.Collections;
@@ -39,21 +39,7 @@ namespace UI.UIOvelay
         public TextMeshProUGUI info2;        
         public RectTransform Sollview;
         public RectTransform main;
-        public DesCard desCard;
-        public List<DesCard> desCards;
-        public void Show(CardData cardData)
-        {
-            montercard.SetActive(false);
-            spellCard.SetActive(false);
-            foreach (var item in desCards)
-            {
-                Destroy(item.gameObject);
-            }
-            desCards.Clear();
-            LoadData(cardData);
-            LayoutRebuilder.ForceRebuildLayoutImmediate(Sollview);
-
-        }
+       
       
         public void LoadElement(string name)
         {
@@ -85,80 +71,7 @@ namespace UI.UIOvelay
             }
         }
         public static string ColorWrap(string text, string colorHex) => $"<color={colorHex}>{text}</color>";
-        private void LoadData(CardData cardData)
-        {
-            switch (cardData.cardType)
-            {
-                case CardType.Monter:
-                    {
-                        montercard.SetActive(true);
-                        spellCard.SetActive(false);
-                        nameMonter.text = cardData.nameCard;
-                        imageMonter.sprite = Resources.Load<Sprite>("Sprite/Item/" + cardData.id);
-                        level.text = cardData.level.ToString();
-                        ATK.text = cardData.ATK.ToString();
-                        HP.text = cardData.HP.ToString();
-                        quality.sprite = iconQuality[(int)cardData.rarity - 1];
-                        int x = cardData.rarity is Rarity.GR ? 1:0;
-                        
-                        backgroundQuality.sprite = imageBackgroundQuality[x];
-                        LoadElement(cardData.element.ToString());
-                        backgroundMonter.sprite = bgImage[x];
-                        StringBuilder sb = new StringBuilder();
-                        sb.AppendLine(ColorWrap($"Tộc: ",ReadColor.Yellow)+$"{cardData.tribe}.");
-                        sb.AppendLine(ColorWrap($"Từ Khóa: ",ReadColor.Yellow)+$"{cardData.cardKeyword}.");
-                        
-                        
-
-                        info1.text = sb.ToString();
-                        foreach (var item in cardData.skills)
-                        {
-                            DesCard des = Instantiate(desCard, Sollview.transform);
-                            StringBuilder sb1= new StringBuilder();
-                            sb1.AppendLine(ColorWrap($"{item.name}:",ReadColor.Yellow));
-                            sb1.AppendLine($"{item.description}");
-                            des._des.text = sb1.ToString();
-                            desCards.Add(des);
-                            des.gameObject.SetActive(true);
-                            RectTransform rectTransform = des.GetComponent<RectTransform>();
-                            LayoutRebuilder.ForceRebuildLayoutImmediate(rectTransform);
-                        }
-                    }
-                    
-                    
-
-                    break;
-                case CardType.Spell:
-                    {
-                        spellCard.SetActive(true);
-                        montercard.SetActive(false);
-                        nameSpell.text = cardData.nameCard;
-                        imageSpell.sprite = Resources.Load<Sprite>("Sprite/Item/" + cardData.id);
-                        int x = cardData.rarity is Rarity.GR ? 1 : 0;
-                        backgroundQuality.sprite = imageBackgroundQuality[x];
-                        quality.sprite = iconQuality[(int)cardData.rarity - 1];
-                        StringBuilder sb = new StringBuilder();
-                        sb.AppendLine($"Tộc: {cardData.tribe}.");
-                        sb.AppendLine($"Từ Khóa: {cardData.cardKeyword}.");
-
-                        info1.text = sb.ToString();
-                        foreach (var item in cardData.skills)
-                        {
-                            DesCard des = Instantiate(desCard, Sollview.transform);
-                            StringBuilder sb1 = new StringBuilder();
-                            sb1.AppendLine(ColorWrap($"{item.name}:", ReadColor.Yellow));
-                            sb1.AppendLine($"{item.description}");
-                            des._des.text = sb1.ToString();
-                            desCards.Add(des);
-                            des.gameObject.SetActive(true);
-                            RectTransform rectTransform = des.GetComponent<RectTransform>();
-                            LayoutRebuilder.ForceRebuildLayoutImmediate(rectTransform);
-                        }
-                    }
-                  
-                    break;
-            }
-        }
+      
         public override void Init()
         {
             base.Init();
