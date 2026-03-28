@@ -1,5 +1,6 @@
 
 
+using CardData;
 using UI.SystemUI;
 using UI.UIOvelay;
 using UI.UIWindow;
@@ -17,6 +18,7 @@ namespace UI.ItemUI
         public Button Button;       
         public ItemBase ItemBase;     
         public TypeItemSlot typeItemSlot;
+        public Card card;
         public UIController uIManager => UIController.Instance;
         private void Awake()
         {

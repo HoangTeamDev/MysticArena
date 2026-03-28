@@ -4,55 +4,59 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UIScripts.SystemUI;
-
-public partial class ClientMain
+using Menu.System;
+namespace Menu.Connet
 {
-   
-    [ContextMenu("GetALlCard")]
-    public void GetallCard()
+    public partial class ClientMain
     {
-        Message msg = new Message(9);
 
-        Send(msg);
-    }
-    public void SendLogin(string user, string pass)
-    {
-        Message msg = new Message(1);
-        msg.writeUTF(user);
-        msg.writeUTF(pass);
-        Send(msg);
-    }
-
-   
-
-  
-    public void CreateTK(string user, string pass)
-    {
-        try
+        [ContextMenu("GetALlCard")]
+        public void GetallCard()
         {
-            Message msg = new Message(2);
+            Message msg = new Message(9);
+
+            Send(msg);
+        }
+        public void SendLogin(string user, string pass)
+        {
+            Message msg = new Message(1);
             msg.writeUTF(user);
             msg.writeUTF(pass);
             Send(msg);
         }
-        catch(Exception ex)
+
+
+
+
+        public void CreateTK(string user, string pass)
         {
-            MainLog.LogError("Xảy ra lỗi ", "case 4", ReadColor.Blue);
+            try
+            {
+                Message msg = new Message(2);
+                msg.writeUTF(user);
+                msg.writeUTF(pass);
+                Send(msg);
+            }
+            catch (Exception ex)
+            {
+                MainLog.LogError("Xảy ra lỗi ", "case 4", ReadColor.Blue);
+            }
         }
-    }
-    public void CreatePlayer(string name)
-    {
-        try
+        public void CreatePlayer(string name)
         {
-            Message msg = new Message(3);
-            msg.writeUTF(name);
-            
-            Send(msg);
+            try
+            {
+                Message msg = new Message(3);
+                msg.writeUTF(name);
+
+                Send(msg);
+            }
+            catch (Exception ex)
+            {
+                MainLog.LogError("Xảy ra lỗi ", "case 4", ReadColor.Blue);
+            }
         }
-        catch (Exception ex)
-        {
-            MainLog.LogError("Xảy ra lỗi ", "case 4", ReadColor.Blue);
-        }
+
     }
 
 }

@@ -1,6 +1,9 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
+using TMPro;
 using UI.ItemUI;
 using UI.SystemUI;
 using UI.UIWindow;
@@ -15,6 +18,12 @@ namespace UI.UIHUD
     {
         [Header("Function")]
         public Button _Library;
+        [Header("InforPlayer")]
+        public Image _avatar;
+        [SerializeField] private TextMeshProUGUI _namePlayer;
+        [SerializeField] private TextMeshProUGUI _level;
+        [SerializeField] private TextMeshProUGUI _gold;
+        [SerializeField] private TextMeshProUGUI _diamond;
         public override void Init()
         {
             base.Init();
@@ -26,8 +35,24 @@ namespace UI.UIHUD
                     library.OpenMe();
                 }
             });
+            SetInfo();
         }
-
+        private void SetInfo()
+        {
+            var d=GameData.Instance._mainPlayer;
+            _namePlayer.text = d._namePlayer;
+            _level.text=$"Level:{d._level}";
+            
+            AnimateTextNumber(_gold, d._gold);
+            AnimateTextNumber(_diamond, d._diamond);
+           
+        }
+        private void AnimateTextNumber(TextMeshProUGUI textComponent, long newValue)
+        {
+            var culture = (CultureInfo)CultureInfo.InvariantCulture.Clone();
+            culture.NumberFormat.NumberGroupSeparator = ".";
+            textComponent.text = newValue.ToString("N0", culture);
+        }
         public override void OnPointerClick(PointerEventData pointerEventData)
         {
             base.OnPointerClick(pointerEventData);

@@ -19,7 +19,8 @@ namespace UI.SystemUI
        UI_Inventory,
        UI_Shop,
        UI_Library,
-       UI_InfoCard
+       UI_InfoCard,
+       UI_deck
 
     }
     public abstract class UIBase : MonoBehaviour, IPointerClickHandler

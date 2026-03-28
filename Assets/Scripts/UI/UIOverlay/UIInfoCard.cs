@@ -1,12 +1,15 @@
 ﻿
+using CardData;
 using DG.Tweening;
 using Menu.System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using TMPro;
 using UI.ItemUI;
 using UI.SystemUI;
+using UIScripts.SystemUI;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -15,63 +18,82 @@ namespace UI.UIOvelay
 {
     public class UIInfoCard : UIBase
     {
-        [Header("Monter")]
-        public List<Sprite> iconQuality;
-        public Image quality;
-        public List<Sprite> imageBackgroundQuality;
-        public Image backgroundQuality;
-        public Image imageMonter;
-        public List<Sprite> iconElement;
-        public TextMeshProUGUI nameMonter;
+        [Header("Monter")]     
+        public Image imageMonter;     
         public Image element;
-        public TextMeshProUGUI level;
+        public Image Rate;
+        public List<Image> imagesLevel;
+        public TextMeshProUGUI nameMonter;
+       
         public TextMeshProUGUI ATK;
         public TextMeshProUGUI HP;
         public GameObject montercard;
-        public Image backgroundMonter;
-        public List<Sprite> bgImage;
+       
         [Header("Spell")]
         public Image imageSpell;
         public TextMeshProUGUI nameSpell;
         public GameObject spellCard;
+        public Image RateSpell;
+        [Header("Trap")]
+        public Image imageTrap;
+        public TextMeshProUGUI nameTrap;
+        public GameObject trapCard;
+        public Image RateTrap;
         [Header("Ability")]
         public TextMeshProUGUI info1;
         public TextMeshProUGUI info2;        
         public RectTransform Sollview;
         public RectTransform main;
-       
+        public List<SkillDes> skillDes;
+        public SkillDes skillDesper;
       
-        public void LoadElement(string name)
+        
+        public static string ColorWrap(string text, string colorHex) => $"<color={colorHex}>{text}</color>";
+        public async void ShowItem(Card card)
         {
-            switch (name)
+            if (card._CardType is 1)
             {
-                case "Fire":
-                    element.sprite = iconElement[1];
-                    break;
-
-                case "Dark":
-                    element.sprite = iconElement[0];
-                    break;
-                case "Wind":
-                    element.sprite = iconElement[5];
-                    break;
-                case "Water":
-                    element.sprite = iconElement[4];
-                    break;
-                case "Earth":
-                    element.sprite = iconElement[2];
-                    break;
-                case "Light":
-                    element.sprite = iconElement[3];
-                    break;
-                case "Thunder":
-                    element.sprite = iconElement[6];
-                    break;
-
+                nameMonter.text = card._Name;
+                ATK.text = card._Attack.ToString();
+                HP.text = card._Hp.ToString();
+                for (int i = 0; i < card._Level; i++)
+                {
+                    imagesLevel[i].gameObject.SetActive(true);
+                }
+                element.sprite = await GameData.Instance.LoadAsset<Sprite>("E" + card._Element);
+                imageMonter.sprite = await GameData.Instance.LoadAsset<Sprite>(card._CardId.ToString());
+                Rate.sprite = await GameData.Instance.LoadAsset<Sprite>(card._Rarity);
+                montercard.gameObject.SetActive(true);
+                spellCard.gameObject.SetActive(false);
+                trapCard.gameObject.SetActive(false);
+                info1.text = $"Tộc: {card.GetRace()} - Từ Khóa: {card.GetKeyWord()}";
+            }
+            if (card._CardType is 2)
+            {
+                nameSpell.text = card._Name;
+                RateSpell.sprite = await GameData.Instance.LoadAsset<Sprite>(card._Rarity);
+                montercard.gameObject.SetActive(false);
+                spellCard.gameObject.SetActive(true);
+                trapCard.gameObject.SetActive(false);
+                info1.text = $"Từ Khóa: {card.GetKeyWord()}";
+            }
+            if (card._CardType is 3)
+            {
+                nameTrap.text = card._Name;
+                RateTrap.sprite = await GameData.Instance.LoadAsset<Sprite>(card._Rarity);
+                montercard.gameObject.SetActive(false);
+                spellCard.gameObject.SetActive(false);
+                trapCard.gameObject.SetActive(true);
+                info1.text = $"Từ Khóa: {card.GetKeyWord()}";
+            }
+            foreach (var item in card.CardEffects)
+            {
+                var  skill=Instantiate(skillDesper, Sollview);
+                skill.gameObject.SetActive(true);
+                skillDes.Add(skill);
+                skill._nameSkill.text = $"{ColorWrap(item._Skillname, "#FFD700")}\n {ColorWrap(item._Des,ReadColor.White)}";
             }
         }
-        public static string ColorWrap(string text, string colorHex) => $"<color={colorHex}>{text}</color>";
-      
         public override void Init()
         {
             base.Init();
@@ -91,6 +113,15 @@ namespace UI.UIOvelay
         {
             base.Close();
             gameObject.SetActive(false);
+            foreach (var item in skillDes)
+            {
+                Destroy(item.gameObject);
+            }
+                skillDes.Clear();
+            foreach (var item in imagesLevel)
+            {
+                item.gameObject.SetActive(false);
+            }
         }
 
         public override void CloseMe()

@@ -6,19 +6,9 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 namespace UI.SystemUI
 {
-    public class UIController : MonoBehaviour
+    public class UIController : Singleton<UIController>
     {
-        public static UIController Instance;
-        private void Awake()
-        {
-            if (Instance == null) Instance = this;
-            else
-            {
-                Destroy(gameObject);
-                return;
-            }
-        }
-        public static bool HasInstance => Instance != null;
+        
         
         [SerializeField]private Dictionary<WindowType, UIBase> _windows = new Dictionary<WindowType, UIBase>();
         public UIBase _UiWindowCurrent;
@@ -26,8 +16,9 @@ namespace UI.SystemUI
         public bool IsOpenUI;
         public List<UIBase> _windowsList;
         public CanvasScaler _CanvasScaler;                
-        private void Start()
+        private async void Start()
         {
+
             RegisterAllWindows();
             IsOpenUI = false;
         }
