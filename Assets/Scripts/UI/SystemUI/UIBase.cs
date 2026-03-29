@@ -48,7 +48,7 @@ namespace UI.SystemUI
         public virtual void Open() { gameObject.SetActive(true); }
         public virtual void OpenMe() { UIController.Instance.Open(WindowType); }
 
-        public virtual void Close() { }
+        public virtual void Close() { gameObject.SetActive(false); }
 
         public virtual void CloseMe() { UIController.Instance.Close(WindowType); }
         public virtual void OnPointerClick(PointerEventData pointerEventData)

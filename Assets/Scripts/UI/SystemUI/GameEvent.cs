@@ -6,15 +6,12 @@ namespace UI.SystemUI
 {
     public enum ListEvent
     {
-        OnClick,
+       
         LoadMap,
-        UpdatePlayer,
-        UPdateOther,
-        PlayerLive,
-        PlayerDie,
+        UpdateDeck,
         Currency,
         AddItemInventory,
-        UpdateItemBody
+        UpdatePlayerCard
 
 
     }

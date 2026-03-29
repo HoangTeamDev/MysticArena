@@ -14,7 +14,10 @@ public class GameData : Singleton<GameData>
     [ShowInInspector, ReadOnly] private Dictionary<string, Sprite> _spriteCache = new();
     [ShowInInspector, ReadOnly] private Dictionary<string, GameObject> _prefabCache = new();
     
-
+    public Card GetCardByID(int id)
+    {
+        return _allCard.Find(c => c._CardId == id);
+    }
     public async UniTask<T> LoadAsset<T>(string key, CancellationToken ct = default) where T : UnityEngine.Object
     {
 

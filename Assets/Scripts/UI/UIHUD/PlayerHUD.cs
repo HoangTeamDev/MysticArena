@@ -18,6 +18,7 @@ namespace UI.UIHUD
     {
         [Header("Function")]
         public Button _Library;
+        public Button _btnDeck;
         [Header("InforPlayer")]
         public Image _avatar;
         [SerializeField] private TextMeshProUGUI _namePlayer;
@@ -35,6 +36,14 @@ namespace UI.UIHUD
                     library.OpenMe();
                 }
             });
+            _btnDeck.onClick.AddListener(() =>
+                {
+                    UIDeck deck = UIController.Instance.Get<UIDeck>(WindowType.UI_deck);
+                    if (deck != null)
+                    {
+                        deck.OpenMe();
+                    }
+                });
             SetInfo();
         }
         private void SetInfo()

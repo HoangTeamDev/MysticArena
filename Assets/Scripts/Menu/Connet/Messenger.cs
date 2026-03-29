@@ -6,6 +6,8 @@ using System;
 using CardData;
 using Menu.System;
 using Player;
+using UI.UIWindow;
+using UI.SystemUI;
 namespace Menu.Connet
 {
     public class Messenger : MonoBehaviour
@@ -59,6 +61,45 @@ namespace Menu.Connet
                         string msg = message.readUTF();
                         Debug.Log(msg);
                     }
+
+                    break;
+                case 11:
+                    {
+                        int cardID = message.readInt();
+                        int quantity = message.readInt();
+                        if (quantity == 0)
+                        {
+                            gameData._mainPlayer._playerDeckCard.Cards.Remove(cardID);
+                        }
+                        else
+                        {
+                            gameData._mainPlayer._playerDeckCard.Cards[cardID] = quantity;
+                        }
+                        UIDeck uIDeck = UIController.Instance.Get<UIDeck>(WindowType.UI_deck);
+                        if (uIDeck != null)
+                        {
+                            uIDeck.UpdateDeckCard(cardID, quantity);
+                        }
+                    }
+                    break;
+                case 9:
+                    {
+                        int cardID = message.readInt();
+                        int quantity = message.readInt();
+                        if (quantity == 0)
+                        {
+                            gameData._mainPlayer._playerCardData.AllCard.Remove(cardID);
+                        }
+                        else
+                        {
+                            gameData._mainPlayer._playerCardData.AllCard[cardID] = quantity;
+                        }
+                        UIDeck uIDeck = UIController.Instance.Get<UIDeck>(WindowType.UI_deck);
+                        if (uIDeck != null)
+                        {
+                            uIDeck.UpdatePlayerCard(cardID,quantity);
+                        }
+                    }
                     break;
 
                 default:
@@ -80,6 +121,15 @@ namespace Menu.Connet
                     deckCard.Cards.Add(cardId, quantity);
                 }
                 gameData._mainPlayer._playerDeckCard= deckCard;
+
+                if (GameController.HasInstance)
+                {
+                    UIDeck uIDeck = UIController.Instance.Get<UIDeck>(WindowType.UI_deck);
+                    if (uIDeck != null)
+                    {
+                        uIDeck.CreateDeck();
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -98,7 +148,8 @@ namespace Menu.Connet
                     deck._deckID = message.readInt();
                     deck._deckName = message.readUTF();
                     deck.formatType = message.readUTF();
-                     int cardCount = message.readInt();
+                    deck._isActive = message.readBool();
+                    int cardCount = message.readInt();
                     for (int j = 0; j < cardCount; j++)
                     {
                         int cardId = message.readInt();
@@ -108,6 +159,15 @@ namespace Menu.Connet
                         
                     gameData._mainPlayer._playerDecks.Add(deck);
                 }
+               
+                if (GameController.HasInstance) {
+                    UIDeck uIDeck=UIController.Instance.Get<UIDeck>(WindowType.UI_deck);
+                    if (uIDeck != null)
+                    {
+                        uIDeck.CreateDeck();
+                    }
+                }
+
             }
             catch (Exception ex)
             {
@@ -125,7 +185,24 @@ namespace Menu.Connet
 
                     int cardId = message.readInt();
                     int quantity = message.readInt();
-                    gameData._mainPlayer._playerCardData.AllCard.Add(cardId,quantity);
+                    if (gameData._mainPlayer._playerCardData.AllCard.ContainsKey(cardId))
+                    {
+                        gameData._mainPlayer._playerCardData.AllCard[cardId] = quantity;
+                    }
+                    else
+                    {
+                        gameData._mainPlayer._playerCardData.AllCard.Add(cardId, quantity);
+                    } 
+                      
+                }
+
+                if (GameController.HasInstance)
+                {
+                    UIDeck uIDeck = UIController.Instance.Get<UIDeck>(WindowType.UI_deck);
+                    if (uIDeck != null)
+                    {
+                        uIDeck.CreatePlayerCard();
+                    }
                 }
             }
             catch (Exception ex)

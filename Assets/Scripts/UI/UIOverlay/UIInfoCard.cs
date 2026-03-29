@@ -66,7 +66,7 @@ namespace UI.UIOvelay
                 montercard.gameObject.SetActive(true);
                 spellCard.gameObject.SetActive(false);
                 trapCard.gameObject.SetActive(false);
-                info1.text = $"Tộc: {card.GetRace()} - Từ Khóa: {card.GetKeyWord()}";
+                info1.text = $"Tộc: {ColorWrap( card.GetRace(), ReadColor.Gold)} - Từ Khóa: {ColorWrap(card.GetKeyWord(), ReadColor.Gold)}";
             }
             if (card._CardType is 2)
             {
@@ -75,7 +75,7 @@ namespace UI.UIOvelay
                 montercard.gameObject.SetActive(false);
                 spellCard.gameObject.SetActive(true);
                 trapCard.gameObject.SetActive(false);
-                info1.text = $"Từ Khóa: {card.GetKeyWord()}";
+                info1.text = $"Từ Khóa: {ColorWrap(card.GetKeyWord(), ReadColor.Gold)}";
             }
             if (card._CardType is 3)
             {
@@ -84,7 +84,7 @@ namespace UI.UIOvelay
                 montercard.gameObject.SetActive(false);
                 spellCard.gameObject.SetActive(false);
                 trapCard.gameObject.SetActive(true);
-                info1.text = $"Từ Khóa: {card.GetKeyWord()}";
+                info1.text = $"Từ Khóa: {ColorWrap(card.GetKeyWord(),ReadColor.Gold)}";
             }
             foreach (var item in card.CardEffects)
             {
@@ -93,6 +93,7 @@ namespace UI.UIOvelay
                 skillDes.Add(skill);
                 skill._nameSkill.text = $"{ColorWrap(item._Skillname, "#FFD700")}\n {ColorWrap(item._Des,ReadColor.White)}";
             }
+            LayoutRebuilder.ForceRebuildLayoutImmediate(Sollview);
         }
         public override void Init()
         {
@@ -102,6 +103,7 @@ namespace UI.UIOvelay
         public override void Open()
         {
             base.Open();
+            LayoutRebuilder.ForceRebuildLayoutImmediate(Sollview);
         }
 
         public override void OpenMe()

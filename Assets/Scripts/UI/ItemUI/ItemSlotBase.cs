@@ -9,7 +9,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 namespace UI.ItemUI
 {
-    public enum TypeItemSlot { Inventory, Equiment, Upgrade, Skill, Shop, Library }
+    public enum TypeItemSlot { Inventory, Equiment, Upgrade, Skill, Shop, Library,Deck }
 
     public abstract class ItemSlotBase : MonoBehaviour, IPointerClickHandler
     {
@@ -40,6 +40,7 @@ namespace UI.ItemUI
             {
                 SeletecMe();
             }
+            
             
         }
 

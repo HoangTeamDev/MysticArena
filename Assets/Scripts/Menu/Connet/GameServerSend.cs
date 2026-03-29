@@ -10,13 +10,7 @@ namespace Menu.Connet
     public partial class ClientMain
     {
 
-        [ContextMenu("GetALlCard")]
-        public void GetallCard()
-        {
-            Message msg = new Message(9);
-
-            Send(msg);
-        }
+        
         public void SendLogin(string user, string pass)
         {
             Message msg = new Message(1);
@@ -57,6 +51,36 @@ namespace Menu.Connet
             }
         }
 
+        public void AddCardToDeck(int cardID)
+        {
+            Message msg = new Message(9);
+            try
+            {
+                msg.writeByte(1);
+                msg.writeInt(cardID);
+                Send(msg);
+
+            }
+            catch (Exception ex)
+            {
+                MainLog.LogError("Xảy ra lỗi ", "case 4", ReadColor.Blue);
+            }
+        }
+        public void RemoveCardFromDeck(int cardID)
+            {
+                Message msg = new Message(9);
+                try
+                {
+                    msg.writeByte(2);
+                    msg.writeInt(cardID);
+                    Send(msg);
+    
+                }
+                catch (Exception ex)
+                {
+                    MainLog.LogError("Xảy ra lỗi ", "case 4", ReadColor.Blue);
+                }
+        }
     }
 
 }
