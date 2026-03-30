@@ -18,10 +18,14 @@ namespace UI.UIOvelay
 {
     public class UIInfoCard : UIBase
     {
+        public List<Sprite> _raityBackGround;
+        public List<Sprite> _raity;
+        
         [Header("Monter")]     
         public Image imageMonter;     
         public Image element;
         public Image Rate;
+        public Image BackGroundRate;
         public List<Image> imagesLevel;
         public TextMeshProUGUI nameMonter;
        
@@ -34,11 +38,13 @@ namespace UI.UIOvelay
         public TextMeshProUGUI nameSpell;
         public GameObject spellCard;
         public Image RateSpell;
+        public Image BackGroundRateSpell;
         [Header("Trap")]
         public Image imageTrap;
         public TextMeshProUGUI nameTrap;
         public GameObject trapCard;
         public Image RateTrap;
+        public Image BackGroundRateTrap;
         [Header("Ability")]
         public TextMeshProUGUI info1;
         public TextMeshProUGUI info2;        
@@ -62,7 +68,8 @@ namespace UI.UIOvelay
                 }
                 element.sprite = await GameData.Instance.LoadAsset<Sprite>("E" + card._Element);
                 imageMonter.sprite = await GameData.Instance.LoadAsset<Sprite>(card._CardId.ToString());
-                Rate.sprite = await GameData.Instance.LoadAsset<Sprite>(card._Rarity);
+                Rate.sprite = await GameData.Instance.LoadAsset < Sprite > ($"Rate{card.GetRate()}");
+                BackGroundRate.sprite= await GameData.Instance.LoadAsset<Sprite>($"BR{card.GetRate()}"); ;
                 montercard.gameObject.SetActive(true);
                 spellCard.gameObject.SetActive(false);
                 trapCard.gameObject.SetActive(false);
@@ -71,7 +78,8 @@ namespace UI.UIOvelay
             if (card._CardType is 2)
             {
                 nameSpell.text = card._Name;
-                RateSpell.sprite = await GameData.Instance.LoadAsset<Sprite>(card._Rarity);
+                RateSpell.sprite = await GameData.Instance.LoadAsset<Sprite>($"Rate{card.GetRate()}");
+                BackGroundRateSpell.sprite = await GameData.Instance.LoadAsset<Sprite>($"BR{card.GetRate()}");
                 montercard.gameObject.SetActive(false);
                 spellCard.gameObject.SetActive(true);
                 trapCard.gameObject.SetActive(false);
@@ -80,7 +88,8 @@ namespace UI.UIOvelay
             if (card._CardType is 3)
             {
                 nameTrap.text = card._Name;
-                RateTrap.sprite = await GameData.Instance.LoadAsset<Sprite>(card._Rarity);
+                RateTrap.sprite = await GameData.Instance.LoadAsset<Sprite>($"Rate{card.GetRate()}");
+                BackGroundRateTrap.sprite = await GameData.Instance.LoadAsset<Sprite>($"BR{card.GetRate()}");
                 montercard.gameObject.SetActive(false);
                 spellCard.gameObject.SetActive(false);
                 trapCard.gameObject.SetActive(true);

@@ -20,6 +20,7 @@ namespace UI.ItemUI
         [SerializeField] List<Image> _level;
         [SerializeField] private Image _elementCard;
         [SerializeField] private Image _rateCard;
+        [SerializeField] private Image _rateBackgroundCard;
         [SerializeField] private TextMeshProUGUI _atk;
         [SerializeField] private TextMeshProUGUI _hp;
         public int type;
@@ -39,8 +40,10 @@ namespace UI.ItemUI
                 }
                 _namecard.text = card._Name;             
                 _imageCard.sprite = await GameData.Instance.LoadAsset<Sprite>(card._CardId.ToString());
-                _rateCard.sprite = await GameData.Instance.LoadAsset<Sprite>(card._Rarity);
-                
+                _rateCard.sprite = await GameData.Instance.LoadAsset<Sprite>($"Rate{card.GetRate()}");
+                _rateBackgroundCard.sprite = await GameData.Instance.LoadAsset<Sprite>($"BR{card.GetRate()}");
+
+
             }
         }
 

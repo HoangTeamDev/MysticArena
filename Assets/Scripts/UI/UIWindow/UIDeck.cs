@@ -142,7 +142,7 @@ namespace UI.UIWindow
                         ItemSlotDeck monstercard = Instantiate(prefabMosters, contentmoster);
                         monstercard.card = card;
                         monstercard.Init();
-                        monstercard._numberCard.text = item.Value.ToString();
+                        monstercard._numberCard.text = "x " +item.Value.ToString();
                         monstercard.gameObject.SetActive(true);
                         monstercard.type = 1;
                         listMonsterCard.Add(monstercard);
@@ -152,7 +152,7 @@ namespace UI.UIWindow
                         ItemSlotDeck spellcard = Instantiate(prefabSpells, contentspell);
                         spellcard.card = card;
                         spellcard.Init();
-                        spellcard._numberCard.text = item.Value.ToString();
+                        spellcard._numberCard.text = "x " + item.Value.ToString();
                         spellcard.gameObject.SetActive(true);
                         spellcard.type = 1;
                         listSpellCard.Add(spellcard);
@@ -162,7 +162,7 @@ namespace UI.UIWindow
                         ItemSlotDeck trapcard = Instantiate(prefabTraps, contentTrap);
                         trapcard.card = card;
                         trapcard.Init();
-                        trapcard._numberCard.text = item.Value.ToString();
+                        trapcard._numberCard.text = "x " + item.Value.ToString();
                         trapcard.gameObject.SetActive(true);
                         trapcard.type = 1;
                         listTrapCard.Add(trapcard);
@@ -192,7 +192,7 @@ namespace UI.UIWindow
                         ItemSlotDeck monstercard = Instantiate(prefabMosters, contentDeck);
                         monstercard.card = card;
                         monstercard.Init();
-                        monstercard._numberCard.text = item.Value.ToString();
+                        monstercard._numberCard.text = "x " + item.Value.ToString();
                         monstercard.gameObject.SetActive(true);
                         monstercard.type = 2;
                         listDeckCard.Add(monstercard);
@@ -202,7 +202,7 @@ namespace UI.UIWindow
                         ItemSlotDeck spellcard = Instantiate(prefabSpells, contentDeck);
                         spellcard.card = card;
                         spellcard.Init();
-                        spellcard._numberCard.text = item.Value.ToString();
+                        spellcard._numberCard.text = "x " + item.Value.ToString();
                         spellcard.gameObject.SetActive(true);
                         spellcard.type = 2;
                         listDeckCard.Add(spellcard);
@@ -212,7 +212,7 @@ namespace UI.UIWindow
                         ItemSlotDeck trapcard = Instantiate(prefabTraps, contentDeck);
                         trapcard.card = card;
                         trapcard.Init();
-                        trapcard._numberCard.text = item.Value.ToString();
+                        trapcard._numberCard.text = "x " + item.Value.ToString();
                         trapcard.gameObject.SetActive(true);
                         trapcard.type = 2;
                         listDeckCard.Add(trapcard);
@@ -336,7 +336,7 @@ namespace UI.UIWindow
                         {
                             if (item.card._CardId == id)
                             {
-                                item._numberCard.text = quantity.ToString();
+                                item._numberCard.text = "x " + quantity.ToString();
                             }
                         }
                     }
@@ -350,7 +350,7 @@ namespace UI.UIWindow
                         {
                             if (item.card._CardId == id)
                             {
-                                item._numberCard.text = quantity.ToString();
+                                item._numberCard.text = "x " + quantity.ToString();
                             }
                         }
                     }
@@ -364,7 +364,7 @@ namespace UI.UIWindow
                         {
                             if (item.card._CardId == id)
                             {
-                                item._numberCard.text = quantity.ToString();
+                                item._numberCard.text = "x " + quantity.ToString();
                             }
                         }
                     }
@@ -381,7 +381,7 @@ namespace UI.UIWindow
                             ItemSlotDeck monstercard = Instantiate(prefabMosters, contentmoster);
                             monstercard.card = card;
                             monstercard.Init();
-                            monstercard._numberCard.text = quantity.ToString();
+                            monstercard._numberCard.text = "x " + quantity.ToString();
                             monstercard.gameObject.SetActive(true);
                             monstercard.type = 1;
                             listMonsterCard.Add(monstercard);
@@ -391,7 +391,7 @@ namespace UI.UIWindow
                             ItemSlotDeck spellcard = Instantiate(prefabSpells, contentspell);
                             spellcard.card = card;
                             spellcard.Init();
-                            spellcard._numberCard.text = quantity.ToString();
+                            spellcard._numberCard.text = "x " +quantity.ToString();
                             spellcard.gameObject.SetActive(true);
                             spellcard.type = 1;
                             listSpellCard.Add(spellcard);
@@ -401,7 +401,7 @@ namespace UI.UIWindow
                             ItemSlotDeck trapcard = Instantiate(prefabTraps, contentTrap);
                             trapcard.card = card;
                             trapcard.Init();
-                            trapcard._numberCard.text = quantity.ToString();
+                            trapcard._numberCard.text = "x " +quantity.ToString();
                             trapcard.gameObject.SetActive(true);
                             trapcard.type = 1;
                             listTrapCard.Add(trapcard);
@@ -432,7 +432,7 @@ namespace UI.UIWindow
                     {
                         if (item.card._CardId == id)
                         {
-                            item._numberCard.text = quantity.ToString();
+                            item._numberCard.text = "x " + quantity.ToString();
                         }
                     }
                 }
@@ -444,7 +444,7 @@ namespace UI.UIWindow
                         ItemSlotDeck monstercard = Instantiate(prefabMosters, contentDeck);
                         monstercard.card = card;
                         monstercard.Init();
-                        monstercard._numberCard.text = quantity.ToString();
+                        monstercard._numberCard.text = "x " + quantity.ToString();
                         monstercard.gameObject.SetActive(true);
                         monstercard.type = 2;
                         listDeckCard.Add(monstercard);
@@ -454,7 +454,7 @@ namespace UI.UIWindow
                         ItemSlotDeck spellcard = Instantiate(prefabSpells, contentDeck);
                         spellcard.card = card;
                         spellcard.Init();
-                        spellcard._numberCard.text = quantity.ToString();
+                        spellcard._numberCard.text = "x " + quantity.ToString();
                         spellcard.gameObject.SetActive(true);
                         spellcard.type = 2;
                         listDeckCard.Add(spellcard);
@@ -464,7 +464,7 @@ namespace UI.UIWindow
                         ItemSlotDeck trapcard = Instantiate(prefabTraps, contentDeck);
                         trapcard.card = card;
                         trapcard.Init();
-                        trapcard._numberCard.text = quantity.ToString();
+                        trapcard._numberCard.text = "x " + quantity.ToString();
                         trapcard.gameObject.SetActive(true);
                         trapcard.type = 2;
                         listDeckCard.Add(trapcard);

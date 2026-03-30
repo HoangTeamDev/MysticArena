@@ -79,5 +79,18 @@ namespace CardData
             return key;
         }
 
+        public int GetRate()
+        {
+            int rate = 0;
+            switch (_Rarity)
+            {
+                case "SR": return rate = 0;
+                case "UR": return rate = 1;
+                case "GR": return rate = 2;
+                
+            }
+            return rate;
+        }
+
     }
 }
