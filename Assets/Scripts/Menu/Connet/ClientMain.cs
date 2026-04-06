@@ -103,7 +103,7 @@ namespace Menu.Connet
                     }
 
                     ushort length = BitConverter.ToUInt16(lenBuf, 0);
-
+                    Debug.Log($"RECEIVED OPCODE = {opcode}, LENGTH = {length}");
                     // ======================
                     // READ PAYLOAD
                     // ======================

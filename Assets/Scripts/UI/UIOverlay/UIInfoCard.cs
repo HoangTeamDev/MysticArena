@@ -84,6 +84,7 @@ namespace UI.UIOvelay
                 spellCard.gameObject.SetActive(true);
                 trapCard.gameObject.SetActive(false);
                 info1.text = $"Từ Khóa: {ColorWrap(card.GetKeyWord(), ReadColor.Gold)}";
+                imageSpell.sprite = await GameData.Instance.LoadAsset<Sprite>(card._CardId.ToString());
             }
             if (card._CardType is 3)
             {
@@ -94,6 +95,7 @@ namespace UI.UIOvelay
                 spellCard.gameObject.SetActive(false);
                 trapCard.gameObject.SetActive(true);
                 info1.text = $"Từ Khóa: {ColorWrap(card.GetKeyWord(),ReadColor.Gold)}";
+                imageTrap.sprite = await GameData.Instance.LoadAsset<Sprite>(card._CardId.ToString());
             }
             foreach (var item in card.CardEffects)
             {
