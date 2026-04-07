@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Menu.Connet;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
@@ -19,6 +20,7 @@ namespace UI.UIHUD
         [Header("Function")]
         public Button _Library;
         public Button _btnDeck;
+        public Button _btnCreateRoom;
         [Header("InforPlayer")]
         public Image _avatar;
         [SerializeField] private TextMeshProUGUI _namePlayer;
@@ -44,6 +46,11 @@ namespace UI.UIHUD
                         deck.OpenMe();
                     }
                 });
+
+            _btnCreateRoom.onClick.AddListener(() =>
+            {
+                ClientMain.Instance.SendCreateRoom();
+            });
             SetInfo();
         }
         private void SetInfo()

@@ -1,4 +1,5 @@
 using CardData;
+using Menu.Connet;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -55,13 +56,8 @@ namespace UI.ItemUI
             switch (typeItemSlot)
             {
                 case TypeItemSlot.Library:
-                    UIInfoCard uIInfoCard = UIController.Instance.Get<UIInfoCard>(WindowType.UI_InfoCard);
-                    if (uIInfoCard != null)
-                    {
-                        uIInfoCard.ShowItem(card);
-                        uIInfoCard.OpenMe();
-                        
-                    }
+                    ClientMain.Instance.SendEffCard(card._CardId);
+                   
                     break;
             }
         }

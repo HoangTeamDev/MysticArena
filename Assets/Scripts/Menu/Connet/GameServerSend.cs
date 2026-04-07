@@ -10,7 +10,7 @@ namespace Menu.Connet
     public partial class ClientMain
     {
 
-        
+
         public void SendLogin(string user, string pass)
         {
             Message msg = new Message(1);
@@ -67,19 +67,73 @@ namespace Menu.Connet
             }
         }
         public void RemoveCardFromDeck(int cardID)
+        {
+            Message msg = new Message(9);
+            try
             {
-                Message msg = new Message(9);
-                try
-                {
-                    msg.writeByte(2);
-                    msg.writeInt(cardID);
-                    Send(msg);
-    
-                }
-                catch (Exception ex)
-                {
-                    MainLog.LogError("Xảy ra lỗi ", "case 4", ReadColor.Blue);
-                }
+                msg.writeByte(2);
+                msg.writeInt(cardID);
+                Send(msg);
+
+            }
+            catch (Exception ex)
+            {
+                MainLog.LogError("Xảy ra lỗi ", "case 4", ReadColor.Blue);
+            }
+        }
+
+        public void SendEffCard(int cardID)
+        {
+            Message msg = new Message(12);
+            try
+            {
+                msg.writeInt(cardID);
+                Send(msg);
+            }
+            catch (Exception ex)
+            {
+                MainLog.LogError("Xảy ra lỗi ", "case 4", ReadColor.Blue);
+            }
+        }
+        public void SendCreateRoom()
+        {
+            Message msg = new Message(13);
+            try
+            {
+                msg.writeByte(1);
+                Send(msg);
+            }
+            catch (Exception ex)
+            {
+                MainLog.LogError("Xảy ra lỗi ", "case 4", ReadColor.Blue);
+            }
+        }
+        public void SendJoinRoom(int roomID)
+        {
+            Message msg = new Message(13);
+            try
+            {
+                msg.writeByte(2);
+                msg.writeInt(roomID);
+                Send(msg);
+            }
+            catch (Exception ex)
+            {
+                MainLog.LogError("Xảy ra lỗi ", "case 4", ReadColor.Blue);
+            }
+        }
+        public void SendLeaveRoom()
+        {
+            Message msg = new Message(13);
+            try
+            {
+                msg.writeByte(3);
+                Send(msg);
+            }
+            catch (Exception ex)
+            {
+                MainLog.LogError("Xảy ra lỗi ", "case 4", ReadColor.Blue);
+            }
         }
     }
 

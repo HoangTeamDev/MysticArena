@@ -4,6 +4,7 @@ using Player;
 using System;
 using System.Collections.Generic;
 using UI.SystemUI;
+using UI.UIOvelay;
 using UI.UIWindow;
 using UIScripts.SystemUI;
 using Unity.VisualScripting;
@@ -102,10 +103,88 @@ namespace Menu.Connet
                         }
                     }
                     break;
+                case 12:
+                    {
+                        HandleGetEffCard(message);
+                    }
+                    break;
+                case 13:
+                    {
+                        try
+                        {
+                            int roomID = message.readInt();
+                            UIRoom uIRoom = UIController.Instance.Get<UIRoom>(WindowType.UI_Room);
+                            if (uIRoom != null)
+                            {
+                                uIRoom.OpenMe();
+                                uIRoom.SetRoomInfo(roomID.ToString());
+                                uIRoom.SetMeInfo(gameData._mainPlayer._namePlayer, gameData._mainPlayer._level);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.LogError("Error handling message 13: " + ex.Message);
+                        }
+                      
+                        
+                    }
+                    break;
 
                 default:
                     Debug.LogWarning("Unknown opcode: " + message);
                     break;
+            }
+        }
+        void HandleGetEffCard(Message message)
+        {
+            try
+            {
+                Card card = new Card
+                {
+                    _CardId = message.readInt(),
+                    _Name = message.readUTF(),
+                    _CardType = message.readInt(),
+                    _Rarity = message.readUTF(),
+                    _Race=message.readInt(),
+                    _Hp=message.readInt(),
+                    _Attack=message.readInt(),
+                    _Level=message.readInt(),
+                    _KeyWord=message.readInt(),
+                    _Element=message.readInt(),
+                };
+                byte effectCount = message.readByte();
+                for (int i = 0; i < effectCount; i++)
+                {
+                    int effectId = message.readInt();
+                    string effectName = message.readUTF();
+                    string description = message.readUTF();
+                    string effectType = message.readUTF();
+                    bool isPassive = message.readBool();
+                    string activezone = message.readUTF();
+                    string riggermode = message.readUTF();
+                    card.CardEffects.Add(new CardEffects
+                    {
+                        _id = effectId,
+                        _Skillname = effectName,
+                        _Des = description,
+                        _OnePerTurn = isPassive,
+                        _ActiveZone = activezone,
+                        _triggerMode = riggermode,
+                        _TriggerType = effectType
+                    });
+                }
+                UIInfoCard uIInfoCard = UIController.Instance.Get<UIInfoCard>(WindowType.UI_InfoCard);
+                if (uIInfoCard != null)
+                {
+                    uIInfoCard.ShowItem(card);
+                    uIInfoCard.OpenMe();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError("Error handling get effect card message: " + ex.Message);
+                return;
             }
         }
         void HandlePlayerDeckCard(Message message)
@@ -250,75 +329,28 @@ namespace Menu.Connet
         {
             try
             {
-                int totalCards = msg.readInt();
-                int totalBatches = msg.readInt();
-                int batchIndex = msg.readInt();
-                int countInBatch = msg.readInt();
-
-                Debug.Log($"Receive batch {batchIndex + 1}/{totalBatches}, cards in batch = {countInBatch}, totalCards = {totalCards}");
-
-                for (int i = 0; i < countInBatch; i++)
+                int totalCards = msg.readInt();                        
+                for (int i = 0; i < totalCards; i++)
                 {
                     int key = msg.readInt();
-                    string name = msg.readUTF();
-                    int attack = msg.readInt();
-                    int hp = msg.readInt();
-                    int cardType = msg.readInt();
-                    int level = msg.readInt();
-                    string rarity = msg.readUTF();
-                    int race = msg.readInt();
-                    int element = msg.readInt();
-                    int keyword = msg.readInt();
-
-                    byte effectCount = msg.readByte();
-
-                    List<CardEffects> effects = new List<CardEffects>();
-                    for (int j = 0; j < effectCount; j++)
-                    {
-                        int id = msg.readInt();
-                        string skillName = msg.readUTF();
-                        string des = msg.readUTF();
-                        string triggerType = msg.readUTF();
-                        bool onePerTurn = msg.readBool();
-                        string activeZone = msg.readUTF();
-                        string triggerMode = msg.readUTF();
-
-                        effects.Add(new CardEffects
-                        {
-                            _id = id,
-                            _Skillname = skillName,
-                            _Des = des,
-                            _TriggerType = triggerType,
-                            _OnePerTurn = onePerTurn,
-                            _ActiveZone = activeZone,
-                            _triggerMode = triggerMode
-                        });
-                    }
-
+                    string name = msg.readUTF();                  
+                    int cardType = msg.readInt();                 
+                    string rarity = msg.readUTF();                                   
                     Card card = new Card
                     {
                         _CardId = key,
                         _Name = name,
-                        _Attack = attack,
-                        _Hp = hp,
+                       
                         _CardType = cardType,
-                        _Level = level,
+                      
                         _Rarity = rarity,
-                        _Race = race,
-                        _Element = element,
-                        _KeyWord = keyword,
-                        CardEffects = effects
+                       
                     };
 
-                    // Thêm vào dictionary / list của client
                     GameData.Instance._allCard.Add(card);
                 }
 
-                if (batchIndex == totalBatches - 1)
-                {
-                    Debug.Log("Finished receiving all card batches.");
-                    // Có thể trigger UI refresh ở đây
-                }
+               
             }
             catch (Exception ex)
             {
