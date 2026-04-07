@@ -7,6 +7,7 @@ using System.Text;
 using TMPro;
 using UI.ItemUI;
 using UI.SystemUI;
+using UI.UIOvelay;
 using UI.UIWindow;
 using UnityEditor;
 using UnityEngine;
@@ -21,6 +22,7 @@ namespace UI.UIHUD
         public Button _Library;
         public Button _btnDeck;
         public Button _btnCreateRoom;
+        public Button _btnJoinRoom;
         [Header("InforPlayer")]
         public Image _avatar;
         [SerializeField] private TextMeshProUGUI _namePlayer;
@@ -50,6 +52,14 @@ namespace UI.UIHUD
             _btnCreateRoom.onClick.AddListener(() =>
             {
                 ClientMain.Instance.SendCreateRoom();
+            });
+            _btnJoinRoom.onClick.AddListener(() =>
+            {
+                UIInput input = UIController.Instance.Get<UIInput>(WindowType.UI_Input);
+                if (input != null)
+                {
+                    input.Set(TypeInput.JoinRoom);
+                }
             });
             SetInfo();
         }

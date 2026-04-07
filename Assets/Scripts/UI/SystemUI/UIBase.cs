@@ -15,13 +15,15 @@ namespace UI.SystemUI
     }
     public enum WindowType
     {
-       UI_PlayerHUD,
-       UI_Inventory,
-       UI_Shop,
-       UI_Library,
-       UI_InfoCard,
-       UI_deck,
-         UI_Room,
+        UI_PlayerHUD,
+        UI_Inventory,
+        UI_Shop,
+        UI_Library,
+        UI_InfoCard,
+        UI_deck,
+        UI_Room,
+        UI_Input,
+        UI_MainField,
 
     }
     public abstract class UIBase : MonoBehaviour, IPointerClickHandler
@@ -60,7 +62,7 @@ namespace UI.SystemUI
             }
         }
 
-       
+
         protected virtual void OnEnable() { }
 
 

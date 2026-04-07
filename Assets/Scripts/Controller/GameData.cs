@@ -1,4 +1,5 @@
-﻿using CardData;
+﻿using Assets.Scripts.RoomAll;
+using CardData;
 using Cysharp.Threading.Tasks;
 using Menu.System;
 using Player;
@@ -13,7 +14,7 @@ public class GameData : Singleton<GameData>
     public List<Card> _allCard;
     [ShowInInspector, ReadOnly] private Dictionary<string, Sprite> _spriteCache = new();
     [ShowInInspector, ReadOnly] private Dictionary<string, GameObject> _prefabCache = new();
-    
+    [ShowInInspector, ReadOnly] public Room CurrentRoom= new Room();    
     public Card GetCardByID(int id)
     {
         return _allCard.Find(c => c._CardId == id);

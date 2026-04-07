@@ -135,6 +135,20 @@ namespace Menu.Connet
                 MainLog.LogError("Xảy ra lỗi ", "case 4", ReadColor.Blue);
             }
         }
+        public void SendStartGame()
+        {
+            Message msg = new Message(13);
+            try
+            {
+                msg.writeByte(5);
+                msg.writeBool(true);
+                Send(msg);
+            }
+            catch (Exception ex)
+            {
+                MainLog.LogError("Xảy ra lỗi ", "case 4", ReadColor.Blue);
+            }
+        }
     }
 
 }

@@ -1,4 +1,5 @@
-﻿using CardData;
+﻿using Assets.Scripts.RoomAll;
+using CardData;
 using Menu.System;
 using Player;
 using System;
@@ -99,7 +100,7 @@ namespace Menu.Connet
                         UIDeck uIDeck = UIController.Instance.Get<UIDeck>(WindowType.UI_deck);
                         if (uIDeck != null)
                         {
-                            uIDeck.UpdatePlayerCard(cardID,quantity);
+                            uIDeck.UpdatePlayerCard(cardID, quantity);
                         }
                     }
                     break;
@@ -110,29 +111,110 @@ namespace Menu.Connet
                     break;
                 case 13:
                     {
-                        try
-                        {
-                            int roomID = message.readInt();
-                            UIRoom uIRoom = UIController.Instance.Get<UIRoom>(WindowType.UI_Room);
-                            if (uIRoom != null)
-                            {
-                                uIRoom.OpenMe();
-                                uIRoom.SetRoomInfo(roomID.ToString());
-                                uIRoom.SetMeInfo(gameData._mainPlayer._namePlayer, gameData._mainPlayer._level);
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            Debug.LogError("Error handling message 13: " + ex.Message);
-                        }
-                      
-                        
+                        HandleRoom(message);
+
+
                     }
                     break;
 
                 default:
                     Debug.LogWarning("Unknown opcode: " + message);
                     break;
+            }
+        }
+
+        void HandleRoom(Message message)
+        {
+            try
+            {
+                int type = message.readByte();
+                switch(type)
+                {
+                    case 1:
+                        {
+                            int roomID = message.readInt();
+                            UIRoom uIRoom = UIController.Instance.Get<UIRoom>(WindowType.UI_Room);
+                            if (uIRoom != null)
+                            {
+                                uIRoom.isHost = true;
+                                uIRoom.SetRoomInfo(roomID.ToString());
+                                uIRoom.SetMeInfo(gameData._mainPlayer._namePlayer, gameData._mainPlayer._level);
+                                uIRoom.OpenMe();
+                                GameData.Instance.CurrentRoom.RoomID = roomID;
+                                GameData.Instance.CurrentRoom.HostPlayer=new PlayerState
+                                {
+                                    PlayerID = gameData._mainPlayer._playerid,
+                                    PlayerName = gameData._mainPlayer._namePlayer,
+                                    hp = 0
+                                };
+                            }
+                            break;
+                        }
+                    case 2:
+                        {
+                            int playerID = message.readInt();
+                            string name = message.readUTF();
+                            int level = message.readInt();
+                            GameData.Instance.CurrentRoom.GuestPlayer = new PlayerState
+                            {
+                                PlayerID = playerID,
+                                PlayerName = name,
+                                hp = 0
+                            };
+                            UIRoom uIRoom = UIController.Instance.Get<UIRoom>(WindowType.UI_Room);
+                            if (uIRoom != null)
+                            {
+                                uIRoom.SetOtherInfo(name, level);
+                            }
+                            break;
+                        }
+                    case 3:
+                        {
+                            UIRoom uIRoom = UIController.Instance.Get<UIRoom>(WindowType.UI_Room);
+                            if (uIRoom != null)
+                            {
+                                uIRoom.CloseMe();
+                            }
+                            break;
+                        }
+                    case 4:
+                        {
+                            int zoomid= message.readInt();
+                            int playerID = message.readInt();
+                            string name = message.readUTF();
+                            int level = message.readInt();
+                            
+                            UIRoom uIRoom = UIController.Instance.Get<UIRoom>(WindowType.UI_Room);
+                            if (uIRoom != null)
+                            {
+                                uIRoom.SetRoomInfo(zoomid.ToString());
+                                uIRoom.SetMeInfo(GameData.Instance._mainPlayer._namePlayer, GameData.Instance._mainPlayer._level);
+                                uIRoom.isHost = false;
+                                uIRoom.SetOtherInfo(name, level);
+                                uIRoom.OpenMe();
+                            }
+                                break;
+                        }
+                    case 5:
+                        {
+                           bool ishost = message.readBool();
+                            int hphost = message.readInt();
+                            int hpother = message.readInt();
+                            GameData.Instance.CurrentRoom.HostPlayer.hp = hphost;
+                            GameData.Instance.CurrentRoom.GuestPlayer.hp = hpother;
+                            UIMainField uIMainField = UIController.Instance.Get<UIMainField>(WindowType.UI_MainField);
+                            if (uIMainField != null)
+                            {
+                                uIMainField.OpenMe();
+                            }
+                            break;
+                        }
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError("Error handling room message: " + ex.Message);
             }
         }
         void HandleGetEffCard(Message message)
@@ -145,12 +227,12 @@ namespace Menu.Connet
                     _Name = message.readUTF(),
                     _CardType = message.readInt(),
                     _Rarity = message.readUTF(),
-                    _Race=message.readInt(),
-                    _Hp=message.readInt(),
-                    _Attack=message.readInt(),
-                    _Level=message.readInt(),
-                    _KeyWord=message.readInt(),
-                    _Element=message.readInt(),
+                    _Race = message.readInt(),
+                    _Hp = message.readInt(),
+                    _Attack = message.readInt(),
+                    _Level = message.readInt(),
+                    _KeyWord = message.readInt(),
+                    _Element = message.readInt(),
                 };
                 byte effectCount = message.readByte();
                 for (int i = 0; i < effectCount; i++)
@@ -200,7 +282,7 @@ namespace Menu.Connet
                     int quantity = message.readInt();
                     deckCard.Cards.Add(cardId, quantity);
                 }
-                gameData._mainPlayer._playerDeckCard= deckCard;
+                gameData._mainPlayer._playerDeckCard = deckCard;
 
                 if (GameController.HasInstance)
                 {
@@ -236,12 +318,13 @@ namespace Menu.Connet
                         int quantity = message.readInt();
                         deck._card.Add(cardId, quantity);
                     }
-                        
+
                     gameData._mainPlayer._playerDecks.Add(deck);
                 }
-               
-                if (GameController.HasInstance) {
-                    UIDeck uIDeck=UIController.Instance.Get<UIDeck>(WindowType.UI_deck);
+
+                if (GameController.HasInstance)
+                {
+                    UIDeck uIDeck = UIController.Instance.Get<UIDeck>(WindowType.UI_deck);
                     if (uIDeck != null)
                     {
                         uIDeck.CreateDeck();
@@ -272,8 +355,8 @@ namespace Menu.Connet
                     else
                     {
                         gameData._mainPlayer._playerCardData.AllCard.Add(cardId, quantity);
-                    } 
-                      
+                    }
+
                 }
 
                 if (GameController.HasInstance)
@@ -301,13 +384,13 @@ namespace Menu.Connet
                 gameData._mainPlayer._gold = message.readInt();
                 gameData._mainPlayer._diamond = message.readInt();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Debug.LogError("Error handling info message: " + ex.Message);
                 return;
             }
-           
-            
+
+
         }
         void HandleCreatePlayer(Message message)
         {
@@ -329,28 +412,28 @@ namespace Menu.Connet
         {
             try
             {
-                int totalCards = msg.readInt();                        
+                int totalCards = msg.readInt();
                 for (int i = 0; i < totalCards; i++)
                 {
                     int key = msg.readInt();
-                    string name = msg.readUTF();                  
-                    int cardType = msg.readInt();                 
-                    string rarity = msg.readUTF();                                   
+                    string name = msg.readUTF();
+                    int cardType = msg.readInt();
+                    string rarity = msg.readUTF();
                     Card card = new Card
                     {
                         _CardId = key,
                         _Name = name,
-                       
+
                         _CardType = cardType,
-                      
+
                         _Rarity = rarity,
-                       
+
                     };
 
                     GameData.Instance._allCard.Add(card);
                 }
 
-               
+
             }
             catch (Exception ex)
             {
