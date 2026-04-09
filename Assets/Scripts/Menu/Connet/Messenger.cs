@@ -91,11 +91,11 @@ namespace Menu.Connet
                         int quantity = message.readInt();
                         if (quantity == 0)
                         {
-                            gameData._mainPlayer._playerCardData.AllCard.Remove(cardID);
+                            //gameData._mainPlayer._playerCardData.AllCard.Remove(cardID);
                         }
                         else
                         {
-                            gameData._mainPlayer._playerCardData.AllCard[cardID] = quantity;
+                           // gameData._mainPlayer._playerCardData.AllCard[cardID] = quantity;
                         }
                         UIDeck uIDeck = UIController.Instance.Get<UIDeck>(WindowType.UI_deck);
                         if (uIDeck != null)
@@ -345,16 +345,22 @@ namespace Menu.Connet
                 int count = message.readInt();
                 for (int i = 0; i < count; i++)
                 {
-
-                    int cardId = message.readInt();
-                    int quantity = message.readInt();
-                    if (gameData._mainPlayer._playerCardData.AllCard.ContainsKey(cardId))
+                    Card card = new Card();
+                    card._CardId = message.readInt();
+                    card._quantity = message.readInt();
+                  
+                    int type = message.readByte();
+                    if(type is 1)
                     {
-                        gameData._mainPlayer._playerCardData.AllCard[cardId] = quantity;
+                        gameData._mainPlayer._playerCardData.MonsterCard.Add(card);
+                    }else
+                    if(type is 2)
+                    {
+                        gameData._mainPlayer._playerCardData.SpellCard.Add(card);
                     }
                     else
                     {
-                        gameData._mainPlayer._playerCardData.AllCard.Add(cardId, quantity);
+                        gameData._mainPlayer._playerCardData.TrapCard.Add(card);
                     }
 
                 }
@@ -415,22 +421,23 @@ namespace Menu.Connet
                 int totalCards = msg.readInt();
                 for (int i = 0; i < totalCards; i++)
                 {
-                    int key = msg.readInt();
-                    string name = msg.readUTF();
-                    int cardType = msg.readInt();
-                    string rarity = msg.readUTF();
-                    Card card = new Card
+                    Card card1 = new Card();
+                    card1._CardId = msg.readInt();
+                    card1._Name = msg.readUTF();
+                    card1._Rarity = msg.readUTF();
+                    card1._KeyWord = msg.readByte();
+                    card1._CardType = msg.readByte();
+                    if(card1._CardType is 1)
                     {
-                        _CardId = key,
-                        _Name = name,
+                        card1._Attack = msg.readShort();
+                        card1._Hp = msg.readShort();
+                        card1._Element = msg.readByte();
+                        card1._Level = msg.readByte();
+                        card1._Race = msg.readByte();
+                    }
+                    
 
-                        _CardType = cardType,
-
-                        _Rarity = rarity,
-
-                    };
-
-                    GameData.Instance._allCard.Add(card);
+                    GameData.Instance._allCard.Add(card1);
                 }
 
 

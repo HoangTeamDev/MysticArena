@@ -23,6 +23,8 @@ namespace UI.UIWindow
         [Header("Main")]
         public List<Transform> _contents;
         public List<Button> Buttons;
+        public Sprite _show;
+        public Sprite _hide;
         public List<GameObject> _listpanel;
         public SpriteAtlas spriteAtlas;
         
@@ -60,13 +62,13 @@ namespace UI.UIWindow
                 {
                     if (i == index)
                     {
-                        image.color = Color.green ;
+                        image.sprite = _show ;
                         _listpanel[i].gameObject.SetActive(true);
 
                     }
                     else
                     {
-                        image.color = Color.white;
+                        image.sprite = _hide;
                         _listpanel[i].gameObject.SetActive(false);
                     }
                 }
@@ -94,7 +96,11 @@ namespace UI.UIWindow
             
             if (card._Rarity == "GR")
             {
+                ItemSlotLibrary itemSlotLibrary = Instantiate(_nomalMonter, _contents[0]);
+                itemSlotLibrary.card = card;
 
+                itemSlotLibrary.Init();
+                itemSlotLibrary.gameObject.SetActive(true);
             }
             else
             {

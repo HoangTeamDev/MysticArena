@@ -10,9 +10,10 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Menu.Connet;
+using UI.UIWindow;
 namespace UI.ItemUI
 {
-    public class ItemSlotDeck : ItemSlotBase
+    public class ItemSlotDeck : ItemSlotBase,IPointerDownHandler,IPointerUpHandler
     {
         [SerializeField] private Image _imageCard;
         [SerializeField] private TextMeshProUGUI _namecard;
@@ -23,6 +24,7 @@ namespace UI.ItemUI
         [SerializeField] private Image _rateBackgroundCard;
         [SerializeField] private TextMeshProUGUI _atk;
         [SerializeField] private TextMeshProUGUI _hp;
+        [SerializeField] private bool isHolding;
         public int type;
         public async void Init()
         {
@@ -46,7 +48,16 @@ namespace UI.ItemUI
 
             }
         }
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            UIReview uIReview = uIManager.Get<UIReview>(WindowType.UI_Review);
+            uIReview.SetReview(card._CardId);
+        }
 
+        public void OnPointerUp(PointerEventData eventData)
+        {
+            
+        }
 
 
 
@@ -96,13 +107,7 @@ namespace UI.ItemUI
             switch (typeItemSlot)
             {
                 case TypeItemSlot.Deck:
-                    UIInfoCard uIInfoCard = UIController.Instance.Get<UIInfoCard>(WindowType.UI_InfoCard);
-                    if (uIInfoCard != null)
-                    {
-                        uIInfoCard.ShowItem(card);
-                        uIInfoCard.OpenMe();
-
-                    }
+                    ClientMain.Instance.SendEffCard(card._CardId);
                     break;
             }
         }

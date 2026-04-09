@@ -8,6 +8,7 @@ using TMPro;
 using UI.ItemUI;
 using UI.SystemUI;
 using UIScripts.SystemUI;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -32,16 +33,24 @@ namespace UI.UIWindow
 
         public List<ItemSlotDeck> listDeckCard;
         [Title("Button")]
+       
         public List<Button> buttons;
+        public Sprite _btnShow;
+        public Sprite _btnHide;
         public List<Transform> transforms;
         public TextMeshProUGUI _gold;
         public TextMeshProUGUI _diamond;
-
+        public int indextab = 0;
+        public int curenttab = 0;
+        public int totaltabMonster = 0;
+        public int totaltabSpell = 0;
+        public int totaltabTraps = 0;
         public async override void Init()
         {
             base.Init();
-            await UIDelaySystem.Delay(2f, this);
-            CreatePlayerCard();
+            indextab = 0;
+          
+           
             UpdateCurrency();
             for (int i = 0; i < buttons.Count; i++)
             {
@@ -61,18 +70,7 @@ namespace UI.UIWindow
             });
             GameEvent.Instance.Subscribe(ListEvent.UpdatePlayerCard.ToString(), () =>
             {
-                foreach (Transform child in contentmoster)
-                {
-                    Destroy(child.gameObject);
-                }
-                foreach (Transform child in contentspell)
-                {
-                    Destroy(child.gameObject);
-                }
-                foreach (Transform child in contentTrap)
-                {
-                    Destroy(child.gameObject);
-                }
+                
                 CreatePlayerCard();
             });
             GameEvent.Instance.Subscribe(ListEvent.UpdateDeck.ToString(), () =>
@@ -83,6 +81,11 @@ namespace UI.UIWindow
                 }
                 CreateDeck();
             });
+            var d = GameData.Instance._mainPlayer._playerCardData;
+            totaltabMonster = Mathf.CeilToInt((float)d.MonsterCard.Count / 14);
+            totaltabSpell = Mathf.CeilToInt((float)d.SpellCard.Count / 14);
+            totaltabTraps = Mathf.CeilToInt((float)d.TrapCard.Count / 14);
+
         }
         public void UpdateCurrency()
         {
@@ -98,6 +101,8 @@ namespace UI.UIWindow
         }
         public void OpenTab(int index)
         {
+            indextab = 0;
+            curenttab = index;  
             for (int i = 0; i < buttons.Count; i++)
             {
                 Image image = buttons[i].GetComponent<Image>();
@@ -105,75 +110,185 @@ namespace UI.UIWindow
                 {
                     if (i == index)
                     {
-                        image.color = Color.green;
+                        image.sprite =_btnShow;
                         transforms[i].gameObject.SetActive(true);
-
+                        CreatePlayerCard();
                     }
                     else
                     {
-                        image.color = Color.white;
+                        image.sprite = _btnHide;
                         transforms[i].gameObject.SetActive(false);
                     }
                 }
             }
         }
-        public void CreatePlayerCard()
+        public void PreTab()
         {
-            foreach (Transform child in contentmoster)
+            switch (curenttab)
             {
-                Destroy(child.gameObject);
-            }
-            foreach (Transform child in contentspell)
-            {
-                Destroy(child.gameObject);
-            }
-            foreach (Transform child in contentTrap)
-            {
-                Destroy(child.gameObject);
-            }
-            var d = GameData.Instance._mainPlayer._playerCardData;
-            foreach (var item in d.AllCard)
-            {
-                Card card = GameData.Instance.GetCardByID(item.Key);
-                if (card != null)
-                {
-                    if (card._CardType is 1)
+                case 0:
+                    if (indextab <= 0)
                     {
-                        ItemSlotDeck monstercard = Instantiate(prefabMosters, contentmoster);
-                        monstercard.card = card;
-                        monstercard.Init();
-                        monstercard._numberCard.text = "x " +item.Value.ToString();
-                        monstercard.gameObject.SetActive(true);
-                        monstercard.type = 1;
-                        listMonsterCard.Add(monstercard);
-                    }
-                    else if (card._CardType is 2)
-                    {
-                        ItemSlotDeck spellcard = Instantiate(prefabSpells, contentspell);
-                        spellcard.card = card;
-                        spellcard.Init();
-                        spellcard._numberCard.text = "x " + item.Value.ToString();
-                        spellcard.gameObject.SetActive(true);
-                        spellcard.type = 1;
-                        listSpellCard.Add(spellcard);
+                        indextab = totaltabMonster - 1;
                     }
                     else
                     {
-                        ItemSlotDeck trapcard = Instantiate(prefabTraps, contentTrap);
-                        trapcard.card = card;
-                        trapcard.Init();
-                        trapcard._numberCard.text = "x " + item.Value.ToString();
-                        trapcard.gameObject.SetActive(true);
-                        trapcard.type = 1;
-                        listTrapCard.Add(trapcard);
+                        indextab -= 1;
                     }
-                }
-
-
+                    break;
+                case 1:
+                    if (indextab <= 0)
+                    {
+                        indextab = totaltabSpell - 1;
+                    }
+                    else
+                    {
+                        indextab -= 1;
+                    }
+                    break;
+                case 2:
+                    if (indextab <= 0)
+                    {
+                        indextab = totaltabTraps - 1;
+                    }
+                    else
+                    {
+                        indextab -= 1;
+                    }
+                    break;
             }
-            SortMonster();
-            SortSpell();
-            SortTrapCard();
+           
+
+            
+            CreatePlayerCard();
+        }
+        public void NextTab()
+        {
+            switch (curenttab)
+            {
+                case 0:
+                    if (indextab >= totaltabMonster-1)
+                    {
+                        indextab = 0;
+                    }
+                    else
+                    {
+                        indextab += 1;
+                    }
+                    break;
+                case 1:
+                    if (indextab >= totaltabSpell - 1)
+                    {
+                        indextab = 0;
+                    }
+                    else
+                    {
+                        indextab += 1;
+                    }
+                    break;
+                case 2:
+                    if (indextab >= totaltabTraps - 1)
+                    {
+                        indextab = 0;
+                    }
+                    else
+                    {
+                        indextab += 1;
+                    }
+                    break;
+            }
+          
+
+            
+            CreatePlayerCard();
+        }
+        public void CreatePlayerCard()
+        {
+           
+           var d = GameData.Instance._mainPlayer._playerCardData;
+            switch (curenttab)
+            {
+                case 0:
+                    {
+                        foreach(var data in listMonsterCard)
+                        {
+                            data.gameObject.SetActive(false);
+                        }
+                        int indexvalue = 0;
+                        int pageSize = 14;
+
+                        int startIndex = indextab * pageSize;
+                        int endIndex = Mathf.Min(startIndex + pageSize, d.MonsterCard.Count);
+
+                        for (int i = startIndex; i < endIndex; i++)
+                        {
+                           
+                            Card card = GameData.Instance.GetCardByID(d.MonsterCard[i]._CardId);
+                            ItemSlotDeck monstercard = listMonsterCard[indexvalue];
+                            monstercard.card = card;
+                            monstercard.Init();
+                            monstercard._numberCard.text = "x " + d.MonsterCard[i]._quantity.ToString();
+                            monstercard.gameObject.SetActive(true);
+                            monstercard.type = 1;                           
+                            indexvalue++;
+                        }
+                    }
+                    break;
+                case 1:
+                    {
+                        foreach (var data in listSpellCard)
+                        {
+                            data.gameObject.SetActive(false);
+                        }
+                        int indexvalue = 0;
+                        int pageSize = 14;
+
+                        int startIndex = indextab * pageSize;
+                        int endIndex = Mathf.Min(startIndex + pageSize, d.SpellCard.Count);
+
+                        for (int i = startIndex; i < endIndex; i++)
+                        {
+
+                            Card card = GameData.Instance.GetCardByID(d.SpellCard[i]._CardId);
+                            ItemSlotDeck monstercard = listSpellCard[indexvalue];
+                            monstercard.card = card;
+                            monstercard.Init();
+                            monstercard._numberCard.text = "x " + d.SpellCard[i]._quantity.ToString();
+                            monstercard.gameObject.SetActive(true);
+                            monstercard.type = 1;                          
+                            indexvalue++;
+                        }
+                    }
+                    break;
+                case 2:
+                    {
+                        foreach (var data in listTrapCard)
+                        {
+                            data.gameObject.SetActive(false);
+                        }
+                        int indexvalue = 0;
+                        int pageSize = 14;
+
+                        int startIndex = indextab * pageSize;
+                        int endIndex = Mathf.Min(startIndex + pageSize, d.TrapCard.Count);
+
+                        for (int i = startIndex; i < endIndex; i++)
+                        {
+
+                            Card card = GameData.Instance.GetCardByID(d.TrapCard[i]._CardId);
+                            ItemSlotDeck monstercard = listTrapCard[indexvalue];
+                            monstercard.card = card;
+                            monstercard.Init();
+                            monstercard._numberCard.text = "x " + d.TrapCard[i]._quantity.ToString();
+                            monstercard.gameObject.SetActive(true);
+                            monstercard.type = 1;                          
+                            indexvalue++;
+                        }
+                    }
+                    break;
+            }
+           
+           
         }
         public void CreateDeck()
         {

@@ -22,6 +22,7 @@ namespace CardData
         public int _Race;
         public int _Element;
         public int _KeyWord;
+        public int _quantity;
         public List<CardEffects> CardEffects = new List<CardEffects>();
 
         public string GetRace()

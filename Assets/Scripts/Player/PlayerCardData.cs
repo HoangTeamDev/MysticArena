@@ -1,3 +1,4 @@
+using CardData;
 using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,7 +8,10 @@ namespace Player
     [System.Serializable]
     public class PlayerCardData
     {
-       [ShowInInspector] public Dictionary<int, int> AllCard { get; set; } = new Dictionary<int, int>();
+       [ShowInInspector] public List<Card> SpellCard { get; set; } = new List<Card> ();
+       [ShowInInspector] public List<Card> MonsterCard { get; set; } = new List<Card>();
+       [ShowInInspector] public List<Card> TrapCard { get; set; } = new List<Card>();
+       
     }
 }
 

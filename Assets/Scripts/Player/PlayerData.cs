@@ -12,7 +12,7 @@ namespace Player
         public int _gold = -1;
         public int _diamond = -1;
         public int _playerid = -1;
-        public PlayerCardData _playerCardData = new PlayerCardData();
+        public  PlayerCardData _playerCardData= new  PlayerCardData();
         public List<PlayerDeck> _playerDecks = new List<PlayerDeck>();
         public PlayerDeckCard _playerDeckCard = new PlayerDeckCard();
     }
