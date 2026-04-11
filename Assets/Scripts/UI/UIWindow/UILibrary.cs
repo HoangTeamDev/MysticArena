@@ -33,8 +33,8 @@ namespace UI.UIWindow
         public ItemSlotLibrary _godMonter;
         public ItemSlotLibrary _spell;
         public ItemSlotLibrary _trap;
-       
-      
+
+        public bool isLoad;
 
       
 
@@ -42,6 +42,7 @@ namespace UI.UIWindow
         {
             base.Init();
             //LoadAllCard();
+            isLoad=false;
             for(int i = 0; i < Buttons.Count; i++)
             {
                 int x = i;
@@ -90,6 +91,7 @@ namespace UI.UIWindow
                 }
 
             }
+            isLoad=true;
         }
         private void CreateMonster(Card card)
         {
@@ -133,7 +135,12 @@ namespace UI.UIWindow
         public override void Open()
         {
             base.Open();
-            LoadAllCard();
+            if (!isLoad)
+            {
+                LoadAllCard();
+            }
+            OpenTab(0);
+           
         }
 
         public override void OpenMe()

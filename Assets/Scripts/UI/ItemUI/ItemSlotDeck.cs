@@ -50,8 +50,7 @@ namespace UI.ItemUI
         }
         public void OnPointerDown(PointerEventData eventData)
         {
-            UIReview uIReview = uIManager.Get<UIReview>(WindowType.UI_Review);
-            uIReview.SetReview(card._CardId);
+            
         }
 
         public void OnPointerUp(PointerEventData eventData)
@@ -107,7 +106,48 @@ namespace UI.ItemUI
             switch (typeItemSlot)
             {
                 case TypeItemSlot.Deck:
-                    ClientMain.Instance.SendEffCard(card._CardId);
+                    UIReview uIReview = UIController.Instance.Get<UIReview>(WindowType.UI_Review);
+                    if (uIReview != null)
+                    {
+                        ButtonConfirm item = uIReview.CreateButtonconfirm();
+                        item._des.text = "Thông Tin";
+                        item.button.onClick.AddListener(() =>
+                        {
+                            ClientMain.Instance.SendEffCard(card._CardId);
+                            uIReview.CloseMe();
+                        });
+                        switch (type)
+                        {
+                            case 1:
+                                {
+                                    ButtonConfirm item1 = uIReview.CreateButtonconfirm();
+                                    item1._des.text = "Thêm";
+                                    item1.button.onClick.AddListener(() =>
+                                    {
+                                        ClientMain.Instance.AddCardToDeck(card._CardId);
+                                        uIReview.CloseMe();
+                                    });
+                                }
+                               
+                                break;
+                            case 2:
+                                {
+                                    ButtonConfirm item1 = uIReview.CreateButtonconfirm();
+                                    item1._des.text = "Bỏ ra";
+                                    item1.button.onClick.AddListener(() =>
+                                    {
+                                        ClientMain.Instance.RemoveCardFromDeck(card._CardId);
+                                        uIReview.CloseMe();
+                                    });
+                                }
+                               
+                                break;
+                        }
+                       
+                        uIReview.OpenMe();
+                    }
+             
+                   
                     break;
             }
         }

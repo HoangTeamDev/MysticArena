@@ -1,6 +1,7 @@
 using Menu.System;
 using System.Collections.Generic;
 using System.Linq;
+using UI.ItemUI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -15,7 +16,8 @@ namespace UI.SystemUI
         public UIBase _popUpCurrent;
         public bool IsOpenUI;
         public List<UIBase> _windowsList;
-        public CanvasScaler _CanvasScaler;                
+        public CanvasScaler _CanvasScaler;
+        public ItemSlotBase _itemslotcurrent;
         private async void Start()
         {
 

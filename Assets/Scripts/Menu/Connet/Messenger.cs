@@ -4,6 +4,7 @@ using Menu.System;
 using Player;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UI.SystemUI;
 using UI.UIOvelay;
 using UI.UIWindow;
@@ -68,40 +69,12 @@ namespace Menu.Connet
                     break;
                 case 11:
                     {
-                        int cardID = message.readInt();
-                        int quantity = message.readInt();
-                        if (quantity == 0)
-                        {
-                            gameData._mainPlayer._playerDeckCard.Cards.Remove(cardID);
-                        }
-                        else
-                        {
-                            gameData._mainPlayer._playerDeckCard.Cards[cardID] = quantity;
-                        }
-                        UIDeck uIDeck = UIController.Instance.Get<UIDeck>(WindowType.UI_deck);
-                        if (uIDeck != null)
-                        {
-                            uIDeck.UpdateDeckCard(cardID, quantity);
-                        }
+                        HandleUpdatePlayerDeckCard(message);
                     }
                     break;
                 case 9:
                     {
-                        int cardID = message.readInt();
-                        int quantity = message.readInt();
-                        if (quantity == 0)
-                        {
-                            //gameData._mainPlayer._playerCardData.AllCard.Remove(cardID);
-                        }
-                        else
-                        {
-                           // gameData._mainPlayer._playerCardData.AllCard[cardID] = quantity;
-                        }
-                        UIDeck uIDeck = UIController.Instance.Get<UIDeck>(WindowType.UI_deck);
-                        if (uIDeck != null)
-                        {
-                            uIDeck.UpdatePlayerCard(cardID, quantity);
-                        }
+                        HandleUpdatePlayerCard(message);
                     }
                     break;
                 case 12:
@@ -122,7 +95,225 @@ namespace Menu.Connet
                     break;
             }
         }
+        void HandleUpdatePlayerCard(Message message)
+        {
+            try
+            {
+                Card card = new Card();
+                card._CardId = message.readInt();
+                card._quantity = message.readInt();
+                card._CardType = message.readByte();
+                card._Rarity = gameData.GetRaity(card._CardId);
+                card._Name = gameData.GetName(card._CardId);
+                if (card._quantity == 0)
+                {
+                    switch (card._CardType)
+                    {
+                        case 1:
+                            {
+                                Card card1 = gameData._mainPlayer._playerCardData.MonsterCard.FirstOrDefault(x => x._CardId == card._CardId);
+                                if (card1 != null)
+                                {
+                                    gameData._mainPlayer._playerCardData.MonsterCard.Remove(card1);
 
+                                }
+                            }
+                            break;
+                        case 2:
+                            {
+                                Card card1 = gameData._mainPlayer._playerCardData.SpellCard.FirstOrDefault(x => x._CardId == card._CardId);
+                                if (card1 != null)
+                                {
+                                    gameData._mainPlayer._playerCardData.SpellCard.Remove(card1);
+
+                                }
+                            }
+
+                            break;
+                        case 3:
+                            {
+                                Card card1 = gameData._mainPlayer._playerCardData.TrapCard.FirstOrDefault(x => x._CardId == card._CardId);
+                                if (card1 != null)
+                                {
+                                    gameData._mainPlayer._playerCardData.TrapCard.Remove(card1);
+
+                                }
+                            }
+
+                            break;
+
+                    }
+
+                }
+                else
+                {
+                    switch (card._CardType)
+                    {
+                        case 1:
+                            {
+                                card._Level = gameData.level(card._CardId);
+                                Card card1 = gameData._mainPlayer._playerCardData.MonsterCard.FirstOrDefault(x => x._CardId == card._CardId);
+                                if (card1 != null)
+                                {
+                                    card1._quantity = card._quantity;
+
+                                }
+                                else
+                                {
+                                    gameData._mainPlayer._playerCardData.MonsterCard.Add(card);
+                                }
+                            }
+                            break;
+                        case 2:
+                            {
+                                Card card1 = gameData._mainPlayer._playerCardData.SpellCard.FirstOrDefault(x => x._CardId == card._CardId);
+                                if (card1 != null)
+                                {
+                                    card1._quantity = card._quantity;
+
+                                }
+                                else
+                                {
+                                    gameData._mainPlayer._playerCardData.SpellCard.Add(card);
+                                }
+                            }
+
+                            break;
+                        case 3:
+                            {
+                                Card card1 = gameData._mainPlayer._playerCardData.TrapCard.FirstOrDefault(x => x._CardId == card._CardId);
+                                if (card1 != null)
+                                {
+                                    card1._quantity = card._quantity;
+
+                                }
+                                else
+                                {
+                                    gameData._mainPlayer._playerCardData.TrapCard.Add(card);
+                                }
+                            }
+
+                            break;
+
+                    }
+
+                }
+                gameData._mainPlayer._playerCardData.SortAll();
+                UIDeck uIDeck = UIController.Instance.Get<UIDeck>(WindowType.UI_deck);
+                if (uIDeck != null)
+                {
+                    uIDeck.CreatePlayerCard();
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.LogException(e);
+            }
+        }
+        void HandleUpdatePlayerDeckCard(Message message)
+        {
+            try
+            {
+                Card card = new Card();
+
+                card._CardId = message.readInt();
+                card._quantity = message.readInt();
+                card._CardType = message.readByte();
+                card._Rarity = gameData.GetRaity(card._CardId);
+                card._Name=gameData.GetName(card._CardId);
+                if (card._quantity == 0)
+                {
+                    switch (card._CardType)
+                    {
+                        case 1:
+                            {
+                                Card card1 = gameData._mainPlayer._playerDeckCard.MonsterCard.FirstOrDefault(x => x._CardId == card._CardId);
+                                if (card1 != null)
+                                {
+                                    gameData._mainPlayer._playerDeckCard.MonsterCard.Remove(card1);
+                                }
+                            }
+                            break;
+                        case 2:
+                            {
+                                Card card1 = gameData._mainPlayer._playerDeckCard.SpellCard.FirstOrDefault(x => x._CardId == card._CardId);
+                                if (card1 != null)
+                                {
+                                    gameData._mainPlayer._playerDeckCard.SpellCard.Remove(card1);
+                                }
+                            }
+                            break;
+                        case 3:
+                            {
+                                Card card1 = gameData._mainPlayer._playerDeckCard.TrapCard.FirstOrDefault(x => x._CardId == card._CardId);
+                                if (card1 != null)
+                                {
+                                    gameData._mainPlayer._playerDeckCard.TrapCard.Remove(card1);
+                                }
+                            }
+                            break;
+                    }
+                }
+                else
+                {
+
+                    switch (card._CardType)
+                    {
+                        case 1:
+                            {
+                                card._Level = gameData.level(card._CardId);
+                                Card card1 = gameData._mainPlayer._playerDeckCard.MonsterCard.FirstOrDefault(x => x._CardId == card._CardId);
+                                if (card1 != null)
+                                {
+                                    card1._quantity = card._quantity;
+                                }
+                                else
+                                {
+                                    gameData._mainPlayer._playerDeckCard.MonsterCard.Add(card);
+                                }
+                            }
+
+                            break;
+                        case 2:
+                            {
+                                Card card1 = gameData._mainPlayer._playerDeckCard.SpellCard.FirstOrDefault(x => x._CardId == card._CardId);
+                                if (card1 != null)
+                                {
+                                    card1._quantity = card._quantity;
+                                }
+                                else
+                                {
+                                    gameData._mainPlayer._playerDeckCard.SpellCard.Add(card);
+                                }
+                            }
+                            break;
+                        case 3:
+                            {
+                                Card card1 = gameData._mainPlayer._playerDeckCard.TrapCard.FirstOrDefault(x => x._CardId == card._CardId);
+                                if (card1 != null)
+                                {
+                                    card1._quantity = card._quantity;
+                                }
+                                else
+                                {
+                                    gameData._mainPlayer._playerDeckCard.TrapCard.Add(card);
+                                }
+                            }
+                            break;
+                    }
+                    gameData._mainPlayer._playerDeckCard.SortAll();
+                }
+                UIDeck uIDeck = UIController.Instance.Get<UIDeck>(WindowType.UI_deck);
+                if (uIDeck != null)
+                {
+                    uIDeck.UpdateDeckCard(card);
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.LogException(e);
+            }
+        }
         void HandleRoom(Message message)
         {
             try
@@ -278,12 +469,29 @@ namespace Menu.Connet
                 int count = message.readInt();
                 for (int i = 0; i < count; i++)
                 {
-                    int cardId = message.readInt();
-                    int quantity = message.readInt();
-                    deckCard.Cards.Add(cardId, quantity);
+                    Card card = new Card();
+                    card._CardId = message.readInt();
+                    card._quantity = message.readInt();
+                    card._CardType=message.readByte();
+                    card._Name = GameData.Instance.GetName(card._CardId);
+                    card._Rarity=GameData.Instance.GetRaity(card._CardId);
+                    switch (card._CardType)
+                    {
+                        case 1:
+                            card._Level = GameData.Instance.level(card._CardId);
+                            deckCard.MonsterCard.Add(card);
+                            break;
+                        case 2:
+                            deckCard.SpellCard.Add(card);
+                            break;
+                        case 3:
+                            deckCard.TrapCard.Add(card);
+                            break;
+                    }
+                   
                 }
                 gameData._mainPlayer._playerDeckCard = deckCard;
-
+                gameData._mainPlayer._playerDeckCard.SortAll();
                 if (GameController.HasInstance)
                 {
                     UIDeck uIDeck = UIController.Instance.Get<UIDeck>(WindowType.UI_deck);
@@ -348,10 +556,12 @@ namespace Menu.Connet
                     Card card = new Card();
                     card._CardId = message.readInt();
                     card._quantity = message.readInt();
-                  
+                    card._Name = GameData.Instance.GetName(card._CardId);
+                    card._Rarity=GameData.Instance.GetRaity(card._CardId);
                     int type = message.readByte();
                     if(type is 1)
                     {
+                        card._Level = GameData.Instance.level(card._CardId);
                         gameData._mainPlayer._playerCardData.MonsterCard.Add(card);
                     }else
                     if(type is 2)
@@ -364,7 +574,7 @@ namespace Menu.Connet
                     }
 
                 }
-
+                gameData._mainPlayer._playerCardData.SortAll();
                 if (GameController.HasInstance)
                 {
                     UIDeck uIDeck = UIController.Instance.Get<UIDeck>(WindowType.UI_deck);
@@ -429,8 +639,8 @@ namespace Menu.Connet
                     card1._CardType = msg.readByte();
                     if(card1._CardType is 1)
                     {
-                        card1._Attack = msg.readShort();
                         card1._Hp = msg.readShort();
+                        card1._Attack = msg.readShort();
                         card1._Element = msg.readByte();
                         card1._Level = msg.readByte();
                         card1._Race = msg.readByte();

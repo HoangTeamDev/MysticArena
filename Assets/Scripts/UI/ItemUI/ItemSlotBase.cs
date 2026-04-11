@@ -60,11 +60,12 @@ namespace UI.ItemUI
         }
         public virtual async void SeletecMe()
         {
-           
-            
-             
 
-            
+            UIController.Instance._itemslotcurrent = this;
+
+
+
+
         }
     }
 }

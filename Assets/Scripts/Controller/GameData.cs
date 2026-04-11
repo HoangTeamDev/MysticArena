@@ -6,6 +6,7 @@ using Player;
 using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using UnityEngine;
 public class GameData : Singleton<GameData>
@@ -18,6 +19,19 @@ public class GameData : Singleton<GameData>
     public Card GetCardByID(int id)
     {
         return _allCard.Find(c => c._CardId == id);
+    }
+    public string GetRaity(int id)
+    {
+       
+        return _allCard.FirstOrDefault(c=>c._CardId==id)._Rarity;
+    }
+    public string GetName(int id)
+    {
+        return _allCard.FirstOrDefault(c=> c._CardId==id)._Name;
+    }
+    public int level(int id)
+    {
+        return _allCard.FirstOrDefault(c=>c._CardId == id)._Level;
     }
     public async UniTask<T> LoadAsset<T>(string key, CancellationToken ct = default) where T : UnityEngine.Object
     {

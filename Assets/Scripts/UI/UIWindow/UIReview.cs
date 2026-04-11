@@ -1,14 +1,17 @@
 ﻿using CardData;
+using System.Collections.Generic;
 using UI.SystemUI;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 namespace UI.UIWindow
 {
     public class UIReview : UIBase
     {
-        public Transform monstercard;
-        public Transform spellcard;
-        public Transform trapcard;
+        public RectTransform panel;
+        public Transform listButton;
+        public List<ButtonConfirm> buttonConfirms = new List<ButtonConfirm>();
+        public ButtonConfirm confirmButton;
         public Canvas canvas;
         public override void Init()
         {
@@ -16,7 +19,7 @@ namespace UI.UIWindow
         }
         private void Update()
         {
-            if (Input.GetMouseButton(0))
+           /* if (Input.GetMouseButton(0))
             {
                 Vector2 mousePos;
 
@@ -28,17 +31,20 @@ namespace UI.UIWindow
                     out mousePos
                 );
 
-                monstercard.localPosition = mousePos;
-            }
+                
+            }*/
+        }
+        public ButtonConfirm CreateButtonconfirm()
+        {
+            var btn = Instantiate(confirmButton, listButton.transform);
+            buttonConfirms.Add(btn);
+            btn.transform.SetParent(listButton.transform, false);
+            btn.gameObject.SetActive(true);
+            return btn;
         }
         public void SetReview(int id)
         {
-            Card card= GameData.Instance.GetCardByID(id);
-            if(card != null)
-            {
-                monstercard.gameObject.SetActive(true);
-            }
-            UIController.Instance.SetSelectUICurrent(monstercard.gameObject);
+           
             OpenMe();
         }
         public override void OnPointerClick(PointerEventData pointerEventData)
@@ -49,6 +55,7 @@ namespace UI.UIWindow
         public override void Open()
         {
             base.Open();
+            panel.position = UIController.Instance._itemslotcurrent.GetComponent<RectTransform>().position;
         }
 
         public override void OpenMe()
@@ -58,6 +65,11 @@ namespace UI.UIWindow
         public override void Close()
         {
             base.Close();
+            foreach(var data in buttonConfirms)
+            {
+                Destroy(data.gameObject);
+            }
+            buttonConfirms.Clear();
         }
 
         public override void CloseMe()

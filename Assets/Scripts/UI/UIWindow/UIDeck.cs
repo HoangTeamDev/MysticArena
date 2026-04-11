@@ -45,6 +45,11 @@ namespace UI.UIWindow
         public int totaltabMonster = 0;
         public int totaltabSpell = 0;
         public int totaltabTraps = 0;
+        [Title("text")]
+        public TextMeshProUGUI _quantityMonster;
+        public TextMeshProUGUI _quantitySpell;
+        public TextMeshProUGUI _quantityTrap;
+        public TextMeshProUGUI _quantityCard;
         public async override void Init()
         {
             base.Init();
@@ -202,6 +207,18 @@ namespace UI.UIWindow
             
             CreatePlayerCard();
         }
+        public void UpdateQuantity()
+        {
+            var b = GameData.Instance._mainPlayer;
+            int m = b._playerDeckCard.MonsterCard.Count;
+            int s= b._playerDeckCard.SpellCard.Count;
+            int t= b._playerDeckCard.TrapCard.Count;
+            _quantityCard.text=$"{m+s+t}/30";
+            _quantityMonster.text = $"Quái: {m}";
+            _quantitySpell.text = $"Phép: {s}";
+            _quantityTrap.text = $"Bẫy: {t}";
+          
+        }
         public void CreatePlayerCard()
         {
            
@@ -287,8 +304,9 @@ namespace UI.UIWindow
                     }
                     break;
             }
-           
-           
+            UpdateQuantity();
+
+
         }
         public void CreateDeck()
         {
@@ -297,9 +315,9 @@ namespace UI.UIWindow
                 Destroy(child.gameObject);
             }
             var d = GameData.Instance._mainPlayer._playerDeckCard;
-            foreach (var item in d.Cards)
+            foreach (var item in d.MonsterCard)
             {
-                Card card = GameData.Instance.GetCardByID(item.Key);
+                Card card = GameData.Instance.GetCardByID(item._CardId);
                 if (card != null)
                 {
                     if (card._CardType is 1)
@@ -307,111 +325,47 @@ namespace UI.UIWindow
                         ItemSlotDeck monstercard = Instantiate(prefabMosters, contentDeck);
                         monstercard.card = card;
                         monstercard.Init();
-                        monstercard._numberCard.text = "x " + item.Value.ToString();
+                        monstercard._numberCard.text = "x " + item._quantity.ToString();
                         monstercard.gameObject.SetActive(true);
                         monstercard.type = 2;
                         listDeckCard.Add(monstercard);
                     }
-                    else if (card._CardType is 2)
-                    {
-                        ItemSlotDeck spellcard = Instantiate(prefabSpells, contentDeck);
-                        spellcard.card = card;
-                        spellcard.Init();
-                        spellcard._numberCard.text = "x " + item.Value.ToString();
-                        spellcard.gameObject.SetActive(true);
-                        spellcard.type = 2;
-                        listDeckCard.Add(spellcard);
-                    }
-                    else
-                    {
-                        ItemSlotDeck trapcard = Instantiate(prefabTraps, contentDeck);
-                        trapcard.card = card;
-                        trapcard.Init();
-                        trapcard._numberCard.text = "x " + item.Value.ToString();
-                        trapcard.gameObject.SetActive(true);
-                        trapcard.type = 2;
-                        listDeckCard.Add(trapcard);
-                    }
                 }
             }
-            SortDeckUI();
-
-        }
-        public void SortDeckUI()
-        {
-            listDeckCard = listDeckCard
-                .OrderBy(x => x.card._CardType)
-                .ThenBy(x => x.card._CardType == 1 ? x.card._Level : int.MaxValue)
-                .ToList();
-
-            for (int i = 0; i < listDeckCard.Count; i++)
+            foreach (var item in d.SpellCard)
             {
-                listDeckCard[i].transform.SetSiblingIndex(i);
+                Card card = GameData.Instance.GetCardByID(item._CardId);
+                if (card != null)
+                {
+                    ItemSlotDeck monstercard = Instantiate(prefabSpells, contentDeck);
+                    monstercard.card = card;
+                    monstercard.Init();
+                    monstercard._numberCard.text = "x " + item._quantity.ToString();
+                    monstercard.gameObject.SetActive(true);
+                    monstercard.type = 2;
+                    listDeckCard.Add(monstercard);
+                }
             }
-        }
-        public void SortMonster()
-        {
-            var rarityOrder = new Dictionary<string, int>
-    {
-        { "GR", 0 },
-        { "UR", 1 },
-        { "SR", 2 }
-    };
-
-            listMonsterCard = listMonsterCard
-                .OrderBy(x => rarityOrder.ContainsKey(x.card._Rarity)
-                                ? rarityOrder[x.card._Rarity]
-                                : int.MaxValue)
-                .ThenBy(x => x.card._Level) // Monster level thấp → cao
-                .ToList();
-
-            for (int i = 0; i < listMonsterCard.Count; i++)
+            foreach (var item in d.TrapCard)
             {
-                listMonsterCard[i].transform.SetSiblingIndex(i);
+                Card card = GameData.Instance.GetCardByID(item._CardId);
+                if (card != null)
+                {
+                    ItemSlotDeck monstercard = Instantiate(prefabTraps, contentDeck);
+                    monstercard.card = card;
+                    monstercard.Init();
+                    monstercard._numberCard.text = "x " + item._quantity.ToString();
+                    monstercard.gameObject.SetActive(true);
+                    monstercard.type = 2;
+                    listDeckCard.Add(monstercard);
+                }
             }
+         
+
         }
-        public void SortSpell()
-        {
-            var rarityOrder = new Dictionary<string, int>
-    {
-        { "GR", 0 },
-        { "UR", 1 },
-        { "SR", 2 }
-    };
-
-            listSpellCard = listSpellCard
-                .OrderBy(x => rarityOrder.ContainsKey(x.card._Rarity)
-                                ? rarityOrder[x.card._Rarity]
-                                : int.MaxValue)
-               
-                .ToList();
-
-            for (int i = 0; i < listSpellCard.Count; i++)
-            {
-                listSpellCard[i].transform.SetSiblingIndex(i);
-            }
-        }
-        public void SortTrapCard()
-        {
-            var rarityOrder = new Dictionary<string, int>
-    {
-        { "GR", 0 },
-        { "UR", 1 },
-        { "SR", 2 }
-    };
-
-            listTrapCard = listTrapCard
-                .OrderBy(x => rarityOrder.ContainsKey(x.card._Rarity)
-                                ? rarityOrder[x.card._Rarity]
-                                : int.MaxValue)
-                
-                .ToList();
-
-            for (int i = 0; i < listTrapCard.Count; i++)
-            {
-                listTrapCard[i].transform.SetSiblingIndex(i);
-            }
-        }
+      
+       
+       
 
         public void UpdatePlayerCard(int id, int quantity)
         {
@@ -525,41 +479,34 @@ namespace UI.UIWindow
                 }
 
             }
-            SortMonster();
-            SortSpell();
-            SortTrapCard();
+          
 
         }
-        public void UpdateDeckCard(int id, int quantity)
+        public void UpdateDeckCard(Card card)
         {
-            if (quantity == 0)
+            if (card._quantity == 0)
             {
-                ItemSlotDeck itemSlotDeck = listDeckCard.FirstOrDefault(x => x.card._CardId == id);
+                ItemSlotDeck itemSlotDeck = listDeckCard.FirstOrDefault(x => x.card._CardId == card._CardId);
                 listDeckCard.Remove(itemSlotDeck);
                 Destroy(itemSlotDeck.gameObject);
             }
             else
             {
-                ItemSlotDeck card2 = listDeckCard.FirstOrDefault(x => x.card._CardId == id);
+                ItemSlotDeck card2 = listDeckCard.FirstOrDefault(x => x.card._CardId == card._CardId);
                 if (card2 != null)
                 {
-                    foreach (var item in listDeckCard)
-                    {
-                        if (item.card._CardId == id)
-                        {
-                            item._numberCard.text = "x " + quantity.ToString();
-                        }
-                    }
+                    card2._numberCard.text= "x " + card._quantity.ToString();
+                   
                 }
                 else
                 {
-                    Card card = GameData.Instance.GetCardByID(id);
+                    Card card1 = GameData.Instance.GetCardByID(card._CardId);
                     if (card._CardType is 1)
                     {
                         ItemSlotDeck monstercard = Instantiate(prefabMosters, contentDeck);
-                        monstercard.card = card;
+                        monstercard.card = card1;
                         monstercard.Init();
-                        monstercard._numberCard.text = "x " + quantity.ToString();
+                        monstercard._numberCard.text = "x " + card._quantity.ToString();
                         monstercard.gameObject.SetActive(true);
                         monstercard.type = 2;
                         listDeckCard.Add(monstercard);
@@ -567,9 +514,9 @@ namespace UI.UIWindow
                     else if (card._CardType is 2)
                     {
                         ItemSlotDeck spellcard = Instantiate(prefabSpells, contentDeck);
-                        spellcard.card = card;
+                        spellcard.card = card1;
                         spellcard.Init();
-                        spellcard._numberCard.text = "x " + quantity.ToString();
+                        spellcard._numberCard.text = "x " + card._quantity.ToString();
                         spellcard.gameObject.SetActive(true);
                         spellcard.type = 2;
                         listDeckCard.Add(spellcard);
@@ -577,9 +524,9 @@ namespace UI.UIWindow
                     else
                     {
                         ItemSlotDeck trapcard = Instantiate(prefabTraps, contentDeck);
-                        trapcard.card = card;
+                        trapcard.card = card1;
                         trapcard.Init();
-                        trapcard._numberCard.text = "x " + quantity.ToString();
+                        trapcard._numberCard.text = "x " + card._quantity.ToString();
                         trapcard.gameObject.SetActive(true);
                         trapcard.type = 2;
                         listDeckCard.Add(trapcard);
@@ -588,6 +535,27 @@ namespace UI.UIWindow
 
             }
             SortDeckUI();
+        }
+        public void SortDeckUI()
+        {
+            var rarityOrder = new Dictionary<string, int>
+    {
+        { "GR", 0 },
+        { "UR", 1 },
+        { "SR", 2 }
+    };
+            listDeckCard = listDeckCard
+                .OrderBy(x => rarityOrder.ContainsKey(x.card._Rarity)
+                                ? rarityOrder[x.card._Rarity]
+                                : int.MaxValue)
+                .ThenBy(x => x.card._CardType == 1 ? x.card._Level : int.MaxValue)
+                .ThenBy(x=>x.card._Name)
+                .ToList();
+
+            for (int i = 0; i < listDeckCard.Count; i++)
+            {
+                listDeckCard[i].transform.SetSiblingIndex(i);
+            }
         }
         public override void OnPointerClick(PointerEventData pointerEventData)
         {
