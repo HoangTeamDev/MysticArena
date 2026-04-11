@@ -1,3 +1,4 @@
+using Menu.Connet;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -69,6 +70,7 @@ public class LoginController : MonoBehaviour
         tk=_inputfieldTK.text;
         mk=_inputfieldMK.text;
         _buttonlogin.gameObject.SetActive(true);
+        _panelLogin.gameObject.SetActive(false);
     }
     public void ActiveCreatePlayer()
     {

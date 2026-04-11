@@ -5,175 +5,184 @@ using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 
-
-public partial class ClientMain : MonoBehaviour
+namespace Menu.Connet
 {
-    TcpClient client;
-    public static ClientMain Instance;
-
-    NetworkStream stream;
-    BinaryReader reader;
-    BinaryWriter writer;
-
-    public Messenger messenger;
-
-    private void Awake()
+    public partial class ClientMain : MonoBehaviour
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
-    }
+        TcpClient client;
+        public static ClientMain Instance;
 
-    async void Start()
-    {
-        await Connect();
-    }
-    private void OnApplicationQuit()
-    {
-        Disconet();
-    }
-    async Task Connect()
-    {
-        try
+        NetworkStream stream;
+        BinaryReader reader;
+        BinaryWriter writer;
+
+        public Messenger messenger;
+
+        private void Awake()
         {
-            Debug.Log("Connecting to Server...");
-
-            client = new TcpClient();
-            await client.ConnectAsync("127.0.0.1", 7777);
-
-            stream = client.GetStream();
-            reader = new BinaryReader(stream);
-            writer = new BinaryWriter(stream);
-
-            Debug.Log("Connected to Server!");
-
-            _ = Task.Run(ListenServer); // run in background thread
-
-           
+            if (Instance == null) Instance = this;
+            else Destroy(gameObject);
         }
-        catch (Exception e)
+
+        async void Start()
         {
-            Debug.LogError("Connect failed: " + e.Message);
+            await Connect();
         }
-    }
-
-    async Task ListenServer()
-    {
-        try
+        private void OnApplicationQuit()
         {
-            Debug.Log("ListenServer started");
-
-            while (client != null && client.Connected)
+            Disconet();
+        }
+        async Task Connect()
+        {
+            try
             {
-                if (stream == null || !stream.CanRead)
-                    break;
+                Debug.Log("Connecting to Server...");
 
-                // ======================
-                // READ OPCODE (2 bytes)
-                // ======================
-                byte[] opBuf = new byte[2];
-                int received = 0;
+                client = new TcpClient();
+                await client.ConnectAsync("127.0.0.1", 7777);
 
-                while (received < 2)
+                stream = client.GetStream();
+                reader = new BinaryReader(stream);
+                writer = new BinaryWriter(stream);
+
+                Debug.Log("Connected to Server!");
+
+                _ = Task.Run(ListenServer); // run in background thread
+
+
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("Connect failed: " + e.Message);
+            }
+        }
+        private void Update()
+        {
+            if (GameController.HasInstance)
+            {
+                GameController.Instance.Doupdate();
+            }
+        }
+        async Task ListenServer()
+        {
+            try
+            {
+                Debug.Log("ListenServer started");
+
+                while (client != null && client.Connected)
                 {
-                    int r = await stream.ReadAsync(opBuf, received, 2 - received);
-                    if (r <= 0) throw new Exception("Server disconnected");
-                    received += r;
-                }
+                    if (stream == null || !stream.CanRead)
+                        break;
 
-                short opcode = BitConverter.ToInt16(opBuf, 0);
+                    // ======================
+                    // READ OPCODE (2 bytes)
+                    // ======================
+                    byte[] opBuf = new byte[2];
+                    int received = 0;
 
-                // ======================
-                // READ LENGTH (2 bytes)
-                // ======================
-                byte[] lenBuf = new byte[2];
-                received = 0;
-
-                while (received < 2)
-                {
-                    int r = await stream.ReadAsync(lenBuf, received, 2 - received);
-                    if (r <= 0) throw new Exception("Server disconnected");
-                    received += r;
-                }
-
-                ushort length = BitConverter.ToUInt16(lenBuf, 0);
-
-                // ======================
-                // READ PAYLOAD
-                // ======================
-                byte[] payload = Array.Empty<byte>();
-
-                if (length > 0)
-                {
-                    payload = new byte[length];
-                    received = 0;
-
-                    while (received < length)
+                    while (received < 2)
                     {
-                        int r = await stream.ReadAsync(payload, received, length - received);
+                        int r = await stream.ReadAsync(opBuf, received, 2 - received);
                         if (r <= 0) throw new Exception("Server disconnected");
                         received += r;
                     }
-                }
 
-                // ======================
-                // HANDLE MESSAGE
-                // ======================
-                Message msg = new Message(opcode, payload);
-                ;
-                MainThreadDispatcher.Enqueue(() => messenger.Handle(msg));
+                    short opcode = BitConverter.ToInt16(opBuf, 0);
+
+                    // ======================
+                    // READ LENGTH (2 bytes)
+                    // ======================
+                    byte[] lenBuf = new byte[2];
+                    received = 0;
+
+                    while (received < 2)
+                    {
+                        int r = await stream.ReadAsync(lenBuf, received, 2 - received);
+                        if (r <= 0) throw new Exception("Server disconnected");
+                        received += r;
+                    }
+
+                    ushort length = BitConverter.ToUInt16(lenBuf, 0);
+                    Debug.Log($"RECEIVED OPCODE = {opcode}, LENGTH = {length}");
+                    // ======================
+                    // READ PAYLOAD
+                    // ======================
+                    byte[] payload = Array.Empty<byte>();
+
+                    if (length > 0)
+                    {
+                        payload = new byte[length];
+                        received = 0;
+
+                        while (received < length)
+                        {
+                            int r = await stream.ReadAsync(payload, received, length - received);
+                            if (r <= 0) throw new Exception("Server disconnected");
+                            received += r;
+                        }
+                    }
+
+                    // ======================
+                    // HANDLE MESSAGE
+                    // ======================
+                    Message msg = new Message(opcode, payload);
+                    ;
+                    MainThreadDispatcher.Enqueue(() => messenger.Handle(msg));
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning("Disconnected: " + e.Message);
+            }
+            finally
+            {
+                Debug.Log("Server connection closed");
+
+                reader?.Close();
+                writer?.Close();
+                stream?.Close();
+                client?.Close();
             }
         }
-        catch (Exception e)
-        {
-            Debug.LogWarning("Disconnected: " + e.Message);
-        }
-        finally
-        {
-            Debug.Log("Server connection closed");
 
+
+        // ------------------------
+        // SEND PACKETS
+        // ------------------------
+
+        public void Disconet()
+        {
             reader?.Close();
             writer?.Close();
             stream?.Close();
             client?.Close();
         }
-    }
-
-
-    // ------------------------
-    // SEND PACKETS
-    // ------------------------
-    
-    public void Disconet()
-    {
-        reader?.Close();
-        writer?.Close();
-        stream?.Close();
-        client?.Close();
-    }
-    public void Send(Message m)
-    {
-        if (m == null || client == null || !client.Connected)
-            return;
-
-        try
+        public void Send(Message m)
         {
-            short cmd = m.Command;
-            byte[] data = m.ToArray();
+            if (m == null || client == null || !client.Connected)
+                return;
 
-            writer.Write(cmd);
-            ushort length = (ushort)(data?.Length ?? 0);
-            writer.Write(length);
+            try
+            {
+                short cmd = m.Command;
+                byte[] data = m.ToArray();
 
-            if (data != null && data.Length > 0)
-                writer.Write(data);
+                writer.Write(cmd);
+                ushort length = (ushort)(data?.Length ?? 0);
+                writer.Write(length);
 
-            writer.Flush();
+                if (data != null && data.Length > 0)
+                    writer.Write(data);
 
-            Debug.Log("SEND OPCODE = " + cmd);
-        }
-        catch (Exception ex)
-        {
-            Debug.LogWarning("[SEND ERROR] " + ex.Message);
+                writer.Flush();
+
+                Debug.Log("SEND OPCODE = " + cmd);
+            }
+            catch (Exception ex)
+            {
+                Debug.LogWarning("[SEND ERROR] " + ex.Message);
+            }
         }
     }
 }
+

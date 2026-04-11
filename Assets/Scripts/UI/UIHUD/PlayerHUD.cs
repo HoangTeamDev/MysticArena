@@ -1,8 +1,13 @@
+using DG.Tweening;
+using Menu.Connet;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
+using TMPro;
 using UI.ItemUI;
 using UI.SystemUI;
+using UI.UIOvelay;
 using UI.UIWindow;
 using UnityEditor;
 using UnityEngine;
@@ -15,6 +20,15 @@ namespace UI.UIHUD
     {
         [Header("Function")]
         public Button _Library;
+        public Button _btnDeck;
+        public Button _btnCreateRoom;
+        public Button _btnJoinRoom;
+        [Header("InforPlayer")]
+        public Image _avatar;
+        [SerializeField] private TextMeshProUGUI _namePlayer;
+        [SerializeField] private TextMeshProUGUI _level;
+        [SerializeField] private TextMeshProUGUI _gold;
+        [SerializeField] private TextMeshProUGUI _diamond;
         public override void Init()
         {
             base.Init();
@@ -26,8 +40,45 @@ namespace UI.UIHUD
                     library.OpenMe();
                 }
             });
-        }
+            _btnDeck.onClick.AddListener(() =>
+                {
+                    UIDeck deck = UIController.Instance.Get<UIDeck>(WindowType.UI_deck);
+                    if (deck != null)
+                    {
+                        deck.OpenMe();
+                    }
+                });
 
+            _btnCreateRoom.onClick.AddListener(() =>
+            {
+                ClientMain.Instance.SendCreateRoom();
+            });
+            _btnJoinRoom.onClick.AddListener(() =>
+            {
+                UIInput input = UIController.Instance.Get<UIInput>(WindowType.UI_Input);
+                if (input != null)
+                {
+                    input.Set(TypeInput.JoinRoom);
+                }
+            });
+            SetInfo();
+        }
+        private void SetInfo()
+        {
+            var d=GameData.Instance._mainPlayer;
+            _namePlayer.text = d._namePlayer;
+            _level.text=$"Level:{d._level}";
+            
+            AnimateTextNumber(_gold, d._gold);
+            AnimateTextNumber(_diamond, d._diamond);
+           
+        }
+        private void AnimateTextNumber(TextMeshProUGUI textComponent, long newValue)
+        {
+            var culture = (CultureInfo)CultureInfo.InvariantCulture.Clone();
+            culture.NumberFormat.NumberGroupSeparator = ".";
+            textComponent.text = newValue.ToString("N0", culture);
+        }
         public override void OnPointerClick(PointerEventData pointerEventData)
         {
             base.OnPointerClick(pointerEventData);

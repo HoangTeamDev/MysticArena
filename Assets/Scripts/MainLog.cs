@@ -4,6 +4,7 @@ using System.Diagnostics;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 using UIScripts.SystemUI;
+using Menu.System;
 public static class MainLog
 {   
     public static void LogError(string title,string message, string color)

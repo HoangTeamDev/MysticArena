@@ -15,11 +15,16 @@ namespace UI.SystemUI
     }
     public enum WindowType
     {
-       UI_PlayerHUD,
-       UI_Inventory,
-       UI_Shop,
-       UI_Library,
-       UI_InfoCard
+        UI_PlayerHUD,
+        UI_Inventory,
+        UI_Shop,
+        UI_Library,
+        UI_InfoCard,
+        UI_deck,
+        UI_Room,
+        UI_Input,
+        UI_MainField,
+        UI_Review
 
     }
     public abstract class UIBase : MonoBehaviour, IPointerClickHandler
@@ -47,7 +52,7 @@ namespace UI.SystemUI
         public virtual void Open() { gameObject.SetActive(true); }
         public virtual void OpenMe() { UIController.Instance.Open(WindowType); }
 
-        public virtual void Close() { }
+        public virtual void Close() { gameObject.SetActive(false); }
 
         public virtual void CloseMe() { UIController.Instance.Close(WindowType); }
         public virtual void OnPointerClick(PointerEventData pointerEventData)
@@ -58,7 +63,7 @@ namespace UI.SystemUI
             }
         }
 
-       
+
         protected virtual void OnEnable() { }
 
 

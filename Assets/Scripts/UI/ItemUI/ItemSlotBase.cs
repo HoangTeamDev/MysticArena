@@ -1,5 +1,6 @@
 
 
+using CardData;
 using UI.SystemUI;
 using UI.UIOvelay;
 using UI.UIWindow;
@@ -8,7 +9,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 namespace UI.ItemUI
 {
-    public enum TypeItemSlot { Inventory, Equiment, Upgrade, Skill, Shop, Library }
+    public enum TypeItemSlot { Inventory, Equiment, Upgrade, Skill, Shop, Library,Deck }
 
     public abstract class ItemSlotBase : MonoBehaviour, IPointerClickHandler
     {
@@ -17,6 +18,7 @@ namespace UI.ItemUI
         public Button Button;       
         public ItemBase ItemBase;     
         public TypeItemSlot typeItemSlot;
+        public Card card;
         public UIController uIManager => UIController.Instance;
         private void Awake()
         {
@@ -39,6 +41,7 @@ namespace UI.ItemUI
                 SeletecMe();
             }
             
+            
         }
 
 
@@ -57,11 +60,12 @@ namespace UI.ItemUI
         }
         public virtual async void SeletecMe()
         {
-           
-            
-             
 
-            
+            UIController.Instance._itemslotcurrent = this;
+
+
+
+
         }
     }
 }
