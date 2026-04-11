@@ -1,7 +1,9 @@
 ﻿using Assets.Scripts.RoomAll;
 using CardData;
 using Menu.System;
+using Photon.Realtime;
 using Player;
+using RoomAll;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -89,6 +91,17 @@ namespace Menu.Connet
 
                     }
                     break;
+                case 14:// Cập nhật số lượng các lá bài trên sân, deck , tay , mộ
+                    {
+
+                    }
+                    break;
+                case 15://cập nhật trạng thái monster
+                    {
+
+                    }
+                    break;
+
 
                 default:
                     Debug.LogWarning("Unknown opcode: " + message);
@@ -321,7 +334,7 @@ namespace Menu.Connet
                 int type = message.readByte();
                 switch(type)
                 {
-                    case 1:
+                    case 1://tao phong
                         {
                             int roomID = message.readInt();
                             UIRoom uIRoom = UIController.Instance.Get<UIRoom>(WindowType.UI_Room);
@@ -341,7 +354,7 @@ namespace Menu.Connet
                             }
                             break;
                         }
-                    case 2:
+                    case 2://nguoi khac vo
                         {
                             int playerID = message.readInt();
                             string name = message.readUTF();
@@ -368,13 +381,27 @@ namespace Menu.Connet
                             }
                             break;
                         }
-                    case 4:
+                    case 4://xin vao duoc dong y
                         {
                             int zoomid= message.readInt();
                             int playerID = message.readInt();
                             string name = message.readUTF();
                             int level = message.readInt();
-                            
+                            GameData.Instance.CurrentRoom.RoomID = zoomid;
+                            GameData.Instance.CurrentRoom.HostPlayer = new PlayerState
+                            {
+                                PlayerID = playerID,
+                                PlayerName = name,
+                                level=level,
+                                hp = 0
+                            };
+                            GameData.Instance.CurrentRoom.GuestPlayer = new PlayerState
+                            {
+                                PlayerID = GameData.Instance._mainPlayer._playerid,
+                                PlayerName = GameData.Instance._mainPlayer._namePlayer,
+                                level = GameData.Instance._mainPlayer._level,
+                                hp = 0
+                            };
                             UIRoom uIRoom = UIController.Instance.Get<UIRoom>(WindowType.UI_Room);
                             if (uIRoom != null)
                             {
@@ -386,13 +413,31 @@ namespace Menu.Connet
                             }
                                 break;
                         }
-                    case 5:
+                    case 5://startGame
                         {
                            bool ishost = message.readBool();
                             int hphost = message.readInt();
                             int hpother = message.readInt();
                             GameData.Instance.CurrentRoom.HostPlayer.hp = hphost;
                             GameData.Instance.CurrentRoom.GuestPlayer.hp = hpother;
+                            int countHost = message.readByte();
+                           
+                            for(int i = 0; i < countHost; i++)
+                            {
+                                CardIntance cardIntance = new CardIntance();
+                                cardIntance.InstanceId = message.readInt();
+                                cardIntance.CardId = message.readInt();
+                                GameData.Instance.CurrentRoom.HostPlayer.Deck.Add(cardIntance);
+                            }
+                            int count = message.readByte();
+                            for (int j = 0; j < count; j++)
+                            {
+                                CardIntance cardIntance1 = new CardIntance();
+                                cardIntance1.InstanceId = message.readInt();
+                                cardIntance1.CardId = message.readInt();
+                                GameData.Instance.CurrentRoom.GuestPlayer.Deck.Add(cardIntance1);
+                            }
+
                             UIMainField uIMainField = UIController.Instance.Get<UIMainField>(WindowType.UI_MainField);
                             if (uIMainField != null)
                             {

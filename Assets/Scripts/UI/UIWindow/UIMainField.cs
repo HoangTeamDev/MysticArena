@@ -18,13 +18,14 @@ namespace UI.UIWindow
         [Header("Me")]
         [SerializeField] private TextMeshProUGUI _nameMe;
         [SerializeField] private TextMeshProUGUI _HPMe;
+        [SerializeField] private TextMeshProUGUI _cardMe;
         [SerializeField] private CardRowLayout _cardRowLayoutMe;
         [Header("Enemy")]
         [SerializeField] private TextMeshProUGUI _nameEnemy;
         [SerializeField] private TextMeshProUGUI _HPEnemy;
         [SerializeField] private CardRowLayout _cardRowLayoutEnemy;
+        [SerializeField] private TextMeshProUGUI _cardDeckEnemy;
 
-        
         public override void Init()
         {
             base.Init();
@@ -39,8 +40,22 @@ namespace UI.UIWindow
             _HPMe.text = $"{me.hp}";
             _nameEnemy.text = enemy.PlayerName;
             _HPEnemy.text = $"{enemy.hp}";
-
+            _cardDeckEnemy.text = enemy.Deck.Count.ToString();
+            _cardMe.text = me.Deck.Count.ToString();
         }
+        public void UpdateCardDeckMe()
+        {
+            Room room = GameData.Instance.CurrentRoom;
+            PlayerState me = room.HostPlayer.PlayerID == GameData.Instance._mainPlayer._playerid ? room.HostPlayer : room.GuestPlayer;
+            _cardMe.text = me.Deck.Count.ToString();
+        }
+        public void UpdateCardDeckEnemy()
+        {
+            Room room = GameData.Instance.CurrentRoom;
+            PlayerState enemy = room.HostPlayer.PlayerID == GameData.Instance._mainPlayer._playerid ? room.GuestPlayer : room.HostPlayer;
+            _cardDeckEnemy.text = enemy.Deck.Count.ToString();
+        }
+
         [ContextMenu("MeDrawCard")]
         public async void MeDrawCard()
         {

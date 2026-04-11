@@ -210,9 +210,22 @@ namespace UI.UIWindow
         public void UpdateQuantity()
         {
             var b = GameData.Instance._mainPlayer;
-            int m = b._playerDeckCard.MonsterCard.Count;
-            int s= b._playerDeckCard.SpellCard.Count;
-            int t= b._playerDeckCard.TrapCard.Count;
+            int m = 0;
+            int s= 0;
+            int t= 0;
+            foreach ( var card in b._playerDeckCard.MonsterCard)
+            {
+                m += card._quantity;
+            }
+            foreach (var card in b._playerDeckCard.SpellCard)
+            {
+                s += card._quantity;
+            }
+            foreach (var card in b._playerDeckCard.TrapCard)
+            {
+                t += card._quantity;
+            }
+
             _quantityCard.text=$"{m+s+t}/30";
             _quantityMonster.text = $"Quái: {m}";
             _quantitySpell.text = $"Phép: {s}";
@@ -535,6 +548,7 @@ namespace UI.UIWindow
 
             }
             SortDeckUI();
+            UpdateQuantity();
         }
         public void SortDeckUI()
         {
@@ -544,11 +558,13 @@ namespace UI.UIWindow
         { "UR", 1 },
         { "SR", 2 }
     };
+            
             listDeckCard = listDeckCard
-                .OrderBy(x => rarityOrder.ContainsKey(x.card._Rarity)
+                .OrderBy(x => x.card._CardType == 1 ? x.card._Level : int.MaxValue)
+                .ThenBy(x => rarityOrder.ContainsKey(x.card._Rarity)
                                 ? rarityOrder[x.card._Rarity]
                                 : int.MaxValue)
-                .ThenBy(x => x.card._CardType == 1 ? x.card._Level : int.MaxValue)
+                
                 .ThenBy(x=>x.card._Name)
                 .ToList();
 

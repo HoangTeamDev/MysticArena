@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using RoomAll;
 namespace Assets.Scripts.RoomAll
 {
     [Serializable]
@@ -14,10 +14,11 @@ namespace Assets.Scripts.RoomAll
         public int PlayerID;
         public string PlayerName;
         public int hp;
-        [ShowInInspector] public Dictionary<int, int> Deck = new Dictionary<int, int>();
-        public List<Card> Hand = new List<Card>();
-        public List<Card> Field = new List<Card>();
-        public List<Card> Graveyard = new List<Card>();
+        public int level;
+     
+        public List<CardIntance> Hand = new List<CardIntance>();
+        public List<CardIntance> Deck = new List<CardIntance>();
+        public List<CardIntance> Graveyard = new List<CardIntance>();
         public int TurnDurationSeconds { get; private set; } = 60;
     }
     [Serializable]
