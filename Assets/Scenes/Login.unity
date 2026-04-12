@@ -3955,6 +3955,19 @@ MonoBehaviour:
       DeckCardId: 0
       DeckId: 0
   _allCard: []
+  CurrentRoom:
+    RoomID: 0
+    HostPlayer:
+      PlayerID: 0
+      PlayerName: 
+      hp: 0
+      level: 0
+    GuestPlayer:
+      PlayerID: 0
+      PlayerName: 
+      hp: 0
+      level: 0
+    Turn: 0
 --- !u!1 &1648825707
 GameObject:
   m_ObjectHideFlags: 0
@@ -5136,6 +5149,7 @@ GameObject:
   - component: {fileID: 9124864900308156585}
   - component: {fileID: 9124864900308156586}
   - component: {fileID: 9124864900308156587}
+  - component: {fileID: 9124864900308156588}
   m_Layer: 0
   m_Name: Main
   m_TagString: Untagged
@@ -5156,6 +5170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   messenger: {fileID: 9124864900308156585}
+  battleRead: {fileID: 9124864900308156588}
 --- !u!4 &7869251544705994390
 Transform:
   m_ObjectHideFlags: 0
@@ -5220,6 +5235,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6cb4d2c94382d847a0400efad66e619, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI.SystemUI.GameEvent
+--- !u!114 &9124864900308156588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5608524533557889607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 649e5c49ca44147478cd12907d12a76e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameBattleRead
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

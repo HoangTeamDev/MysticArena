@@ -93,7 +93,8 @@ namespace Menu.Connet
                     break;
                 case 14:// Cập nhật số lượng các lá bài trên sân, deck , tay , mộ
                     {
-
+                        byte type= message.readByte();
+                        
                     }
                     break;
                 case 15://cập nhật trạng thái monster
@@ -108,6 +109,7 @@ namespace Menu.Connet
                     break;
             }
         }
+        
         void HandleUpdatePlayerCard(Message message)
         {
             try
@@ -332,6 +334,7 @@ namespace Menu.Connet
             try
             {
                 int type = message.readByte();
+                MainLog.Log("Key 13", type.ToString(), ReadColor.Gold);
                 switch(type)
                 {
                     case 1://tao phong

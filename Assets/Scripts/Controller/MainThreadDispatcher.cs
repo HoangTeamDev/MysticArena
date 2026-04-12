@@ -6,6 +6,8 @@ using UnityEngine;
 public class MainThreadDispatcher : MonoBehaviour {
     private static readonly ConcurrentQueue<Action> _executionQueue = new ConcurrentQueue<Action>();
     public static Queue<Action> actions = new Queue<Action>();
+    private static readonly ConcurrentQueue<Action> _executionQueuebattle = new ConcurrentQueue<Action>();
+    public static Queue<Action> actionsbattle = new Queue<Action>();
     protected void Update() {
         while (_executionQueue.TryDequeue(out var action)) {
             try {
@@ -21,6 +23,25 @@ public class MainThreadDispatcher : MonoBehaviour {
                 actions.Dequeue().Invoke();
             }
         }
+
+        while (_executionQueuebattle.TryDequeue(out var action))
+        {
+            try
+            {
+                action?.Invoke();
+            }
+            catch (Exception ex)
+            {
+                Debug.LogException(ex);
+            }
+        }
+        lock (actionsbattle)
+        {
+            while (actionsbattle.Count > 0)
+            {
+                actionsbattle.Dequeue().Invoke();
+            }
+        }
     }
 
     public static void Enqueue(Action action) {
@@ -28,10 +49,17 @@ public class MainThreadDispatcher : MonoBehaviour {
             return;
         _executionQueue.Enqueue(action);
     }
+    public static void EnqueueBattle(Action action)
+    {
+        if (action == null)
+            return;
+        _executionQueuebattle.Enqueue(action);
+    }
     public static void ClearMessage() {
      
         
         _executionQueue.Clear();
+        _executionQueuebattle.Clear();
     }
 
 

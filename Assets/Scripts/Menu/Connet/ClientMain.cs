@@ -17,6 +17,7 @@ namespace Menu.Connet
         BinaryWriter writer;
 
         public Messenger messenger;
+        public GameBattleRead battleRead;
 
         private void Awake()
         {
@@ -126,8 +127,15 @@ namespace Menu.Connet
                     // HANDLE MESSAGE
                     // ======================
                     Message msg = new Message(opcode, payload);
-                    ;
-                    MainThreadDispatcher.Enqueue(() => messenger.Handle(msg));
+                    if(opcode is 14 or 15)
+                    {
+                        MainThreadDispatcher.EnqueueBattle(() => battleRead.Handle(msg));
+                    }
+                    else
+                    {
+                        MainThreadDispatcher.Enqueue(() => messenger.Handle(msg));
+
+                    }
                 }
             }
             catch (Exception e)

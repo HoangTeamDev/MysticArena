@@ -1,6 +1,9 @@
-﻿using DG.Tweening;
+﻿using Assets.Scripts.RoomAll;
+using DG.Tweening;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using UI.SystemUI;
+using UI.UIWindow;
 using UIScripts.SystemUI;
 using UnityEngine;
 
@@ -40,6 +43,28 @@ public class CardRowLayout : MonoBehaviour
     }
     public async Task DrawOneCardSequential(RectTransform newCard)
     {
+        if (!isEnemy)
+        {
+            Room room = GameData.Instance.CurrentRoom;
+            PlayerState me = room.HostPlayer.PlayerID == GameData.Instance._mainPlayer._playerid ? room.HostPlayer : room.GuestPlayer;
+            me.Deck.RemoveAt(0);
+            UIMainField uIMainField = UIController.Instance.Get<UIMainField>(WindowType.UI_MainField);
+            if (uIMainField != null)
+            {
+                uIMainField.UpdateCardDeckMe();
+            }
+        }
+        else
+        {
+            Room room = GameData.Instance.CurrentRoom;
+            PlayerState enemy = room.HostPlayer.PlayerID == GameData.Instance._mainPlayer._playerid ? room.GuestPlayer : room.HostPlayer;
+            enemy.Deck.RemoveAt(0);
+            UIMainField uIMainField = UIController.Instance.Get<UIMainField>(WindowType.UI_MainField);
+            if (uIMainField != null)
+            {
+                uIMainField.UpdateCardDeckEnemy();
+            }
+        }
         RectTransform targetArea = isEnemy ? contentAreaOther : contentArea;
         newCard.SetParent(targetArea, true);
         cards.Add(newCard);
@@ -63,10 +88,10 @@ public class CardRowLayout : MonoBehaviour
         }
 
         float totalWidth = count * cardWidth + (count - 1) * finalSpacing;
-        float centerX = contentArea.rect.center.x;
-        float centerY = contentArea.rect.center.y;
-       /* float centerX = targetArea.rect.width / 2f;
-        float centerY = targetArea.rect.height / 2f;*/
+       /* float centerX = contentArea.rect.center.x;
+        float centerY = contentArea.rect.center.y;*/
+        float centerX = targetArea.rect.width/2;
+        float centerY = targetArea.rect.height/2 ;
 
         float startX = centerX - totalWidth / 2f + cardWidth / 2f;
 

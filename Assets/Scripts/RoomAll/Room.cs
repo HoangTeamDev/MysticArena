@@ -16,9 +16,9 @@ namespace Assets.Scripts.RoomAll
         public int hp;
         public int level;
      
-        public List<CardIntance> Hand = new List<CardIntance>();
-        public List<CardIntance> Deck = new List<CardIntance>();
-        public List<CardIntance> Graveyard = new List<CardIntance>();
+        [ShowInInspector]public List<CardIntance> Hand = new List<CardIntance>();
+        [ShowInInspector] public List<CardIntance> Deck = new List<CardIntance>();
+        [ShowInInspector] public List<CardIntance> Graveyard = new List<CardIntance>();
         public int TurnDurationSeconds { get; private set; } = 60;
     }
     [Serializable]
