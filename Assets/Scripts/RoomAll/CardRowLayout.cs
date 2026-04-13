@@ -110,8 +110,8 @@ public class CardRowLayout : MonoBehaviour
 
             if (card == newCard) continue;
 
-            var t = card.DOAnchorPos(new Vector2(x, y), 0.2f)
-                .SetEase(Ease.OutCubic);
+            var t = card.DOAnchorPos(new Vector2(x, y), 0.1f)
+                .SetEase(Ease.Linear);
 
             oldTasks.Add(t.AsyncWaitForCompletion());
         }
@@ -133,8 +133,8 @@ public class CardRowLayout : MonoBehaviour
 
         await DOTween.Sequence()
             .Join(
-                newCard.DOAnchorPos(new Vector2(targetX, targetY), 0.3f)
-                    .SetEase(Ease.OutBack)
+                newCard.DOAnchorPos(new Vector2(targetX, targetY), 0.1f)
+                    .SetEase(Ease.Linear)
             )
             .Join(
                 newCard.DOScale(1.1f, 0.15f).OnComplete(() =>

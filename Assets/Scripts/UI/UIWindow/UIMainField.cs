@@ -1,10 +1,15 @@
 using Assets.Scripts.RoomAll;
+using DG.Tweening;
+using Menu.Connet;
 using RoomAll;
+using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using TMPro;
 using UI.SystemUI;
+using UIScripts.SystemUI;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 namespace UI.UIWindow
 {
     public class UIMainField : UIBase
@@ -21,16 +26,22 @@ namespace UI.UIWindow
         [SerializeField] private TextMeshProUGUI _HPMe;
         [SerializeField] private TextMeshProUGUI _cardMe;
         [SerializeField] private CardRowLayout _cardRowLayoutMe;
+        [SerializeField] private Button _btnEndTurn;
         [Header("Enemy")]
         [SerializeField] private TextMeshProUGUI _nameEnemy;
         [SerializeField] private TextMeshProUGUI _HPEnemy;
         [SerializeField] private CardRowLayout _cardRowLayoutEnemy;
         [SerializeField] private TextMeshProUGUI _cardDeckEnemy;
-
+        [Title("Text")]
+        [SerializeField] private TextMeshProUGUI _textChangePhase;
         public override void Init()
         {
             base.Init();
-            
+            _btnEndTurn.onClick.RemoveAllListeners();
+            _btnEndTurn.onClick.AddListener(() =>
+            {
+                ClientMain.Instance.SendEndTurn();
+            });
         }
         public void InitValue()
         {
@@ -44,6 +55,18 @@ namespace UI.UIWindow
             _cardDeckEnemy.text = enemy.Deck.Count.ToString();
             _cardMe.text = me.Deck.Count.ToString();
         }
+        public async void TextChangePhase(string title)
+        {
+            await UIDelaySystem.WaitUntil(() => !_textChangePhase.gameObject.activeInHierarchy, this);
+            _textChangePhase.transform.localScale = Vector3.one;
+            _textChangePhase.gameObject.SetActive(true);
+            _textChangePhase.text = title;
+            _textChangePhase.transform.DOScale(1.3f,0.1f).SetEase(Ease.Linear).OnComplete(async ()=> {
+                await UIDelaySystem.Delay(1, this);
+                _textChangePhase.gameObject.SetActive(false);
+            } );
+        }
+        
         public void UpdateCardDeckMe()
         {
             Room room = GameData.Instance.CurrentRoom;
@@ -94,6 +117,41 @@ namespace UI.UIWindow
                
             }                    
            await _cardRowLayoutMe.DrawMultipleCardsSequential(list);
+            ClientMain.Instance.SendConfirmDrawStart();
+        }
+        public async void MeDrawCard(List<CardIntance> cardIntances)
+        {
+            List<RectTransform> list = new List<RectTransform>();           
+            foreach (var data in cardIntances)
+            {
+                data.Card = GameData.Instance.GetCardByID(data.CardId);
+                if (data.Card._CardType is 1)
+                {
+                    var item = Instantiate(_preCardMonster, _pointDraw);
+                    item.Card = data.Card;
+                    item.Init();
+                    item.gameObject.SetActive(true);
+                    list.Add(item.GetComponent<RectTransform>());
+                }
+                if (data.Card._CardType is 2)
+                {
+                    var item = Instantiate(_preCardSpell, _pointDraw);
+                    item.Card = data.Card;
+                    item.Init();
+                    item.gameObject.SetActive(true);
+                    list.Add(item.GetComponent<RectTransform>());
+                }
+                if (data.Card._CardType is 3)
+                {
+                    var item = Instantiate(_preCardTRap, _pointDraw);
+                    item.Card = data.Card;
+                    item.Init();
+                    item.gameObject.SetActive(true);
+                    list.Add(item.GetComponent<RectTransform>());
+                }
+
+            }
+            await _cardRowLayoutMe.DrawMultipleCardsSequential(list);
         }
         [ContextMenu("EnemyDrawCard")]
         public async void EnemyDrawCard()
@@ -109,6 +167,17 @@ namespace UI.UIWindow
             }
           
 
+            await _cardRowLayoutEnemy.DrawMultipleCardsSequential(list);
+        }
+        public async void EnemyDrawCard(List<CardIntance> cardIntances)
+        {
+            List<RectTransform> list = new List<RectTransform>();
+            foreach (var data in cardIntances)
+            {
+                var item = Instantiate(_preCardFake, _pointDrawOther);
+                item.gameObject.SetActive(true);
+                list.Add(item.GetComponent<RectTransform>());
+            }
             await _cardRowLayoutEnemy.DrawMultipleCardsSequential(list);
         }
         public override void OnPointerClick(PointerEventData pointerEventData)
