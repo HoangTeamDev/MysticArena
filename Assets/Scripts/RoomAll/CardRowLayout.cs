@@ -1,5 +1,7 @@
 ﻿using Assets.Scripts.RoomAll;
+using CardData;
 using DG.Tweening;
+using RoomAll;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UI.SystemUI;
@@ -21,18 +23,89 @@ public class CardRowLayout : MonoBehaviour
     [SerializeField] private bool centerAlign = true;     // căn giữa dãy bài
 
     [Header("Cards")]
-    [SerializeField] private List<RectTransform> cards = new List<RectTransform>();
-
-    public async void AddCard(RectTransform newCard)
+    [SerializeField] public List<RectTransform> cards = new List<RectTransform>();
+    [SerializeField] public List<CardIntance> cardIntances = new List<CardIntance>();
+   
+    public void UpdateOrder()
     {
-        if (newCard == null) return;
+        for (int i = 0;i< transform.childCount;i++)
+        {
+            Transform child = transform.GetChild(i);
+            Canvas canvas = child.GetComponent<Canvas>();
 
-        newCard.SetParent(contentArea, true);
-        cards.Add(newCard);
-
-        await UpdateLayoutSequential(newCard);
+            if (canvas != null)
+            {
+                canvas.overrideSorting = true; // bắt buộc
+                canvas.sortingOrder = i+2;
+                CardIntance cardIntance= child.GetComponent<CardIntance>();
+                cardIntance.currentorder=canvas.sortingOrder;
+            }
+        }
     }
+    public void UpdateListCard(CardIntance cardIntance )
+    {
+        foreach(var data in cardIntances)
+        {
+            if(data ==  cardIntance)continue;
+            data.rectTransform.localScale= new Vector3(0.8f,0.8f,0.8f);
+            data.canvas.sortingOrder = data.currentorder;
+            data.rectTransform.DOAnchorPos(data.localPos, 0.1f);
+        }
+    }
+    public async void UpdateCard()
+    {
+        RectTransform targetArea = isEnemy ? contentAreaOther : contentArea;
+        int count = cards.Count;
 
+        float containerWidth = targetArea.rect.width;
+        float finalSpacing = spacing;
+
+        if (count > 1)
+        {
+            float totalWidthNormal = count * cardWidth + (count - 1) * spacing;
+
+            if (totalWidthNormal > containerWidth)
+            {
+                finalSpacing = (containerWidth - count * cardWidth) / (count - 1);
+
+                if (finalSpacing < minSpacing)
+                    finalSpacing = minSpacing;
+            }
+        }
+
+        float totalWidth = count * cardWidth + (count - 1) * finalSpacing;
+        /* float centerX = contentArea.rect.center.x;
+         float centerY = contentArea.rect.center.y;*/
+        float centerX = targetArea.rect.width / 2;
+        float centerY = targetArea.rect.height / 2;
+
+        float startX = centerX - totalWidth / 2f + cardWidth / 2f;
+
+        List<Task> oldTasks = new List<Task>();
+
+        // 👉 Phase 1: bài cũ dịch ra
+        for (int i = 0; i < count; i++)
+        {
+            var card = cards[i];
+            CardIntance cardIntance = card.gameObject.GetComponent<CardIntance>();
+            float x = startX + i * (cardWidth + finalSpacing);
+            float y = centerY;
+            cardIntance.Setpos(x, y);
+            card.SetSiblingIndex(i);
+            card.DOKill();
+
+           
+
+            var t = card.DOAnchorPos(new Vector2(x, y), 0.1f)
+                .SetEase(Ease.Linear);
+
+            oldTasks.Add(t.AsyncWaitForCompletion());
+        }
+
+        if (oldTasks.Count > 0)
+            await Task.WhenAll(oldTasks);
+        UpdateOrder();
+    }
     public async Task DrawMultipleCardsSequential(List<RectTransform> newCards)
     {
         foreach (var card in newCards)
@@ -68,7 +141,8 @@ public class CardRowLayout : MonoBehaviour
         RectTransform targetArea = isEnemy ? contentAreaOther : contentArea;
         newCard.SetParent(targetArea, true);
         cards.Add(newCard);
-
+        CardIntance cardIntance2=newCard.GetComponent<CardIntance>();
+        cardIntances.Add(cardIntance2);
         int count = cards.Count;
 
         float containerWidth = targetArea.rect.width;
@@ -101,14 +175,14 @@ public class CardRowLayout : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             var card = cards[i];
-
             float x = startX + i * (cardWidth + finalSpacing);
             float y = centerY;
-
-            card.SetSiblingIndex(i);
+            if (card == newCard) continue;
             card.DOKill();
 
-            if (card == newCard) continue;
+            CardIntance cardIntance = card.gameObject.GetComponent<CardIntance>();
+            cardIntance.Setpos(x, y);
+            card.SetSiblingIndex(i);
 
             var t = card.DOAnchorPos(new Vector2(x, y), 0.1f)
                 .SetEase(Ease.Linear);
@@ -124,7 +198,12 @@ public class CardRowLayout : MonoBehaviour
 
         float targetX = startX + index * (cardWidth + finalSpacing);
         float targetY = centerY;
+        CardIntance cardIntance1 = newCard.gameObject.GetComponent<CardIntance>();
+        if(cardIntance1 != null)
+        {
+            cardIntance1.Setpos(targetX, targetY);
 
+        }
         // spawn từ deck (hoặc dưới)
         //newCard.anchoredPosition = new Vector2(targetX, targetY - 200f);
         newCard.localScale = Vector3.one * 0.6f;
@@ -143,13 +222,11 @@ public class CardRowLayout : MonoBehaviour
                 })
             )
             .AsyncWaitForCompletion();
+        UpdateOrder();
     }
     public void RemoveCard(RectTransform card)
     {
-        if (cards.Remove(card))
-        {
-           
-        }
+        cards.Remove(card);
     }
 
     public void ClearCards()
@@ -157,79 +234,6 @@ public class CardRowLayout : MonoBehaviour
         cards.Clear();
         
     }
-    [ContextMenu("Update Layout")]
-    public async Task UpdateLayoutSequential(RectTransform newCard = null)
-    {
-        int count = cards.Count;
-        if (count == 0) return;
-
-        float containerWidth = contentArea.rect.width;
-        float finalSpacing = spacing;
-
-        if (count > 1)
-        {
-            float totalWidthNormal = count * cardWidth + (count - 1) * spacing;
-
-            if (totalWidthNormal > containerWidth)
-            {
-                finalSpacing = (containerWidth - count * cardWidth) / (count - 1);
-
-                if (finalSpacing < minSpacing)
-                    finalSpacing = minSpacing;
-            }
-        }
-
-        float totalWidth = count * cardWidth + (count - 1) * finalSpacing;
-
-        float centerX = contentArea.rect.width / 2f;
-        float centerY = contentArea.rect.height / 2f;
-
-        float startX = centerX - totalWidth / 2f + cardWidth / 2f;
-
-        List<Tween> oldCardTweens = new List<Tween>();
-
-        // Phase 1: di chuyển toàn bộ bài cũ trước
-        for (int i = 0; i < count; i++)
-        {
-            RectTransform card = cards[i];
-
-            float x = startX + i * (cardWidth + finalSpacing);
-            float y = centerY;
-
-            card.SetSiblingIndex(i);
-            card.DOKill();
-
-            // Nếu là lá mới thì bỏ qua phase 1
-            if (card == newCard)
-                continue;
-
-            Tween t = card.DOAnchorPos(new Vector2(x, y), 0.2f)
-                .SetEase(Ease.OutCubic);
-
-            oldCardTweens.Add(t);
-        }
-
-        // Đợi cụm bài cũ chạy xong
-        if (oldCardTweens.Count > 0)
-        {
-            await Task.WhenAll(oldCardTweens.ConvertAll(t => t.AsyncWaitForCompletion()));
-        }
-
-        // Phase 2: lá mới bay vào sau
-        if (newCard != null)
-        {
-            int newIndex = cards.IndexOf(newCard);
-            float targetX = startX + newIndex * (cardWidth + finalSpacing);
-            float targetY = centerY;
-
-            // Ví dụ: cho lá mới xuất hiện từ dưới lên
-          //  newCard.anchoredPosition = new Vector2(targetX, targetY - 200f);
-           
-
-            newCard.DOKill();
-            await newCard.DOAnchorPos(new Vector2(targetX, targetY), 0.25f)
-                .SetEase(Ease.OutCubic)
-                .AsyncWaitForCompletion();
-        }
-    }
+    
+  
 }

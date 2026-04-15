@@ -55,7 +55,8 @@ namespace UI.UIWindow
         public override void Open()
         {
             base.Open();
-            panel.position = UIController.Instance._itemslotcurrent.GetComponent<RectTransform>().position;
+            Vector3 vector = UIController.Instance._itemslotcurrent.GetComponent<RectTransform>().position;
+            panel.position = new Vector3(vector.x,vector.y+200,vector.z);
         }
 
         public override void OpenMe()

@@ -34,8 +34,10 @@ public class GameBattleRead : MonoBehaviour
         {
             case 1:
                 {
+                    int turn = message.readShort();
+                    int playerid = message.readInt();
                     string text = message.readUTF();
-                    uIMainField.TextChangePhase(text);
+                    uIMainField.TextChangePhase(text,turn,playerid);
                 }
                 break;
             case 2:
@@ -122,6 +124,21 @@ public class GameBattleRead : MonoBehaviour
                         }
                     }
                     break;
+                case 3:
+                    {
+                        CardIntance cardIntance= new CardIntance();
+                        int playerid = message.readInt();
+                        cardIntance.SlotIndex = message.readInt();
+                        cardIntance.InstanceId = message.readInt();
+                        cardIntance.CardId = message.readInt() ;
+                        cardIntance.CurrentHp=message.readInt();
+                        cardIntance.CurrentAtk=message.readInt();
+                        cardIntance.HasAttack=message.readBool();
+                        uIMainField.NomalSummon( playerid, cardIntance);
+                        
+                    }
+                    break;
+
             }
 
         }catch (Exception ex)

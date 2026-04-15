@@ -1,4 +1,4 @@
-using Assets.Scripts.RoomAll;
+﻿using Assets.Scripts.RoomAll;
 using DG.Tweening;
 using Menu.Connet;
 using RoomAll;
@@ -21,19 +21,30 @@ namespace UI.UIWindow
         [SerializeField] private GameObject _preCardFake;
         public Transform _pointDraw;
         public Transform _pointDrawOther;
+        public RectTransform _point3;
         [Header("Me")]
         [SerializeField] private TextMeshProUGUI _nameMe;
         [SerializeField] private TextMeshProUGUI _HPMe;
         [SerializeField] private TextMeshProUGUI _cardMe;
-        [SerializeField] private CardRowLayout _cardRowLayoutMe;
+        [SerializeField] public CardRowLayout _cardRowLayoutMe;
         [SerializeField] private Button _btnEndTurn;
         [Header("Enemy")]
         [SerializeField] private TextMeshProUGUI _nameEnemy;
         [SerializeField] private TextMeshProUGUI _HPEnemy;
         [SerializeField] private CardRowLayout _cardRowLayoutEnemy;
         [SerializeField] private TextMeshProUGUI _cardDeckEnemy;
-        [Title("Text")]
+        [Title("TurnAndPhase")]
         [SerializeField] private TextMeshProUGUI _textChangePhase;
+        [SerializeField] private TextMeshProUGUI _textTurn;
+        [SerializeField] private TextMeshProUGUI _textTitleTurn;
+        public TextMeshProUGUI txtTime;
+        private Tween countdownTween;
+        [Title("MonsterZone")]
+        public List<RectTransform> monsterZoneMe;
+        public List<CardIntance> cardIntancesmonsterZoneMe = new List<CardIntance>();
+        public List<RectTransform> monsterZoneOther;
+        public List<CardIntance> cardIntancesmonsterZoneOther = new List<CardIntance>();
+        [Title("HandZone")]
         public override void Init()
         {
             base.Init();
@@ -55,8 +66,27 @@ namespace UI.UIWindow
             _cardDeckEnemy.text = enemy.Deck.Count.ToString();
             _cardMe.text = me.Deck.Count.ToString();
         }
-        public async void TextChangePhase(string title)
+        public void StartCountdown(float duration)
         {
+            countdownTween?.Kill(); // tránh chạy chồng
+
+            countdownTween = DOVirtual.Float(duration, 0, duration, (value) =>
+            {
+                int seconds = Mathf.CeilToInt(value);
+                txtTime.text = seconds.ToString() + "s";
+            })
+            .SetEase(Ease.Linear)
+            .OnComplete(() =>
+            {
+                Debug.Log("Hết giờ!");
+            });
+        }
+        public async void TextChangePhase(string title,int turn,int playerId)
+        {
+            StartCountdown(60);
+            _textTurn.text = turn.ToString();
+            _btnEndTurn.interactable = playerId == GameData.Instance._mainPlayer._playerid;
+            _textTitleTurn.text = playerId == GameData.Instance._mainPlayer._playerid ? "Me":"Other";
             await UIDelaySystem.WaitUntil(() => !_textChangePhase.gameObject.activeInHierarchy, this);
             _textChangePhase.transform.localScale = Vector3.one;
             _textChangePhase.gameObject.SetActive(true);
@@ -93,6 +123,7 @@ namespace UI.UIWindow
                 if(data.Card._CardType  is 1)
                 {
                     var item = Instantiate(_preCardMonster, _pointDraw);
+                    item.InstanceId=data.InstanceId;
                     item.Card=data.Card;
                     item.Init();
                     item.gameObject.SetActive(true);
@@ -101,6 +132,7 @@ namespace UI.UIWindow
                 if(data.Card._CardType is 2)
                 {
                     var item = Instantiate(_preCardSpell, _pointDraw);
+                    item.InstanceId = data.InstanceId;
                     item.Card=data.Card;
                     item.Init();
                     item.gameObject.SetActive(true);
@@ -109,6 +141,7 @@ namespace UI.UIWindow
                 if (data.Card._CardType is 3)
                 {
                     var item = Instantiate(_preCardTRap, _pointDraw);
+                    item.InstanceId = data.InstanceId;
                     item.Card=data.Card;
                     item.Init();
                     item.gameObject.SetActive(true);
@@ -128,6 +161,7 @@ namespace UI.UIWindow
                 if (data.Card._CardType is 1)
                 {
                     var item = Instantiate(_preCardMonster, _pointDraw);
+                    item.InstanceId = data.InstanceId;
                     item.Card = data.Card;
                     item.Init();
                     item.gameObject.SetActive(true);
@@ -136,6 +170,7 @@ namespace UI.UIWindow
                 if (data.Card._CardType is 2)
                 {
                     var item = Instantiate(_preCardSpell, _pointDraw);
+                    item.InstanceId = data.InstanceId;
                     item.Card = data.Card;
                     item.Init();
                     item.gameObject.SetActive(true);
@@ -144,6 +179,7 @@ namespace UI.UIWindow
                 if (data.Card._CardType is 3)
                 {
                     var item = Instantiate(_preCardTRap, _pointDraw);
+                    item.InstanceId = data.InstanceId;
                     item.Card = data.Card;
                     item.Init();
                     item.gameObject.SetActive(true);
@@ -180,6 +216,30 @@ namespace UI.UIWindow
             }
             await _cardRowLayoutEnemy.DrawMultipleCardsSequential(list);
         }
+        #region//Summon
+        public void NomalSummon( int playerid, CardIntance cardIntance)
+        {
+            if (playerid == GameData.Instance._mainPlayer._playerid)
+            {
+                foreach (var data in _cardRowLayoutMe.cards)
+                {
+                    CardIntance card = data.GetComponent<CardIntance>();
+                    if(card != null && card.InstanceId == cardIntance.InstanceId)
+                    {
+                Debug.Log("zosummon");
+                        _cardRowLayoutMe.RemoveCard(data);
+                        cardIntancesmonsterZoneMe.Add(card);
+                        card.SlotIndex=cardIntance.SlotIndex;
+                        card.CurrentAtk = cardIntance.CurrentAtk;
+                        card.CurrentHp = cardIntance.CurrentHp;
+                        card.HasAttack = cardIntance.HasAttack;
+                        card.SummonToSlot(cardIntance.SlotIndex);
+                        break;
+                    }
+                }
+            }
+        }
+        #endregion
         public override void OnPointerClick(PointerEventData pointerEventData)
         {
             base.OnPointerClick(pointerEventData);

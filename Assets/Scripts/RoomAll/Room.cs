@@ -27,6 +27,7 @@ namespace Assets.Scripts.RoomAll
         public int RoomID;
         public PlayerState HostPlayer =new PlayerState();
         public PlayerState GuestPlayer =new PlayerState();
+        public PlayerState currentPlayer =new PlayerState();
         public int Turn;
 
     }

@@ -19,6 +19,14 @@ namespace Menu.Connet
             message.writeBool(true);
             Send(message);
         }
+        public void SendNomalSummon(int intanceId)
+        {
+            Message msg = new Message(14);
+            msg.writeByte(3);
+            msg.writeInt(intanceId);
+          
+            Send(msg);
+        }
     }
 }
 
