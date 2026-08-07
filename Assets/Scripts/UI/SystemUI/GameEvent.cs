@@ -11,7 +11,8 @@ namespace UI.SystemUI
         UpdateDeck,
         Currency,
         AddItemInventory,
-        UpdatePlayerCard
+        UpdatePlayerCard,
+        SelectCard
 
 
     }

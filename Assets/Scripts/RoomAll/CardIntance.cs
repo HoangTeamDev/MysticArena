@@ -2,6 +2,7 @@
 using DG.Tweening;
 using Menu.Connet;
 using System.Collections.Generic;
+
 using TMPro;
 using UI.ItemUI;
 using UI.SystemUI;
@@ -70,8 +71,30 @@ namespace RoomAll
         public Canvas canvas;
         public Vector2 localPos=new Vector2();
         public int currentorder;
+        public Button _btnActive;
+        public GameObject _frotCard;
+        public GameObject _BackGround;
+        public async void LoadIcon()
+        {
+            switch (this.Card._CardType)
+            {
+                case 1:
+                    imageMonter.sprite = await GameData.Instance.LoadAsset<Sprite>(this.Card._CardId.ToString());
+
+                    break;
+                case 2:
+                    imageSpell.sprite = await GameData.Instance.LoadAsset<Sprite>(this.Card._CardId.ToString());
+
+                    break;
+                case 3:
+                    imageTrap.sprite = await GameData.Instance.LoadAsset<Sprite>(this.Card._CardId.ToString());
+
+                    break;
+            }
+        }
         public async void Init()
         {
+            GameEvent.Instance.Subscribe<ItemSlotBase>(ListEvent.SelectCard.ToString(), SeletecMe);
             switch (this.Card._CardType)
             {
                 case 1:
@@ -130,15 +153,25 @@ namespace RoomAll
 
             Sequence seq = DOTween.Sequence();
 
-            // 🚀 Phase 1: bay + phóng to + xoay nhẹ
-            seq.Append(rectTransform.DOAnchorPos(Vector2.zero, 0.35f).SetEase(Ease.OutCubic));
-            seq.Join(rectTransform.DOScale(1.3f, 0.35f));
-            seq.Join(rectTransform.DORotate(new Vector3(0, 0, Random.Range(-10f, 10f)), 0.35f));
+           
+            seq.Append(rectTransform.DOAnchorPos(Vector2.zero, 0.35f).SetEase(Ease.OutCubic).OnComplete(() => {
 
-            // 💥 Phase 2: “charge” (dừng 1 nhịp cho cảm giác nặng)
-            seq.AppendInterval(0.1f);
+                rectTransform.DOScale(1.3f, 0.35f).OnComplete(() =>
+                {
+                   
+                    rectTransform.DOScale(1f, 0.1f).OnComplete(() =>
+                    {
+                        rectTransform.DOScale(1.3f, 0.15f);
+                    });
 
-            // ⚡ Phase 3: lao xuống slot
+                });
+            }));
+
+
+           
+            seq.AppendInterval(1f);
+
+           
             seq.AppendCallback(() =>
             {
                 rectTransform.SetParent(ui.monsterZoneMe[slot]);
@@ -169,6 +202,152 @@ namespace RoomAll
                 ui._cardRowLayoutMe.UpdateCard();
             });
         }
+
+        public void EnemySummon(int slot)
+        {
+            UIMainField ui = UIController.Instance.Get<UIMainField>(WindowType.UI_MainField);
+            if (ui == null) return;
+
+            Transform startParent = rectTransform.parent;
+
+            // Đưa lên layer cao nhất để không bị che
+            Canvas canvas = GetComponent<Canvas>();
+            if (canvas != null)
+            {
+                canvas.overrideSorting = true;
+                canvas.sortingOrder = 999;
+            }
+
+            // Bay lên giữa màn
+            rectTransform.SetParent(ui._point3);
+            rectTransform.SetAsLastSibling();
+
+            rectTransform.anchorMin = rectTransform.anchorMax = rectTransform.pivot = new Vector2(0.5f, 0.5f);
+
+            Sequence seq = DOTween.Sequence();
+
+           
+            seq.Append(rectTransform.DOAnchorPos(Vector2.zero, 0.35f).SetEase(Ease.OutCubic).OnComplete(() =>{
+
+                rectTransform.DOScale(1.3f, 0.35f).OnComplete(() =>
+                {
+                    Vector3 vector3 = rectTransform.localScale;
+                    rectTransform.DOScaleX(0, 0.2f).OnComplete(() =>
+                    {
+                        _frotCard.SetActive(true);
+                        _BackGround.SetActive(false);
+
+                        rectTransform.DOScaleX(vector3.x, 0.2f);
+                        rectTransform.DOScale(1f, 0.1f).OnComplete(() =>
+                        {
+                            rectTransform.DOScale(1.3f, 0.15f);
+                        });
+
+                    });
+                   
+                });
+            }));
+          
+           
+           
+           
+            
+
+           
+            seq.AppendInterval(1f);
+
+           
+            seq.AppendCallback(() =>
+            {
+                rectTransform.SetParent(ui.monsterZoneOther[slot]);
+                rectTransform.SetAsLastSibling();
+               
+            });
+           
+            seq.Append(rectTransform.DOAnchorPos(Vector2.zero, 0.25f).SetEase(Ease.InQuad));
+           
+
+           
+            seq.Append(rectTransform.DOScale(0.8f, 0.15f).SetEase(Ease.InQuad));
+            seq.Append(rectTransform.DOScale(1f, 0.2f).SetEase(Ease.OutBack));
+
+            // 🎯 Kết thúc
+            seq.OnComplete(() =>
+            {
+                rectTransform.localScale = Vector3.one;
+
+                
+                if (canvas != null)
+                {
+                    canvas.sortingOrder = currentorder;
+                }
+
+              
+              
+                ui._cardRowLayoutEnemy.UpdateCard();
+            });
+        }
+        public  void Set(int slot, bool isme=true )
+        {
+            try
+            {
+                UIMainField ui = UIController.Instance.Get<UIMainField>(WindowType.UI_MainField);
+                if (ui == null) return;
+
+                Transform startParent = rectTransform.parent;
+
+                // Đưa lên layer cao nhất để không bị che
+                Canvas canvas = GetComponent<Canvas>();
+                if (canvas != null)
+                {
+                    canvas.overrideSorting = true;
+                    canvas.sortingOrder = 999;
+                }
+
+                // Bay lên giữa màn
+                rectTransform.SetParent(ui._pointActive);
+                rectTransform.SetAsLastSibling();
+
+                rectTransform.anchorMin = rectTransform.anchorMax = rectTransform.pivot = new Vector2(0.5f, 0.5f);
+                rectTransform.DOAnchorPos(Vector2.zero, 0.35f).SetEase(Ease.OutCubic).OnComplete(() =>
+                {
+                    rectTransform.DOScale(1.5f, 0.2f).OnComplete(() =>
+                    {
+                        Transform startParent = isme==true ? ui.TrapZoneMe[slot] : ui.TrapZoneOther[slot];
+                        rectTransform.SetParent(startParent);
+                        rectTransform.SetAsLastSibling();
+                        Sequence seq = DOTween.Sequence();
+                        seq.Append(rectTransform.DOAnchorPos(Vector2.zero, 0.25f).SetEase(Ease.InQuad));
+                        seq.Append(rectTransform.DOScale(0.2f, 0.15f).SetEase(Ease.InQuad));
+                        seq.OnComplete(() =>
+                        {
+                            Destroy(this.gameObject);
+                            CardIntance cardIntance=isme==true? ui.CardTrapZoneMe[slot]:ui.CardTrapZoneOther[slot];
+                            cardIntance._BackGround.gameObject.SetActive(true);
+                            cardIntance._frotCard.gameObject.SetActive(false);
+                            cardIntance.Card = Card;
+                            cardIntance.LoadIcon();
+                            cardIntance.gameObject.SetActive(true);
+                            if (isme)
+                            {
+                                ui._cardRowLayoutMe.UpdateCard();
+
+                            }
+                            else
+                            {
+                                ui._cardRowLayoutEnemy.UpdateCard();
+                            }
+                        });
+                    });
+                });
+            }
+            catch (System.Exception ex)
+            {
+                Debug.LogError($"Error flipping card: {ex.Message}");
+               
+
+            }
+        }
         public void Setpos(float x, float y)
         {
             localPos = new Vector2 (x, y);
@@ -187,7 +366,10 @@ namespace RoomAll
         public override void OnPointerClick(PointerEventData eventData)
         {
             base.OnPointerClick(eventData);
-            
+            if (eventData.button == PointerEventData.InputButton.Left)
+            {
+                GameEvent.Instance.Trigger<ItemSlotBase>(ListEvent.SelectCard.ToString(), this);
+            }
         }
 
         public override void Onselect()
@@ -200,31 +382,60 @@ namespace RoomAll
             base.OnSelect(baseEventData);
         }
 
-        public override void SeletecMe()
+        public override void SeletecMe(ItemSlotBase itemSlotBase )
         {
-            base.SeletecMe();
-            rectTransform.DOAnchorPos(new Vector2( localPos.x, localPos.y + 50),0.1f);
-            rectTransform.DOScale( Vector3.one,0.1f);
-            canvas.sortingOrder = 99;
-            UIMainField uIMainField = UIController.Instance.Get<UIMainField>(WindowType.UI_MainField);
-            if (uIMainField != null)
+            base.SeletecMe(itemSlotBase);
+           
+            if (itemSlotBase== this)
             {
-                uIMainField._cardRowLayoutMe.UpdateListCard(this);
-            }
-            UIReview uIReview = UIController.Instance.Get<UIReview>(WindowType.UI_Review);
-            if (uIReview != null)
-            {
-                ButtonConfirm item = uIReview.CreateButtonconfirm();
-                item._des.text = "Triệu Hồi";
-                item.button.onClick.AddListener(() =>
+                rectTransform.DOAnchorPos(new Vector2(localPos.x, localPos.y + 50), 0.1f);
+                rectTransform.DOScale(Vector3.one, 0.1f);
+                canvas.sortingOrder = 99;
+               
+                _btnActive.gameObject.SetActive(true);
+                _btnActive.onClick.RemoveAllListeners();
+                _btnActive.onClick.AddListener (() =>
                 {
-                    ClientMain.Instance.SendNomalSummon((int)InstanceId);
-                    uIReview.CloseMe();
+                    CheckTypeSend();
+                   
+                    _btnActive.gameObject.SetActive(false);
                 });
-
-
-                uIReview.OpenMe();
+                UIMainField uIMainField = UIController.Instance.Get<UIMainField>(WindowType.UI_MainField);
+                if (uIMainField != null)
+                {
+                    uIMainField._cardRowLayoutMe.UpdateListCard(this);
+                }
             }
+            else
+            {
+                _btnActive.gameObject.SetActive(false);
+            }
+            
+        }
+        private void CheckTypeSend()
+        {
+            switch (Card._CardType)
+            {
+                case 1:
+                    {
+                        ClientMain.Instance.SendNomalSummon((int)InstanceId);
+                    }
+                    break;
+                case 2:
+                    {
+                    }
+                    break;
+                case 3:
+                    {
+                        ClientMain.Instance.SendSetTrap((int)InstanceId);
+                    }
+                       
+                    break;
+            }
+        }
+        private void OnDestroy()
+        {
+            GameEvent.Instance.Unsubscribe<ItemSlotBase>(ListEvent.SelectCard.ToString(), SeletecMe);
         }
     }
 }

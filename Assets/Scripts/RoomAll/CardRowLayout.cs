@@ -46,10 +46,13 @@ public class CardRowLayout : MonoBehaviour
     {
         foreach(var data in cardIntances)
         {
-            if(data ==  cardIntance)continue;
-            data.rectTransform.localScale= new Vector3(0.8f,0.8f,0.8f);
-            data.canvas.sortingOrder = data.currentorder;
-            data.rectTransform.DOAnchorPos(data.localPos, 0.1f);
+            if(data != cardIntance)
+            {
+                data.rectTransform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+                data.canvas.sortingOrder = data.currentorder;
+                data.rectTransform.DOAnchorPos(data.localPos, 0.1f);
+            }
+           
         }
     }
     public async void UpdateCard()

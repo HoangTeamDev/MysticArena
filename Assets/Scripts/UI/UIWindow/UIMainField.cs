@@ -1,6 +1,8 @@
 ﻿using Assets.Scripts.RoomAll;
+using CardData;
 using DG.Tweening;
 using Menu.Connet;
+using NUnit.Framework;
 using RoomAll;
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
@@ -18,10 +20,12 @@ namespace UI.UIWindow
         [SerializeField] private CardIntance _preCardMonster;
         [SerializeField] private CardIntance _preCardSpell;
         [SerializeField] private CardIntance _preCardTRap;
-        [SerializeField] private GameObject _preCardFake;
+        [SerializeField] private CardIntance _preCardFake;
         public Transform _pointDraw;
         public Transform _pointDrawOther;
         public RectTransform _point3;
+        public RectTransform _point4;
+        public RectTransform _pointActive;
         [Header("Me")]
         [SerializeField] private TextMeshProUGUI _nameMe;
         [SerializeField] private TextMeshProUGUI _HPMe;
@@ -31,7 +35,7 @@ namespace UI.UIWindow
         [Header("Enemy")]
         [SerializeField] private TextMeshProUGUI _nameEnemy;
         [SerializeField] private TextMeshProUGUI _HPEnemy;
-        [SerializeField] private CardRowLayout _cardRowLayoutEnemy;
+        [SerializeField] public CardRowLayout _cardRowLayoutEnemy;
         [SerializeField] private TextMeshProUGUI _cardDeckEnemy;
         [Title("TurnAndPhase")]
         [SerializeField] private TextMeshProUGUI _textChangePhase;
@@ -44,7 +48,11 @@ namespace UI.UIWindow
         public List<CardIntance> cardIntancesmonsterZoneMe = new List<CardIntance>();
         public List<RectTransform> monsterZoneOther;
         public List<CardIntance> cardIntancesmonsterZoneOther = new List<CardIntance>();
-        [Title("HandZone")]
+        [Title("TrapZone")]
+        public List<RectTransform> TrapZoneMe;
+        public List<CardIntance> CardTrapZoneMe;
+        public List<RectTransform> TrapZoneOther;
+        public List<CardIntance> CardTrapZoneOther;
         public override void Init()
         {
             base.Init();
@@ -197,9 +205,40 @@ namespace UI.UIWindow
             PlayerState enemy = room.HostPlayer.PlayerID == GameData.Instance._mainPlayer._playerid ? room.GuestPlayer : room.HostPlayer;
             foreach (var data in enemy.Hand)
             {
-                var item = Instantiate(_preCardFake, _pointDrawOther);
-                item.gameObject.SetActive(true);
-                list.Add(item.GetComponent<RectTransform>());
+                data.Card = GameData.Instance.GetCardByID(data.CardId);
+                if (data.Card._CardType is 1)
+                {
+                    var item = Instantiate(_preCardMonster, _pointDrawOther);
+                    item.InstanceId = data.InstanceId;
+                    item.Card = data.Card;
+                    item.Init();
+                    item.gameObject.SetActive(true);
+                    item._frotCard.gameObject.SetActive(false);
+                    item._BackGround.gameObject.SetActive(true);
+                    list.Add(item.GetComponent<RectTransform>());
+                }
+                if (data.Card._CardType is 2)
+                {
+                    var item = Instantiate(_preCardSpell, _pointDrawOther);
+                    item.InstanceId = data.InstanceId;
+                    item.Card = data.Card;
+                    item.Init();
+                    item.gameObject.SetActive(true);
+                    item._frotCard.gameObject.SetActive(false);
+                    item._BackGround.gameObject.SetActive(true);
+                    list.Add(item.GetComponent<RectTransform>());
+                }
+                if (data.Card._CardType is 3)
+                {
+                    var item = Instantiate(_preCardTRap, _pointDrawOther);
+                    item.InstanceId = data.InstanceId;
+                    item.Card = data.Card;
+                    item.Init();
+                    item.gameObject.SetActive(true);
+                    item._frotCard.gameObject.SetActive(false);
+                    item._BackGround.gameObject.SetActive(true);
+                    list.Add(item.GetComponent<RectTransform>());
+                }
             }
           
 
@@ -210,9 +249,40 @@ namespace UI.UIWindow
             List<RectTransform> list = new List<RectTransform>();
             foreach (var data in cardIntances)
             {
-                var item = Instantiate(_preCardFake, _pointDrawOther);
-                item.gameObject.SetActive(true);
-                list.Add(item.GetComponent<RectTransform>());
+                data.Card = GameData.Instance.GetCardByID(data.CardId);
+                if (data.Card._CardType is 1)
+                {
+                    var item = Instantiate(_preCardMonster, _pointDrawOther);
+                    item.InstanceId = data.InstanceId;
+                    item.Card = data.Card;
+                    item.Init();
+                    item.gameObject.SetActive(true);
+                    item._frotCard.gameObject.SetActive(false);
+                    item._BackGround.gameObject.SetActive(true);
+                    list.Add(item.GetComponent<RectTransform>());
+                }
+                if (data.Card._CardType is 2)
+                {
+                    var item = Instantiate(_preCardSpell, _pointDrawOther);
+                    item.InstanceId = data.InstanceId;
+                    item.Card = data.Card;
+                    item.Init();
+                    item.gameObject.SetActive(true);
+                    item._frotCard.gameObject.SetActive(false);
+                    item._BackGround.gameObject.SetActive(true);
+                    list.Add(item.GetComponent<RectTransform>());
+                }
+                if (data.Card._CardType is 3)
+                {
+                    var item = Instantiate(_preCardTRap, _pointDrawOther);
+                    item.InstanceId = data.InstanceId;
+                    item.Card = data.Card;
+                    item.Init();
+                    item.gameObject.SetActive(true);
+                    item._frotCard.gameObject.SetActive(false);
+                    item._BackGround.gameObject.SetActive(true);
+                    list.Add(item.GetComponent<RectTransform>());
+                }
             }
             await _cardRowLayoutEnemy.DrawMultipleCardsSequential(list);
         }
@@ -226,7 +296,7 @@ namespace UI.UIWindow
                     CardIntance card = data.GetComponent<CardIntance>();
                     if(card != null && card.InstanceId == cardIntance.InstanceId)
                     {
-                Debug.Log("zosummon");
+               
                         _cardRowLayoutMe.RemoveCard(data);
                         cardIntancesmonsterZoneMe.Add(card);
                         card.SlotIndex=cardIntance.SlotIndex;
@@ -234,6 +304,70 @@ namespace UI.UIWindow
                         card.CurrentHp = cardIntance.CurrentHp;
                         card.HasAttack = cardIntance.HasAttack;
                         card.SummonToSlot(cardIntance.SlotIndex);
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                foreach (var data in _cardRowLayoutEnemy.cards)
+                {
+                    CardIntance card = data.GetComponent<CardIntance>();
+                    if (card != null && card.InstanceId == cardIntance.InstanceId)
+                    {
+
+                        _cardRowLayoutEnemy.RemoveCard(data);
+                        _cardRowLayoutEnemy.cardIntances.Remove(card);                                         
+                        cardIntancesmonsterZoneOther.Add(card);
+                        card.SlotIndex = cardIntance.SlotIndex;
+                        card.CurrentAtk = cardIntance.CurrentAtk;
+                        card.CurrentHp = cardIntance.CurrentHp;
+                        card.HasAttack = cardIntance.HasAttack;
+                        card.EnemySummon(cardIntance.SlotIndex);
+
+                           
+                            
+                        
+                    
+                        break;
+                    }
+                }
+            }
+        }
+
+
+        #endregion
+        #region Settrap
+        public void SetTrap(int playerid, CardIntance cardIntance)
+        {
+            if (playerid == GameData.Instance._mainPlayer._playerid)
+            {
+                foreach (var data in _cardRowLayoutMe.cardIntances)
+                {
+                   
+                    if ( data.InstanceId == cardIntance.InstanceId)
+                    {
+
+                        _cardRowLayoutMe.RemoveCard(data.rectTransform);
+                        _cardRowLayoutMe.cardIntances.Remove(data);
+                        data.SlotIndex = cardIntance.SlotIndex;
+                        data.Set(data.SlotIndex);
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                foreach (var data in _cardRowLayoutEnemy.cardIntances)
+                {
+
+                    if (data.InstanceId == cardIntance.InstanceId)
+                    {
+
+                        _cardRowLayoutEnemy.RemoveCard(data.rectTransform);
+                        _cardRowLayoutEnemy.cardIntances.Remove(data);
+                        data.SlotIndex = cardIntance.SlotIndex;
+                        data.Set(data.SlotIndex,false);
                         break;
                     }
                 }

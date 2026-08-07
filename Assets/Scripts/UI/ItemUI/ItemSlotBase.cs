@@ -9,7 +9,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 namespace UI.ItemUI
 {
-    public enum TypeItemSlot { Inventory, Equiment, Upgrade, Skill, Shop, Library,Deck }
+    public enum TypeItemSlot { Inventory, Equiment, Upgrade, Skill, Shop, Library,Deck,CardInstance }
 
     public abstract class ItemSlotBase : MonoBehaviour, IPointerClickHandler
     {
@@ -31,14 +31,18 @@ namespace UI.ItemUI
         }
         public virtual void Onselect()
         {
-            SeletecMe();
+            //SeletecMe();
         }
         public virtual void OnPointerClick(PointerEventData eventData)
         {
 
             if (eventData.button == PointerEventData.InputButton.Left)
             {
-                SeletecMe();
+                if(typeItemSlot != TypeItemSlot.CardInstance)
+                {
+                    SeletecMe(this);
+                }
+               
             }
             
             
@@ -58,10 +62,10 @@ namespace UI.ItemUI
         {
             //SeletecMe();
         }
-        public virtual async void SeletecMe()
+        public virtual async void SeletecMe(ItemSlotBase itemSlotBase )
         {
 
-            UIController.Instance._itemslotcurrent = this;
+            UIController.Instance._itemslotcurrent = itemSlotBase;
 
 
 

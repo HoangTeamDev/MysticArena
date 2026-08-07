@@ -138,6 +138,17 @@ public class GameBattleRead : MonoBehaviour
                         
                     }
                     break;
+                case 4:
+                    {
+                        CardIntance cardIntance = new CardIntance();
+                        int playerid = message.readInt();
+                        cardIntance.SlotIndex = message.readInt();
+                        cardIntance.InstanceId = message.readInt();
+                        cardIntance.CardId = message.readInt();
+                        uIMainField.SetTrap(playerid, cardIntance);
+
+                    }
+                    break;
 
             }
 

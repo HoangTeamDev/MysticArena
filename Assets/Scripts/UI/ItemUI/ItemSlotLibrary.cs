@@ -50,9 +50,9 @@ namespace UI.ItemUI
             base.OnSelect(baseEventData);
         }
 
-        public override void SeletecMe()
+        public override void SeletecMe(ItemSlotBase itemSlotBase)
         {
-            base.SeletecMe();
+            base.SeletecMe(itemSlotBase);
             switch (typeItemSlot)
             {
                 case TypeItemSlot.Library:

@@ -27,6 +27,13 @@ namespace Menu.Connet
           
             Send(msg);
         }
+        public void SendSetTrap(int intanceId)
+        {
+            Message msg = new Message(14);
+            msg.writeByte(4);
+            msg.writeInt(intanceId);
+            Send(msg);
+        }
     }
 }
 
