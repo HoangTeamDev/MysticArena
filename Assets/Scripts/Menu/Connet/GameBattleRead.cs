@@ -1,4 +1,5 @@
-﻿using Menu.System;
+﻿using CardData;
+using Menu.System;
 using RoomAll;
 using System;
 using System.Collections.Generic;
@@ -63,16 +64,16 @@ public class GameBattleRead : MonoBehaviour
                         Debug.Log("davao"+ playerid);
                         for(int i = 0; i < count; i++)
                         {
-                            CardIntance cardIntance = new CardIntance();
-                            cardIntance.InstanceId = message.readInt();
-                            cardIntance.CardId = message.readInt();
+                            int cardIntanceId  = message.readInt();
+                            int cardid = message.readInt();
+                            Card cardIntance = GameData.Instance.GetCardByID(cardid);
                             if(playerid== gameData.CurrentRoom.HostPlayer.PlayerID)
                             {
-                                gameData.CurrentRoom.HostPlayer.Hand.Add(cardIntance);
+                                gameData.CurrentRoom.HostPlayer.Hand.Add(cardIntanceId, cardIntance);
                             }
                             else
                             {
-                                gameData.CurrentRoom.GuestPlayer.Hand.Add(cardIntance);
+                                gameData.CurrentRoom.GuestPlayer.Hand.Add(cardIntanceId, cardIntance);
                             }
                         }
                         UIMainField uIMainField = UIController.Instance.Get<UIMainField>(WindowType.UI_MainField);
@@ -94,20 +95,20 @@ public class GameBattleRead : MonoBehaviour
                     {
                        int playerid= message.readInt();
                         int count= message.readByte();
-                        List<CardIntance> card= new List<CardIntance>();
+                        Dictionary<int, Card> card= new Dictionary<int, Card>();
                         for (int i = 0; i < count; i++)
                         {
-                            CardIntance cardIntance = new CardIntance();
-                            cardIntance.InstanceId = message.readInt();
-                            cardIntance.CardId = message.readInt();
-                            card.Add(cardIntance);
+                            int cardIntanceId = message.readInt();
+                            int cardid = message.readInt();
+                            Card cardIntance = GameData.Instance.GetCardByID(cardid);
+                            card.Add(cardIntanceId, cardIntance);
                             if (playerid == gameData.CurrentRoom.HostPlayer.PlayerID)
                             {
-                                gameData.CurrentRoom.HostPlayer.Hand.Add(cardIntance);
+                                gameData.CurrentRoom.HostPlayer.Hand.Add(cardIntanceId, cardIntance);
                             }
                             else
                             {
-                                gameData.CurrentRoom.GuestPlayer.Hand.Add(cardIntance);
+                                gameData.CurrentRoom.GuestPlayer.Hand.Add(cardIntanceId, cardIntance);
                             }
                         }
                         UIMainField uIMainField = UIController.Instance.Get<UIMainField>(WindowType.UI_MainField);
@@ -124,7 +125,7 @@ public class GameBattleRead : MonoBehaviour
                         }
                     }
                     break;
-                case 3:
+                case 3://nomal summon
                     {
                         CardIntance cardIntance= new CardIntance();
                         int playerid = message.readInt();
@@ -138,7 +139,7 @@ public class GameBattleRead : MonoBehaviour
                         
                     }
                     break;
-                case 4:
+                case 4://set trap
                     {
                         CardIntance cardIntance = new CardIntance();
                         int playerid = message.readInt();
@@ -147,6 +148,32 @@ public class GameBattleRead : MonoBehaviour
                         cardIntance.CardId = message.readInt();
                         uIMainField.SetTrap(playerid, cardIntance);
 
+                    }
+                    break;
+                case 5:
+                    {
+                        int playeridattack = message.readInt();
+                        int instanceidattack = message.readInt();
+                        int curenthp = message.readInt();
+                        bool isdestroy = message.readBool();
+                        int playeriddefend = message.readInt();
+                        int instanceiddefend = message.readInt();
+                        int curenthpdefend = message.readInt();
+                        bool isdestroydefend = message.readBool();
+                        if(playeridattack ==GameData.Instance._mainPlayer._playerid)
+                        {
+                            CardIntance cardIntance = uIMainField.GetMonsterZoneMe(instanceidattack);
+                           CardIntance cardIntance1 = uIMainField.GetMonsterZoneOther(instanceiddefend);
+                            uIMainField.ShootFireball(cardIntance.transform.position, cardIntance1.transform.position);
+                            cardIntance1.UpdateHP(curenthpdefend);
+                        }
+                        else
+                        {
+                            CardIntance cardIntance = uIMainField.GetMonsterZoneOther(instanceidattack);
+                            CardIntance cardIntance1 = uIMainField.GetMonsterZoneMe(instanceiddefend);
+                            uIMainField.ShootFireball(cardIntance.transform.position, cardIntance1.transform.position);
+                            cardIntance1.UpdateHP(curenthpdefend);
+                        }
                     }
                     break;
 

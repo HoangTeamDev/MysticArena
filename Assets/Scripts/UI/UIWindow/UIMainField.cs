@@ -16,6 +16,7 @@ namespace UI.UIWindow
 {
     public class UIMainField : UIBase
     {
+        public Image _bullet;
         [Header("Pre")]
         [SerializeField] private CardIntance _preCardMonster;
         [SerializeField] private CardIntance _preCardSpell;
@@ -127,30 +128,39 @@ namespace UI.UIWindow
             PlayerState me = room.HostPlayer.PlayerID == GameData.Instance._mainPlayer._playerid ? room.HostPlayer : room.GuestPlayer;
             foreach(var data in me.Hand)
             {
-                data.Card = GameData.Instance.GetCardByID(data.CardId);
-                if(data.Card._CardType  is 1)
+                var card = data.Value;
+                if (card._CardType  is 1)
                 {
                     var item = Instantiate(_preCardMonster, _pointDraw);
-                    item.InstanceId=data.InstanceId;
-                    item.Card=data.Card;
+                    item.InstanceId=data.Key;
+                    item.Card= card;
+                    item.OwnerPlayerId=me.PlayerID;
+                    item.ControllerPlayerId = me.PlayerID;
+                    item.CurrentZone = ZoneType.Hand;
                     item.Init();
                     item.gameObject.SetActive(true);
                     list.Add(item.GetComponent<RectTransform>());
                 }
-                if(data.Card._CardType is 2)
+                if(card._CardType is 2)
                 {
                     var item = Instantiate(_preCardSpell, _pointDraw);
-                    item.InstanceId = data.InstanceId;
-                    item.Card=data.Card;
+                    item.InstanceId = data.Key;
+                    item.Card= card;
+                    item.OwnerPlayerId = me.PlayerID;
+                    item.ControllerPlayerId = me.PlayerID;
+                    item.CurrentZone = ZoneType.Hand;
                     item.Init();
                     item.gameObject.SetActive(true);
                     list.Add(item.GetComponent<RectTransform>());
                 }
-                if (data.Card._CardType is 3)
+                if (card._CardType is 3)
                 {
                     var item = Instantiate(_preCardTRap, _pointDraw);
-                    item.InstanceId = data.InstanceId;
-                    item.Card=data.Card;
+                    item.InstanceId = data.Key;
+                    item.Card= card;
+                    item.OwnerPlayerId = me.PlayerID;
+                    item.ControllerPlayerId = me.PlayerID;
+                    item.CurrentZone = ZoneType.Hand;
                     item.Init();
                     item.gameObject.SetActive(true);
                     list.Add(item.GetComponent<RectTransform>());
@@ -160,35 +170,45 @@ namespace UI.UIWindow
            await _cardRowLayoutMe.DrawMultipleCardsSequential(list);
             ClientMain.Instance.SendConfirmDrawStart();
         }
-        public async void MeDrawCard(List<CardIntance> cardIntances)
+        public async void MeDrawCard(Dictionary<int, Card> cardIntances)
         {
             List<RectTransform> list = new List<RectTransform>();           
             foreach (var data in cardIntances)
             {
-                data.Card = GameData.Instance.GetCardByID(data.CardId);
-                if (data.Card._CardType is 1)
+               var card = data.Value;
+
+                if (card._CardType is 1)
                 {
                     var item = Instantiate(_preCardMonster, _pointDraw);
-                    item.InstanceId = data.InstanceId;
-                    item.Card = data.Card;
+                    item.InstanceId = data.Key;
+                    item.Card = card;
+                    item.OwnerPlayerId = GameData.Instance._mainPlayer._playerid;
+                    item.ControllerPlayerId = GameData.Instance._mainPlayer._playerid;
+                    item.CurrentZone = ZoneType.Hand;
                     item.Init();
                     item.gameObject.SetActive(true);
                     list.Add(item.GetComponent<RectTransform>());
                 }
-                if (data.Card._CardType is 2)
+                if (card._CardType is 2)
                 {
                     var item = Instantiate(_preCardSpell, _pointDraw);
-                    item.InstanceId = data.InstanceId;
-                    item.Card = data.Card;
+                    item.InstanceId = data.Key;
+                    item.Card = card;
+                    item.OwnerPlayerId = GameData.Instance._mainPlayer._playerid;
+                    item.ControllerPlayerId = GameData.Instance._mainPlayer._playerid;
+                    item.CurrentZone = ZoneType.Hand;
                     item.Init();
                     item.gameObject.SetActive(true);
                     list.Add(item.GetComponent<RectTransform>());
                 }
-                if (data.Card._CardType is 3)
+                if (card._CardType is 3)
                 {
                     var item = Instantiate(_preCardTRap, _pointDraw);
-                    item.InstanceId = data.InstanceId;
-                    item.Card = data.Card;
+                    item.InstanceId = data.Key;
+                    item.Card = card;
+                    item.OwnerPlayerId = GameData.Instance._mainPlayer._playerid;
+                    item.ControllerPlayerId = GameData.Instance._mainPlayer._playerid;
+                    item.CurrentZone = ZoneType.Hand;
                     item.Init();
                     item.gameObject.SetActive(true);
                     list.Add(item.GetComponent<RectTransform>());
@@ -205,34 +225,43 @@ namespace UI.UIWindow
             PlayerState enemy = room.HostPlayer.PlayerID == GameData.Instance._mainPlayer._playerid ? room.GuestPlayer : room.HostPlayer;
             foreach (var data in enemy.Hand)
             {
-                data.Card = GameData.Instance.GetCardByID(data.CardId);
-                if (data.Card._CardType is 1)
+                var card = data.Value;
+                if (card._CardType is 1)
                 {
                     var item = Instantiate(_preCardMonster, _pointDrawOther);
-                    item.InstanceId = data.InstanceId;
-                    item.Card = data.Card;
+                    item.InstanceId = data.Key;
+                    item.Card = card;
+                    item.OwnerPlayerId = enemy.PlayerID;
+                    item.ControllerPlayerId = enemy.PlayerID;
+                    item.CurrentZone = ZoneType.Hand;
                     item.Init();
                     item.gameObject.SetActive(true);
                     item._frotCard.gameObject.SetActive(false);
                     item._BackGround.gameObject.SetActive(true);
                     list.Add(item.GetComponent<RectTransform>());
                 }
-                if (data.Card._CardType is 2)
+                if (card._CardType is 2)
                 {
                     var item = Instantiate(_preCardSpell, _pointDrawOther);
-                    item.InstanceId = data.InstanceId;
-                    item.Card = data.Card;
+                    item.InstanceId = data.Key ;
+                    item.Card = card;
+                    item.OwnerPlayerId = enemy.PlayerID;
+                    item.ControllerPlayerId = enemy.PlayerID;
+                    item.CurrentZone = ZoneType.Hand;
                     item.Init();
                     item.gameObject.SetActive(true);
                     item._frotCard.gameObject.SetActive(false);
                     item._BackGround.gameObject.SetActive(true);
                     list.Add(item.GetComponent<RectTransform>());
                 }
-                if (data.Card._CardType is 3)
+                if (card._CardType is 3)
                 {
                     var item = Instantiate(_preCardTRap, _pointDrawOther);
-                    item.InstanceId = data.InstanceId;
-                    item.Card = data.Card;
+                    item.InstanceId = data.Key;
+                    item.Card = card;
+                    item.OwnerPlayerId = enemy.PlayerID;
+                    item.ControllerPlayerId = enemy.PlayerID;
+                    item.CurrentZone = ZoneType.Hand;
                     item.Init();
                     item.gameObject.SetActive(true);
                     item._frotCard.gameObject.SetActive(false);
@@ -244,39 +273,50 @@ namespace UI.UIWindow
 
             await _cardRowLayoutEnemy.DrawMultipleCardsSequential(list);
         }
-        public async void EnemyDrawCard(List<CardIntance> cardIntances)
+        public async void EnemyDrawCard(Dictionary<int, Card> cardIntances)
         {
             List<RectTransform> list = new List<RectTransform>();
+            Room room = GameData.Instance.CurrentRoom;
+            PlayerState enemy = room.HostPlayer.PlayerID == GameData.Instance._mainPlayer._playerid ? room.GuestPlayer : room.HostPlayer;
             foreach (var data in cardIntances)
             {
-                data.Card = GameData.Instance.GetCardByID(data.CardId);
-                if (data.Card._CardType is 1)
+                var card = data.Value;
+                if (card._CardType is 1)
                 {
                     var item = Instantiate(_preCardMonster, _pointDrawOther);
-                    item.InstanceId = data.InstanceId;
-                    item.Card = data.Card;
+                    item.InstanceId = data.Key;
+                    item.Card = card;
+                    item.OwnerPlayerId = enemy.PlayerID;
+                    item.ControllerPlayerId = enemy.PlayerID;
+                    item.CurrentZone = ZoneType.Hand;
                     item.Init();
                     item.gameObject.SetActive(true);
                     item._frotCard.gameObject.SetActive(false);
                     item._BackGround.gameObject.SetActive(true);
                     list.Add(item.GetComponent<RectTransform>());
                 }
-                if (data.Card._CardType is 2)
+                if (card._CardType is 2)
                 {
                     var item = Instantiate(_preCardSpell, _pointDrawOther);
-                    item.InstanceId = data.InstanceId;
-                    item.Card = data.Card;
+                    item.InstanceId = data.Key;
+                    item.Card = card;
+                    item.OwnerPlayerId = enemy.PlayerID;
+                    item.ControllerPlayerId = enemy.PlayerID;
+                    item.CurrentZone = ZoneType.Hand;
                     item.Init();
                     item.gameObject.SetActive(true);
                     item._frotCard.gameObject.SetActive(false);
                     item._BackGround.gameObject.SetActive(true);
                     list.Add(item.GetComponent<RectTransform>());
                 }
-                if (data.Card._CardType is 3)
+                if (card._CardType is 3)
                 {
                     var item = Instantiate(_preCardTRap, _pointDrawOther);
-                    item.InstanceId = data.InstanceId;
-                    item.Card = data.Card;
+                    item.InstanceId = data.Key;
+                    item.Card = card;
+                    item.OwnerPlayerId = enemy.PlayerID;
+                    item.ControllerPlayerId = enemy.PlayerID;
+                    item.CurrentZone = ZoneType.Hand;
                     item.Init();
                     item.gameObject.SetActive(true);
                     item._frotCard.gameObject.SetActive(false);
@@ -303,6 +343,7 @@ namespace UI.UIWindow
                         card.CurrentAtk = cardIntance.CurrentAtk;
                         card.CurrentHp = cardIntance.CurrentHp;
                         card.HasAttack = cardIntance.HasAttack;
+                        card.CurrentZone = ZoneType.Monster;
                         card.SummonToSlot(cardIntance.SlotIndex);
                         break;
                     }
@@ -323,6 +364,7 @@ namespace UI.UIWindow
                         card.CurrentAtk = cardIntance.CurrentAtk;
                         card.CurrentHp = cardIntance.CurrentHp;
                         card.HasAttack = cardIntance.HasAttack;
+                        card.CurrentZone = ZoneType.Monster;
                         card.EnemySummon(cardIntance.SlotIndex);
 
                            
@@ -374,6 +416,42 @@ namespace UI.UIWindow
             }
         }
         #endregion
+
+        public void UpdateHp(int playerid, int hp)
+        {
+            if (playerid == GameData.Instance._mainPlayer._playerid)
+            {
+                _HPMe.text = $"{hp}";
+            }
+            else
+            {
+                _HPEnemy.text = $"{hp}";
+            }
+        }
+
+        public CardIntance GetMonsterZoneMe(int id)
+        {
+            return cardIntancesmonsterZoneMe.Find(x => x.InstanceId == id);
+        }
+        public CardIntance GetMonsterZoneOther(int id)
+        {
+            return cardIntancesmonsterZoneOther.Find(x => x.InstanceId == id);
+        }
+
+        public void ShootFireball( Vector3 start,Vector3 target,float duration = 0.5f)
+        {
+            RectTransform rect = _bullet.rectTransform;
+
+            rect.position = start;
+            _bullet.gameObject.SetActive(true);
+
+            rect.DOMove(target, duration)
+                .SetEase(Ease.Linear)
+                .OnComplete(() =>
+                {
+                    _bullet.gameObject.SetActive(false);
+                });
+        }
         public override void OnPointerClick(PointerEventData pointerEventData)
         {
             base.OnPointerClick(pointerEventData);

@@ -427,18 +427,19 @@ namespace Menu.Connet
                            
                             for(int i = 0; i < countHost; i++)
                             {
-                                CardIntance cardIntance = new CardIntance();
-                                cardIntance.InstanceId = message.readInt();
-                                cardIntance.CardId = message.readInt();
-                                GameData.Instance.CurrentRoom.HostPlayer.Deck.Add(cardIntance);
+                               
+                                int InstanceId = message.readInt();
+                                int CardId = message.readInt();
+                                Card card = GameData.Instance.GetCardByID(CardId);
+                                GameData.Instance.CurrentRoom.HostPlayer.Deck.Add(InstanceId, card);
                             }
                             int count = message.readByte();
                             for (int j = 0; j < count; j++)
                             {
-                                CardIntance cardIntance1 = new CardIntance();
-                                cardIntance1.InstanceId = message.readInt();
-                                cardIntance1.CardId = message.readInt();
-                                GameData.Instance.CurrentRoom.GuestPlayer.Deck.Add(cardIntance1);
+                                int InstanceId = message.readInt();
+                                int CardId = message.readInt();
+                                Card card = GameData.Instance.GetCardByID(CardId);
+                                GameData.Instance.CurrentRoom.GuestPlayer.Deck.Add(InstanceId, card);
                             }
 
                             UIMainField uIMainField = UIController.Instance.Get<UIMainField>(WindowType.UI_MainField);

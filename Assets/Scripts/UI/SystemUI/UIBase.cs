@@ -24,7 +24,8 @@ namespace UI.SystemUI
         UI_Room,
         UI_Input,
         UI_MainField,
-        UI_Review
+        UI_Review,
+        UI_Confirm,
 
     }
     public abstract class UIBase : MonoBehaviour, IPointerClickHandler

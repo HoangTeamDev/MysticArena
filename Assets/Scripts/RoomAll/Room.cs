@@ -16,10 +16,11 @@ namespace Assets.Scripts.RoomAll
         public int hp;
         public int level;
      
-        [ShowInInspector]public List<CardIntance> Hand = new List<CardIntance>();
-        [ShowInInspector] public List<CardIntance> Deck = new List<CardIntance>();
-        [ShowInInspector] public List<CardIntance> Graveyard = new List<CardIntance>();
+        [ShowInInspector]public Dictionary<int, Card> Hand = new Dictionary<int, Card>();
+        [ShowInInspector] public Dictionary<int, Card> Deck = new Dictionary<int, Card>();
+        [ShowInInspector] public Dictionary<int, Card> Graveyard = new Dictionary<int, Card>();
         public int TurnDurationSeconds { get; private set; } = 60;
+        
     }
     [Serializable]
     public class Room

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using TMPro;
 using UI.ItemUI;
 using UI.SystemUI;
+using UI.UIOvelay;
 using UI.UIWindow;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -92,6 +93,7 @@ namespace RoomAll
                     break;
             }
         }
+       
         public async void Init()
         {
             GameEvent.Instance.Subscribe<ItemSlotBase>(ListEvent.SelectCard.ToString(), SeletecMe);
@@ -321,13 +323,17 @@ namespace RoomAll
                         seq.Append(rectTransform.DOScale(0.2f, 0.15f).SetEase(Ease.InQuad));
                         seq.OnComplete(() =>
                         {
-                            Destroy(this.gameObject);
                             CardIntance cardIntance=isme==true? ui.CardTrapZoneMe[slot]:ui.CardTrapZoneOther[slot];
                             cardIntance._BackGround.gameObject.SetActive(true);
                             cardIntance._frotCard.gameObject.SetActive(false);
                             cardIntance.Card = Card;
+                            cardIntance.InstanceId = InstanceId;
+                            cardIntance.CardId = CardId;
+                            cardIntance.OwnerPlayerId = OwnerPlayerId;
+                            cardIntance.ControllerPlayerId = ControllerPlayerId;
                             cardIntance.LoadIcon();
                             cardIntance.gameObject.SetActive(true);
+                            Destroy(this.gameObject);
                             if (isme)
                             {
                                 ui._cardRowLayoutMe.UpdateCard();
@@ -347,6 +353,24 @@ namespace RoomAll
                
 
             }
+        }
+        public void UpdateHP(int hp)
+        {
+            CurrentHp = hp;
+
+            HP.DOKill();
+
+            HP.text = CurrentHp.ToString();
+
+            HP.transform.localScale = Vector3.one;
+
+            Sequence seq = DOTween.Sequence();
+
+            seq.Append(HP.transform.DOScale(1.25f, 0.1f)
+                .SetEase(Ease.OutBack));
+
+            seq.Append(HP.transform.DOScale(1f, 0.2f)
+                .SetEase(Ease.OutBack));
         }
         public void Setpos(float x, float y)
         {
@@ -385,32 +409,86 @@ namespace RoomAll
         public override void SeletecMe(ItemSlotBase itemSlotBase )
         {
             base.SeletecMe(itemSlotBase);
-           
-            if (itemSlotBase== this)
+            if(CurrentZone == ZoneType.Hand)
             {
-                rectTransform.DOAnchorPos(new Vector2(localPos.x, localPos.y + 50), 0.1f);
-                rectTransform.DOScale(Vector3.one, 0.1f);
-                canvas.sortingOrder = 99;
-               
-                _btnActive.gameObject.SetActive(true);
-                _btnActive.onClick.RemoveAllListeners();
-                _btnActive.onClick.AddListener (() =>
+                if (itemSlotBase == this)
                 {
-                    CheckTypeSend();
-                   
+                    rectTransform.DOAnchorPos(new Vector2(localPos.x, localPos.y + 50), 0.1f);
+                    rectTransform.DOScale(Vector3.one, 0.1f);
+                    canvas.sortingOrder = 99;
+
+                    _btnActive.gameObject.SetActive(true);
+                    _btnActive.onClick.RemoveAllListeners();
+                    TextMeshProUGUI text = _btnActive.GetComponentInChildren<TextMeshProUGUI>();
+                    text.text = "Triệu Hồi";
+                    _btnActive.onClick.AddListener(() =>
+                    {
+                        CheckTypeSend();
+
+                        _btnActive.gameObject.SetActive(false);
+                    });
+                    UIMainField uIMainField = UIController.Instance.Get<UIMainField>(WindowType.UI_MainField);
+                    if (uIMainField != null)
+                    {
+                        uIMainField._cardRowLayoutMe.UpdateListCard(this);
+                    }
+                }
+                else
+                {
                     _btnActive.gameObject.SetActive(false);
-                });
-                UIMainField uIMainField = UIController.Instance.Get<UIMainField>(WindowType.UI_MainField);
-                if (uIMainField != null)
-                {
-                    uIMainField._cardRowLayoutMe.UpdateListCard(this);
                 }
             }
-            else
+            if (CurrentZone == ZoneType.Monster)
             {
-                _btnActive.gameObject.SetActive(false);
+                if (itemSlotBase == this)
+                {
+                    _btnActive.gameObject.SetActive(true);
+                    _btnActive.onClick.RemoveAllListeners();
+                    TextMeshProUGUI text = _btnActive.GetComponentInChildren<TextMeshProUGUI>();
+                    text.text = "Tấn Công";
+                    _btnActive.onClick.AddListener(() =>
+                    {
+                        UIConfirm uIConfirm = UIController.Instance.Get<UIConfirm>(WindowType.UI_Confirm);
+                        if (uIConfirm != null)
+                        {
+                            uIConfirm._idAttacker = (int)InstanceId;
+                            uIConfirm.SetConfirmType(ConfirmType.Attatck);
+                            uIConfirm.OpenMe();
+                        }
+
+                        _btnActive.gameObject.SetActive(false);
+                    });
+                }
+                else
+                {
+                    _btnActive.gameObject.SetActive(false);
+                }
+
             }
-            
+            if (CurrentZone == ZoneType.SpellTrap)
+            {
+                if (itemSlotBase == this)
+                {
+                    _btnActive.gameObject.SetActive(true);
+                    _btnActive.onClick.RemoveAllListeners();
+                    TextMeshProUGUI text = _btnActive.GetComponentInChildren<TextMeshProUGUI>();
+                    text.text = "Xem";
+                    _btnActive.onClick.AddListener(() =>
+                    {
+
+
+                        _btnActive.gameObject.SetActive(false);
+                    });
+                }
+                else
+                {
+                    _btnActive.gameObject.SetActive(false);
+                }
+                    
+            }
+
+
+
         }
         private void CheckTypeSend()
         {

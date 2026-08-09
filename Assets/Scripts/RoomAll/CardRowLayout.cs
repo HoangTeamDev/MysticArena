@@ -119,11 +119,17 @@ public class CardRowLayout : MonoBehaviour
     }
     public async Task DrawOneCardSequential(RectTransform newCard)
     {
+        RectTransform targetArea = isEnemy ? contentAreaOther : contentArea;
+        newCard.SetParent(targetArea, true);
+        cards.Add(newCard);
+        CardIntance cardIntance2 = newCard.GetComponent<CardIntance>();
+        cardIntances.Add(cardIntance2);
+        int count = cards.Count;
         if (!isEnemy)
         {
             Room room = GameData.Instance.CurrentRoom;
             PlayerState me = room.HostPlayer.PlayerID == GameData.Instance._mainPlayer._playerid ? room.HostPlayer : room.GuestPlayer;
-            me.Deck.RemoveAt(0);
+            me.Deck.Remove((int)cardIntance2.InstanceId);
             UIMainField uIMainField = UIController.Instance.Get<UIMainField>(WindowType.UI_MainField);
             if (uIMainField != null)
             {
@@ -134,19 +140,14 @@ public class CardRowLayout : MonoBehaviour
         {
             Room room = GameData.Instance.CurrentRoom;
             PlayerState enemy = room.HostPlayer.PlayerID == GameData.Instance._mainPlayer._playerid ? room.GuestPlayer : room.HostPlayer;
-            enemy.Deck.RemoveAt(0);
+            enemy.Deck.Remove((int)cardIntance2.InstanceId);
             UIMainField uIMainField = UIController.Instance.Get<UIMainField>(WindowType.UI_MainField);
             if (uIMainField != null)
             {
                 uIMainField.UpdateCardDeckEnemy();
             }
         }
-        RectTransform targetArea = isEnemy ? contentAreaOther : contentArea;
-        newCard.SetParent(targetArea, true);
-        cards.Add(newCard);
-        CardIntance cardIntance2=newCard.GetComponent<CardIntance>();
-        cardIntances.Add(cardIntance2);
-        int count = cards.Count;
+        
 
         float containerWidth = targetArea.rect.width;
         float finalSpacing = spacing;

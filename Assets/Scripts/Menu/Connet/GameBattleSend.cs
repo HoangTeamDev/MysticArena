@@ -34,6 +34,15 @@ namespace Menu.Connet
             msg.writeInt(intanceId);
             Send(msg);
         }
+        //attack
+        public void SendAttack(int attackerId, int targetId)
+        {
+            Message msg = new Message(14);
+            msg.writeByte(5);
+            msg.writeInt(attackerId);
+            msg.writeInt(targetId);
+            Send(msg);
+        }
     }
 }
 
